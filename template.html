@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+<script src='./template/template.js'></script>
+
+
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="./global/icon.ico">
+    <title>Template</title>
+
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Abel'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poiret One'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Bellota Text'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat Alternates'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Alegreya Sans SC'>
+
+    <style>
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+        
+        h1 {
+            font-size: 64pt;
+            font-weight: 300;
+        }
+        
+        .page {
+            background: linear-gradient(to bottom, #222426 10%, #1f2224 90%) fixed;
+            color: #d3cfca;
+            z-index: -10;
+        }
+        
+        .header {
+            font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background: linear-gradient(to right, #294353 10%, #3b7094 90%);
+            color: #ffffff;
+            padding: 20px 20px;
+            font-weight: lighter;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            outline: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1;
+            width: calc(100% - 40px);
+            height: fit-content;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .headerTitle {
+            font-size: 15pt;
+            max-width: 380px;
+        }
+        
+        .headerCatalogue {
+            font-size: 12pt;
+            font-family: 'Montserrat Alternates';
+        }
+        
+        .headerCatalogueUnselected {
+            max-width: 240px;
+            opacity: 60%;
+        }
+        
+        .headerCatalogueSelected {
+            font-weight: 900;
+            max-width: 240px;
+        }
+        
+        .headerCatalogueSeparator {
+            margin: 5px;
+            opacity: 50%;
+        }
+        
+        .titleCard {
+            font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<body class="page">
+    <div class="header">
+        <div class="headerTitle">
+            <a href="./home.html">CCheukKa's Site</a> / <a href="./placeholder.html">Placeholder page</a>
+        </div>
+
+        <div class="headerCatalogue">
+            <span class="headerCatalogueSelected"><a href="./home.html">Home</a></span>
+            <span class="headerCatalogueSeparator">|</span>
+            <span class="headerCatalogueUnselected"><a href="./placeholder.html">Placeholder catalogue item</a></span>
+
+        </div>
+
+    </div>
+    <div class="titleCard">
+        <h1>Placeholder title</h1>
+    </div>
+    <hr width="20%" align="center">
+</body>
+
+
+</html>

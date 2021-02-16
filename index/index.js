@@ -1,1 +1,3 @@
-window.location.replace('./home/home.html');
+var redirectPage = 'template'
+
+window.location.replace(`./${redirectPage}.html`);
