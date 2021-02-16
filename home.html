@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 
 <html>
-<script src='./home/home.js'></script>
-
 
 <head>
+    <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="./global/icon.ico">
     <title>Home</title>
 
@@ -112,6 +111,45 @@
             font-weight: bold;
             letter-spacing: 2px;
         }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 180px;
+            background-color: #5e6a75;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -95px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 18px;
+        }
+        
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #5e6a75 transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
     </style>
 </head>
 
@@ -151,7 +189,8 @@
             </div>
         </div>
         <!---->
-        <div class="description" style="padding: 6px; background-color: #3d78a1; color:#f3f0ed;border-radius: 8px;width: 25%;letter-spacing: 0.5px ; font-size: larger; font-family:  'Catamaran','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        <div id="emailAddressContainer" class="description tooltip" style="cursor:pointer; user-select: none; padding: 6px; background-color: #3d78a1; color:#f3f0ed;border-radius: 8px;width: 25%;letter-spacing: 0.5px ; font-size: larger; font-family:  'Catamaran','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+            <span class="tooltiptext" id="myTooltip">📋 Copy to clipboard‎‎</span>
             <span>contact.CCheukKa</span>
             <span style="font-weight: bold;"> @ </span>
             <span>gmail.com</span>
@@ -159,5 +198,6 @@
     </div>
 </body>
 
+<script src='./home/home.js'></script>
 
 </html>
