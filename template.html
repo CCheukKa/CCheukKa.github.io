@@ -6,7 +6,7 @@
 
 <head>
     <link rel="shortcut icon" type="image/x-icon" href="./global/icon.ico">
-    <title>Template</title>
+    <title>Placeholder</title>
 
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato'>
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Abel'>
@@ -21,20 +21,15 @@
             text-decoration: inherit;
         }
         
-        h1 {
-            font-size: 64pt;
-            font-weight: 300;
-        }
-        
         .page {
-            background: linear-gradient(to bottom, #222426 10%, #1f2224 90%) fixed;
+            background: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
             color: #d3cfca;
             z-index: -10;
         }
         
         .header {
             font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            background: linear-gradient(to right, #294353 10%, #3b7094 90%);
+            background: linear-gradient(to right, #305166 10%, #3b7094 90%);
             color: #ffffff;
             padding: 20px 20px;
             font-weight: lighter;
@@ -49,6 +44,7 @@
             height: fit-content;
             justify-content: space-between;
             align-items: center;
+            border-radius: 12px;
         }
         
         .headerTitle {
@@ -77,8 +73,26 @@
         }
         
         .titleCard {
+            width: fit-content;
+            margin: 8px auto;
+            padding: 8px;
+            text-align: center;
+            border-radius: 12px;
+            background-color: #2c3035;
+        }
+        
+        .title {
             font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             text-align: center;
+            font-size: 64pt;
+            font-weight: 300;
+        }
+        
+        .description {
+            font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            font-size: 12pt;
+            font-weight: 300;
         }
     </style>
 </head>
@@ -99,9 +113,10 @@
 
     </div>
     <div class="titleCard">
-        <h1>Placeholder title</h1>
+        <span class="title">Lorem</span>
+        <br>
+        <span class="description">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et, voluptatibus!</span>
     </div>
-    <hr width="20%" align="center">
 </body>
 
 

@@ -1,4 +1,4 @@
-console.log('template.js');
+return
 setTimeout(() => {
     location.reload();
 }, 1000);
