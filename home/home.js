@@ -1,6 +1,6 @@
 const emailAddressContainer = document.getElementById('emailAddressContainer');
 
-emailAddressContainer.addEventListener('click', function(e) {
+emailAddressContainer.addEventListener('click', function() {
     const el = document.createElement('textarea');
     el.value = 'contact.CCheukKa@gmail.com';
     document.body.appendChild(el);
@@ -8,12 +8,20 @@ emailAddressContainer.addEventListener('click', function(e) {
     document.execCommand('copy');
     console.log('Copied')
     document.body.removeChild(el);
-    var tooltip = document.getElementById("myTooltip");
+    var tooltip = document.getElementById("tooltipCopy");
     tooltip.innerHTML = "✔️ Copied! ";
 });
 
-emailAddressContainer.addEventListener('mouseleave', function(e) {
+emailAddressContainer.addEventListener('mouseleave', function() {
     console.log('Mouse leave');
-    var tooltip = document.getElementById("myTooltip");
+    var tooltip = document.getElementById("tooltipCopy");
     tooltip.innerHTML = "📋 Copy to clipboard";
 });
+
+//
+
+const emailSendButton = document.getElementById('emailSendButton');
+
+emailSendButton.addEventListener('click', function() {
+    window.open('mailto:contact.CCheukKa@gmail.com');
+})

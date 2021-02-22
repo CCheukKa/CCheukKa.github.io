@@ -28,6 +28,13 @@
             z-index: -10;
         }
         
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
         .header {
             font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             background: linear-gradient(to right, #305166 10%, #3b7094 90%);
@@ -55,7 +62,7 @@
         
         .headerCatalogue {
             font-size: 12pt;
-            font-family: 'Montserrat Alternates';
+            font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
         
         .headerCatalogueUnselected {
@@ -150,6 +157,47 @@
             visibility: visible;
             opacity: 1;
         }
+        
+        .tooltip .tooltiptext2 {
+            visibility: hidden;
+            width: 120px;
+            background-color: #5e6a75;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -66px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 18px;
+        }
+        
+        .tooltip .tooltiptext2::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #5e6a75 transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext2 {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .sectionTitle {
+            font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 36px;
+            padding: 20px;
+            padding-left: 50px;
+        }
     </style>
 </head>
 
@@ -157,20 +205,20 @@
 <body class="page">
     <div class="header">
         <div class="headerTitle">
-            <a href="./home.html">CCheukKa's Site</a> / <a href="./home.html">home</a>
+            <a href="./home">CCheukKa's Site</a> / <a href="./home">home</a>
         </div>
 
         <div class="headerCatalogue">
-            <span class="headerCatalogueSelected"><a href="./home.html">Home</a></span>
+            <span class="headerCatalogueSelected"><a href="./home">Home</a></span>
             <span class="headerCatalogueSeparator">|</span>
-            <span class="headerCatalogueUnselected"><a href="./placeholder.html">Placeholder catalogue item</a></span>
+            <span class="headerCatalogueUnselected"><a href="./placeholder">Placeholder catalogue item</a></span>
 
         </div>
 
     </div>
     <div class="titleCard">
         <div style="width: 20%; padding: 6px;">
-            <img src="./global/avatar.png" width="60%">
+            <img src="./global/avatar.png" alt="Profile Avatar" width="60%">
             <br>
             <span class="description" style="font-weight: bold;">Consistent profile avatar</span>
         </div>
@@ -190,13 +238,23 @@
             </div>
         </div>
         <!---->
-        <div id="emailAddressContainer" class="description tooltip" style="width: 20%;cursor:pointer; user-select: none; padding: 6px; background-color: #3d78a1; color:#f3f0ed;border-radius: 8px;letter-spacing: 0.5px ; font-size: larger; font-family:  'Catamaran','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-            <span class="tooltiptext" id="myTooltip">📋 Copy to clipboard‎‎</span>
+        <div class="description" style="width: 20%; height: 60px; align-content: center; align-items: center; display: flex; justify-content: space-around; user-select: none; padding: 6px; background: linear-gradient(to  right, #456e8d 0%, #3d78a1 90%); color:#f3f0ed;border-radius: 8px;letter-spacing: 0.5px ; font-size: larger; font-family:  'Catamaran','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+            <span id="emailAddressContainer" class="tooltip vertical-center" style=" width: 75%; left:0%; position:relative;  cursor:pointer;">
+                <span class="tooltiptext" id="tooltipCopy">📋 Copy to clipboard‎‎</span>
             <span>contact.CCheukKa</span>
             <br>
             <span style="font-weight: bold;">@ </span>
-            <span>gmail.com</span>
+            <span style="font-weight: lighter;">gmail.com</span>
+            </span>
+            <span id="emailSendButton" class="vertical-center tooltip" style="width: 25%; right: 0; position: relative;  cursor:pointer;">
+                <span class="tooltiptext2" id="tooltipSend">📧 Send email</span>
+            <img src="./home/iconSendMail.png" alt="Send eMail icon" width="65%" style="position: relative; top: 4px; filter: drop-shadow(2px 2px 2px #1c3344);">
+            </span>
         </div>
+    </div>
+
+    <div class="sectionTitle">
+        Stuff I do:
     </div>
 </body>
 
