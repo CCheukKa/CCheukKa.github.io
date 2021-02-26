@@ -20,6 +20,14 @@
             text-decoration: inherit;
         }
         
+        .bold {
+            font-weight: bold;
+        }
+        
+        .underline {
+            text-decoration: underline;
+        }
+        
         .page {
             background: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
             color: #d3cfca;
@@ -100,13 +108,14 @@
 <body class="page">
     <div class="header">
         <div class="headerTitle">
-            <a href="./home">CCheukKa's Site</a> / <a href="./placeholder">Placeholder page</a>
+            <a href="./home">CCheukKa's Site</a> / <a href="./placeholder" class="bold underline">Placeholder page</a>
         </div>
 
         <div class="headerCatalogue">
             <span class="headerCatalogueSelected"><a href="./home">Home</a></span>
             <span class="headerCatalogueSeparator">|</span>
             <span class="headerCatalogueUnselected"><a href="./placeholder">Placeholder catalogue item</a></span>
+            <!--Find a way to do this programmatically-->
 
         </div>
 
