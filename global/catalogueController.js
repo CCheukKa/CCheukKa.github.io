@@ -28,7 +28,7 @@ function buildCatalogue(config) {
         //
 
         let separator = document.createElement('span');
-        separator.innerHTML = '|';
+        separator.innerHTML = ' | ';
         separator.className = 'headerCatalogueSeparator';
         catalogueElement.appendChild(separator);
     });
