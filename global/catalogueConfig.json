@@ -1,0 +1,7 @@
+{
+    "list": [
+        { "file": "home", "displayName": "Home" },
+        { "file": "plasticity", "displayName": "Plasticity" }
+    ],
+    "useHTMLExtension": false
+}
