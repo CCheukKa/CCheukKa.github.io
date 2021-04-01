@@ -1,0 +1,19 @@
+{
+    "catalogue": [{
+            "file": "home",
+            "displayName": "Home",
+            "underConstruction": false
+        },
+        {
+            "file": "plasticity",
+            "displayName": "Plasticity",
+            "underConstruction": true
+        },
+        {
+            "file": "projects",
+            "displayName": "Projects",
+            "underConstruction": true
+        }
+    ],
+    "useHTMLExtension": false
+}
