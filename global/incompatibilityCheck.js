@@ -16,7 +16,7 @@ function mobileCheck() {
     if (check) {
         showWarning({
             title: 'Incompatibility Warning!',
-            body: 'Mobile browser detected!\nYou are in potentially-incompatible territories.\nIf you wish to continue, some things may break!\nYou have been warned!',
+            body: 'Mobile browser detected!\nYou are in potentially-incompatible territories. If you wish to continue, some things may break!\nYou have been warned!',
             buttonText: 'ÒωÓ  Am stubborn; me wants in!'
         });
     }
