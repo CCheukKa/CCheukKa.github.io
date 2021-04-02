@@ -19,5 +19,5 @@
         "file": "chess",
         "underConstruction": false
     }],
-    "useHTMLExtension": true
+    "useHTMLExtension": false
 }
