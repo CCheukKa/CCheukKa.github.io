@@ -2,6 +2,7 @@ mobileCheck();
 browserCheck();
 //
 function showWarning(message) {
+    console.log('showing message');
     document.getElementById('modalbox-title').innerHTML = message.title;
     document.getElementById('modalbox-body').innerHTML = message.body.replace('\n', '<br>');
     document.getElementById('modalbox-button-text').innerHTML = message.buttonText;
