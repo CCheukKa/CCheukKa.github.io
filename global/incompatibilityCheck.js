@@ -4,7 +4,7 @@ browserCheck();
 function showWarning(message) {
     console.log('showing message');
     document.getElementById('modalbox-title').innerHTML = message.title;
-    document.getElementById('modalbox-body').innerHTML = message.body.replace('\n', '<br>');
+    document.getElementById('modalbox-body').innerHTML = message.body.replaceAll('\n', '<br>');
     document.getElementById('modalbox-button-text').innerHTML = message.buttonText;
     document.getElementById('modalButton').click();
     return;
@@ -17,7 +17,7 @@ function mobileCheck() {
         showWarning({
             title: 'Incompatibility Warning!',
             body: 'Mobile browser detected!\nYou are in potentially-incompatible territories.\nIf you wish to continue, some things may break!\nYou have been warned!',
-            buttonText: 'ÒωÓ am stubborn; me wants in!'
+            buttonText: 'ÒωÓ  Am stubborn; me wants in!'
         });
     }
     return;
