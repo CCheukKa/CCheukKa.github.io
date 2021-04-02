@@ -12,7 +12,7 @@
     display: none;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     padding: 16px;
 }
@@ -89,7 +89,7 @@
     line-height: 1.42857143;
     font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    font-size: 20pt;
+    font-size: 50pt;
     font-weight: bolder, bold, 300;
     color: #d3cfca;
 }
@@ -99,7 +99,7 @@
     padding: 15px;
     font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bolder, bold, 300;
-    font-size: 16pt;
+    font-size: 40pt;
     color: #d3cfca;
     padding-left: 25px;
     padding-right: 20px;
@@ -178,11 +178,11 @@
     font-family: 'Catamaran', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #d3cfca;
     font-weight: bolder, bold, 300;
-    font-size: 16pt;
-    padding-top: 5px;
+    font-size: 40pt;
+    padding-top: 10px;
     padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
     border: none;
     box-shadow: 0px 0px 20px #00000011;
     z-index: 1050;
