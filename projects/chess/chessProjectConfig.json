@@ -1,0 +1,27 @@
+{
+    "projects": [{
+            "pathName": "chinese chess",
+            "displayName": "Chinese Chess",
+            "htmlName": "page",
+            "directToReadme": false
+        },
+        {
+            "pathName": "crowded chinese chess",
+            "displayName": "Crowded Chinese Chess",
+            "htmlName": "page",
+            "directToReadme": false
+        },
+        {
+            "pathName": "western chess",
+            "displayName": "Western Chess",
+            "htmlName": "page",
+            "directToReadme": false
+        },
+        {
+            "pathName": "circular western chess",
+            "displayName": "Circular Western Chess",
+            "htmlName": "page",
+            "directToReadme": false
+        }
+    ]
+}

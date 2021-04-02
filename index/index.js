@@ -1,3 +1,3 @@
 var redirectPage = 'home'
 
-window.location.replace(`./home`);
+window.location.replace(`/home`);

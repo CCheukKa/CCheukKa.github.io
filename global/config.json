@@ -5,15 +5,19 @@
             "underConstruction": false
         },
         {
+            "file": "projects",
+            "displayName": "Projects",
+            "underConstruction": false
+        },
+        {
             "file": "plasticity",
             "displayName": "Plasticity",
             "underConstruction": true
-        },
-        {
-            "file": "projects",
-            "displayName": "Projects",
-            "underConstruction": true
         }
     ],
-    "useHTMLExtension": false
+    "exception": [{
+        "file": "chess",
+        "underConstruction": false
+    }],
+    "useHTMLExtension": true
 }

@@ -1,0 +1,31 @@
+{
+    "projects": [{
+            "pathName": "pathfinding + mazegen",
+            "displayName": "Pathfind + MazeGen",
+            "htmlName": "compiled",
+            "directToReadme": false,
+            "openInNewTab": true
+        },
+        {
+            "pathName": "snake",
+            "displayName": "Snake",
+            "htmlName": "compiled",
+            "directToReadme": false,
+            "openInNewTab": true
+        },
+        {
+            "pathName": "tetris",
+            "displayName": "Tetris",
+            "htmlName": "compiled",
+            "directToReadme": false,
+            "openInNewTab": true
+        },
+        {
+            "pathName": "chess",
+            "displayName": "Chess(es)",
+            "htmlName": "chess",
+            "directToReadme": false,
+            "openInNewTab": false
+        }
+    ]
+}

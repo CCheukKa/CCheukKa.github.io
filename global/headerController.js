@@ -1,7 +1,7 @@
 const catalogueElement = document.getElementById('catalogue');
 const currentPageFile = window.location.pathname.split('/').pop().split('.html')[0];
 
-fetch('./global/config.json')
+fetch('/global/config.json')
     .then(response => response.json())
     .then(data => { main(data) });
 
@@ -9,6 +9,8 @@ fetch('./global/config.json')
 function main(config) {
     buildCatalogue(config.catalogue, config.useHTMLExtension);
     constructionSign(config.catalogue);
+    handleExceptions(config.exception);
+    return;
 }
 
 function constructionSign(catalogue) {
@@ -27,6 +29,12 @@ function addConstructionElement() {
     return;
 }
 
+function removeConstructionElement() {
+    document.getElementById('header').removeChild(document.getElementById('construction-sign'));
+    document.getElementById('header').removeChild(document.getElementById('construction-text'));
+    return;
+}
+
 function buildCatalogue(catalogue, useHTML) {
     let establishedThisPage = false;
     //
@@ -37,9 +45,9 @@ function buildCatalogue(catalogue, useHTML) {
     catalogue.forEach(page => {
         let newSpan = document.createElement('span');
         if (useHTML) {
-            newSpan.innerHTML = `<a href="./${page.file}.html">${page.displayName}</a>`;
+            newSpan.innerHTML = `<a href="/${page.file}.html">${page.displayName}</a>`;
         } else {
-            newSpan.innerHTML = `<a href="./${page.file}">${page.displayName}</a>`;
+            newSpan.innerHTML = `<a href="/${page.file}">${page.displayName}</a>`;
         }
         if (page.file == currentPageFile) {
             establishedThisPage = true;
@@ -53,16 +61,19 @@ function buildCatalogue(catalogue, useHTML) {
 
     if (!establishedThisPage) {
         let newSpan = document.createElement('span');
-        if (useHTML) {
-            newSpan.innerHTML = `<a href="./${currentPageFile}.html">${currentPageFile}</a>`;
-        } else {
-            newSpan.innerHTML = `<a href="./${currentPageFile}">${currentPageFile}</a>`;
-        }
+        newSpan.innerHTML = `<a href="">${currentPageFile}</a>`;
         newSpan.className = 'headerCatalogueSelected';
         catalogueElement.appendChild(newSpan);
     } else {
         catalogueElement.removeChild(catalogueElement.lastElementChild);
     }
+    return;
+}
+
+function handleExceptions(exception) {
+    exception.forEach(page => {
+        if (page.file == currentPageFile && !page.file.underConstruction) { removeConstructionElement(); }
+    });
     return;
 }
 
