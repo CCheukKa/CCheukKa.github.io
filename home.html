@@ -3,6 +3,12 @@
 <html>
 
 <head>
+    <!--Modal popup Blackbox-->
+    <link rel="stylesheet" href="/global/modalStyleSheet.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--/Modal popup Blackbox-->
+
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="/global/icon.ico">
     <title>Home</title>
@@ -42,7 +48,8 @@
             top: 50%;
             transform: translateY(-50%);
         }
-        
+    </style>
+    <style>
         .header {
             font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             background: linear-gradient(to right, #305166 10%, #3b7094 90%);
@@ -87,7 +94,8 @@
             margin: 5px;
             opacity: 50%;
         }
-        
+    </style>
+    <style>
         .titleCard {
             margin: 8px auto;
             padding: 32px;
@@ -126,7 +134,8 @@
             font-weight: bold;
             letter-spacing: 2px;
         }
-        
+    </style>
+    <style>
         .tooltip {
             position: relative;
             display: inline-block;
@@ -211,6 +220,27 @@
 
 
 <body class="page">
+    <!--Modal popup blackbox-->
+    <button type="button" id="modalButton" data-toggle="modal" data-target="#myModal" style="position: fixed; display: none;">Open Small Modal</button>
+
+    <div class="modal fade" id="myModal" role="dialog" data-backdrop="static">
+        <div class="vertical-alignment-helper">
+            <div class="modal-dialog modal-lg modal-dialog-centered vertical-align-center">
+                <div class="modal-content" style="border-radius: 12px">
+                    <div class="modal-header">
+                        <h4 class="modal-title" style="text-shadow: 0px 0px 8px #000000;">Incompatibility Warning!</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Mobile browser detected!<br>You are in potentially-incompatible territories. If you wish to continue, everything may break!<br>You have been warned!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="modal-button" onclick="console.log('Clicked')" data-dismiss="modal"><span style="margin-left: 5px; margin-right: 5px;">ÒωÓ am stubborn, me wants in!</span></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Modal popup blackbox-->
     <div class="header" id="header">
         <div class="headerTitle">
             <a href="/home">CCheukKa's Site</a> / <a href="" class="bold underline">home</a>
@@ -258,6 +288,7 @@
     </div>
 </body>
 
+<script src='/global/incompatibilityCheck.js'></script>
 <script src='/home/home.js'></script>
 <script src='/global/headerController.js'></script>
 
