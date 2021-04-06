@@ -5,7 +5,7 @@ fetch('/global/config.json')
     .then(response => response.json())
     .then(data => {
         useHTML = data.useHTMLExtension;
-        fetch('./chessProjectConfig.json')
+        fetch('./chess/chessProjectConfig.json')
             .then(response => response.json())
             .then(data => { projectShelfConstructor(data.projects) });
     });
@@ -24,8 +24,8 @@ function projectShelfConstructor(projects) {
             htmlName = project.htmlName;
         widthTester.innerHTML = displayName;
         if (useHTML) { htmlName = htmlName.concat('.html'); }
-        const pageURL = `./${pathName}/${htmlName}`;
-        const thumbnailURL = `./${pathName}/thumbnail.png`;
+        const pageURL = `./chess/${pathName}/${htmlName}`;
+        const thumbnailURL = `./chess/${pathName}/thumbnail.png`;
         //
         let innerHTML = `<fieldset class="project" onclick="window.open('${pageURL}','');" style="background-image: url('${thumbnailURL}');"><legend>`
             //#ANCHOR //! marquee is terrible, find an alternative

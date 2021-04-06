@@ -24,7 +24,12 @@ function projectShelfConstructor(projects) {
             htmlName = project.htmlName;
         widthTester.innerHTML = displayName;
         if (useHTML) { htmlName = htmlName.concat('.html'); }
-        const pageURL = `/projects/${pathName}/${htmlName}`;
+        let pageURL;
+        if (project.htmlInRoot) {
+            pageURL = `/projects/${htmlName}`;
+        } else {
+            pageURL = `/projects/${pathName}/${htmlName}`;
+        }
         const thumbnailURL = `/projects/${pathName}/thumbnail.png`;
         //
         let innerHTML = `<fieldset class="project" onclick="`;
