@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/global/icon.ico">
+    <title>YouTube page</title>
+
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Abel'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poiret One'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Bellota Text'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat Alternates'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Alegreya Sans SC'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Bad Script'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Catamaran'>
+
+    <style>
+        a {
+            color: inherit;
+            text-decoration: inherit;
+        }
+        
+        .bold {
+            font-weight: bold;
+        }
+        
+        .underline {
+            text-decoration: underline;
+        }
+        
+        .page {
+            background: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
+            color: #d3cfca;
+            z-index: -10;
+        }
+        
+        .vertical-center {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+    <style>
+        .header {
+            font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background: linear-gradient(to right, #305166 10%, #3b7094 90%);
+            color: #ffffff;
+            padding: 20px 20px;
+            font-weight: lighter;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            outline: none;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1;
+            width: calc(100% - 40px);
+            height: fit-content;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 12px;
+        }
+        
+        .headerTitle {
+            font-size: 15pt;
+            max-width: 380px;
+        }
+        
+        .headerCatalogue {
+            font-size: 12pt;
+            font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        .headerCatalogueUnselected {
+            max-width: 240px;
+            opacity: 60%;
+        }
+        
+        .headerCatalogueSelected {
+            font-weight: 900;
+            max-width: 240px;
+        }
+        
+        .headerCatalogueSeparator {
+            margin: 5px;
+            opacity: 50%;
+        }
+    </style>
+    <style>
+        .titleCard {
+            margin: 8px auto;
+            padding: 32px;
+            padding-top: 25px;
+            text-align: center;
+            border-radius: 12px;
+            background-color: #2c3035;
+            display: flex;
+            justify-content: space-between;
+            max-width: 80%;
+        }
+        
+        .titleCard>div {
+            margin-left: 6px;
+            margin-right: 6px;
+            text-align: center;
+        }
+        
+        .title {
+            font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            font-size: 64pt;
+            font-weight: 300;
+        }
+        
+        .description {
+            font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            text-align: center;
+            font-size: 11pt;
+            font-weight: normal;
+            align-self: center;
+        }
+    </style>
+    <style>
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 180px;
+            background-color: #5e6a75;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 120%;
+            left: 50%;
+            margin-left: -95px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 18px;
+        }
+        
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #5e6a75 transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .tooltip .tooltiptext2 {
+            visibility: hidden;
+            width: 120px;
+            background-color: #5e6a75;
+            color: #ffffff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            margin-left: -66px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 18px;
+        }
+        
+        .tooltip .tooltiptext2::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #5e6a75 transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext2 {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        .sectionTitle {
+            font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 36px;
+            padding: 20px;
+            padding-left: 50px;
+        }
+    </style>
+    <!---->
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .project {
+            font-size: xx-large;
+            font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            border-radius: 16px;
+            border: 5px solid #3a3b3d;
+            margin-left: 1%;
+            margin-right: 1%;
+            margin-top: 1%;
+            margin-bottom: 1%;
+            width: 240px;
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .project:hover {
+            cursor: pointer;
+        }
+        
+        legend {
+            color: #ccc9c5;
+            text-shadow: 1px 1px 10px #000000;
+            font-weight: bold;
+            background: linear-gradient(to top, #3a3b3d00 20%, #3a3b3d99 40%, #3a3b3d99 50%, #3a3b3d00 75%);
+            border-radius: 100px;
+            text-align: left;
+        }
+        
+        marquee {
+            direction: left;
+            border-radius: 200px;
+        }
+        
+        .projectContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: flex-start;
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+            overflow: auto;
+            height: calc(100vh - 297.5px);
+            background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);
+            border-radius: 16px;
+            box-shadow: 0px 0px 20px #00000066;
+        }
+        
+        .projectContainer::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .projectContainer::-webkit-scrollbar-track:hover {
+            background-color: #55555744;
+            border-radius: 10px;
+        }
+        
+        .projectContainer::-webkit-scrollbar-thumb {
+            background: #555557;
+            border-radius: 10px;
+        }
+        
+        .projectContainer::-webkit-scrollbar-thumb:hover {
+            background: #7c7c7c;
+        }
+    </style>
+</head>
+
+
+<body class="page">
+    <div class="header" id="header">
+        <div class="headerTitle">
+            <a href="/home">CCheukKa's Site</a> / <a href="" class="bold underline">youtube</a>
+        </div>
+        <div class="headerCatalogue" id="catalogue">
+            <!--Catalogue items added programmatically-->
+        </div>
+
+    </div>
+    <div class="titleCard" style="width: fit-content; padding: 5px;" id="titleCard">
+        <iframe style="border-radius: 12px; border: 0px" width="840" height="472.5" src="https://www.youtube.com/embed/f1NSCIMbt6A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+</body>
+
+<script src='/global/globalLibrary.js'></script>
+<script src='/global/headerController.js'></script>
+
+</html>
