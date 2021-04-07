@@ -1,5 +1,5 @@
 //!
-const useHTML = true;
+const useHTML = false;
 //!
 const currentPageFile = window.location.pathname.split('/').pop().split('.html')[0];
 const projectContainer = document.getElementById('projectContainer');
