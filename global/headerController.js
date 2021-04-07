@@ -45,11 +45,11 @@ function buildCatalogue(catalogue, useHTML) {
     catalogue.forEach(page => {
         let newSpan = document.createElement('span');
         if (useHTML) {
-            newSpan.innerHTML = `<a href="/${page.file}.html">${page.displayName}</a>`;
+            newSpan.innerHTML = `<a href="/${page.refName}.html">${page.displayName}</a>`;
         } else {
-            newSpan.innerHTML = `<a href="/${page.file}">${page.displayName}</a>`;
+            newSpan.innerHTML = `<a href="/${page.refName}">${page.displayName}</a>`;
         }
-        if (page.file == currentPageFile) {
+        if (page.refName == currentPageFile) {
             establishedThisPage = true;
             newSpan.className = 'headerCatalogueSelected';
         } else {
@@ -72,7 +72,9 @@ function buildCatalogue(catalogue, useHTML) {
 
 function handleExceptions(exception) {
     exception.forEach(page => {
-        if (page.file == currentPageFile && !page.file.underConstruction) { removeConstructionElement(); }
+        if (page.refName == currentPageFile && !page.underConstruction) {
+            removeConstructionElement();
+        }
     });
     return;
 }
@@ -80,7 +82,7 @@ function handleExceptions(exception) {
 //#region   //! META
 function thisPage(catalogue) {
     for (let i = 0; i < catalogue.length; i++) {
-        if (catalogue[i].file == currentPageFile) { return catalogue[i]; }
+        if (catalogue[i].refName == currentPageFile) { return catalogue[i]; }
     }
     return false;
 }

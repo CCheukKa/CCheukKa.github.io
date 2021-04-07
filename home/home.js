@@ -1,27 +1,73 @@
-const emailAddressContainer = document.getElementById('emailAddressContainer');
+const projectContainer = document.getElementById('projectContainer');
+var useHTML;
 
-emailAddressContainer.addEventListener('click', function() {
-    const el = document.createElement('textarea');
-    el.value = 'contact.CCheukKa@gmail.com';
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand('copy');
-    console.log('Copied')
-    document.body.removeChild(el);
-    var tooltip = document.getElementById("tooltipCopy");
-    tooltip.innerHTML = "✔️ Copied! ";
-});
-
-emailAddressContainer.addEventListener('mouseleave', function() {
-    console.log('Mouse leave');
-    var tooltip = document.getElementById("tooltipCopy");
-    tooltip.innerHTML = "📋 Copy to clipboard";
-});
-
+fetch('/global/config.json')
+    .then(response => response.json())
+    .then(data => {
+        useHTML = data.useHTMLExtension;
+        projectShelfConstructor(data.catalogue);
+    });
 //
+function projectShelfConstructor(projects) {
+    const widthTester = document.createElement('div');
+    document.body.appendChild(widthTester);
+    widthTester.style.width = 'fit-content';
+    widthTester.style.fontWeight = 'bold';
+    widthTester.style.fontSize = 'xx-large';
+    widthTester.style.fontFamily = "'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
+    //
+    projects.forEach(project => {
+        let displayName = project.displayName,
+            refName = project.refName;
+        if (refName == "home") { return; }
+        const thumbnailURL = `/${refName}/thumbnail.png`;
+        const thumbnailExists = urlExists(thumbnailURL);
+        widthTester.innerHTML = displayName;
+        if (useHTML) { refName = refName.concat('.html'); }
+        //if (project.htmlInRoot) {
+        //    pageURL = `/projects/${htmlName}`;
+        //} else {
+        //    pageURL = `/projects/${pathName}/${htmlName}`;
+        //}
+        let innerHTML = `<fieldset class="project"`;
+        if (project.openInNewTab) {
+            innerHTML += ` onclick="window.open('/${refName}');"`;
+        } else {
+            innerHTML += ` onclick="location.href = '/${refName}';"`;
+        }
+        if (project.underConstruction | !thumbnailExists) {
+            innerHTML += ` style="text-align: center;"><legend>`;
+        } else {
+            innerHTML += ` style="text-align: center; background-image: url('${thumbnailURL}');"><legend>`;
+        }
+        //#ANCHOR //! marquee is terrible, find an alternative
+        if (widthTester.clientWidth > 235) {
+            innerHTML += `<marquee>${displayName}</marquee>`;
+        } else {
+            innerHTML += `${displayName}`;
+        }
+        innerHTML += `</legend>`;
+        if (project.underConstruction) {
+            innerHTML += `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 30pt; text-shadow: 0px 0px 8px #ffffff;">🚧</span><br><span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: #f35858; text-shadow: 0px 0px 5px #000000;">Page under construction!</span>`;
+        } else {
+            if (!thumbnailExists) {
+                innerHTML += `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 30pt; text-shadow: 0px 0px 8px #ffffff;">${pickRandom(['😐','🙃','🥴','🤪','😵','🤔','🤨'])}</span><br><span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: #a6ed8d; text-shadow: 0px 0px 5px #000000;">Thumbnail missing</span>`;
+            }
+        }
+        innerHTML += `</fieldset>`;
+        projectContainer.innerHTML = projectContainer.innerHTML.concat(innerHTML);
+    });
+    widthTester.parentNode.removeChild(widthTester);
+    return;
+}
 
-const emailSendButton = document.getElementById('emailSendButton');
+function urlExists(url) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status != 404;
+}
 
-emailSendButton.addEventListener('click', function() {
-    window.open('mailto:contact.CCheukKa@gmail.com');
-})
+function pickRandom(list) {
+    return list[Math.floor(Math.random() * list.length)];
+}

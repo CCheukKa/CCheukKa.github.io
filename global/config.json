@@ -1,23 +1,23 @@
 {
+    "useHTMLExtension": false,
     "catalogue": [{
-            "file": "home",
+            "refName": "home",
             "displayName": "Home",
             "underConstruction": false
         },
         {
-            "file": "projects",
+            "refName": "projects",
             "displayName": "Projects",
             "underConstruction": false
         },
         {
-            "file": "plasticity",
+            "refName": "plasticity",
             "displayName": "Plasticity",
             "underConstruction": true
         }
     ],
     "exception": [{
-        "file": "chess",
+        "refName": "chess",
         "underConstruction": false
-    }],
-    "useHTMLExtension": true
+    }]
 }

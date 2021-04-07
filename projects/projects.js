@@ -31,23 +31,43 @@ function projectShelfConstructor(projects) {
             pageURL = `/projects/${pathName}/${htmlName}`;
         }
         const thumbnailURL = `/projects/${pathName}/thumbnail.png`;
+        const thumbnailExists = urlExists(thumbnailURL);
         //
-        let innerHTML = `<fieldset class="project" onclick="`;
+        let innerHTML = `<fieldset class="project"`;
         if (project.openInNewTab) {
-            innerHTML += `window.open('${pageURL}')`;
+            innerHTML += ` onclick="window.open('${pageURL}');"`;
         } else {
-            innerHTML += `location.href = '${pageURL}'`;
+            innerHTML += ` onclick="location.href = '${pageURL}';"`;
         }
-        innerHTML += `;" style="background-image: url('${thumbnailURL}');"><legend>`;
+        if (thumbnailExists) {
+            innerHTML += ` style="background-image: url('${thumbnailURL}');"><legend>`;
+        } else {
+            innerHTML += ` style="text-align: center;"><legend>`;
+        }
         //#ANCHOR //! marquee is terrible, find an alternative
         if (widthTester.clientWidth > 235) {
             innerHTML += `<marquee>${displayName}</marquee>`;
         } else {
             innerHTML += `${displayName}`;
         }
-        innerHTML += `</legend></fieldset>`;
+        innerHTML += `</legend>`;
+        if (!thumbnailExists) {
+            innerHTML += `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 30pt; text-shadow: 0px 0px 8px #ffffff;">${pickRandom(['😐','🙃','🥴','🤪','😵','🤔','🤨'])}</span><br><span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: #a6ed8d; text-shadow: 0px 0px 5px #000000;">Thumbnail missing</span>`;
+        }
+        innerHTML += `</fieldset>`;
         projectContainer.innerHTML = projectContainer.innerHTML.concat(innerHTML);
     });
     widthTester.parentNode.removeChild(widthTester);
     return;
+}
+
+function urlExists(url) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status != 404;
+}
+
+function pickRandom(list) {
+    return list[Math.floor(Math.random() * list.length)];
 }

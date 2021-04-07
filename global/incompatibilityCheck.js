@@ -4,18 +4,18 @@ window.addEventListener("load", function() {
     // (B1) PARSE USER AGENT
     var result = bowser.getParser(navigator.userAgent).getResult();
 
-    // (B2) BROWSER INFO
-    console.log(result.browser.name);
-    console.log(result.browser.version);
-    console.log(result.engine);
-
-    // (B3) OPERATING SYSTEM
-    console.log(result.os.name);
-    console.log(result.os.version);
-    console.log(result.os.versionName);
-
-    // (B4) PLATFORM
-    console.log(result.platform.type);
+    //// (B2) BROWSER INFO
+    //console.log(result.browser.name);
+    //console.log(result.browser.version);
+    //console.log(result.engine);
+    //
+    //// (B3) OPERATING SYSTEM
+    //console.log(result.os.name);
+    //console.log(result.os.version);
+    //console.log(result.os.versionName);
+    //
+    //// (B4) PLATFORM
+    //console.log(result.platform.type);
 
     //
     console.log(result);
@@ -31,7 +31,6 @@ function showWarning(isMobile, message) {
         document.getElementById("modalStyleSheet").setAttribute('href', '/global/modalStyleSheet-Desktop.css');
     }
     setTimeout(() => {
-        console.log('showing message');
         document.getElementById(`modalbox-title`).innerHTML = message.title;
         document.getElementById(`modalbox-body`).innerHTML = message.body.replaceAll('\n', '<br>');
         document.getElementById(`modalbox-button-text`).innerHTML = message.buttonText;
@@ -41,7 +40,7 @@ function showWarning(isMobile, message) {
 }
 
 function check(result) {
-    let isMobile = (result.platform.type == "mobile");
+    let isMobile = insensitiveIsEqual(result.platform.type, "mobile");
     if (isMobile) {
         showWarning(isMobile, {
             title: 'Incompatibility Warning!',
@@ -49,11 +48,15 @@ function check(result) {
             buttonText: 'ÒωÓ  Am stubborn; me wants in!'
         });
     }
-    if (result.browser.name != "Chrome") {
+    if (!insensitiveIsEqual(result.browser.name, "Chrome")) {
         showWarning(isMobile, {
             title: 'Incompatibility Warning!',
             body: `${result.browser.name} browser detected!\nThis website is developed and tested mainly on Google Chrome. I am trying my best to provide compatibility, but there are no promises! Some things may not display properly.\nYou have been warned.`,
             buttonText: "I'll take my chances"
         });
     }
+}
+
+function insensitiveIsEqual(a, b) {
+    return a.toLowerCase() == b.toLowerCase();
 }
