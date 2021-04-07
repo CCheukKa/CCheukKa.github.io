@@ -1,0 +1,27 @@
+{
+    "projects": [{
+            "refName": "humanity",
+            "displayName": "Humanity"
+        },
+        {
+            "refName": "resignation",
+            "displayName": "Resignation"
+        },
+        {
+            "refName": "art",
+            "displayName": "Art"
+        }, {
+            "refName": "progression",
+            "displayName": "Progression"
+        }, {
+            "refName": "bonsai-trees",
+            "displayName": "Bonsai trees"
+        }, {
+            "refName": "confession",
+            "displayName": "Confession"
+        }, {
+            "refName": "temporal-relativity",
+            "displayName": "Tempo-relativity"
+        }
+    ]
+}

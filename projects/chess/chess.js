@@ -1,14 +1,4 @@
-const projectContainer = document.getElementById('projectContainer');
-var useHTML;
-
-fetch('/global/config.json')
-    .then(response => response.json())
-    .then(data => {
-        useHTML = data.useHTMLExtension;
-        fetch('./chess/chessProjectConfig.json')
-            .then(response => response.json())
-            .then(data => { projectShelfConstructor(data.projects) });
-    });
+fetchConfig('./chess/chessProjectConfig.json').then(config => projectShelfConstructor(config.projects));
 //
 function projectShelfConstructor(projects) {
     const widthTester = document.createElement('div');

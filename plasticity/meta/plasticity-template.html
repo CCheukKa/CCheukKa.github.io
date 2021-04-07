@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="shortcut icon" type="image/x-icon" href="/global/icon.ico">
-    <title>Plasticity</title>
+    <title id="title-big"></title>
 
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato'>
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Abel'>
@@ -243,7 +243,7 @@
             border-radius: 200px;
         }
         
-        .projectContainer {
+        .textContainer {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -252,27 +252,33 @@
             margin-left: 5%;
             margin-right: 5%;
             overflow: auto;
-            height: calc(100vh - 297.5px);
             background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);
             border-radius: 16px;
             box-shadow: 0px 0px 20px #00000066;
+            padding-left: 50px;
+            padding-right: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 16pt;
+            text-align: justify;
         }
         
-        .projectContainer::-webkit-scrollbar {
+        .textContainer::-webkit-scrollbar {
             width: 6px;
         }
         
-        .projectContainer::-webkit-scrollbar-track:hover {
+        .textContainer::-webkit-scrollbar-track:hover {
             background-color: #55555744;
             border-radius: 10px;
         }
         
-        .projectContainer::-webkit-scrollbar-thumb {
+        .textContainer::-webkit-scrollbar-thumb {
             background: #555557;
             border-radius: 10px;
         }
         
-        .projectContainer::-webkit-scrollbar-thumb:hover {
+        .textContainer::-webkit-scrollbar-thumb:hover {
             background: #7c7c7c;
         }
     </style>
@@ -282,7 +288,7 @@
 <body class="page">
     <div class="header" id="header">
         <div class="headerTitle">
-            <a href="/home">CCheukKa's Site</a> / <a href="" class="bold underline">plasticity</a>
+            <a href="/home">CCheukKa's Site</a> / <a href="/plasticity">plasticity</a> / <a href="" class="bold underline" id="title-small">.</a>
         </div>
         <div class="headerCatalogue" id="catalogue">
             <!--Catalogue items added programmatically-->
@@ -291,21 +297,17 @@
     </div>
     <div class="titleCard" style="width: fit-content;" id="titleCard">
         <div style="width: 100%; margin-top: -25px; margin-bottom: -20px;">
-            <span class="title" style="font-weight: bold;">Plasticity</span>
+            <span class="title" style="font-weight: bold;" id="text-title"></span>
             <br>
-            <span class="title" style="font-size:x-large; font-weight: bold; width: fit-content; white-space: nowrap;">Random dumb pieces of texts I sometimes write</span>
+            <span class="title" style="font-size:x-large; font-weight: bold; width: fit-content; white-space: nowrap;" id="text-flavourText"></span>
         </div>
 
         <div style="text-align: left; align-content: center; padding-top: 6px; width: 80%; margin-left: 25px; margin-right: -5px;">
-            <span class="description" style="font-weight: bold; opacity: 80%; font-size: 14pt;">
-                Sometimes I just couldn't help myself when some obscure inspirations strike; I would find myself writing non-stop. The topics they explore are as random and disorganised as can be.
-                <br>
-                Simply put, these are all just low-quality brain vomits and aimless rambles with little regard for grammar.
-            </span>
+            <span class="description" style="font-weight: bold; opacity: 80%; font-size: 14pt;" id="text-description"></span>
         </div>
     </div>
     <div style="width: 100%; display: flex; justify-content: center;">
-        <div class="projectContainer" id="projectContainer">
+        <div class="textContainer" id="text-content">
             <!--Create these programmatically-->
         </div>
     </div>
@@ -313,6 +315,6 @@
 
 <script src='/global/globalLibrary.js'></script>
 <script src='/global/headerController.js'></script>
-<script src='/plasticity/meta/plasticity.js'></script>
+<script src='/plasticity/meta/plasticityController.js'></script>
 
 </html>

@@ -1,21 +1,12 @@
-var useHTML;
-
-fetch('/global/config.json')
-    .then(response => response.json())
-    .then(data => {
-        useHTML = data.useHTMLExtension;
-        fetch('/plasticity/plasticityConfig.json')
-            .then(response => response.json())
-            .then(data => { fetchContent(data.projects) });
-    });
+fetchConfig('/plasticity/meta/plasticityConfig.json').then(config => fetchContent(config.projects));
 
 function fetchContent(projects) {
     projects.forEach(project => {
         if (project.refName != currentPageFile) { return; }
-        fetch(`./content/${project.refName}.json`)
+        fetch(`/plasticity/${project.refName}.json`)
             .then(response => response.json())
             .then(metadata => {
-                fetch(`./content/${project.refName}.txt`)
+                fetch(`/plasticity/${project.refName}.txt`)
                     .then(response => response.text())
                     .then(body => { display(metadata, body) });
             });
@@ -30,6 +21,7 @@ function display(metadata, body) {
     document.getElementById('text-flavourText').innerHTML = metadata.flavourText;
     document.getElementById('text-description').innerHTML = metadata.description.replaceAll('\n', '<br>');
     document.getElementById('text-content').innerHTML = body.replaceAll('\n', '<br>');
+    document.getElementById('text-content').style.height = `calc(100vh - ${metadata.textContainerHeightOffset}px)`;
     // success
     removeConstructionElement();
     return;

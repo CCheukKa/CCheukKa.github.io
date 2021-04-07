@@ -1,13 +1,11 @@
 const catalogueElement = document.getElementById('catalogue');
-const currentPageFile = window.location.pathname.split('/').pop().split('.html')[0];
 
-fetch('/global/config.json')
-    .then(response => response.json())
-    .then(data => { main(data) });
+document.getElementsByClassName("headerTitle")[0].style.whiteSpace = 'nowrap';
+getGlobalConfig().then(config => main(config));
 
 //
 function main(config) {
-    buildCatalogue(config.catalogue, config.useHTMLExtension);
+    buildCatalogue(config.catalogue);
     constructionSign(config.catalogue);
     handleExceptions(config.exception);
     return;
@@ -35,7 +33,7 @@ function removeConstructionElement() {
     return;
 }
 
-function buildCatalogue(catalogue, useHTML) {
+function buildCatalogue(catalogue) {
     let establishedThisPage = false;
     //
     let separator = document.createElement('span');
@@ -78,12 +76,3 @@ function handleExceptions(exception) {
     });
     return;
 }
-
-//#region   //! META
-function thisPage(catalogue) {
-    for (let i = 0; i < catalogue.length; i++) {
-        if (catalogue[i].refName == currentPageFile) { return catalogue[i]; }
-    }
-    return false;
-}
-//#endregion

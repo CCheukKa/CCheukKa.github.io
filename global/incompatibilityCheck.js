@@ -56,7 +56,3 @@ function check(result) {
         });
     }
 }
-
-function insensitiveIsEqual(a, b) {
-    return a.toLowerCase() == b.toLowerCase();
-}

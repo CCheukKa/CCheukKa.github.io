@@ -1,14 +1,4 @@
-const projectContainer = document.getElementById('projectContainer');
-var useHTML;
-
-fetch('/global/config.json')
-    .then(response => response.json())
-    .then(data => {
-        useHTML = data.useHTMLExtension;
-        fetch('/projects/projectConfig.json')
-            .then(response => response.json())
-            .then(data => { projectShelfConstructor(data.projects) });
-    });
+fetchConfig('/projects/projectConfig.json').then(config => projectShelfConstructor(config.projects));
 //
 function projectShelfConstructor(projects) {
     const widthTester = document.createElement('div');
@@ -59,15 +49,4 @@ function projectShelfConstructor(projects) {
     });
     widthTester.parentNode.removeChild(widthTester);
     return;
-}
-
-function urlExists(url) {
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    return http.status != 404;
-}
-
-function pickRandom(list) {
-    return list[Math.floor(Math.random() * list.length)];
 }
