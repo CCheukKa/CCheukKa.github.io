@@ -49,41 +49,32 @@
 
 
 <body>
-    <div style="width: 100%; display: flex; justify-content: center;">
-        <div class="projectContainer" id="projectContainer">
-            <!--Create these programmatically-->
-            <fieldset class="project">
-                <legend>A</legend>
-            </fieldset>
-            <fieldset class="project">
-                <legend>B</legend>
-            </fieldset>
-            <fieldset class="project">
-                <legend>C</legend>
-            </fieldset>
-            <fieldset class="project">
-                <legend>D</legend>
-            </fieldset>
-            <fieldset class="project">
-                <legend>E</legend>
-            </fieldset>
-            <fieldset class="project">
-                <legend>F</legend>
-            </fieldset>
-            <fieldset class="project">
-                <legend>G</legend>
-            </fieldset>
-            <fieldset class="project">
-                <legend>H</legend>
-            </fieldset>
-            <fieldset class="project">
-                <legend>I</legend>
-            </fieldset>
-            <fieldset class="project">
-                <legend>J</legend>
-            </fieldset>
-        </div>
-    </div>
+
 </body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bowser@2.9.0/es5.js"></script>
+<script>
+    window.addEventListener("load", function() {
+        // (B1) PARSE USER AGENT
+        var result = bowser.getParser(navigator.userAgent).getResult();
+
+        // (B2) BROWSER INFO
+        console.log(result.browser.name);
+        console.log(result.browser.version);
+        console.log(result.engine);
+
+        // (B3) OPERATING SYSTEM
+        console.log(result.os.name);
+        console.log(result.os.version);
+        console.log(result.os.versionName);
+
+        // (B4) PLATFORM
+        console.log(result.platform.type);
+
+        //
+        console.log(result);
+    });
+</script>
 
 </html>
