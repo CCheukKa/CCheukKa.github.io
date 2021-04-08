@@ -26,9 +26,9 @@ window.addEventListener("load", function() {
 
 function showWarning(isMobile, message) {
     if (isMobile) {
-        document.getElementById("modalStyleSheet").setAttribute('href', '/global/modalStyleSheet-Mobile.css');
+        document.getElementById("stylesheet").setAttribute('href', '/global/kits/modal/stylesheet-mobile.css');
     } else {
-        document.getElementById("modalStyleSheet").setAttribute('href', '/global/modalStyleSheet-Desktop.css');
+        document.getElementById("stylesheet").setAttribute('href', '/global/kits/modal/stylesheet-desktop.css');
     }
     setTimeout(() => {
         document.getElementById(`modalbox-title`).innerHTML = message.title;

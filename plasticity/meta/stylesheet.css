@@ -1,0 +1,39 @@
+.textContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    overflow: auto;
+    height: calc(100vh - 300px);
+    background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);
+    border-radius: 16px;
+    box-shadow: 0px 0px 20px #00000066;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16pt;
+    text-align: justify;
+}
+
+.textContainer::-webkit-scrollbar {
+    width: 6px;
+}
+
+.textContainer::-webkit-scrollbar-track:hover {
+    background-color: #55555744;
+    border-radius: 10px;
+}
+
+.textContainer::-webkit-scrollbar-thumb {
+    background: #555557;
+    border-radius: 10px;
+}
+
+.textContainer::-webkit-scrollbar-thumb:hover {
+    background: #7c7c7c;
+}

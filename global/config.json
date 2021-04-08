@@ -1,7 +1,7 @@
 {
     "catalogue": [{
             "refName": "home",
-            "displayName": "Home",
+            "displayName": "🏠 Home",
             "underConstruction": false
         },
         {
@@ -12,10 +12,6 @@
         {
             "refName": "plasticity",
             "displayName": "Plasticity",
-            "underConstruction": true
-        }, {
-            "refName": "youtube",
-            "displayName": "YouTube stuf‌f",
             "underConstruction": true
         }
     ],

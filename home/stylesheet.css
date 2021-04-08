@@ -1,0 +1,28 @@
+.contact-container {
+    flex-direction: column;
+    text-align: center;
+    width: 20%;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    user-select: none;
+}
+
+.email-container {
+    margin-top: 20px;
+    width: 100%;
+    height: 60px;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    user-select: none;
+    padding: 6px;
+    background: linear-gradient(to right, #456e8d 0%, #3d78a1 90%);
+    color: #f3f0ed;
+    border-radius: 8px;
+    letter-spacing: 0.5px;
+    font-size: larger;
+    font-family: 'Catamaran', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
