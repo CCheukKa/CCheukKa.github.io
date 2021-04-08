@@ -17,11 +17,3 @@ emailAddressContainer.addEventListener('mouseleave', function() {
     var tooltip = document.getElementById("tooltipCopy");
     tooltip.innerHTML = "📋 Copy to clipboard";
 });
-
-//
-
-const emailSendButton = document.getElementById('emailSendButton');
-
-emailSendButton.addEventListener('click', function() {
-    window.open('mailto:contact.CCheukKa@gmail.com');
-})

@@ -17,14 +17,14 @@ function projectShelfConstructor(projects) {
         const pageURL = `./chess/${pathName}/${htmlName}`;
         const thumbnailURL = `./chess/${pathName}/thumbnail.png`;
         //
-        let innerHTML = `<fieldset class="project" onclick="window.open('${pageURL}','');" style="background-image: url('${thumbnailURL}');"><legend>`
-            //#ANCHOR //! marquee is terrible, find an alternative
+        let innerHTML = `<div class="project-wrapper"><a href="${pageURL}" target="_blank"><fieldset class="project" style="background-image: url('${thumbnailURL}');"><legend>`;
+        //#ANCHOR //! marquee is terrible, find an alternative
         if (widthTester.clientWidth > 235) {
             innerHTML += `<marquee>${displayName}</marquee>`;
         } else {
             innerHTML += `${displayName}`;
         }
-        innerHTML += `</legend></fieldset>`;
+        innerHTML += `</legend></fieldset></a></div>`;
         projectContainer.innerHTML = projectContainer.innerHTML.concat(innerHTML);
     });
     widthTester.parentNode.removeChild(widthTester);

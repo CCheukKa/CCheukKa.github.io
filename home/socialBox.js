@@ -1,0 +1,26 @@
+const socialBox = document.getElementById("social-box");
+fetchConfig('/home/socialLinksConfig.json')
+    .then(config => socialBoxConstructor(config.links));
+
+function socialBoxConstructor(links) {
+    let publicSites = [];
+    links.forEach(site => {
+        if (!site.withheld) {
+            publicSites.push(site);
+        }
+    });
+    let sLength = Math.floor(publicSites.length / 2);
+    for (let i = 0; i < sLength; i++) {
+        createLogo(publicSites[i]);
+    }
+    socialBox.innerHTML = socialBox.innerHTML.concat(`<div style="flex-basis: 100%; height:5%;"></div>`);
+    for (let i = sLength; i < links.length; i++) {
+        createLogo(publicSites[i]);
+    }
+    return;
+}
+
+function createLogo(site) {
+    socialBox.innerHTML = socialBox.innerHTML.concat(`<div title="${site.title}"><a  href="${site.link}" target="_blank"><img src="/global/icons/${site.refName}.svg"></a></div>`);
+    return;
+}

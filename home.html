@@ -10,7 +10,7 @@
     <!--/Modal popup Blackbox-->
 
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="image/x-icon" href="/global/icon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/global/favicon.ico">
     <title>Home</title>
 
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato'>
@@ -22,6 +22,7 @@
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Bad Script'>
     <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Catamaran'>
 
+    <!--meta-->
     <style>
         a {
             color: inherit;
@@ -49,6 +50,7 @@
             transform: translateY(-50%);
         }
     </style>
+    <!--header-->
     <style>
         .header {
             font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -95,6 +97,7 @@
             opacity: 50%;
         }
     </style>
+    <!--title card-->
     <style>
         .titleCard {
             margin: 8px auto;
@@ -134,7 +137,37 @@
             font-weight: bold;
             letter-spacing: 2px;
         }
+        
+        .contact-container {
+            flex-direction: column;
+            text-align: center;
+            width: 20%;
+            align-content: center;
+            align-items: center;
+            display: flex;
+            justify-content: space-around;
+            user-select: none;
+        }
+        
+        .email-container {
+            margin-top: 20px;
+            width: 100%;
+            height: 60px;
+            align-content: center;
+            align-items: center;
+            display: flex;
+            justify-content: space-around;
+            user-select: none;
+            padding: 6px;
+            background: linear-gradient(to right, #456e8d 0%, #3d78a1 90%);
+            color: #f3f0ed;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+            font-size: larger;
+            font-family: 'Catamaran', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
     </style>
+    <!--tooltip-->
     <style>
         .tooltip {
             position: relative;
@@ -216,76 +249,34 @@
             padding-left: 50px;
         }
     </style>
-    <!---->
+    <!--project shelf-->
+    <link rel="stylesheet" href="/global/projectShelfKit/projectStyleSheet.css">
     <style>
-        body::-webkit-scrollbar {
-            display: none;
-        }
-        
-        .project {
-            font-size: xx-large;
-            font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            border-radius: 16px;
-            border: 5px solid #3a3b3d;
-            margin-left: 1%;
-            margin-right: 1%;
-            margin-top: 1%;
-            margin-bottom: 1%;
-            width: 240px;
-            height: 180px;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        .project:hover {
-            cursor: pointer;
-        }
-        
-        legend {
-            color: #ccc9c5;
-            text-shadow: 1px 1px 10px #000000;
-            font-weight: bold;
-            background: linear-gradient(to top, #3a3b3d00 20%, #3a3b3d99 40%, #3a3b3d99 50%, #3a3b3d00 75%);
-            border-radius: 100px;
-            text-align: left;
-        }
-        
-        marquee {
-            direction: left;
-            border-radius: 200px;
-        }
-        
         .projectContainer {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-content: flex-start;
-            width: 90%;
-            margin-left: 5%;
-            margin-right: 5%;
-            overflow: auto;
             height: calc(100vh - 367px);
-            background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);
-            border-radius: 16px;
-            box-shadow: 0px 0px 20px #00000066;
+        }
+    </style>
+    <!--social box-->
+    <style>
+        .social-box {
+            position: relative;
+            top: 10px;
+            width: 100%;
+            height: 40%;
+            display: flex;
+            justify-content: space-evenly;
+            flex-wrap: wrap;
         }
         
-        .projectContainer::-webkit-scrollbar {
-            width: 6px;
+        .social-box>div {
+            width: 32px;
+            height: 32px;
         }
         
-        .projectContainer::-webkit-scrollbar-track:hover {
-            background-color: #55555744;
-            border-radius: 10px;
-        }
-        
-        .projectContainer::-webkit-scrollbar-thumb {
-            background: #555557;
-            border-radius: 10px;
-        }
-        
-        .projectContainer::-webkit-scrollbar-thumb:hover {
-            background: #7c7c7c;
+        .social-box>div>a>img {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -322,7 +313,7 @@
     </div>
     <div class="titleCard" id="titleCard">
         <div style="width: 20%; padding: 6px;">
-            <img src="/global/avatar.png" alt="Profile Avatar" width="60%">
+            <img src="/global/avatar.svg" alt="Profile Avatar" width="60%">
             <br>
             <span class="description" style="font-weight: bold;">Consistent profile avatar</span>
         </div>
@@ -342,18 +333,23 @@
             </div>
         </div>
         <!---->
-        <div class="description" style="width: 20%; height: 60px; align-content: center; align-items: center; display: flex; justify-content: space-around; user-select: none; padding: 6px; background: linear-gradient(to  right, #456e8d 0%, #3d78a1 90%); color:#f3f0ed;border-radius: 8px;letter-spacing: 0.5px ; font-size: larger; font-family:  'Catamaran','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-            <span id="emailAddressContainer" class="tooltip vertical-center" style=" width: 75%; left:0%; position:relative;  cursor:pointer;">
+        <div class="contact-container" style="margin-left: 12px; margin-right: 12px;">
+            <div class="description email-container">
+                <span id="emailAddressContainer" class="tooltip vertical-center" style=" width: 75%; left:0%; position:relative;  cursor:pointer;">
                 <span class="tooltiptext" id="tooltipCopy">📋 Copy to clipboard‎‎</span>
-            <span>contact.CCheukKa</span>
-            <br>
-            <span style="font-weight: bold;">@ </span>
-            <span style="font-weight: lighter;">gmail.com</span>
-            </span>
-            <span id="emailSendButton" class="vertical-center tooltip" style="width: 25%; right: 0; position: relative;  cursor:pointer;">
+                <span>contact.CCheukKa</span>
+                <br>
+                <span style="font-weight: bold;">@ </span>
+                <span style="font-weight: lighter;">gmail.com</span>
+                </span>
+                <span id="emailSendButton" class="vertical-center tooltip" style="width: 25%; right: 0; position: relative;  cursor:pointer;">
                 <span class="tooltiptext2" id="tooltipSend">📧 Send email</span>
-            <img src="/home/iconSendMail.png" alt="Send eMail icon" width="65%" style="position: relative; top: 4px; filter: drop-shadow(2px 2px 2px #1c3344);">
-            </span>
+                <a href="mailto:contact.CCheukKa@gmail.com" target="_blank"><img src="/home/iconSendMail.png" alt="Send eMail icon" width="65%" style="position: relative; top: 4px; filter: drop-shadow(2px 2px 2px #1c3344);"></a>
+                </span>
+            </div>
+            <div class="social-box" id="social-box">
+                <!--Add these programmatically-->
+            </div>
         </div>
     </div>
     <div style="width: 100%; display: flex; justify-content: center;">
@@ -369,5 +365,6 @@
 <script src='/global/incompatibilityCheck.js'></script>
 <script src='/home/emailReferralController.js'></script>
 <script src='/home/home.js'></script>
+<script src='/home/socialBox.js'></script>
 
 </html>

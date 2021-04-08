@@ -21,12 +21,13 @@ function projectShelfConstructor(projects) {
         //} else {
         //    pageURL = `/projects/${pathName}/${htmlName}`;
         //}
-        let innerHTML = `<fieldset class="project"`;
+        let innerHTML = '<div class="project-wrapper">';
         if (project.openInNewTab) {
-            innerHTML += ` onclick="window.open('/${refName}');"`;
+            innerHTML += `<a href=/${refName} target="_blank">`;
         } else {
-            innerHTML += ` onclick="location.href = '/${refName}';"`;
+            innerHTML += `<a href=/${refName}>`;
         }
+        innerHTML += `<fieldset class="project"`;
         if (project.underConstruction | !thumbnailExists) {
             innerHTML += ` style="text-align: center;"><legend>`;
         } else {
@@ -46,7 +47,7 @@ function projectShelfConstructor(projects) {
                 innerHTML += `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 30pt; text-shadow: 0px 0px 8px #ffffff;">${pickRandom(['😐','🙃','🥴','🤪','😵','🤔','🤨'])}</span><br><span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: #a6ed8d; text-shadow: 0px 0px 5px #000000;">Thumbnail missing</span>`;
             }
         }
-        innerHTML += `</fieldset>`;
+        innerHTML += `</fieldset></a></div>`;
         projectContainer.innerHTML = projectContainer.innerHTML.concat(innerHTML);
     });
     widthTester.parentNode.removeChild(widthTester);

@@ -1,6 +1,11 @@
 //!
-const useHTML = false;
+const useHTML = true;
+const debugOutline = false;
 //!
+if (debugOutline) {
+    document.head.innerHTML = document.head.innerHTML.concat(`<style>*{outline: 1px solid #ffffffbb;}</style>`);
+}
+//
 const currentPageFile = window.location.pathname.split('/').pop().split('.html')[0];
 const projectContainer = document.getElementById('projectContainer');
 //
