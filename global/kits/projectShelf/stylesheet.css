@@ -46,8 +46,6 @@ marquee {
     justify-content: center;
     align-content: flex-start;
     width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
     overflow: auto;
     height: calc(100vh - 260px);
     background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);

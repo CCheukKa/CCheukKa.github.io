@@ -1,3 +1,12 @@
+.div-avatar {
+    width: 20%;
+    padding: 6px;
+}
+
+.div-name {
+    width: 50%;
+}
+
 .contact-container {
     flex-direction: column;
     text-align: center;
@@ -7,6 +16,8 @@
     display: flex;
     justify-content: space-around;
     user-select: none;
+    margin-left: 12px;
+    margin-right: 12px;
 }
 
 .email-container {
@@ -25,4 +36,268 @@
     letter-spacing: 0.5px;
     font-size: larger;
     font-family: 'Catamaran', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.name-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+}
+
+.name-container>span {
+    white-space: nowrap;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+}
+
+.avatar-text {
+    opacity: 100%;
+}
+
+.email-address-container {
+    width: 75%;
+    left: 0%;
+    position: relative;
+    cursor: pointer;
+}
+
+.email-domain {
+    position: relative;
+    bottom: 4px;
+}
+
+.email-head {
+    position: relative;
+    top: 4px;
+}
+
+.titleCard {
+    padding-top: 32px;
+}
+
+#emailSendButton {
+    width: 25%;
+    right: 0;
+    position: relative;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1300px) {
+    .name-container>span:first-child {
+        opacity: 0%;
+    }
+    .div-name {
+        position: relative;
+    }
+    .contact-container {
+        width: 25%;
+    }
+}
+
+@media only screen and (max-width: 1150px) {
+    #socialBoxLinebreak {
+        position: absolute;
+    }
+    #socialBoxGhostSite {
+        position: absolute;
+    }
+    .div-name {
+        position: inherit;
+        right: inherit;
+    }
+    .titleCard {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 84.5%;
+    }
+    .flex-ignore {
+        position: inherit;
+        flex-basis: 100%;
+    }
+    .div-avatar {
+        width: 30%;
+    }
+    .div-name {
+        width: 65%;
+    }
+    .name-container>span:first-child {
+        opacity: 100%;
+    }
+    .contact-container {
+        width: 100%;
+        flex-basis: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .contact-container>div {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
+
+@media only screen and (max-width: 1150px) and (min-width: 560px) {
+    .contact-container>.social-box {
+        width: 70%;
+    }
+    .contact-container>.email-container {
+        width: 30%;
+    }
+}
+
+@media only screen and (max-width: 970px) {
+    .titleCard {
+        width: var(--max-element-width);
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+    .projectContainer {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    .avatar-text {
+        position: absolute;
+        opacity: 0%;
+    }
+    .description-text {
+        position: absolute;
+        opacity: 0%;
+    }
+    .full-name {
+        position: absolute;
+        opacity: 0%;
+    }
+    .name-container>span:first-child {
+        position: absolute;
+        opacity: 0%;
+    }
+    .name-container>span:last-child {
+        position: absolute;
+        opacity: 0%;
+    }
+    .div-avatar {
+        width: 15%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .div-avatar>img {
+        width: 100%;
+    }
+    .div-name {
+        width: 70%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    .name-container {
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        width: min-content;
+    }
+    .name-text {
+        font-size: 12vw;
+    }
+}
+
+@media only screen and (max-width: 810px) and (min-width: 560px) {
+    #email-container {
+        width: fit-content;
+        max-width: 40%;
+    }
+    #social-box {
+        width: 55%;
+        height: 80%;
+    }
+    #socialBoxLinebreak {
+        position: inherit;
+    }
+    #socialBoxGhostSite {
+        position: inherit;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    #email-container {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    .email-container {
+        flex-basis: 100%;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    .contact-container {
+        flex-wrap: wrap;
+        height: fit-content;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .titleCard {
+        padding-top: 16px;
+        padding-bottom: 8px;
+    }
+}
+
+@media only screen and (max-width: 560px) and (min-width: 420px) {
+    .social-box {
+        width: 100%;
+        max-width: 100%;
+        height: fit-content;
+    }
+    .email-address-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow: visible;
+        justify-content: center;
+        font-size: 5.4vw;
+        width: 90%;
+    }
+    .email-domain {
+        position: inherit;
+    }
+    .email-head {
+        position: inherit;
+        top: 0;
+    }
+    #emailSendButton {
+        max-height: 100%;
+        max-width: 10%;
+        position: relative;
+        right: 0;
+    }
+    #emailSendButton>a>img {
+        max-width: 100%;
+        width: 100%;
+    }
+    #email-domain {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .email-at {
+        margin-left: 0.3vh;
+        margin-right: 0.3vh;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    #socialBoxLinebreak {
+        position: inherit;
+    }
+    #socialBoxGhostSite {
+        position: inherit;
+    }
+    #social-box {
+        height: 75px;
+    }
 }

@@ -3,6 +3,8 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!--Modal popup Blackbox-->
     <link rel="stylesheet" href="/global/kits/modal/stylesheet-mobile.css" id="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -38,67 +40,53 @@
 </head>
 
 
-<body class="page">
-    <!--Modal popup blackbox-->
-    <button type="button" id="modalButton" data-toggle="modal" data-target="#myModal" style="position: fixed; display: none;"></button>
-    <div class="modal fade" id="myModal" role="dialog" data-backdrop="static">
-        <div class="vertical-alignment-helper">
-            <div class="modal-dialog modal-lg modal-dialog-centered vertical-align-center">
-                <div class="modal-content" style="border-radius: 12px">
-                    <div class="modal-header">
-                        <h4 class="modal-title" style="text-shadow: 0px 0px 8px #000000;" id="modalbox-title">Placeholder title</h4>
-                    </div>
-                    <div class="modal-body" id="modalbox-body">Placeholder body</div>
-                    <div class="modal-footer">
-                        <button type="button" class="modal-button" data-dismiss="modal"><span style="margin-left: 5px; margin-right: 5px;" id="modalbox-button-text">Placeholder button text</span></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--/Modal popup blackbox-->
+<body class="page preload">
     <div class="header" id="header">
         <div class="headerTitle">
             <a href="/home">CCheukKa's Site</a> / <a href="" class="bold underline">home</a>
         </div>
+
         <div class="headerCatalogue" id="catalogue">
             <!--Catalogue items added programmatically-->
         </div>
     </div>
-    <div class="titleCard" id="titleCard" style="padding-top: 32px;">
-        <div style="width: 20%; padding: 6px;">
+    <div class="titleCard" id="titleCard">
+        <div class="div-avatar">
             <img src="/global/meta/avatar.svg" alt="Profile Avatar" width="60%">
             <br>
-            <span class="description" style="opacity: 100%; font-size: 11pt;">Consistent profile avatar</span>
+            <span class="description avatar-text" style="font-size: 11pt;">Consistent profile avatar</span>
         </div>
-        <div style="width: 50%;">
-            <span class="bad-script">Hi! I'm</span>
-            <span class="title">CCheukKa</span>
-            <span class="bad-script" style="color: #2c3035; user-select: none;">Hi! I'm</span>
+        <div class="div-name">
+            <div class="name-container" style="text-align: center;">
+                <span class="bad-script">Hi! I'm</span>
+                <span class="title name-text">CCheukKa</span>
+                <span class="bad-script" style="opacity: 0; user-select: none;">Hi! I'm</span>
+            </div>
+            <span class="title full-name" style="font-size:x-large; font-weight: bold;">(Chan Cheuk Ka)</span>
             <br>
-            <span class="title" style="font-size:x-large; font-weight: bold;">(Chan Cheuk Ka)</span>
             <br>
-            <br>
-            <div style="text-align: left;">
-                <span class="description" style="font-size: 11pt;">
+            <div style="text-align: justify;">
+                <span class="description description-text" style="font-size: 11pt;">
                     I am but a blob of meat who lives on a slab of rock floating on layers of lava on the surface of a piece of wet rock circling a ball of flames drifting among the great darkness and beyond.
                 </span>
             </div>
         </div>
-
         <div class="contact-container" style="margin-left: 12px; margin-right: 12px;">
-            <div class="description email-container" style="opacity: 100%; font-weight: normal;">
-                <span id="emailAddressContainer" class="tooltip vertical-center" style=" width: 75%; left:0%; position:relative;  cursor:pointer;">
-                <span class="tooltiptext" id="tooltipCopy">📋 Copy to clipboard‎‎</span>
-                <span>contact.CCheukKa</span>
-                <br>
-                <span style="font-weight: bold;">@ </span>
-                <span style="font-weight: lighter;">gmail.com</span>
-                </span>
-                <span id="emailSendButton" class="vertical-center tooltip" style="width: 25%; right: 0; position: relative;  cursor:pointer;">
-                <span class="tooltiptext2" id="tooltipSend">📧 Send email</span>
-                <a href="mailto:contact.CCheukKa@gmail.com" target="_blank"><img src="/home/iconSendMail.png" alt="Send eMail icon" width="65%" style="position: relative; top: 4px; filter: drop-shadow(2px 2px 2px #1c3344);"></a>
-                </span>
+            <div class="description email-container" id="email-container" style="opacity: 100%; font-weight: normal;">
+                <div id="emailAddressContainer" class="email-address-container tooltip">
+                    <span class="tooltiptext" id="tooltipCopy">📋 Copy to clipboard‎‎</span>
+                    <div id="email-text" class="email-head">contact.CCheukKa</div>
+                    <div id="email-domain">
+                        <span id="email-text" class="email-at" style="font-weight: bold;">@ </span>
+                        <span id="email-text" style="font-weight: lighter;">gmail.com</span>
+                    </div>
+                </div>
+                <div id="emailSendButton" class="tooltip">
+                    <span class="tooltiptext2" id="tooltipSend">📧 Send email</span>
+                    <a href="mailto:contact.CCheukKa@gmail.com" target="_blank">
+                        <img src="/home/iconSendMail.png" alt="Send eMail icon" width="65%" style="position:relative; top: 10px; filter: drop-shadow(2px 2px 2px #1c3344);">
+                    </a>
+                </div>
             </div>
             <div class="social-box" id="social-box">
                 <!--Add these programmatically-->
@@ -112,9 +100,10 @@
     </div>
 </body>
 
+<script src='/global/kits/modal/script.js'></script>
 <script src='/global/scripts/globalLibrary.js'></script>
-<script src="https://cdn.jsdelivr.net/npm/bowser@2.9.0/es5.js"></script>
 <script src='/global/scripts/headerController.js'></script>
+<script src="https://cdn.jsdelivr.net/npm/bowser@2.9.0/es5.js"></script>
 <script src='/global/scripts/incompatibilityCheck.js'></script>
 <script src='/home/emailReferralController.js'></script>
 <script src='/global/kits/socialBox/script.js'></script>

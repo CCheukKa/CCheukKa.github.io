@@ -1,9 +1,21 @@
 //!
-const useHTML = false;
+const useHTML = true;
 const debugOutline = false;
 //!
-if (debugOutline) {
-    document.head.innerHTML = document.head.innerHTML.concat(`<style>*{outline: 1px solid #ffffffbb;}</style>`);
+if (debugOutline) { toggleDebugOutline(); }
+//
+document.addEventListener('load', () => {
+    killPreload();
+});
+//
+function toggleDebugOutline() {
+    let element = document.getElementById("debugOutline");
+    if (element) {
+        element.parentNode.removeChild(element);
+    } else {
+        document.head.innerHTML = document.head.innerHTML.concat(`<style id="debugOutline">*{outline: 1px solid #ffffffbb;}</style>`);
+    }
+    return;
 }
 //
 const currentPageFile = window.location.pathname.split('/').pop().split('.html')[0];
@@ -41,4 +53,9 @@ function urlExists(url) {
 
 function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)];
+}
+
+function killPreload() {
+    document.body.classList.remove("preload");
+    return;
 }

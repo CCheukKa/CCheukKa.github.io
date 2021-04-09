@@ -1,4 +1,19 @@
+/* variables */
+
+:root {
+    --max-element-width: calc(100% - 16px);
+}
+
+
 /* meta */
+
+.preload {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -ms-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
 
 a {
     color: inherit;
@@ -17,6 +32,17 @@ a {
     background: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
     color: #d3cfca;
     z-index: -10;
+    margin: 8px;
+    padding: 0;
+}
+
+* {
+    transition: all 0.3s;
+}
+
+.page>div {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .vertical-center {
@@ -24,6 +50,18 @@ a {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.shadow {
+    margin: 0;
+    padding: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.flex-ignore {
+    position: absolute;
 }
 
 
@@ -38,11 +76,9 @@ a {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    outline: none;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1;
-    width: calc(100% - 40px);
     height: fit-content;
     justify-content: space-between;
     align-items: center;
@@ -79,14 +115,16 @@ a {
 
 .titleCard {
     margin: 8px auto;
-    padding: 32px;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
     padding-top: 25px;
     text-align: center;
     border-radius: 12px;
     background-color: #2c3035;
     display: flex;
     justify-content: space-between;
-    max-width: 80%;
+    width: 80%;
 }
 
 .titleCard>div {
