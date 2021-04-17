@@ -51,12 +51,6 @@
             "link": "https://www.linkedin.com/in/ccheukka/",
             "title": "My LinkedIn profile",
             "withheld": false
-        }, {
-            "refName": "lichess",
-            "link": "https://lichess.org/@/CCheukKa",
-            "title": "My Lichess profile",
-            "withheld": true
         }
-
     ]
 }
