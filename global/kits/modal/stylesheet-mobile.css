@@ -2,7 +2,7 @@
     overflow: hidden
 }
 
-.modal {
+#myModal {
     position: fixed;
     top: 0;
     right: 0;
@@ -13,7 +13,7 @@
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
     width: 90vw;
-    margin: 0 auto;
+    margin: auto;
     padding: 16px;
 }
 
@@ -89,7 +89,7 @@
     line-height: 1.42857143;
     font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    font-size: 50pt;
+    font-size: 10vw;
     font-weight: bolder, bold, 300;
     color: #d3cfca;
 }
@@ -99,10 +99,10 @@
     padding: 15px;
     font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bolder, bold, 300;
-    font-size: 40pt;
+    font-size: 7vw;
     color: #d3cfca;
-    padding-left: 25px;
-    padding-right: 20px;
+    padding-left: 15px;
+    padding-right: 10px;
 }
 
 .modal-footer {
@@ -178,7 +178,7 @@
     font-family: 'Catamaran', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #d3cfca;
     font-weight: bolder, bold, 300;
-    font-size: 40pt;
+    font-size: 7vw;
     padding-top: 10px;
     padding-bottom: 5px;
     padding-left: 15px;

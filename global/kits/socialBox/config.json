@@ -17,6 +17,11 @@
             "title": "My Github profile",
             "withheld": false
         }, {
+            "refName": "patreon",
+            "link": "https://www.patreon.com/CCheukKa",
+            "title": "My Patreon page",
+            "withheld": false
+        }, {
             "refName": "reddit",
             "link": "https://www.reddit.com/u/CCheukKa",
             "title": "My Reddit profile",
@@ -50,7 +55,7 @@
             "refName": "lichess",
             "link": "https://lichess.org/@/CCheukKa",
             "title": "My Lichess profile",
-            "withheld": false
+            "withheld": true
         }
 
     ]

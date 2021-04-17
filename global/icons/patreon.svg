@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg enable-background="new 0 0 24 24" height="512" viewBox="0 0 24 24" width="512" xmlns="http://www.w3.org/2000/svg">
+  <circle style="fill: rgb(247, 103, 84);" cx="12" cy="12" r="12"/>
+  <path d="M 4.058 4.407 L 6.844 4.407 L 6.844 19.593 L 4.058 19.593 Z" style="fill: rgb(0, 44, 73);"/>
+  <path d="M 14.253 4.407 C 11.104 4.407 8.545 6.964 8.545 10.108 C 8.545 13.244 11.104 15.792 14.253 15.792 C 17.392 15.792 19.942 13.24 19.942 10.108 C 19.942 6.964 17.391 4.407 14.253 4.407 Z" style="fill: rgb(255, 255, 255);"/>
+</svg>
