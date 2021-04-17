@@ -18,7 +18,7 @@ function socialBoxConstructor(links) {
     //
     socialBox.innerHTML = socialBox.innerHTML.concat(`<div id="socialBoxLinebreak" style="flex-basis: 120%; height:5%;"></div>`);
     //
-    for (let i = sLength; i < links.length; i++) {
+    for (let i = sLength; i < publicSites.length; i++) {
         createLogo(publicSites[i]);
     }
     addGhostSite(0);
