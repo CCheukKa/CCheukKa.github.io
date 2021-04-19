@@ -4,10 +4,21 @@ const debugOutline = false;
 //!
 if (debugOutline) { toggleDebugOutline(); }
 //
-document.addEventListener('load', () => {
-    killPreload();
+window.addEventListener('load', () => {
+    onLoadPage();
 });
 //
+(function(exports) {
+    var style = document.querySelector("head")
+        .appendChild(document.createElement("style"));
+
+    var styleSheet = document.styleSheets[document.styleSheets.length - 1];
+    styleSheet.insertRule("* {}", 0);
+
+    exports.universal = styleSheet.cssRules[0];
+}(window));
+//
+
 function toggleDebugOutline() {
     let element = document.getElementById("debugOutline");
     if (element) {
@@ -55,7 +66,7 @@ function pickRandom(list) {
     return list[Math.floor(Math.random() * list.length)];
 }
 
-function killPreload() {
-    document.body.classList.remove("preload");
+function onLoadPage() {
+    window.universal.style.transition = "all 0.3s";
     return;
 }

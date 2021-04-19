@@ -7,14 +7,6 @@
 
 /* meta */
 
-.preload {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -ms-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-}
-
 a {
     color: inherit;
     text-decoration: inherit;
@@ -34,10 +26,6 @@ a {
     z-index: -10;
     margin: 8px;
     padding: 0;
-}
-
-* {
-    transition: all 0.3s;
 }
 
 .page>div {
