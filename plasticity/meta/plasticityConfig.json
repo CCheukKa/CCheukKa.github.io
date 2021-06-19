@@ -22,6 +22,9 @@
         }, {
             "refName": "temporal-relativity",
             "displayName": "Temporal relativity"
+        }, {
+            "refName": "inactivity-email",
+            "displayName": "Inactivity email"
         }
     ]
 }
