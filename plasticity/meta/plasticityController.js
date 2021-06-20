@@ -22,6 +22,14 @@ function display(metadata, body) {
     document.getElementById('text-description').innerHTML = metadata.description.replaceAll('\n', '<br>');
     document.getElementById('text-content').innerHTML = body.replaceAll('\n', '<br>');
     document.getElementById('text-content').style.height = `calc(100vh - ${metadata.textContainerHeightOffset}px)`;
+    //
+    let date;
+    if (metadata.date) {
+        date = metadata.date;
+    } else {
+        date = 'missing/undocumented';
+    }
+    document.getElementById('written-date').innerHTML = `Written on: ${date}`;
     // success
     removeConstructionElement();
     return;
