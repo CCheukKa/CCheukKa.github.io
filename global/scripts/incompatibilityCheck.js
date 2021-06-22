@@ -1,4 +1,5 @@
 //! <script src="https://cdn.jsdelivr.net/npm/bowser@2.9.0/es5.js"></script>
+if (!useIncompatibilityWarning) { throw 'Incompatibility warning disabled'; }
 
 const compatibleBrowserList = [
     'Chrome',

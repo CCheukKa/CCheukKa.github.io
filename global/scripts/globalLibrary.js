@@ -1,6 +1,7 @@
 //!
 const useHTML = false;
 const debugOutline = false;
+const useIncompatibilityWarning = false;
 //!
 if (debugOutline) { toggleDebugOutline(); }
 //
