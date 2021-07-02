@@ -18,5 +18,8 @@
     "exception": [{
         "refName": "chess",
         "underConstruction": false
+    }, {
+        "refName": "advertisement",
+        "underConstruction": false
     }]
 }
