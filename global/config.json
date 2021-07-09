@@ -13,6 +13,10 @@
             "refName": "plasticity",
             "displayName": "Plasticity",
             "underConstruction": true
+        }, {
+            "refName": "curriculum-vitae",
+            "displayName": "CV",
+            "underConstruction": true
         }
     ],
     "exception": [{
