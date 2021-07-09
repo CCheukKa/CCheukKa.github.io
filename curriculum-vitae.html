@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/global/kits/projectShelf/stylesheet.css">
 
     <!--local exclusives-->
+    <link rel="stylesheet" href="/curriculum-vitae/stylesheet.css">
 
 </head>
 
@@ -38,8 +39,8 @@
         </div>
 
     </div>
-    <div style="display: flex; padding-left: 2%; padding-right: 2%; position: relative; top: -6.5px;">
-        <div class="titleCard" id="titleCard" style="padding-left: 2%; padding-right: 2%; padding-bottom: 3rem; height: fit-content; width: 50%; margin-top: 1%;">
+    <div class="structure-handler" style="padding-left: 2%; padding-right: 2%; position: relative; top: -6.5px;">
+        <div class="titleCard" id="titleCard" style="padding-left: 2%; padding-right: 2%; padding-bottom: 3rem; height: fit-content; margin-top: 14px;">
             <div style="width: 100%; margin-top: -25px; margin-bottom: -20px; width: 100%;">
                 <span class="title">CV</span>
                 <br>
@@ -51,9 +52,9 @@
                 </span>
             </div>
         </div>
-        <div class="project-wrapper" style="width: 100%; display: flex; justify-content: center;">
-            <div class="projectContainer" id="projectContainer" style="height: calc(100vh - 105px); width: 100%">
-                <embed src="/curriculum-vitae/CCheukKa Curriculum Vitae (reduced + redacted).pdf" width="100%" height="100%" style="border-radius: 16px;">
+        <div class="project-wrapper" style="width: 100%; display: flex; justify-content: center; margin-top: 14px;">
+            <div class="projectContainer" id="projectContainer" style="width: 100%">
+                <object data="/curriculum-vitae/CCheukKa Curriculum Vitae (reduced + redacted).pdf" onerror="replaceWithDownload();" type="application/pdf" width="100%" height="100%" style="border-radius: 16px;" frameborder="0">
             </div>
         </div>
     </div>
@@ -61,5 +62,6 @@
 
 <script src='/global/scripts/globalLibrary.js'></script>
 <script src='/global/scripts/headerController.js'></script>
+<script src='/curriculum-vitae/curriculum-vitae.js'></script>
 
 </html>
