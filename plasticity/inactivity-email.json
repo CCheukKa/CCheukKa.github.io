@@ -4,5 +4,5 @@
     "flavourText": "Auto-reply email for account inactivity",
     "description": "I thought it would be a good idea to write something for Google to auto-reply when my account inevitably becomes inacitve due to one reason or another. This email would be sent to whoever attempt to contact me after said account inactivity incident.",
     "date": "19 Jun 2021",
-    "textContainerHeightOffset": 313
+    "textContainerHeightOffset": 316
 }
