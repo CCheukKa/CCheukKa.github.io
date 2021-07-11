@@ -25,6 +25,9 @@
         }, {
             "refName": "inactivity-email",
             "displayName": "Inactivity email"
+        }, {
+            "refName": "bell-ring",
+            "displayName": "打鐘"
         }
     ]
 }
