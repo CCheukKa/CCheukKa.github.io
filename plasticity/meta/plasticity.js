@@ -14,7 +14,7 @@ function projectShelfConstructor(projects) {
             refName = project.refName;
 
 
-        const thumbnailURL = `/${refName}/thumbnail.png`;
+        const thumbnailURL = `/plasticity/${refName}/thumbnail.png`;
         let thumbnailExists = false;
         if (!useEmojiThumbnail) { thumbnailExists = urlExists(thumbnailURL); }
         widthTester.innerHTML = displayName;
@@ -29,7 +29,7 @@ function projectShelfConstructor(projects) {
         //! <div>
         let divOpen = `<div class="project-wrapper">`;
         //! <a>
-        let aOpen = `<a href=/${refName}`;
+        let aOpen = `<a href=/plasticity/${refName}`;
         if (project.openInNewTab) {
             aOpen += ` target="_blank"`;
         }
