@@ -12,9 +12,11 @@ function projectShelfConstructor(projects) {
         if (project.hideFromShelf) { return; }
         let displayName = project.displayName,
             refName = project.refName;
-        if (refName == "home") { return; }
+
+
         const thumbnailURL = `/${refName}/thumbnail.png`;
-        const thumbnailExists = urlExists(thumbnailURL);
+        let thumbnailExists = false;
+        if (!useEmojiThumbnail) { thumbnailExists = urlExists(thumbnailURL); }
         widthTester.innerHTML = displayName;
         if (useHTML) { refName = refName.concat('.html'); }
         //if (project.htmlInRoot) {
@@ -22,33 +24,70 @@ function projectShelfConstructor(projects) {
         //} else {
         //    pageURL = `/projects/${pathName}/${htmlName}`;
         //}
-        let innerHTML = '<div class="project-wrapper">';
+
+        //#region   //! Define tags
+        //! <div>
+        let divOpen = `<div class="project-wrapper">`;
+        //! <a>
+        let aOpen = `<a href=/${refName}`;
         if (project.openInNewTab) {
-            innerHTML += `<a href=/${refName} target="_blank">`;
-        } else {
-            innerHTML += `<a href=/${refName}>`;
+            aOpen += ` target="_blank"`;
         }
-        innerHTML += `<fieldset class="project"`;
-        if (project.underConstruction | !thumbnailExists) {
-            innerHTML += ` style="text-align: center;"><legend>`;
-        } else {
-            innerHTML += ` style="text-align: center; background-image: url('${thumbnailURL}');"><legend>`;
-        }
-        //#ANCHOR //! marquee is terrible, find an alternative
-        if (widthTester.clientWidth > 235) {
-            innerHTML += `<marquee>${displayName}</marquee>`;
-        } else {
-            innerHTML += `${displayName}`;
-        }
-        innerHTML += `</legend>`;
-        if (project.underConstruction) {
-            innerHTML += `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 30pt; text-shadow: 0px 0px 8px #ffffff;">🚧</span><br><span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: #f35858; text-shadow: 0px 0px 5px #000000;">Page under construction!</span>`;
-        } else {
-            if (!thumbnailExists) {
-                innerHTML += `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 30pt; text-shadow: 0px 0px 8px #ffffff;">${pickRandom(['😐','🙃','🥴','🤪','😵','🤔','🤨'])}</span><br><span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: #a6ed8d; text-shadow: 0px 0px 5px #000000;">Thumbnail missing</span>`;
+        aOpen += `>`;
+        //! <fieldset>
+        let fieldsetOpen = `<fieldset class="project" style="text-align: center;`;
+        if (!useEmojiThumbnail) {
+            if (!project.underConstruction && thumbnailExists) {
+                fieldsetOpen += ` background-image: url('${thumbnailURL}');`;
             }
         }
-        innerHTML += `</fieldset></a></div>`;
+        fieldsetOpen += `">`;
+        //! <legend></legend>
+        let legendInside = '';
+        if (widthTester.clientWidth > 235) {
+            legendInside = `<marquee>${displayName}</marquee>`;
+            //#ANCHOR //! marquee is terrible, find an alternative
+        } else {
+            legendInside = `${displayName}`;
+        }
+        //! <span></span>
+        let spanOpen1 = `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 30pt; text-shadow: 0px 0px 8px #ffffff;">`;
+        let spanInside1 = '';
+        let spanOpen2 = `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: #f35858; text-shadow: 0px 0px 5px #000000;">`;
+        let spanInside2 = '';
+        if (project.underConstruction) {
+            spanInside1 = `🚧`;
+            spanInside2 = `Page under construction!`;
+        } else {
+            if (!thumbnailExists) {
+                spanInside1 = pickRandom(['😐', '🙃', '🥴', '🤪', '😵', '🤔', '🤨']);
+                spanInside2 = `Thumbnail missing`;
+            }
+            if (project.emoji) {
+                spanInside1 = project.emoji;
+                spanInside2 = '';
+            }
+        }
+        //#endregion
+
+        let innerHTML = `
+            ${divOpen}
+                ${aOpen}
+                    ${fieldsetOpen}
+                        <legend>
+                            ${legendInside}
+                        </legend>
+                        ${spanOpen1}
+                            ${spanInside1}
+                        </span>
+                        <br>
+                        ${spanOpen2}
+                            ${spanInside2}
+                        </span>
+                    </fieldset>
+                </a>
+            </div>
+        `;
         projectContainer.innerHTML = projectContainer.innerHTML.concat(innerHTML);
     });
     widthTester.parentNode.removeChild(widthTester);

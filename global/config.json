@@ -3,29 +3,33 @@
             "refName": "home",
             "displayName": "🏠 Home",
             "underConstruction": false,
-            "hideFromShelf": false
+            "hideFromShelf": true
         },
         {
             "refName": "projects",
             "displayName": "Projects",
+            "emoji": "👨🏻‍💻",
             "underConstruction": false,
             "hideFromShelf": false
         },
         {
             "refName": "plasticity",
             "displayName": "Plasticity",
-            "underConstruction": true,
+            "emoji": "🗑️",
+            "underConstruction": false,
             "hideFromShelf": false
         }, {
             "refName": "curriculum-vitae",
             "displayName": "CV",
-            "underConstruction": true,
+            "emoji": "📜",
+            "underConstruction": false,
             "hideFromShelf": false
         }, {
             "refName": "github",
             "displayName": "Github ➹",
+            "emoji": "",
             "underConstruction": false,
-            "hideFromShelf": false
+            "hideFromShelf": true
         }
     ],
     "exception": [{

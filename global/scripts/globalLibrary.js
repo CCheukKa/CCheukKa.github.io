@@ -1,7 +1,8 @@
 //!
-const useHTML = false;
+const useHTML = true;
 const debugOutline = false;
 const useIncompatibilityWarning = false;
+const useEmojiThumbnail = true;
 //!
 if (debugOutline) { toggleDebugOutline(); }
 //
