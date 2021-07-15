@@ -53,15 +53,17 @@ function projectShelfConstructor(projects) {
         //! <span></span>
         let spanOpen1 = `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 30pt; text-shadow: 0px 0px 8px #ffffff;">`;
         let spanInside1 = '';
-        let spanOpen2 = `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: #f35858; text-shadow: 0px 0px 5px #000000;">`;
+        let spanOpen2 = `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: $COLOUR; text-shadow: 0px 0px 5px #000000;">`;
         let spanInside2 = '';
         if (project.underConstruction) {
             spanInside1 = `🚧`;
             spanInside2 = `Page under construction!`;
+            spanOpen2 = spanOpen2.replace('$COLOUR', '#f35858');
         } else {
             if (!thumbnailExists) {
-                spanInside1 = pickRandom(['😐', '🙃', '🥴', '🤪', '😵', '🤔', '🤨']);
+                spanInside1 = pickRandom(['😐', '🙃', '🥴', '🤪', '😵', '🤔', '🤨', '💀']);
                 spanInside2 = `Thumbnail missing`;
+                spanOpen2 = spanOpen2.replace('$COLOUR', '#a6ed8d');
             }
             if (project.emoji) {
                 spanInside1 = project.emoji;
