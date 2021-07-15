@@ -9,6 +9,7 @@ function projectShelfConstructor(projects) {
     widthTester.style.fontFamily = "'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
     //
     projects.forEach(project => {
+        if (project.hideFromShelf) { return; }
         let displayName = project.displayName,
             refName = project.refName;
         if (refName == "home") { return; }

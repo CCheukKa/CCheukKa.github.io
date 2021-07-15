@@ -2,21 +2,30 @@
     "catalogue": [{
             "refName": "home",
             "displayName": "🏠 Home",
-            "underConstruction": false
+            "underConstruction": false,
+            "hideFromShelf": false
         },
         {
             "refName": "projects",
             "displayName": "Projects",
-            "underConstruction": false
+            "underConstruction": false,
+            "hideFromShelf": false
         },
         {
             "refName": "plasticity",
             "displayName": "Plasticity",
-            "underConstruction": true
+            "underConstruction": true,
+            "hideFromShelf": false
         }, {
             "refName": "curriculum-vitae",
             "displayName": "CV",
-            "underConstruction": true
+            "underConstruction": true,
+            "hideFromShelf": false
+        }, {
+            "refName": "github",
+            "displayName": "Github ➹",
+            "underConstruction": false,
+            "hideFromShelf": false
         }
     ],
     "exception": [{
