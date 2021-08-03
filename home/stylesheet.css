@@ -108,7 +108,7 @@
     .titleCard {
         flex-wrap: wrap;
         justify-content: space-evenly;
-        width: 84.5%;
+        width: 85%;
     }
     .flex-ignore {
         position: inherit;
@@ -135,6 +135,15 @@
         margin-left: 2%;
         margin-right: 2%;
     }
+    .avatar-text {
+        top: 0;
+    }
+    .email-container {
+        top: 0;
+    }
+    .projectContainer {
+        width: 95%;
+    }
 }
 
 @media only screen and (max-width: 1150px) and (min-width: 561px) {
@@ -148,31 +157,29 @@
 
 @media only screen and (max-width: 970px) {
     .titleCard {
-        width: var(--max-element-width);
-        padding-left: 8px;
-        padding-right: 8px;
+        width: calc(var(--max-element-width) - 16px);
     }
     .projectContainer {
-        width: 100%;
+        width: var(--max-element-width);
     }
 }
 
 @media only screen and (max-width: 810px) {
     .avatar-text {
         position: absolute;
-        opacity: 0%;
+        display: none;
     }
     .description-text {
         position: absolute;
-        opacity: 0%;
+        display: none;
     }
     .full-name {
         position: absolute;
-        opacity: 0%;
+        display: none;
     }
     .name-container>span:first-child {
         position: absolute;
-        opacity: 0%;
+        display: none;
     }
     .name-container>span:last-child {
         position: absolute;
