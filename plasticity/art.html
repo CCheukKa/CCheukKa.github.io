@@ -30,34 +30,40 @@
 
 <body class="page">
     <div class="header" id="header">
-        <div class="headerTitle">
+        <div class="headerTitle" id="title">
             <a href="/home">CCheukKa's Site</a> / <a href="/plasticity">plasticity</a> / <a href="" class="bold underline" id="title-small">.</a>
         </div>
-
         <div class="headerCatalogue" id="catalogue">
             <!--Catalogue items added programmatically-->
         </div>
-
-    </div>
-    <div class="titleCard" id="titleCard">
-        <div style="width: 100%; margin-top: -25px; margin-bottom: -20px;">
-            <span class="title" id="text-title"></span>
-            <br>
-            <span class="flavour-text" id="text-flavourText"></span>
-        </div>
-
-        <div class="description-wrapper" style="text-align: left; margin-left: 25px; margin-right: -5px;">
-            <span class="description" id="text-description"></span>
+        <div class="headerDropdown" id="dropdown">
+            <div class="menu-icon" id="menu-icon"></div>
+            <div class="dropdownMenu" id="dropdownMenu">
+                <!-- To be filled in programmatically -->
+            </div>
         </div>
     </div>
-    <div style="display:flex; justify-content:center;">
-        <span class="description" id="written-date">
+    <div class="main">
+        <div class="titleCard" id="titleCard">
+            <div style="width: 100%; margin-top: -25px; margin-bottom: -20px;">
+                <span class="title" id="text-title"></span>
+                <br>
+                <span class="flavour-text" id="text-flavourText"></span>
+            </div>
+
+            <div class="description-wrapper" style="text-align: left; margin-left: 25px; margin-right: -5px;">
+                <span class="description" id="text-description"></span>
+            </div>
+        </div>
+        <div style="display:flex; justify-content:center;">
+            <span class="description" id="written-date">
             <!--Date added programmatically-->
         </span>
-    </div>
-    <div style="width: 100%; display: flex; justify-content: center;">
-        <div class="textContainer" id="text-content">
-            <!--Create these programmatically-->
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <div class="textContainer" id="text-content">
+                <!--Create these programmatically-->
+            </div>
         </div>
     </div>
 </body>
@@ -65,5 +71,8 @@
 <script src='/global/scripts/globalLibrary.js'></script>
 <script src='/global/scripts/headerController.js'></script>
 <script src='/plasticity/meta/plasticityController.js'></script>
+<script src='/global/kits/dropdownMenu/script.js'></script>
+<script src='/global/scripts/globalResizeHandler.js'></script>
+
 
 </html>
