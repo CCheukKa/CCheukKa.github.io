@@ -1,11 +1,12 @@
 const catalogueElement = document.getElementById('catalogue');
+const dropdownMenuElement = document.getElementById('dropdownMenu');
 
 document.getElementsByClassName("headerTitle")[0].style.whiteSpace = 'nowrap';
 getGlobalConfig().then(config => main(config));
 
 //
 function main(config) {
-    buildCatalogue(config.catalogue);
+    buildNavigation(config.catalogue);
     constructionSign(config.catalogue);
     handleExceptions(config.exception);
     return;
@@ -33,7 +34,7 @@ function removeConstructionElement() {
     return;
 }
 
-function buildCatalogue(catalogue) {
+function buildNavigation(catalogue) {
     let establishedThisPage = false;
     //
     let separator = document.createElement('span');
@@ -55,6 +56,11 @@ function buildCatalogue(catalogue) {
         }
         catalogueElement.appendChild(newSpan);
         catalogueElement.appendChild(separator.cloneNode(true));
+        //
+        let newDiv = document.createElement('div');
+        newDiv.className = newSpan.className;
+        newDiv.appendChild(newSpan.childNodes[0].cloneNode(true));
+        dropdownMenuElement.appendChild(newDiv);
     });
 
     if (!establishedThisPage) {

@@ -30,31 +30,38 @@
 
 <body class="page">
     <div class="header" id="header">
-        <div class="headerTitle">
+        <div class="headerTitle" id="title">
             <a href="/home">CCheukKa's Site</a> / <a href="" class="bold underline">projects</a>
         </div>
         <div class="headerCatalogue" id="catalogue">
             <!--Catalogue items added programmatically-->
         </div>
-
-    </div>
-    <div class="titleCard" id="titleCard">
-        <div style="width: 100%; margin-top: -25px; margin-bottom: -20px;">
-            <span class="title">Projects</span>
-            <br>
-            <span class="flavour-text">Some random coding projects I have done in the past</span>
+        <div class="headerDropdown" id="dropdown">
+            <div class="menu-icon" id="menu-icon"></div>
+            <div class="dropdownMenu" id="dropdownMenu">
+                <!-- To be filled in programmatically -->
+            </div>
         </div>
+    </div>
+    <div class="main">
+        <div class="titleCard" id="titleCard">
+            <div style="width: 100%; margin-top: -25px; margin-bottom: -20px;">
+                <span class="title">Projects</span>
+                <br>
+                <span class="flavour-text">Some random coding projects I have done in the past</span>
+            </div>
 
-        <div class="description-wrapper" style="text-align: left; margin-left: 25px; margin-right: -5px;">
-            <span class="description">
+            <div class="description-wrapper" style="text-align: left; margin-left: 25px; margin-right: -5px;">
+                <span class="description">
                 This is only the tip of the iceburg.
                 Check out <a href="https://github.com/CCheukKa/random-small-code" target="_blank" class="bold underline" style="color: #faf8f5;">my github page</a> for more!
             </span>
+            </div>
         </div>
-    </div>
-    <div class="project-wrapper" style="width: 100%; display: flex; justify-content: center;">
-        <div class="projectContainer" id="projectContainer" style="height: calc(100vh - 260px);">
-            <!--Create these programmatically-->
+        <div class="project-wrapper" style="width: 100%; display: flex; justify-content: center;">
+            <div class="projectContainer" id="projectContainer" style="height: calc(100vh - 260px);">
+                <!--Create these programmatically-->
+            </div>
         </div>
     </div>
 </body>
@@ -62,5 +69,7 @@
 <script src='/global/scripts/globalLibrary.js'></script>
 <script src='/global/scripts/headerController.js'></script>
 <script src='/projects/projects.js'></script>
+<script src='/global/kits/dropdownMenu/script.js'></script>
+<script src='/global/scripts/globalResizeHandler.js'></script>
 
 </html>
