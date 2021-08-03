@@ -71,7 +71,7 @@ function buildNavigation(catalogue) {
     } else {
         catalogueElement.removeChild(catalogueElement.lastElementChild);
     }
-    return;
+    resizeHandler();
 }
 
 function handleExceptions(exception) {

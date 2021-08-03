@@ -9,7 +9,6 @@
 
 
     function resizeHandler() {
-
         //! Header
         catalogueElement.hidden = false;
         dropdownElement.hidden = true;
