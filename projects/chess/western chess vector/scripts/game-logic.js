@@ -31,7 +31,7 @@ const moveManager = {
         //
         drawSelectedIndicator(x, y, index);
         //
-        console.log('Drag start', this.moveEvent);
+        // console.log('Drag start', this.moveEvent);
     },
 
     deselect: function(x, y, index = y * 8 + x) {
@@ -44,7 +44,7 @@ const moveManager = {
         e.end.index = index;
         e.end.ref = board[index];
         //
-        console.log('Drag end', this.moveEvent);
+        // console.log('Drag end', this.moveEvent);
         this.move();
         killIndicator();
         redrawChess();
@@ -67,7 +67,7 @@ const moveManager = {
         if (Math.sign(e.start.ref) == Math.sign(e.end.ref)) { return false; }
         //
         const deltaIndex = e.end.index - e.start.index;
-        console.log(deltaIndex);
+        // console.log(deltaIndex);
         switch (Math.abs(e.start.ref)) {
             case 1: //! Pawn
                 return this.checker.pawn(e);
@@ -95,25 +95,60 @@ const moveManager = {
         return true;
     },
     checker: {
-        pawn: function(e) {
-            //TODO:
+        //!
+        pawn: function(e) { //TODO:
             return true;
         },
+        //!
         knight: function(deltaIndex) {
             let ad = Math.abs(deltaIndex);
             return (ad == 6 | ad == 10 | ad == 15 | ad == 17);
         },
-        bishop: function(e) { //TODO: Obstacle check
-            if (Math.abs(e.start.x - e.end.x) == Math.abs(e.start.y - e.end.y)) { return true; }
-            return false;
+        //!
+        bishop: function(e) {
+            if (Math.abs(e.start.x - e.end.x) != Math.abs(e.start.y - e.end.y)) { return false; }
+            let valid = true;
+            const setX = [e.start.x, e.end.x];
+            const setY = [e.start.y, e.end.y];
+            let x = Math.min(...setX) + 1;
+            for (let y = Math.min(...setY) + 1; y < Math.max(...setY); y++) {
+                // console.log(x, y);
+                if (board[xyToIndex(x, y)] != 0) {
+                    valid = false;
+                    break;
+                }
+                x++;
+            }
+            return valid;
         },
-        rook: function(e) { //TODO: Obstacle check
-            if (e.start.x == e.end.x | e.start.y == e.end.y) { return true; }
-            return false;
+        //!
+        rook: function(e) {
+            if (e.start.x != e.end.x && e.start.y != e.end.y) { return false; }
+            let valid = true;
+            if (e.start.x == e.end.x) { // same X
+                const set = [e.start.y, e.end.y];
+                for (let y = Math.min(...set) + 1; y < Math.max(...set); y++) {
+                    if (board[xyToIndex(e.start.x, y)] != 0) {
+                        valid = false;
+                        break;
+                    }
+                }
+            } else { // same Y
+                const set = [e.start.x, e.end.x];
+                for (let x = Math.min(...set) + 1; x < Math.max(...set); x++) {
+                    if (board[xyToIndex(x, e.start.y)] != 0) {
+                        valid = false;
+                        break;
+                    }
+                }
+            }
+            return valid;
         },
+        //!
         queen: function(e) {
             return this.bishop(e) | this.rook(e);
         },
+        //!
         king: function(deltaIndex) { //TODO: Check check
             let ad = Math.abs(deltaIndex);
             return (ad == 1 | ad == 7 | ad == 8 | ad == 9);
