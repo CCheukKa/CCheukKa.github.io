@@ -1,6 +1,5 @@
-function refresh() {
-    s.innerHTML = s.innerHTML;
-    i.innerHTML = i.innerHTML;
+function refresh(board) {
+    board.innerHTML = board.innerHTML;
 }
 
 function drawPiece(board = s, x = -1, y = -1, path = '', isWhite = (path.split('/').reverse()[1] == 'white')) {
@@ -33,7 +32,6 @@ function drawChess() {
             const path = piecesMixedArray[board[y * 8 + x] + 6];
             const isWhite = (board[y * 8 + x] > 0);
             drawPiece(s, x, y, path, isWhite);
-            drawPiece(i, x, y, path, isWhite);
         }
     }
 }
@@ -53,7 +51,7 @@ function drawRect(board = s, x, y, width, height, style = '', rx = 0, ry = rx, b
     }
     //
     if (back) {
-        board.insertBefore(t, s.firstChild);
+        board.insertBefore(t, board.firstChild);
     } else {
         board.appendChild(t);
     }

@@ -1,19 +1,21 @@
 function redrawChess() {
     killPieces();
     drawChess();
-    refresh();
+    refresh(s);
+    refresh(i);
 }
 
 function drawSelectedIndicator() {
+    const piece = moveManager.moveEvent.start;
     killIndicator();
     drawRect(
         i,
-        (selectedPiece.x + 0.05) * tileSize, (selectedPiece.y + 0.05) * tileSize,
+        (piece.x + 0.05) * tileSize, (piece.y + 0.05) * tileSize,
         tileSize * 0.9, tileSize * 0.9,
-        'fill: green; opacity: 0.5; stroke: blue; stroke-width: 5',
+        '',
         20, 20, true, { class: 'indicator' }
     );
-    refresh();
+    refresh(i);
 }
 
 function killIndicator() {

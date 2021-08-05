@@ -27,6 +27,13 @@ body {
     background-image: url('./assets/boards/brown.svg');
 }
 
-.indicator-board>image {
+.ghost {
+    opacity: 0.6;
+}
+
+.indicator {
     opacity: 0.4;
+    fill: green;
+    stroke: blue;
+    stroke-width: 5
 }

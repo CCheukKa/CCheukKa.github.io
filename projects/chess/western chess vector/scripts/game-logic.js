@@ -29,6 +29,8 @@ const moveManager = {
         e.start.index = index;
         e.start.ref = board[index];
         //
+        drawSelectedIndicator(x, y, index);
+        //
         console.log('Drag start', this.moveEvent);
     },
 
@@ -44,26 +46,77 @@ const moveManager = {
         //
         console.log('Drag end', this.moveEvent);
         this.move();
+        killIndicator();
         redrawChess();
     },
-    move: function() {
-        const e = this.moveEvent;
+    move: function(e = this.moveEvent) {
         // logic check
         if (!this.legalityCheck()) {
             //! Move failed
             return false;
         }
         //! Move succeeded
+        // isWhiteTurn = !isWhiteTurn; //TODO:
         board[e.end.index] = e.start.ref;
         board[e.start.index] = 0;
     },
 
-    legalityCheck: function() {
-        const e = this.moveEvent;
+    legalityCheck: function(e = this.moveEvent) {
         //
         if (e.start.index == e.end.index) { return false; }
         if (Math.sign(e.start.ref) == Math.sign(e.end.ref)) { return false; }
         //
+        const deltaIndex = e.end.index - e.start.index;
+        console.log(deltaIndex);
+        switch (Math.abs(e.start.ref)) {
+            case 1: //! Pawn
+                return this.checker.pawn(e);
+                //
+            case 2: //! Knight
+                return this.checker.knight(deltaIndex);
+                //
+            case 3: //! Bishop
+                return this.checker.bishop(e);
+                //
+            case 4: //! Rook
+                return this.checker.rook(e);
+                //
+            case 5: //! Queen
+                return this.checker.queen(e);
+                //
+            case 6: //! King
+                return this.checker.king(deltaIndex);
+                //
+            default:
+                console.log(`wtf is this piece: ${e.start.ref}`);
+                return false;
+        }
+        //
         return true;
+    },
+    checker: {
+        pawn: function(e) {
+            //TODO:
+            return true;
+        },
+        knight: function(deltaIndex) {
+            let ad = Math.abs(deltaIndex);
+            return (ad == 6 | ad == 10 | ad == 15 | ad == 17);
+        },
+        bishop: function(e) { //TODO: Obstacle check
+            if (Math.abs(e.start.x - e.end.x) == Math.abs(e.start.y - e.end.y)) { return true; }
+            return false;
+        },
+        rook: function(e) { //TODO: Obstacle check
+            if (e.start.x == e.end.x | e.start.y == e.end.y) { return true; }
+            return false;
+        },
+        queen: function(e) {
+            return this.bishop(e) | this.rook(e);
+        },
+        king: function(deltaIndex) { //TODO: Check check
+            let ad = Math.abs(deltaIndex);
+            return (ad == 1 | ad == 7 | ad == 8 | ad == 9);
+        }
     }
 }

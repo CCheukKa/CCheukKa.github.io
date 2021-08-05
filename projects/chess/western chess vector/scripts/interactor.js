@@ -4,7 +4,8 @@
 
 function startDrag(e) {
     if (e.target.classList.contains(draggableClass())) {
-        selectedElement = e.target;
+        selectedElement = s.appendChild(e.target.cloneNode());
+        e.target.classList.add('ghost');
         const x = Math.floor(e.offsetX / tileSize);
         const y = Math.floor(e.offsetY / tileSize);
         const index = y * 8 + x;
