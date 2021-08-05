@@ -3,8 +3,30 @@ body {
     text-align: center;
 }
 
-.board {
+.game-container {
+    position: relative;
     margin: 20px;
-    background-image: url('./assets/boards/brown.svg');
+    /* outline: blue 1px solid; */
+}
+
+.game-container>svg {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 0;
+}
+
+.board {
+    right: 0;
+    z-index: 100;
     cursor: pointer;
+}
+
+.indicator-board {
+    z-index: 99;
+    background-image: url('./assets/boards/brown.svg');
+}
+
+.indicator-board>image {
+    opacity: 0.4;
 }

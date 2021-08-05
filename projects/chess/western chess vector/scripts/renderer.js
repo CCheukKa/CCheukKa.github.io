@@ -7,6 +7,7 @@ function redrawChess() {
 function drawSelectedIndicator() {
     killIndicator();
     drawRect(
+        i,
         (selectedPiece.x + 0.05) * tileSize, (selectedPiece.y + 0.05) * tileSize,
         tileSize * 0.9, tileSize * 0.9,
         'fill: green; opacity: 0.5; stroke: blue; stroke-width: 5',

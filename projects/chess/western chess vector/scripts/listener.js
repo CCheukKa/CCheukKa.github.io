@@ -1,4 +1,4 @@
 window.addEventListener('load', redrawChess());
-s.addEventListener('click', e => click(Math.floor(e.offsetX / tileSize), Math.floor(e.offsetY / tileSize)));
-// s.addEventListener('mousemove', e => mouseMove(e.offsetX, e.offsetY));
-//
+s.addEventListener('mousedown', e => startDrag(e));
+s.addEventListener('mousemove', e => drag(e));
+s.addEventListener('mouseup', e => endDrag(e));

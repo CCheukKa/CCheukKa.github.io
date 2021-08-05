@@ -1,4 +1,6 @@
 const s = document.getElementById('board');
+const i = document.getElementById('indicator-board');
+const gameContainer = document.getElementById('game-container');
 const pieces = {
     white: {
         pawn: './assets/pieces/white/pawn.svg',
@@ -69,6 +71,10 @@ const width = tileSize * 8;
 const height = tileSize * 8;
 s.style.width = width;
 s.style.height = height;
+i.style.width = width;
+i.style.height = height;
+gameContainer.style.width = `${width}px`;
+gameContainer.style.height = `${height}px`;
 const boardInit = [
 
     -4, -2, -3, -5, -6, -3, -2, -4,

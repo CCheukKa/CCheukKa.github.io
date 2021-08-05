@@ -7,7 +7,10 @@
 </head>
 
 <body>
-    <svg id="board" class="board" onload="makeDraggable(evt);"></svg>
+    <div id="game-container" class="game-container">
+        <svg id="indicator-board" class="indicator-board"></svg>
+        <svg id="board" class="board"></svg>
+    </div>
 </body>
 
 <script src="scripts/debugger.js "></script>
@@ -17,5 +20,6 @@
 <script src="scripts/listener.js "></script>
 <script src="scripts/game-logic.js "></script>
 <script src="scripts/visualiser.js "></script>
+<script src="scripts/interactor.js "></script>
 
 </html>
