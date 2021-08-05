@@ -1,0 +1,10 @@
+body {
+    background-color: #202022;
+    text-align: center;
+}
+
+.board {
+    margin: 20px;
+    background-image: url('./assets/boards/brown.svg');
+    cursor: pointer;
+}
