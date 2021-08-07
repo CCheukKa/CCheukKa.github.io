@@ -70,7 +70,7 @@ const moveManager = {
         // console.log(deltaIndex);
         switch (Math.abs(e.start.ref)) {
             case 1: //! Pawn
-                return this.checker.pawn(e);
+                return this.checker.pawn(e, deltaIndex);
                 //
             case 2: //! Knight
                 return this.checker.knight(deltaIndex);
@@ -91,13 +91,35 @@ const moveManager = {
                 console.log(`wtf is this piece: ${e.start.ref}`);
                 return false;
         }
-        //
-        return true;
     },
-    checker: {
+    checker: { // TODO: Check check
         //!
-        pawn: function(e) { //TODO:
-            return true;
+        pawn: function(e, deltaIndex) { //TODO: promotion
+            if (e.start.ref == 1) { // white
+                switch (deltaIndex) {
+                    case -16:
+                        return (e.start.y == 6 && board[e.start.index - 8] == 0);
+                    case -8:
+                        return (board[e.end.index] == 0);
+                    case -7:
+                    case -9:
+                        return (board[e.end.index] < 0);
+                    default:
+                        return false;
+                }
+            } else { // black
+                switch (deltaIndex) {
+                    case 16:
+                        return (e.start.y == 1 && board[e.start.index + 8] == 0);
+                    case 8:
+                        return (board[e.end.index] == 0);
+                    case 7:
+                    case 9:
+                        return (board[e.end.index] > 0);
+                    default:
+                        return false;
+                }
+            }
         },
         //!
         knight: function(deltaIndex) {
@@ -149,7 +171,7 @@ const moveManager = {
             return this.bishop(e) | this.rook(e);
         },
         //!
-        king: function(deltaIndex) { //TODO: Check check
+        king: function(deltaIndex) {
             let ad = Math.abs(deltaIndex);
             return (ad == 1 | ad == 7 | ad == 8 | ad == 9);
         }
