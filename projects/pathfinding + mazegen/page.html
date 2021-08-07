@@ -1,0 +1,217 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <style>
+        h1 {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: x-large;
+        }
+        
+        label {
+            font-weight: bold;
+            font-size: large;
+        }
+        
+        .separator {
+            width: 2%;
+        }
+        
+        .sizeAdjustButton {
+            background: linear-gradient(to bottom, #89afe7 5%, #7bbfda 100%);
+            background-color: #449dc7;
+            border-radius: 42px;
+            border: 0px;
+            display: inline-block;
+            cursor: pointer;
+            color: #000000;
+            font-family: 'Trebuchet MS';
+            font-size: medium;
+            font-weight: bold;
+            padding: 0px 4px;
+            text-decoration: none;
+            text-shadow: 0px 1px 18px #000000;
+        }
+        
+        .sizeAdjustButton:hover {
+            background: linear-gradient(to top, #7dbed8 5%, #5276af 100%);
+            color: #ffffff;
+            background-color: #2ab1f0;
+        }
+        
+        .sizeAdjustButton:active {
+            position: relative;
+            top: 1px;
+        }
+        
+        .dropbtn {
+            background-color: #3498DB;
+            color: #000000;
+            padding: 16px;
+            font-size: 16px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: bolder;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #2980B9;
+            color: #ffffff;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #eef8ff;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            min-width: 100%;
+            max-width: 100%;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: #252525;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover {
+            cursor: pointer;
+        }
+        
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+        
+        .show {
+            display: block;
+        }
+        
+        .noselect {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body style="background-color: #202020; color: #d4dbdd;" class="noselect">
+
+    <div>
+        <table>
+            <tr>
+                <th>
+                    <h1>X: </h1>
+                </th>
+                <th>
+                    <button id="X-5" class="sizeAdjustButton">-5</button>
+                </th>
+                <th>
+                    <button id="X-1" class="sizeAdjustButton">-1</button>
+                </th>
+                <th>
+                    <h1 id="XText">placeholder</h1>
+                </th>
+                <th>
+                    <button id="X+1" class="sizeAdjustButton">+1</button>
+                </th>
+                <th>
+                    <button id="X+5" class="sizeAdjustButton">+5</button>
+                </th>
+
+                <th class="separator">|</th>
+                <th>
+                    <h1>Y: </h1>
+                </th>
+                <th>
+                    <button id="Y-5" class="sizeAdjustButton">-5</button>
+                </th>
+                <th>
+                    <button id="Y-1" class="sizeAdjustButton">-1</button>
+                </th>
+                <th>
+                    <h1 id="YText">placeholder</h1>
+                </th>
+                <th>
+                    <button id="Y+1" class="sizeAdjustButton">+1</button>
+                </th>
+                <th>
+                    <button id="Y+5" class="sizeAdjustButton">+5</button>
+                </th>
+
+                <th class="separator">|</th>
+                <th>
+                    <h1>Size: </h1>
+                </th>
+                <th>
+                    <button id="tileSize-10" class="sizeAdjustButton">-10</button>
+                </th>
+                <th>
+                    <h1 id="tileSizeText">placeholder</h1>
+                </th>
+                <th>
+                    <button id="tileSize+10" class="sizeAdjustButton">+10</button>
+                </th>
+                <th class="separator">|</th>
+                <th>
+                    <label for="pathfindingAlgorithmList" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Pathfinding Algorithm:</label>
+                    <select name="Pathfinding Algorithms" id="pathfindingAlgorithmList">
+                            <option value="0" selected>A*</option>
+                            <option value="1">Dijkstra</option>
+                            <option value="2">Greedy</option>
+                            <option value="3">Depth First Search</option>
+                            <option value="4">Breadth First Search</option>
+                        </select>
+                </th>
+                <th class="separator">|</th>
+                <th>
+                    <input type="checkbox" id="gridCheckbox">
+                    <label for="gridCheckbox" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Gridlines?</label>
+                </th>
+                <th class="separator">|</th>
+                <th>
+                    <input type="checkbox" id="diagonalCheckbox">
+                    <label for="diagonalCheckbox" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">Diagonal movement?</label>
+                </th>
+                <th class="separator">|</th>
+                <th>
+                    <div class="dropdown">
+                        <button onclick="toggleDropdown()" class="dropbtn">Generate Maze</button>
+                        <div id="dropdownMazeGeneration" class="dropdown-content">
+                            <a onclick="generateMaze(0)">Binary tree</a>
+                            <a onclick="generateMaze(1)">Depth First Search</a>
+                            <a onclick="generateMaze(2)">Kruskal's</a>
+                            <a onclick="generateMaze(3)">Prim's</a>
+                            <a onclick="generateMaze(4)">Recursive Division</a>
+                            <a onclick="generateMaze(5)">Sidewinder</a>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+
+        </table>
+    </div>
+    <div style="text-align: center; margin: auto; font-weight: bolder; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        LMB: Draw wall⠀⠀⠀⠀RMB: Erase⠀⠀⠀⠀Shift + LMB: Starting node⠀⠀⠀⠀Shift + RMB: Ending node⠀⠀⠀⠀C/Delete: Wipe tiles⠀⠀⠀⠀Space: Invert tiles
+    </div>
+    <canvas id="myCanvas" style="border:10px solid #404040; display:block; margin: auto;"></canvas>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

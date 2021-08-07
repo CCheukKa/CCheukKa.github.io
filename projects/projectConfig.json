@@ -2,7 +2,7 @@
     "projects": [{
             "pathName": "pathfinding + mazegen",
             "displayName": "Pathfind + MazeGen",
-            "htmlName": "compiled",
+            "htmlName": "page",
             "htmlInRoot": false,
             "directToReadme": false,
             "openInNewTab": true
@@ -10,7 +10,7 @@
         {
             "pathName": "snake",
             "displayName": "Snake",
-            "htmlName": "compiled",
+            "htmlName": "page",
             "htmlInRoot": false,
             "directToReadme": false,
             "openInNewTab": true
@@ -18,7 +18,7 @@
         {
             "pathName": "tetris",
             "displayName": "Tetris",
-            "htmlName": "compiled",
+            "htmlName": "page",
             "htmlInRoot": false,
             "directToReadme": false,
             "openInNewTab": true
