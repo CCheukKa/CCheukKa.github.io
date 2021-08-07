@@ -134,16 +134,18 @@ const moveManager = {
         bishop: function(e) {
             if (Math.abs(e.start.x - e.end.x) != Math.abs(e.start.y - e.end.y)) { return false; }
             let valid = true;
-            const setX = [e.start.x, e.end.x];
-            const setY = [e.start.y, e.end.y];
-            let x = Math.min(...setX) + 1;
-            for (let y = Math.min(...setY) + 1; y < Math.max(...setY); y++) {
+            let x = e.start.x,
+                y = e.start.y;
+            let xDirection = Math.sign(e.end.x - e.start.x),
+                yDirection = Math.sign(e.end.y - e.start.y);
+            for (let i = 1; i < Math.abs(e.start.x - e.end.x); i++) { // only the squares in-between exclusively
+                x += xDirection;
+                y += yDirection;
                 // console.log(x, y);
-                if (board[xyToIndex(x, y)] != 0) {
+                if (board[xyToIndex(x, y)] != 0) { // obstacle?
                     valid = false;
                     break;
                 }
-                x++;
             }
             return valid;
         },
