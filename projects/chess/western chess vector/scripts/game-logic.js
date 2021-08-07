@@ -114,7 +114,11 @@ const moveManager = {
                     // f(-1) = 1
                     //
                     // It's just a more optimised way of doing the test
-                    return (e.start.y == (2.5 * colour + 3.5) && board[e.start.index - 8 * colour] == 0);
+                    return (
+                        e.start.y == (2.5 * colour + 3.5) &&
+                        board[e.start.index - 8 * colour] == 0 &&
+                        board[e.start.index - 16 * colour] == 0
+                    );
                 case -8:
                     return (board[e.end.index] == 0);
                 case -7:
