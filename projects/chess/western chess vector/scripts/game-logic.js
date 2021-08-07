@@ -56,7 +56,7 @@ const moveManager = {
             return false;
         }
         //! Move succeeded
-        // isWhiteTurn = !isWhiteTurn; //TODO:
+        isWhiteTurn = !isWhiteTurn;
         board[e.end.index] = e.start.ref;
         board[e.start.index] = 0;
     },
@@ -95,30 +95,23 @@ const moveManager = {
     checker: { // TODO: Check check
         //!
         pawn: function(e, deltaIndex) { //TODO: promotion
-            if (e.start.ref == 1) { // white
-                switch (deltaIndex) {
-                    case -16:
-                        return (e.start.y == 6 && board[e.start.index - 8] == 0);
-                    case -8:
-                        return (board[e.end.index] == 0);
-                    case -7:
-                    case -9:
-                        return (board[e.end.index] < 0);
-                    default:
-                        return false;
-                }
-            } else { // black
-                switch (deltaIndex) {
-                    case 16:
-                        return (e.start.y == 1 && board[e.start.index + 8] == 0);
-                    case 8:
-                        return (board[e.end.index] == 0);
-                    case 7:
-                    case 9:
-                        return (board[e.end.index] > 0);
-                    default:
-                        return false;
-                }
+            const colour = e.start.ref;
+            switch (deltaIndex * colour) {
+                case -16:
+                    // f(x) 2.5x + 3.5
+                    //
+                    // f(1) = 6
+                    // f(-1) = 1
+                    //
+                    // It's just a more optimised way of doing the test
+                    return (e.start.y == (2.5 * colour + 3.5) && board[e.start.index - 8 * colour] == 0);
+                case -8:
+                    return (board[e.end.index] == 0);
+                case -7:
+                case -9:
+                    return !(Math.sign(board[e.end.index]) == colour);
+                default:
+                    return false;
             }
         },
         //!
