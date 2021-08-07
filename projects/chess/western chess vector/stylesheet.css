@@ -1,3 +1,12 @@
+:root {
+    --green: #176417;
+    --translucent: 0.4;
+}
+
+.translucent {
+    opacity: var(--translucent);
+}
+
 body {
     background-color: #202022;
     text-align: center;
@@ -32,8 +41,18 @@ body {
 }
 
 .indicator {
-    opacity: 0.4;
-    fill: green;
-    stroke: blue;
+    opacity: var(--translucent);
+    fill: var(--green);
     stroke-width: 5
+}
+
+.arrow {
+    opacity: var(--translucent);
+    stroke: red;
+    stroke-width: 8;
+    stroke-linecap: round;
+}
+
+.legal-move {
+    fill: var(--green);
 }

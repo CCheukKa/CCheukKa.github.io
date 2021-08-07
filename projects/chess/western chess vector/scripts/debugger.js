@@ -1,3 +1,5 @@
-function board() {
-    return board;
+s.addEventListener('load', test);
+
+function test() {
+
 }

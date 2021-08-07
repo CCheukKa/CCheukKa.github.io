@@ -1,16 +1,22 @@
-var isWhiteTurn = true;
+var whoseTurn = 1;
+// 1 = white
+// -1 = black
+// 0 = both
 var selected = false;
-
+var legalMoveList = [];
 
 function xyToIndex(x, y) {
     return y * 8 + x;
 }
 
 function draggableClass() {
-    if (isWhiteTurn) {
-        return 'white';
-    } else {
-        return 'black';
+    switch (whoseTurn) {
+        case 1:
+            return 'white';
+        case -1:
+            return 'black';
+        default:
+            return 'piece';
     }
 }
 
@@ -30,6 +36,7 @@ const moveManager = {
         e.start.ref = board[index];
         //
         drawSelectedIndicator(x, y, index);
+        visualiseLegalMoves(x, y, index);
         //
         // console.log('Drag start', this.moveEvent);
     },
@@ -46,7 +53,8 @@ const moveManager = {
         //
         // console.log('Drag end', this.moveEvent);
         this.move();
-        killIndicator();
+        killByClassName('indicator');
+        killByClassName('legal-move');
         redrawChess();
     },
     move: function(e = this.moveEvent) {
@@ -56,9 +64,10 @@ const moveManager = {
             return false;
         }
         //! Move succeeded
-        isWhiteTurn = !isWhiteTurn;
+        whoseTurn *= -1;
         board[e.end.index] = e.start.ref;
         board[e.start.index] = 0;
+        enumerateLegalMoves();
     },
 
     legalityCheck: function(e = this.moveEvent) {
@@ -73,7 +82,7 @@ const moveManager = {
                 return this.checker.pawn(e, deltaIndex);
                 //
             case 2: //! Knight
-                return this.checker.knight(deltaIndex);
+                return this.checker.knight(e);
                 //
             case 3: //! Bishop
                 return this.checker.bishop(e);
@@ -85,7 +94,7 @@ const moveManager = {
                 return this.checker.queen(e);
                 //
             case 6: //! King
-                return this.checker.king(deltaIndex);
+                return this.checker.king(e);
                 //
             default:
                 console.log(`wtf is this piece: ${e.start.ref}`);
@@ -94,8 +103,9 @@ const moveManager = {
     },
     checker: { // TODO: Check check
         //!
-        pawn: function(e, deltaIndex) { //TODO: promotion
+        pawn: function(e, deltaIndex) { //TODO: promotion, en passant
             const colour = e.start.ref;
+            if (Math.abs(e.start.x - e.end.x) > 1) { return false; }
             switch (deltaIndex * colour) {
                 case -16:
                     // f(x) 2.5x + 3.5
@@ -109,15 +119,16 @@ const moveManager = {
                     return (board[e.end.index] == 0);
                 case -7:
                 case -9:
-                    return !(Math.sign(board[e.end.index]) == colour);
+                    return (Math.sign(board[e.end.index]) != 0);
                 default:
                     return false;
             }
         },
         //!
-        knight: function(deltaIndex) {
-            let ad = Math.abs(deltaIndex);
-            return (ad == 6 | ad == 10 | ad == 15 | ad == 17);
+        knight: function(e) {
+            const dx = Math.abs(e.start.x - e.end.x);
+            const dy = Math.abs(e.start.y - e.end.y);
+            return ((dx == 1 && dy == 2) | (dx == 2 && dy == 1));
         },
         //!
         bishop: function(e) {
@@ -164,9 +175,35 @@ const moveManager = {
             return this.bishop(e) | this.rook(e);
         },
         //!
-        king: function(deltaIndex) {
-            let ad = Math.abs(deltaIndex);
-            return (ad == 1 | ad == 7 | ad == 8 | ad == 9);
+        king: function(e) { // TODO: castling
+            const dx = Math.abs(e.start.x - e.end.x);
+            const dy = Math.abs(e.start.y - e.end.y);
+            return (dx < 2 && dy < 2);
         }
     }
+}
+enumerateLegalMoves();
+
+function enumerateLegalMoves() { //TODO: change to a more efficient algorithm; only search the necessaries destinations
+    legalMoveList = [];
+
+    for (let sI = 0; sI < 64; sI++) {
+        if (board[sI] == 0) { continue; } // no piece there?
+        if (board[sI] * whoseTurn < 0) { continue; } // not your turn?
+
+        for (let eI = 0; eI < 64; eI++) {
+            if (sI == eI) { continue; } // same square?
+            if (board[sI] * board[eI] > 0) { continue; } // same team?
+            const moveEvent = createMoveEvent(sI, eI);
+            if (moveManager.legalityCheck(moveEvent)) { legalMoveList.push(moveEvent); }
+        }
+    }
+    return legalMoveList;
+}
+
+function createMoveEvent(startIndex, endIndex) {
+    return {
+        start: { x: startIndex % 8, y: Math.floor(startIndex / 8), index: startIndex, ref: board[startIndex] },
+        end: { x: endIndex % 8, y: Math.floor(endIndex / 8), index: endIndex, ref: board[endIndex] },
+    };
 }
