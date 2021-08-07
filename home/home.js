@@ -62,7 +62,7 @@ function projectShelfConstructor(projects) {
         } else {
             if (!thumbnailExists) {
                 spanInside1 = pickRandom(['😐', '🙃', '🥴', '🤪', '😵', '🤔', '🤨', '💀']);
-                spanInside2 = `Thumbnail missing`;
+                spanInside2 = `Thumbnail missing/ failed to load`;
                 spanOpen2 = spanOpen2.replace('$COLOUR', '#a6ed8d');
             }
             if (project.emoji) {
