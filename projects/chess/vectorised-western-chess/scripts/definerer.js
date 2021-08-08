@@ -56,6 +56,7 @@ const piecesMixedArray = [
 ];
 /*  //! Reference number
     0: Nothing
+    +/-0: en passant ghost pseudo-piece;
     1: Pawn
     2: Knight
     3: Bishop

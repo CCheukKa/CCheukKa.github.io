@@ -4,10 +4,9 @@ var whoseTurn = 1;
 // 0 = both
 var selected = false;
 var legalMoveList = [];
-const enPassantable = {
-    squareIndex: -1,
-    victimIndex: -1,
-    flag: false
+const enPassant = {
+    squareIndex: null,
+    victimIndex: null,
 };
 //
 const squaresChecked = [
@@ -30,14 +29,7 @@ function xyToIndex(x, y) {
 }
 
 function draggableClass() {
-    switch (whoseTurn) {
-        case 1:
-            return 'white';
-        case -1:
-            return 'black';
-        default:
-            return 'piece';
-    }
+    return (whoseTurn == 1 ? 'white' : whoseTurn == -1 ? 'black' : 'piece');
 }
 
 
@@ -85,14 +77,18 @@ const moveManager = {
         }
         //! Move succeeded
         //#region   //* en passant stuff
-        if (enPassantable.flag && Math.abs(e.start.ref) == 1 && e.end.index == enPassantable.squareIndex) { // is en passant
-            board[enPassantable.victimIndex] = 0;
+        board[enPassant.squareIndex] = 0;
+        if (Math.abs(e.start.ref) == 1 && e.end.index == enPassant.squareIndex) {
+            board[enPassant.victimIndex] = 0;
         }
-        enPassantable.flag = false;
-        if (Math.abs(e.start.ref) == 1 && Math.abs(e.start.index - e.end.index) == 16) { // can be en passant'd
-            enPassantable.squareIndex = e.start.index - 8 * e.start.ref;
-            enPassantable.victimIndex = e.end.index;
-            enPassantable.flag = true;
+        if (Math.abs(e.start.ref) == 1 && Math.abs(e.start.index - e.end.index) == 16) { //is double move?
+            //? spawn en passant ghost
+            enPassant.victimIndex = e.start.index - 16 * e.start.ref;
+            enPassant.squareIndex = e.start.index - 8 * e.start.ref;
+            board[enPassant.squareIndex] = `${e.start.ref > 0 ? '+' : '-'}0`;
+        } else {
+            enPassant.squareIndex = null;
+            enPassant.victimIndex = null;
         }
         //#endregion
         whoseTurn *= -1;
@@ -139,14 +135,8 @@ const moveManager = {
             if (Math.abs(e.start.x - e.end.x) > 1) { return false; }
             switch (deltaIndex * colour) {
                 case -16:
-                    // f(x) 2.5x + 3.5
-                    //
-                    // f(1) = 6
-                    // f(-1) = 1
-                    //
-                    // It's just a more optimised way of doing the test
                     return (
-                        e.start.y == (2.5 * colour + 3.5) &&
+                        e.start.y == (colour == 1 ? 6 : 1) &&
                         board[e.start.index - 8 * colour] == 0 &&
                         board[e.start.index - 16 * colour] == 0
                     );
@@ -154,12 +144,7 @@ const moveManager = {
                     return (board[e.end.index] == 0);
                 case -7:
                 case -9:
-                    if (e.end.index == enPassantable.squareIndex && board[enPassantable.victimIndex] * e.start.ref < 0) { //is en passant
-                        enPassantable.flag = true;
-                        return true;
-                    } else { // is not en passant
-                        return (Math.sign(board[e.end.index]) != 0);
-                    }
+                    return (!(board[e.end.index] === 0) && board[enPassant.victimIndex] != e.start.ref);
                 default:
                     return false;
             }
