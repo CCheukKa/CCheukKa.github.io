@@ -84,6 +84,7 @@ const moveManager = {
             return false;
         }
         //! Move succeeded
+        //#region   //* en passant stuff
         if (enPassantable.flag && Math.abs(e.start.ref) == 1 && e.end.index == enPassantable.squareIndex) { // is en passant
             board[enPassantable.victimIndex] = 0;
         }
@@ -93,6 +94,7 @@ const moveManager = {
             enPassantable.victimIndex = e.end.index;
             enPassantable.flag = true;
         }
+        //#endregion
         whoseTurn *= -1;
         board[e.end.index] = e.start.ref;
         board[e.start.index] = 0;
