@@ -4,6 +4,11 @@ var whoseTurn = 1;
 // 0 = both
 var selected = false;
 var legalMoveList = [];
+const enPassantable = {
+    squareIndex: -1,
+    victimIndex: -1,
+    flag: false
+}
 
 function xyToIndex(x, y) {
     return y * 8 + x;
@@ -64,6 +69,14 @@ const moveManager = {
             return false;
         }
         //! Move succeeded
+        if (Math.abs(e.start.ref) == 1 && Math.abs(e.start.index - e.end.index) == 16) { // can be en passant'd
+            enPassantable.squareIndex = e.start.index - 8 * e.start.ref;
+            enPassantable.victimIndex = e.end.index;
+        }
+        if (enPassantable.flag) { // is en passant
+            board[enPassantable.victimIndex] = 0;
+            enPassantable.flag = false;
+        }
         whoseTurn *= -1;
         board[e.end.index] = e.start.ref;
         board[e.start.index] = 0;
@@ -103,7 +116,7 @@ const moveManager = {
     },
     checker: { // TODO: Check check
         //!
-        pawn: function(e, deltaIndex) { //TODO: promotion, en passant
+        pawn: function(e, deltaIndex) { //TODO: promotion
             const colour = e.start.ref;
             if (Math.abs(e.start.x - e.end.x) > 1) { return false; }
             switch (deltaIndex * colour) {
@@ -123,7 +136,12 @@ const moveManager = {
                     return (board[e.end.index] == 0);
                 case -7:
                 case -9:
-                    return (Math.sign(board[e.end.index]) != 0);
+                    if (e.end.index == enPassantable.squareIndex) { //is en passant
+                        enPassantable.flag = true;
+                        return true;
+                    } else { // is not en passant
+                        return (Math.sign(board[e.end.index]) != 0);
+                    }
                 default:
                     return false;
             }
