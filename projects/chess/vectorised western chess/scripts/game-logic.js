@@ -84,13 +84,14 @@ const moveManager = {
             return false;
         }
         //! Move succeeded
+        if (enPassantable.flag && Math.abs(e.start.ref) == 1 && e.end.index == enPassantable.squareIndex) { // is en passant
+            board[enPassantable.victimIndex] = 0;
+        }
+        enPassantable.flag = false;
         if (Math.abs(e.start.ref) == 1 && Math.abs(e.start.index - e.end.index) == 16) { // can be en passant'd
             enPassantable.squareIndex = e.start.index - 8 * e.start.ref;
             enPassantable.victimIndex = e.end.index;
-        }
-        if (enPassantable.flag) { // is en passant
-            board[enPassantable.victimIndex] = 0;
-            enPassantable.flag = false;
+            enPassantable.flag = true;
         }
         whoseTurn *= -1;
         board[e.end.index] = e.start.ref;
