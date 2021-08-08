@@ -1,6 +1,6 @@
 {
     "projects": [{
-            "pathName": "pathfinding + mazegen",
+            "pathName": "pathfinding+mazegen",
             "displayName": "Pathfind + MazeGen",
             "htmlName": "page",
             "htmlInRoot": false,
