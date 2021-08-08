@@ -152,7 +152,7 @@ const moveManager = {
                     return (board[e.end.index] == 0);
                 case -7:
                 case -9:
-                    if (e.end.index == enPassantable.squareIndex) { //is en passant
+                    if (e.end.index == enPassantable.squareIndex && board[enPassantable.victimIndex] * e.start.ref < 0) { //is en passant
                         enPassantable.flag = true;
                         return true;
                     } else { // is not en passant
