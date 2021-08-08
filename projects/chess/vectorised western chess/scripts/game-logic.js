@@ -8,7 +8,22 @@ const enPassantable = {
     squareIndex: -1,
     victimIndex: -1,
     flag: false
+};
+//
+const squaresChecked = [
+    [], //nothing
+    [7, 8, 9, 16], //pawn
+    [6, 10, 15, 17], //knight
+    [9, 18, 27, 36, 45, 54, 63, 7, 14, 21, 28, 35, 42, 49], //bishop
+    [1, 2, 3, 4, 5, 6, 7, 8, 16, 24, 32, 40, 48, 56], //rook
+    [], //queen
+    [1, 7, 8, 9], //king
+];
+for (let i = 0; i < squaresChecked.length; i++) {
+    squaresChecked[i] = squaresChecked[i].concat(squaresChecked[i].map(value => -value));
 }
+squaresChecked[5] = [].concat(squaresChecked[3], squaresChecked[4]); //queen
+//
 
 function xyToIndex(x, y) {
     return y * 8 + x;
@@ -214,13 +229,12 @@ function enumerateLegalMoves() { //TODO: change to a more efficient algorithm; o
     for (let sI = 0; sI < 64; sI++) {
         if (board[sI] == 0) { continue; } // no piece there?
         if (board[sI] * whoseTurn < 0) { continue; } // not your turn?
-
-        for (let eI = 0; eI < 64; eI++) {
-            if (sI == eI) { continue; } // same square?
-            if (board[sI] * board[eI] > 0) { continue; } // same team?
+        squaresChecked[Math.abs(board[sI])].forEach(dI => {
+            const eI = sI + dI;
+            if (board[sI] * board[eI] > 0) { return; } // same team?
             const moveEvent = createMoveEvent(sI, eI);
             if (moveManager.legalityCheck(moveEvent)) { legalMoveList.push(moveEvent); }
-        }
+        });
     }
     return legalMoveList;
 }
