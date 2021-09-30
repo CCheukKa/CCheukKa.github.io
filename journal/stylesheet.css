@@ -71,6 +71,10 @@ blockquote {
     padding: 0 1em;
 }
 
+blockquote>a {
+    color: var(--link-colour);
+}
+
 p {
     font-size: 14pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
