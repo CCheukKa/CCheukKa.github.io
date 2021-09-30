@@ -19,6 +19,12 @@
             "underConstruction": false,
             "hideFromShelf": false
         }, {
+            "refName": "journal",
+            "displayName": "Journal",
+            "emoji": "📝",
+            "underConstruction": false,
+            "hideFromShelf": false
+        }, {
             "refName": "curriculum-vitae",
             "displayName": "CV",
             "emoji": "📜",

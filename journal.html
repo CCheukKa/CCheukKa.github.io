@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="image/x-icon" href="/global/meta/favicon.ico">
+    <title id="title-big">Journal</title>
+
+    <!--Google fonts-->
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Lato'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Abel'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Poiret One'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Bellota Text'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Montserrat Alternates'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Alegreya Sans SC'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Bad Script'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Catamaran'>
+
+    <!--globals-->
+    <link rel="stylesheet" href='/global/globalStyleSheet.css'>
+
+    <!--kits-->
+
+    <!--local exclusives-->
+    <link rel="stylesheet" href='/journal/stylesheet.css'>
+    <script src="https://unpkg.com/commonmark@latest/dist/commonmark.js"></script>
+
+
+</head>
+
+
+<body class="page">
+    <div class="header" id="header">
+        <div class="headerTitle" id="title">
+            <a href="/home">CCheukKa's Site</a> / <a href="" class="bold underline" id="title-small">journal</a>
+        </div>
+        <div class="headerCatalogue" id="catalogue">
+            <!--Catalogue items added programmatically-->
+        </div>
+        <div class="headerDropdown" id="dropdown">
+            <div class="menu-icon" id="menu-icon"></div>
+            <div class="dropdownMenu" id="dropdownMenu">
+                <!-- To be filled in programmatically -->
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div class="titleCard" id="titleCard">
+            <div style="width: 45%; margin-top: -25px; margin-bottom: -20px;">
+                <span class="title" id="text-title">Journal</span>
+            </div>
+
+            <div class="description-wrapper" style="text-align: left; margin-left: 25px; margin-right: -5px;">
+                <span class="description" id="text-description">
+                    The place I write things daily. You can find more information about this in the journal itself.
+                    <br>
+                    This is just a presentation for the <a href="https://github.com/CCheukKa/CCheukKa/blob/master/Journal.md" class="bold underline" style="color: #faf8f5;">original version hosted on github.</a>
+                </span>
+            </div>
+        </div>
+        <div style="width: 100%; display: flex; justify-content: center;">
+            <div class="textContainer" id="text-content">
+                <!--Create these programmatically-->
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src='/global/scripts/globalLibrary.js'></script>
+<script src='/global/scripts/headerController.js'></script>
+<script src='/global/kits/dropdownMenu/script.js'></script>
+<script src='/global/scripts/globalResizeHandler.js'></script>
+<script src='/journal/journal.js'></script>
+
+
+</html>
