@@ -39,3 +39,22 @@ function toggleDarkMode(icon) {
     icon.innerHTML = useDarkMode ? '🔆' : '🔅';
     lightModeStylesheet.disabled = useDarkMode;
 }
+
+const fonts = [
+    `Georgia, 'Times New Roman', Times, serif`,
+    `'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif`,
+    `'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif`,
+    `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
+    `Verdana, Geneva, Tahoma, sans-serif`,
+];
+var font = 0;
+
+function cycleFonts(button) {
+    font = (font + 1) % fonts.length;
+    button.style.fontFamily = fonts[font];
+    [].slice.call(text.getElementsByTagName('p')).forEach(p => {
+        p.style.fontFamily = fonts[font];
+    });
+
+    console.log(fonts[font]);
+}
