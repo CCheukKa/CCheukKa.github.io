@@ -44,10 +44,11 @@
     background: #7c7c7c;
 }
 
-a[href^="#"] {
+a[href^="#"],
+blockquote>a,
+blockquote>*>a,
+blockquote>*>*>a {
     color: var(--link-colour);
-    /* font-weight: bold; */
-    /* text-decoration: underline; */
 }
 
 h1,
@@ -69,10 +70,6 @@ hr {
 blockquote {
     border-left: 5px solid var(--line-colour);
     padding: 0 1em;
-}
-
-blockquote>a {
-    color: var(--link-colour);
 }
 
 p {
