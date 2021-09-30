@@ -11,7 +11,7 @@
     align-content: flex-start;
     width: 50%;
     margin-left: 5%;
-    margin-right: 5%;
+    /* margin-right: 5%; */
     overflow: auto;
     height: calc(100vh - 280px);
     background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);
@@ -75,4 +75,27 @@ p {
     font-size: 14pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
     line-height: 21pt;
+}
+
+.body-container {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.controls-container {
+    margin-left: 1%;
+    font-size: 25pt;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+}
+
+a {
+    color: #faf8f5;
+}
+
+#font-selection {
+    font-size: 32pt;
 }

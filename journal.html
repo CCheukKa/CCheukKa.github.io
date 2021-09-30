@@ -20,11 +20,12 @@
     <!--globals-->
     <link rel="stylesheet" href='/global/globalStyleSheet.css'>
 
-    <!--kits-->
-
     <!--local exclusives-->
     <link rel="stylesheet" href='/journal/stylesheet.css'>
     <script src="https://unpkg.com/commonmark@latest/dist/commonmark.js"></script>
+
+    <!--kits-->
+    <link rel="stylesheet" href='/global/kits/lightMode/stylesheet.css' id="light-mode-stylesheet">
 
 
 </head>
@@ -55,13 +56,18 @@
                 <span class="description" id="text-description">
                     The place I write things daily. You can find more information about this in the journal itself.
                     <br>
-                    This is just a presentation for the <a href="https://github.com/CCheukKa/CCheukKa/blob/master/Journal.md" class="bold underline" style="color: #faf8f5;">original version hosted on github.</a>
+                    This is just a presentation for the <a href="https://github.com/CCheukKa/CCheukKa/blob/master/Journal.md" class="bold underline" >original version hosted on github.</a>
                 </span>
             </div>
         </div>
-        <div style="width: 100%; display: flex; justify-content: center;">
+        <div class="body-container">
             <div class="textContainer" id="text-content">
                 <!--Create these programmatically-->
+            </div>
+            <div class="controls-container disable-select">
+                <a href="#table-of-contents">🔝</a>
+                <a style="cursor: pointer;" onclick="toggleDarkMode(this)">🔆</a>
+                <a style="cursor: pointer;" onclick="toggleFont()" id="font-selection">A</a>
             </div>
         </div>
     </div>
