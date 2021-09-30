@@ -1,15 +1,7 @@
 :root {
     --line-colour: #a9b9c7;
     --dark-line-colour: #94a6b6;
-    --link-colour: #216ec5f0;
-}
-
-.page {
-    background: #d3cfca;
-}
-
-.titleCard {
-    background-color: #4c82b8;
+    --link-colour: #2378d8f0;
 }
 
 #text-content {
@@ -17,18 +9,10 @@
     background-color: #d6c7b1;
 }
 
-#font-selection {
-    color: #222426;
-}
-
 a[href^='#'] {
     color: var(--link-colour);
     /* font-weight: bold; */
     /* text-decoration: underline; */
-}
-
-.titleCard .description {
-    color: #e6e3df;
 }
 
 blockquote {
