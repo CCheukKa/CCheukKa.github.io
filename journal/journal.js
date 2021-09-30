@@ -29,7 +29,7 @@ function addSectionTags(container) {
     tmp = tmp.concat([].slice.call(container.getElementsByTagName("h4")));
 
     tmp.forEach(element => {
-        element.setAttribute('id', element.innerHTML.toLowerCase().replaceAll(' ', '-'));
+        element.setAttribute('id', element.innerHTML.toLowerCase().replaceAll(' ', '-')).replaceAll(/[^a-zA-Z0-9 _-]/g, "");
         // console.log(element);
     });
 }
