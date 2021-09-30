@@ -9,7 +9,11 @@
     background-color: #d6c7b1;
 }
 
-a[href^='#'] {
+a[href^="#"],
+blockquote>a,
+blockquote>*>a,
+blockquote>*>*>a,
+p>a {
     color: var(--link-colour);
     /* font-weight: bold; */
     /* text-decoration: underline; */

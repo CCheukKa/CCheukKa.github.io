@@ -47,7 +47,8 @@
 a[href^="#"],
 blockquote>a,
 blockquote>*>a,
-blockquote>*>*>a {
+blockquote>*>*>a,
+p>a {
     color: var(--link-colour);
 }
 
