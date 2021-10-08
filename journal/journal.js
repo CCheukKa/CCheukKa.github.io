@@ -36,7 +36,7 @@ function addSectionTags(container) {
 
 function toggleDarkMode(icon) {
     useDarkMode = !useDarkMode;
-    icon.innerHTML = !useDarkMode ? '🔆' : '🔅';
+    icon.innerHTML = useDarkMode ? '🔅' : '🔆';
     lightModeStylesheet.disabled = useDarkMode;
 }
 
