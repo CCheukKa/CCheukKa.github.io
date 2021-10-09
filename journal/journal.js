@@ -7,11 +7,12 @@ httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal
     // console.log(response);
     text.innerHTML = parseResponse(response);
     addSectionTags(text);
-
+    //
     console.log(`Done journal assembly`);
     let redirect = `#${window.location.href.split('#').slice(-1)}`;
     window.location = redirect;
     console.log(`Redirected to ${redirect}`);
+    //
 });
 
 function parseResponse(response) {
