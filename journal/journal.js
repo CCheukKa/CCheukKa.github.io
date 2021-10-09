@@ -15,7 +15,7 @@ httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal
     // console.log(response);
     text.innerHTML = parseResponse(response);
     addSectionTags(text);
-    buildNavigation(text);
+    buildTableOfContents(text);
     //
     console.log(`Done journal assembly`);
     if (window.location.href.split('#')[1]) {
@@ -67,6 +67,6 @@ function cycleFonts(button) {
     console.log(fonts[font]);
 }
 
-function buildNavigation(text) {
+function buildTableOfContents(text) {
 
 }
