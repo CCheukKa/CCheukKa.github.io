@@ -4,43 +4,75 @@
     --link-colour: #8fc3fff0;
 }
 
-.textContainer {
+.textContainer,
+.toc-container {
     display: block;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: flex-start;
-    width: 50%;
-    margin-left: 5%;
-    /* margin-right: 5%; */
     overflow: auto;
     height: calc(100vh - 280px);
     background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);
     border-radius: 16px;
     box-shadow: 0px 0px 20px #00000066;
-    padding-left: 80px;
-    padding-right: 80px;
-    padding-top: 10px;
-    padding-bottom: 50px;
     font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 16pt;
     text-align: justify;
 }
 
-.textContainer::-webkit-scrollbar {
+.textContainer {
+    font-size: 16pt;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 50%;
+    padding-left: 60px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.toc-container {
+    /* border: 1px solid red; */
+    width: 25%;
+    margin-right: 1%;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+}
+
+.toc-container>h1 {
+    text-align: center;
+}
+
+.toc-container {
+    direction: rtl;
+}
+
+.toc-container>* {
+    direction: ltr;
+}
+
+.textContainer::-webkit-scrollbar,
+.toc-container::-webkit-scrollbar {
     width: 6px;
 }
 
-.textContainer::-webkit-scrollbar-track:hover {
+.toc-container::-webkit-scrollbar {
+    width: 3.5px;
+}
+
+.textContainer::-webkit-scrollbar-track:hover,
+.toc-container::-webkit-scrollbar-track:hover {
     background-color: #55555744;
     border-radius: 10px;
 }
 
-.textContainer::-webkit-scrollbar-thumb {
+.textContainer::-webkit-scrollbar-thumb,
+.toc-container::-webkit-scrollbar-thumb {
     background: #555557;
     border-radius: 10px;
 }
 
-.textContainer::-webkit-scrollbar-thumb:hover {
+.textContainer::-webkit-scrollbar-thumb:hover,
+.toc-container::-webkit-scrollbar-thumb:hover {
     background: #7c7c7c;
 }
 
@@ -100,4 +132,40 @@ a {
 
 #font-selection {
     font-size: 32pt;
+}
+
+
+/* table of contents list */
+
+ul {
+    padding-left: 25px;
+}
+
+#toc-container>ul>li>ul>li>a {
+    padding-bottom: 50px;
+}
+
+#toc-container>ul>li>ul>li>ul>li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+#toc-container>ul>li>ul {
+    padding-left: 15px;
+}
+
+#toc-container>ul>li>ul>li {
+    padding-top: 5px;
+    padding-bottom: 0px;
+    border-bottom: 2px solid var(--dark-line-colour);
+}
+
+#toc-container>ul>li>a,
+#toc-container>ul>li>ul>li>ul>li>a {
+    font-weight: bold;
+}
+
+#toc-container>ul>li>ul>li>ul>li>ul {
+    padding-left: 30px;
+    list-style-type: "-  ";
 }

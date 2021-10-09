@@ -1,4 +1,5 @@
-const text = document.getElementById('text-content');
+const textContainer = document.getElementById('text-content');
+const tocContainer = document.getElementById('toc-container');
 const lightModeStylesheet = document.getElementById('light-mode-stylesheet');
 var useDarkMode = true;
 lightModeStylesheet.disabled = useDarkMode;
@@ -13,9 +14,9 @@ var font = 0;
 
 httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal.md", response => {
     // console.log(response);
-    text.innerHTML = parseResponse(response);
-    addSectionTags(text);
-    buildTableOfContents(text);
+    textContainer.innerHTML = parseResponse(response);
+    addSectionTags(textContainer);
+    buildTableOfContents(response, textContainer);
     //
     console.log(`Done journal assembly`);
     if (window.location.href.split('#')[1]) {
@@ -60,13 +61,23 @@ function toggleDarkMode(icon) {
 function cycleFonts(button) {
     font = (font + 1) % fonts.length;
     button.style.fontFamily = fonts[font];
-    [].slice.call(text.getElementsByTagName('p')).forEach(p => {
+    [].slice.call(textContainer.getElementsByTagName('p')).forEach(p => {
         p.style.fontFamily = fonts[font];
     });
 
     console.log(fonts[font]);
 }
 
-function buildTableOfContents(text) {
+function buildTableOfContents(response, text) {
+    console.log(text);
+    //
+    let tocTitle = document.getElementById('table-of-contents');
+    let tocTable = tocTitle.nextElementSibling;
+    //
+    tocContainer.innerHTML = tocTitle.outerHTML + tocTable.outerHTML;
 
+    //
+    tocTitle.hidden = true;
+    tocTable.hidden = true;
+    tocTable.nextElementSibling.hidden = true;
 }

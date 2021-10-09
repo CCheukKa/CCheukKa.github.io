@@ -1,7 +1,7 @@
 :root {
-    --line-colour: #a9b9c7;
-    --dark-line-colour: #94a6b6;
-    --link-colour: #0d5db8f0;
+    --light-line-colour: #a9b9c7;
+    --light-dark-line-colour: #94a6b6;
+    --light-link-colour: #0d5db8f0;
 }
 
 #text-content {
@@ -9,25 +9,25 @@
     background-color: #d6c7b1;
 }
 
-a[href^="#"],
-blockquote>a,
-blockquote>*>a,
-blockquote>*>*>a,
-p>a {
-    color: var(--link-colour);
+#text-content>a[href^="#"],
+#text-content>blockquote>a,
+#text-content>blockquote>*>a,
+#text-content>blockquote>*>*>a,
+#text-content>p>a {
+    color: var(--light-link-colour);
     /* font-weight: bold; */
     /* text-decoration: underline; */
 }
 
-blockquote {
-    border-left: 5px solid var(--line-colour);
+#text-content>blockquote {
+    border-left: 5px solid var(--light-line-colour);
 }
 
-hr {
-    background-color: var(--dark-line-colour);
+#text-content>hr {
+    background-color: var(--light-dark-line-colour);
 }
 
-h1,
-h2 {
-    border-bottom: 2px solid var(--dark-line-colour);
+#text-content>h1,
+#text-content>h2 {
+    border-bottom: 2px solid var(--light-dark-line-colour);
 }
