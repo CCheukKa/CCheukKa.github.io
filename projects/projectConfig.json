@@ -30,6 +30,13 @@
             "htmlInRoot": true,
             "directToReadme": false,
             "openInNewTab": false
+        }, {
+            "pathName": "connect-four",
+            "displayName": "Connect Four",
+            "htmlName": "page",
+            "htmlInRoot": false,
+            "directToReadme": false,
+            "openInNewTab": true
         }
     ]
 }

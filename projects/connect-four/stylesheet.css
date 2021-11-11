@@ -1,0 +1,49 @@
+:root {
+    --green: #176417;
+    --translucent: 0.4;
+}
+
+.translucent {
+    opacity: var(--translucent);
+}
+
+body {
+    background-color: #202022;
+    text-align: center;
+}
+
+.game-container {
+    position: relative;
+    margin: 20px;
+    /* outline: blue 1px solid; */
+}
+
+.game-container>svg {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 0;
+}
+
+.board {
+    right: 0;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.indicator-board {
+    z-index: 99;
+    background-image: url('./assets/boards/brown.svg');
+}
+
+.ghost {
+    opacity: 0.6;
+}
+
+.piece1 {
+    fill: red;
+}
+
+.piece2 {
+    fill: yellow;
+}
