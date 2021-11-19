@@ -47,7 +47,11 @@ function addSectionTags(container) {
     tmp = tmp.concat([].slice.call(container.getElementsByTagName("h4")));
 
     tmp.forEach(element => {
-        element.setAttribute('id', element.innerHTML.toLowerCase().replaceAll(' ', '-').replaceAll(/[^a-zA-Z0-9_-]/g, ""));
+        let id = element.innerHTML.toLowerCase().replaceAll(' ', '-').replaceAll(/[^a-zA-Z0-9_-]/g, "");
+        // while (id.charAt(id.length - 1) == '-') {
+        //     id = id.substr(0, id.length - 1);
+        // }
+        element.setAttribute('id', id);
         // console.log(element);
     });
 }
