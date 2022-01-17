@@ -134,6 +134,18 @@ a {
     font-size: 32pt;
 }
 
+table {
+    border-collapse: collapse;
+    margin-bottom: 0.7em;
+    display: table;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+    font-size: 14pt;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 
 /* table of contents list */
 
