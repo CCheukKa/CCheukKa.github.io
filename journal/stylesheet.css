@@ -134,19 +134,40 @@ a {
     font-size: 32pt;
 }
 
-
-/* table {
+table {
+    width: 100%;
     border-collapse: collapse;
     margin-bottom: 0.7em;
     display: table;
     box-sizing: border-box;
     text-indent: initial;
-    border-spacing: 2px;
-    border-color: grey;
-    font-size: 14pt;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    line-height: 21pt;
-} */
+    font-size: 11pt;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 20pt;
+    background-color: #ffffff0a;
+    border-radius: 14px;
+}
+
+th {
+    padding-top: 5px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-bottom: 2px solid var(--line-colour);
+    font-size: 13pt;
+}
+
+td {
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+table>tbody>tr+tr>td {
+    border-top: 1px solid var(--dark-line-colour);
+}
+
+table>tbody>tr:last-child>td {
+    padding-bottom: 5px;
+}
 
 
 /* table of contents list */

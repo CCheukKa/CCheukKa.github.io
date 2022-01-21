@@ -65,9 +65,6 @@ function cycleFonts(button) {
     [].slice.call(textContainer.getElementsByTagName('p')).forEach(p => {
         p.style.fontFamily = fonts[font];
     });
-    [].slice.call(textContainer.getElementsByTagName('table')).forEach(table => {
-        table.style.fontFamily = fonts[font];
-    });
 
     console.log(fonts[font]);
 }

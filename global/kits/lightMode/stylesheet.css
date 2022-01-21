@@ -31,3 +31,15 @@
 #text-content>h2 {
     border-bottom: 2px solid var(--light-dark-line-colour);
 }
+
+table {
+    background-color: #ffffff28;
+}
+
+th {
+    border-bottom: 2px solid var(--light-dark-line-colour);
+}
+
+table>tbody>tr+tr>td {
+    border-top: 1px solid var(--light-line-colour);
+}
