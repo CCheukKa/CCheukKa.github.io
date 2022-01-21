@@ -8,45 +8,52 @@ function dropPiece(e) {
             board[y][e.x] = e.colour;
             dropped = true;
             redrawBoard();
-            victoryTest(board);
-            whoseTurn *= -1;
+            victoryTest(board, e.x, y);
+            whoseTurn = -whoseTurn + 3;
             return;
         }
     }
 }
 
-function victoryTest(board) {
-    let winVectors = computeWinVectors(board);
+function victoryTest(board, x, y) {
+    let winVectors = computeWinVectors(board, x, y);
 
     winVectors.forEach(vector => {
         if (vector.includes(`${whoseTurn}${whoseTurn}${whoseTurn}${whoseTurn}`)) {
-            window.alert(`Player ${-0.5 * whoseTurn + 1.5} won!`);
+            window.alert(`Player ${whoseTurn} won!`);
             gameEnd = true;
             return true;
         }
     })
 }
 
-function computeWinVectors(board) {
+function computeWinVectors(board, x, y) {
     let winVectors = [];
 
-    //horizontal
-    board.forEach(row => {
-        let vector = '';
-        row.forEach(space => {
-            vector += space;
-        });
-        winVectors.push(vector);
+    // horizontal
+    var vector = '';
+    board[y].forEach(space => {
+        vector += space;
     });
+    winVectors.push(vector);
 
-    //vertical
-    for (let x = 0; x < 7; x++) {
-        let vector = '';
-        for (let y = 0; y < 6; y++) {
-            vector += board[y][x];
-        }
-        winVectors.push(vector);
+    // vertical
+    var vector = '';
+    for (let i = 0; i < 6; i++) {
+        vector += board[i][x];
     }
+    winVectors.push(vector);
+
+    // diagonals
+    var vector1 = '',
+        vector2 = '';
+    for (let i = -3; i <= 3; i++) {
+        console.log(y + i);
+        if (y + i < 0 | y + i > 5) { continue; }
+        vector1 += board[y + i][x + i];
+        vector2 += board[y + i][x - i];
+    }
+    winVectors.push(vector1, vector2);
 
     return winVectors;
 }

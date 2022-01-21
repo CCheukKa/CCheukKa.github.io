@@ -22,14 +22,14 @@ function drawPieces() {
         for (let x = 0; x < 7; x++) {
             let piece = board[y][x];
             if (piece) {
-                drawCircle(s, (x + 0.5) * tileSize, (y + 0.5) * tileSize, tileSize * 0.4, { class: `${piece > 0 ? 'piece1' : 'piece2'} piece` });
+                drawCircle(s, (x + 0.5) * tileSize, (y + 0.5) * tileSize, tileSize * 0.4, { class: `${piece == 1 ? 'piece1' : 'piece2'} piece` });
             }
         }
     }
 }
 
 function drawGhost(e) {
-    drawCircle(i, (e.x + 0.5) * tileSize, 0.5 * tileSize, tileSize * 0.4, { class: `${e.colour > 0 ? 'piece1' : 'piece2'} piece ghost` });
+    drawCircle(i, (e.x + 0.5) * tileSize, 0.5 * tileSize, tileSize * 0.4, { class: `${e.colour == 1 ? 'piece1' : 'piece2'} piece ghost` });
     refreshSVG(i);
 }
 

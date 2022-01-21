@@ -7,9 +7,18 @@
 </head>
 
 <body>
-    <div id="game-container" class="game-container">
-        <svg id="indicator-board" class="indicator-board"></svg>
-        <svg id="board" class="board"></svg>
+    <div style="display: flex; align-items: center; width: fit-content;">
+        <div id="game-container" class="game-container">
+            <svg id="indicator-board" class="indicator-board"></svg>
+            <svg id="board" class="board"></svg>
+        </div>
+        <div style="display:flex; align-items: center;">
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            <span style="width: fit-content; margin-left: 8px;">CPU Mode</span>
+        </div>
     </div>
 </body>
 
