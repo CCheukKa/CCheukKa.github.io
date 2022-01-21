@@ -134,7 +134,8 @@ a {
     font-size: 32pt;
 }
 
-table {
+
+/* table {
     border-collapse: collapse;
     margin-bottom: 0.7em;
     display: table;
@@ -144,7 +145,8 @@ table {
     border-color: grey;
     font-size: 14pt;
     font-family: Georgia, 'Times New Roman', Times, serif;
-}
+    line-height: 21pt;
+} */
 
 
 /* table of contents list */

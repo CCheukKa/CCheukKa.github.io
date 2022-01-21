@@ -30,10 +30,7 @@ httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal
 function parseResponse(response) {
 
     response = response.replaceAll('<!-- omit in toc -->', '');
-    var reader = new commonmark.Parser();
-    var writer = new commonmark.HtmlRenderer();
-    var parsed = reader.parse(response);
-    var result = writer.render(parsed);
+    let result = marked.parse(response);
 
     // console.log(result);
     return result;
