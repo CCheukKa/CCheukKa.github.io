@@ -48,9 +48,16 @@ function addSectionTags(container) {
         // while (id.charAt(id.length - 1) == '-') {
         //     id = id.substr(0, id.length - 1);
         // }
-        element.setAttribute('id', id);
+        element.id = id;
         // console.log(element);
     });
+
+    let h4 = container.getElementsByTagName("h4");
+    let latest = h4[h4.length - 1];
+
+    let latestTag = document.createElement('span');
+    latestTag.id = 'latest';
+    latest.appendChild(latestTag)
 }
 
 function toggleDarkMode(icon) {
