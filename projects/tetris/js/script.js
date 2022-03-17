@@ -18,8 +18,8 @@ heldPieceCanvas.height = 4 * tileSize;
 var timeStepMS = 1000;
 const minTimeStep = 100;
 const timeStepDec = 50;
-//const blockPalette = ['#7A1214', '#C9381F', '#F1882D', '#F4CF5E', '#1F8561', '#08555F', '#052231'];
-const blockPalette = ['#61a6b4', '#9eba6d', '#fadf8c', '#e27e80', '#a87398', '#7061b1', '#f4c392'];
+const blockPalette = ['#61a6b4', '#F4CF5E', '#9eba6d', '#d1781D', '#e27e80', '#007a90', '#7061b1'];
+// const blockPalette = ['#a87398', '#fadf8c', '#9eba6d', '#f4c392', '#e27e80', '#61a6b4', '#7061b1'];
 const palette = ['#303030', '#202020', '#424242'];
 //
 var globalDead = false;
