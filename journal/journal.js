@@ -30,6 +30,9 @@ httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal
 function parseResponse(response) {
 
     response = response.replaceAll('<!-- omit in toc -->', '');
+    marked.use({
+        smartypants: true
+    });
     let result = marked.parse(response);
 
     // console.log(result);
