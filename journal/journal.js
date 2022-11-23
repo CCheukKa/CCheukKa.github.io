@@ -76,7 +76,7 @@ function cycleFonts(button) {
         p.style.fontFamily = fonts[font];
     });
 
-    console.log(fonts[font]);
+    console.log('Changed font:', fonts[font]);
 }
 
 function buildTableOfContents(response, text) {
