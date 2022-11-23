@@ -295,6 +295,7 @@ function CalendarControl() {
                 calendar.getMonth() + 1,
                 calendar.getFullYear()
             );
+            console.log(calendar.getMonth() + 1, calendar.getFullYear(), calendarDays);
             // dates of current month
             for (let i = 1; i < calendarDays; i++) {
                 if (i < calendarControl.firstDayNumber()) {
@@ -306,6 +307,7 @@ function CalendarControl() {
                 } else {
                     let fullDate = `${(count + 100).toString().substring(1)}-${(calendar.getMonth() + 101).toString().substring(1)}-${calendar.getFullYear()}`;
                     let haveEntries = document.getElementById(fullDate);
+                    // console.log(fullDate, haveEntries);
                     document.querySelector(
                         ".calendar .calendar-body"
                     ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" id="${haveEntries ? 'logged-date' : 'unlogged-date'}" href="#${fullDate}">${count++}</a></div>`;
@@ -313,9 +315,11 @@ function CalendarControl() {
             }
             //remaining dates after month dates
             for (let j = 0; j < prevDateCount + 1; j++) {
+                let fullDate = `${(count + 100).toString().substring(1)}-${(calendar.getMonth() + 101).toString().substring(1)}-${calendar.getFullYear()}`;
+                let haveEntries = document.getElementById(fullDate);
                 document.querySelector(
                     ".calendar .calendar-body"
-                ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" href="#">${count++}</a></div>`;
+                ).innerHTML += `<div class="number-item" data-num=${count}><a class="dateNumber" id="${haveEntries ? 'logged-date' : 'unlogged-date'}" href="#${fullDate}">${count++}</a></div>`;
             }
             calendarControl.highlightToday();
             calendarControl.plotPrevMonthDates(prevMonthDatesArray);
