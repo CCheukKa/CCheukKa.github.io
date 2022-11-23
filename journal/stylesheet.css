@@ -320,6 +320,9 @@ ul {
 .calendar .calendar-inner .calendar-controls .calendar-year-month .calendar-year-month-label {
     font-weight: 500;
     font-size: 20px;
+    color: white;
+    font-weight: bold;
+    /* text-decoration: underline; */
 }
 
 .calendar .calendar-inner .calendar-body .calendar-today {
