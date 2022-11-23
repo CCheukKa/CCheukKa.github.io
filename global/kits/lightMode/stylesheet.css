@@ -9,17 +9,13 @@
     background-color: #d6c7b1;
 }
 
-#text-content>a[href^="#"],
-#text-content>blockquote>a,
-#text-content>blockquote>*>a,
-#text-content>blockquote>*>*>a,
-#text-content>p>a {
+#text-content a {
     color: var(--light-link-colour);
     /* font-weight: bold; */
     /* text-decoration: underline; */
 }
 
-#text-content>blockquote {
+#text-content blockquote {
     border-left: 5px solid var(--light-line-colour);
 }
 
