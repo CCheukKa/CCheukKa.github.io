@@ -11,7 +11,7 @@ function resizeHandler() {
     catalogueElement.hidden = false;
     dropdownElement.hidden = true;
     let useDropdownMenu = (titleElement.getBoundingClientRect().right + 40 >= catalogueElement.getBoundingClientRect().left);
-    console.log(titleElement.getBoundingClientRect().right, catalogueElement.getBoundingClientRect().left);
+    console.log("New size:", titleElement.getBoundingClientRect().right, catalogueElement.getBoundingClientRect().left);
     catalogueElement.hidden = useDropdownMenu;
     dropdownElement.hidden = !useDropdownMenu;
 }
