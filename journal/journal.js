@@ -6,9 +6,11 @@ lightModeStylesheet.disabled = useDarkMode;
 const fonts = [
     `Georgia, 'Times New Roman', Times, serif`,
     `'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif`,
-    `'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif`,
+    // `'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif`,
     `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
-    `Verdana, Geneva, Tahoma, sans-serif`,
+    // `Verdana, Geneva, Tahoma, sans-serif`,
+    `'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif`,
+
 ];
 var font = 0;
 var calendarMode = true;
@@ -53,7 +55,10 @@ httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal
 function parseResponse(response) {
 
     response = response.replaceAll('<!-- omit in toc -->', '');
-    marked.use({ smartypants: true });
+    marked.use({
+        headerIds: true,
+        smartypants: true
+    });
     let result = marked.parse(response);
 
     // console.log(result);
