@@ -5,10 +5,11 @@ var useDarkMode = true;
 lightModeStylesheet.disabled = useDarkMode;
 const fonts = [
     `Georgia, 'Times New Roman', Times, serif`,
-    `'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif`,
+    // `'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif`,
     // `'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif`,
-    `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
+    // `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
     // `Verdana, Geneva, Tahoma, sans-serif`,
+    `'Atkinson Hyperlegible', sans-serif`,
     `'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif`,
 
 ];
