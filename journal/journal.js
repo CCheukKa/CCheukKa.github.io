@@ -13,7 +13,8 @@ const fonts = [
     `'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif`,
 
 ];
-var font = 0;
+var font = -1;
+cycleFonts(document.getElementById('font-selection'));
 var calendarMode = true;
 
 // TOC Modes
@@ -102,6 +103,14 @@ function cycleFonts(button) {
     [].slice.call(textContainer.getElementsByTagName('p')).forEach(p => {
         p.style.fontFamily = fonts[font];
     });
+
+    const fontIndicatorElement = document.getElementById('font-indicator');
+    let string = '';
+    for (let i = 0; i < fonts.length; i++) {
+        string += i == font ? '●' : '○';
+    }
+    fontIndicatorElement.innerHTML = string;
+
 
     console.log('Changed font:', fonts[font]);
 }
