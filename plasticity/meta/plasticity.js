@@ -1,4 +1,4 @@
-fetchConfig('/plasticity/meta/plasticityConfig.json').then(config => plasticityShelfConstructor(config.plastics));
+fetchConfig('/plasticity/meta/plasticityConfig.jsonc').then(config => plasticityShelfConstructor(config.plastics));
 //
 function plasticityShelfConstructor(plastics) {
     const widthTester = document.createElement('div');

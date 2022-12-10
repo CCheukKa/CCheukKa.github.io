@@ -1,4 +1,4 @@
-fetchConfig('/projects/projectConfig.json').then(config => projectShelfConstructor(config.projects));
+fetchConfig('/projects/projectConfig.jsonc').then(config => projectShelfConstructor(config.projects));
 //
 function projectShelfConstructor(projects) {
     const widthTester = document.createElement('div');

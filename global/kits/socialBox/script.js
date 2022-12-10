@@ -1,5 +1,5 @@
 const socialBox = document.getElementById("social-box");
-fetchConfig('/global/kits/socialBox/config.json')
+fetchConfig('/global/kits/socialBox/config.jsonc')
     .then(config => socialBoxConstructor(config.links));
 
 function socialBoxConstructor(links) {

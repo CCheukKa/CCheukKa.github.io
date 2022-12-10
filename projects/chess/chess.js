@@ -1,4 +1,4 @@
-fetchConfig('./chess/chessProjectConfig.json').then(config => chessShelfConstructor(config.projects));
+fetchConfig('./chess/chessProjectConfig.jsonc').then(config => chessShelfConstructor(config.projects));
 //
 function chessShelfConstructor(projects) {
     const widthTester = document.createElement('div');

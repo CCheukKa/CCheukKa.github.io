@@ -35,7 +35,7 @@ const currentPageFile = window.location.pathname.split('/').pop().split('.html')
 const shelfContainer = document.getElementById('shelfContainer');
 //
 function getGlobalConfig() {
-    return fetchConfig('/global/config.json');
+    return fetchConfig('/global/config.jsonc');
 }
 
 function fetchConfig(path) {
