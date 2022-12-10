@@ -14,9 +14,11 @@
     .structure-handler {
         display: block;
     }
+
     .titleCard {
         width: 80%;
     }
+
     .projectContainer {
         height: calc(100vh - 350px);
     }

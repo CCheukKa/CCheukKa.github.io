@@ -86,9 +86,11 @@
     .name-container>span:first-child {
         opacity: 0%;
     }
+
     .div-name {
         position: relative;
     }
+
     .contact-container {
         width: 25%;
     }
@@ -98,31 +100,39 @@
     #socialBoxLinebreak {
         position: absolute;
     }
+
     #socialBoxGhostSite {
         position: absolute;
     }
+
     .div-name {
         position: inherit;
         right: inherit;
     }
+
     .titleCard {
         flex-wrap: wrap;
         justify-content: space-evenly;
         width: 85%;
     }
+
     .flex-ignore {
         position: inherit;
         flex-basis: 100%;
     }
+
     .div-avatar {
         width: 30%;
     }
+
     .div-name {
         width: 65%;
     }
+
     .name-container>span:first-child {
         opacity: 100%;
     }
+
     .contact-container {
         width: 100%;
         flex-basis: 100%;
@@ -131,16 +141,20 @@
         justify-content: space-around;
         align-items: center;
     }
+
     .contact-container>div {
         margin-left: 2%;
         margin-right: 2%;
     }
+
     .avatar-text {
         top: 0;
     }
+
     .email-container {
         top: 0;
     }
+
     .projectContainer {
         width: 95%;
     }
@@ -150,6 +164,7 @@
     .contact-container>.social-box {
         width: 70%;
     }
+
     .contact-container>.email-container {
         width: 30%;
     }
@@ -159,6 +174,7 @@
     .titleCard {
         width: calc(var(--max-element-width) - 16px);
     }
+
     .projectContainer {
         width: var(--max-element-width);
     }
@@ -169,22 +185,27 @@
         position: absolute;
         display: none;
     }
+
     .description-text {
         position: absolute;
         display: none;
     }
+
     .full-name {
         position: absolute;
         display: none;
     }
+
     .name-container>span:first-child {
         position: absolute;
         display: none;
     }
+
     .name-container>span:last-child {
         position: absolute;
         opacity: 0%;
     }
+
     .div-avatar {
         width: 15%;
         margin: 0;
@@ -192,9 +213,11 @@
         display: flex;
         justify-content: center;
     }
+
     .div-avatar>img {
         width: 100%;
     }
+
     .div-name {
         width: 70%;
         margin: 0;
@@ -202,6 +225,7 @@
         display: flex;
         justify-content: center;
     }
+
     .name-container {
         display: flex;
         justify-content: center;
@@ -209,6 +233,7 @@
         padding: 0;
         width: min-content;
     }
+
     .name-text {
         font-size: 12vw;
     }
@@ -219,13 +244,16 @@
         width: fit-content;
         max-width: 40%;
     }
+
     #social-box {
         width: 55%;
         height: 80%;
     }
+
     #socialBoxLinebreak {
         position: inherit;
     }
+
     #socialBoxGhostSite {
         position: inherit;
     }
@@ -238,18 +266,21 @@
         justify-content: center;
         align-content: center;
     }
+
     .email-container {
         flex-basis: 100%;
         width: 100%;
         max-width: 100%;
         margin: 0;
     }
+
     .contact-container {
         flex-wrap: wrap;
         height: fit-content;
         padding-top: 15px;
         padding-bottom: 15px;
     }
+
     .titleCard {
         padding-top: 16px;
         padding-bottom: 8px;
@@ -262,6 +293,7 @@
         max-width: 100%;
         height: fit-content;
     }
+
     .email-address-container {
         display: flex;
         flex-wrap: nowrap;
@@ -270,27 +302,33 @@
         font-size: 5.4vw;
         width: 90%;
     }
+
     .email-domain {
         position: inherit;
     }
+
     .email-head {
         position: inherit;
         top: 0;
     }
+
     #emailSendButton {
         max-height: 100%;
         max-width: 10%;
         position: relative;
         right: 0;
     }
+
     #emailSendButton>a>img {
         max-width: 100%;
         width: 100%;
     }
+
     #email-domain {
         display: flex;
         flex-wrap: nowrap;
     }
+
     .email-at {
         margin-left: 0.3vh;
         margin-right: 0.3vh;
@@ -301,9 +339,11 @@
     #socialBoxLinebreak {
         position: inherit;
     }
+
     #socialBoxGhostSite {
         position: inherit;
     }
+
     #social-box {
         height: 75px;
     }

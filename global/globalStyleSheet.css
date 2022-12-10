@@ -229,6 +229,7 @@ a {
         justify-content: space-evenly;
         width: 84.5%;
     }
+
     .description {
         position: relative;
         top: 20px;
@@ -241,7 +242,7 @@ a {
         padding-left: 8px;
         padding-right: 8px;
     }
-    .projectContainer {
+
         width: 100%;
     }
 }

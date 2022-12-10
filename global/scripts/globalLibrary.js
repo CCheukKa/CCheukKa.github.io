@@ -10,7 +10,7 @@ window.addEventListener('load', () => {
     onLoadPage();
 });
 //
-(function(exports) {
+(function (exports) {
     var style = document.querySelector("head")
         .appendChild(document.createElement("style"));
 
@@ -75,7 +75,7 @@ function onLoadPage() {
 
 function httpGetAsync(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() {
+    xmlHttp.onreadystatechange = function () {
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
             callback(xmlHttp.responseText);
     }
