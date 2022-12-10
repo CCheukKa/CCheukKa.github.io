@@ -6,7 +6,7 @@
     openInNewTab?      (false): If true, the page will open in a new tab
 */
 {
-    "projects": [
+    "plastics": [
         {
             "refName": "humanity",
             "displayName": "Humanity",

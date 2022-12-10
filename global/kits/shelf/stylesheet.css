@@ -2,7 +2,7 @@ body::-webkit-scrollbar {
     display: none;
 }
 
-.project-wrapper {
+.shelf-item-wrapper {
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 1%;
@@ -11,7 +11,7 @@ body::-webkit-scrollbar {
     height: fit-content;
 }
 
-.project {
+.shelf-item {
     font-size: xx-large;
     font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     border-radius: 16px;
@@ -22,7 +22,7 @@ body::-webkit-scrollbar {
     background-position: center;
 }
 
-.project:hover {
+.shelf-item:hover {
     cursor: pointer;
 }
 
@@ -40,7 +40,7 @@ marquee {
     border-radius: 200px;
 }
 
-.projectContainer {
+.shelfContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -53,20 +53,20 @@ marquee {
     box-shadow: 0px 0px 20px #00000066;
 }
 
-.projectContainer::-webkit-scrollbar {
+.shelfContainer::-webkit-scrollbar {
     width: 6px;
 }
 
-.projectContainer::-webkit-scrollbar-track:hover {
+.shelfContainer::-webkit-scrollbar-track:hover {
     background-color: #55555744;
     border-radius: 10px;
 }
 
-.projectContainer::-webkit-scrollbar-thumb {
+.shelfContainer::-webkit-scrollbar-thumb {
     background: #555557;
     border-radius: 10px;
 }
 
-.projectContainer::-webkit-scrollbar-thumb:hover {
+.shelfContainer::-webkit-scrollbar-thumb:hover {
     background: #7c7c7c;
 }

@@ -1,12 +1,12 @@
-fetchConfig('/plasticity/meta/plasticityConfig.json').then(config => fetchContent(config.projects));
+fetchConfig('/plasticity/meta/plasticityConfig.json').then(config => fetchContent(config.items));
 
-function fetchContent(projects) {
-    projects.forEach(project => {
-        if (project.refName != currentPageFile) { return; }
-        fetch(`/plasticity/${project.refName}.json`)
+function fetchContent(plastics) {
+    plastics.forEach(plastic => {
+        if (plastic.refName != currentPageFile) { return; }
+        fetch(`/plasticity/${plastic.refName}.json`)
             .then(response => response.json())
             .then(metadata => {
-                fetch(`/plasticity/${project.refName}.txt`)
+                fetch(`/plasticity/${plastic.refName}.txt`)
                     .then(response => response.text())
                     .then(body => { display(metadata, body) });
             });

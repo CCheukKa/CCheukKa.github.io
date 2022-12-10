@@ -32,7 +32,7 @@ function toggleDebugOutline() {
 }
 //
 const currentPageFile = window.location.pathname.split('/').pop().split('.html')[0];
-const projectContainer = document.getElementById('projectContainer');
+const shelfContainer = document.getElementById('shelfContainer');
 //
 function getGlobalConfig() {
     return fetchConfig('/global/config.json');

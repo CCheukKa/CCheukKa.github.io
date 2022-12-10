@@ -6,7 +6,7 @@
     width: 50%;
 }
 
-.projectContainer {
+.shelfContainer {
     height: calc(100vh - 105px);
 }
 
@@ -19,7 +19,7 @@
         width: 80%;
     }
 
-    .projectContainer {
+    .shelfContainer {
         height: calc(100vh - 350px);
     }
 }

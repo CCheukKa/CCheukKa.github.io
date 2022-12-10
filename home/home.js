@@ -1,6 +1,6 @@
-getGlobalConfig().then(config => projectShelfConstructor(config.catalogue));
+getGlobalConfig().then(config => homeShelfConstructor(config.catalogue));
 //
-function projectShelfConstructor(projects) {
+function homeShelfConstructor(pages) {
     const widthTester = document.createElement('div');
     document.body.appendChild(widthTester);
     widthTester.style.width = 'fit-content';
@@ -8,10 +8,10 @@ function projectShelfConstructor(projects) {
     widthTester.style.fontSize = 'xx-large';
     widthTester.style.fontFamily = "'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
     //
-    projects.forEach(project => {
-        if (project.hideFromShelf) { return; }
-        let displayName = project.displayName,
-            refName = project.refName;
+    pages.forEach(page => {
+        if (page.hideFromShelf) { return; }
+        let displayName = page.displayName,
+            refName = page.refName;
 
 
         const thumbnailURL = `/${refName}/thumbnail.png`;
@@ -19,25 +19,20 @@ function projectShelfConstructor(projects) {
         if (!useEmojiThumbnail) { thumbnailExists = urlExists(thumbnailURL); }
         widthTester.innerHTML = displayName;
         if (useHTML) { refName = refName.concat('.html'); }
-        //if (project.htmlInRoot) {
-        //    pageURL = `/projects/${htmlName}`;
-        //} else {
-        //    pageURL = `/projects/${pathName}/${htmlName}`;
-        //}
 
         //#region   //! Define tags
         //! <div>
-        let divOpen = `<div class="project-wrapper">`;
+        let divOpen = `<div class="shelf-item-wrapper">`;
         //! <a>
         let aOpen = `<a href=/${refName}`;
-        if (project.openInNewTab) {
+        if (page.openInNewTab) {
             aOpen += ` target="_blank"`;
         }
         aOpen += `>`;
         //! <fieldset>
-        let fieldsetOpen = `<fieldset class="project" style="text-align: center;`;
+        let fieldsetOpen = `<fieldset class="shelf-item" style="text-align: center;`;
         if (!useEmojiThumbnail) {
-            if (!project.underConstruction && thumbnailExists) {
+            if (!page.underConstruction && thumbnailExists) {
                 fieldsetOpen += ` background-image: url('${thumbnailURL}');`;
             }
         }
@@ -55,7 +50,7 @@ function projectShelfConstructor(projects) {
         let spanInside1 = '';
         let spanOpen2 = `<span class="headerCatalogueSelected" style="position: relative; top: 35px; font-size: 16pt; color: $COLOUR; text-shadow: 0px 0px 5px #000000;">`;
         let spanInside2 = '';
-        if (project.underConstruction) {
+        if (page.underConstruction) {
             spanInside1 = `🚧`;
             spanInside2 = `Page under construction!`;
             spanOpen2 = spanOpen2.replace('$COLOUR', '#f35858');
@@ -65,8 +60,8 @@ function projectShelfConstructor(projects) {
                 spanInside2 = `Thumbnail failed to load`;
                 spanOpen2 = spanOpen2.replace('$COLOUR', '#a6ed8d');
             }
-            if (project.emoji) {
-                spanInside1 = project.emoji;
+            if (page.emoji) {
+                spanInside1 = page.emoji;
                 spanInside2 = '';
             }
         }
@@ -90,7 +85,7 @@ function projectShelfConstructor(projects) {
                 </a>
             </div>
         `;
-        projectContainer.innerHTML = projectContainer.innerHTML.concat(innerHTML);
+        shelfContainer.innerHTML = shelfContainer.innerHTML.concat(innerHTML);
     });
     widthTester.parentNode.removeChild(widthTester);
     return;

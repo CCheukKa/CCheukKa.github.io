@@ -155,7 +155,7 @@
         top: 0;
     }
 
-    .projectContainer {
+    .shelfContainer {
         width: 95%;
     }
 }
@@ -175,7 +175,7 @@
         width: calc(var(--max-element-width) - 16px);
     }
 
-    .projectContainer {
+    .shelfContainer {
         width: var(--max-element-width);
     }
 }
