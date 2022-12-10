@@ -1,5 +1,8 @@
 //! <script src="https://cdn.jsdelivr.net/npm/bowser@2.9.0/es5.js"></script>
-if (!useIncompatibilityWarning) { throw 'Incompatibility warning disabled'; }
+if (!useIncompatibilityWarning) {
+    console.log('Incompatibility warning pop-up is disabled!');
+    throw new Error;
+}
 
 const compatibleBrowserList = [
     'Chrome',
@@ -7,7 +10,7 @@ const compatibleBrowserList = [
     'Opera'
 ];
 
-window.addEventListener("load", function() {
+window.addEventListener("load", function () {
     // (B1) PARSE USER AGENT
     var result = bowser.getParser(navigator.userAgent).getResult();
 
