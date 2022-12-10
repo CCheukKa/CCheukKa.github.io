@@ -1,4 +1,4 @@
-fetchConfig('/plasticity/meta/plasticityConfig.jsonc').then(config => fetchContent(config.items));
+fetchConfig('/plasticity/meta/plasticityConfig.jsonc').then(config => fetchContent(config.plastics));
 
 function fetchContent(plastics) {
     plastics.forEach(plastic => {
