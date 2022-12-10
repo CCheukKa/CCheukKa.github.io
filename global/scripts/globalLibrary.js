@@ -33,6 +33,7 @@ function toggleDebugOutline() {
 //
 const currentPageFile = window.location.pathname.split('/').pop().split('.html')[0];
 const shelfContainer = document.getElementById('shelfContainer');
+const listElement = document.getElementById('list');
 //
 function getGlobalConfig() {
     return fetchConfig('/global/config.jsonc');

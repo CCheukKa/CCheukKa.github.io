@@ -1,0 +1,188 @@
+/*
+    pdfName             (required): The name of the pdf file in /pdfs/
+    commentedPDFName?   (optional): The name of the commented pdf file in /pdfs/
+    topic               (required): The topic of the paper
+    courseCode          (required): The code of the course the paper was written for
+    courseName          (required): The name of the course the paper was written for
+    date                (required): The date the paper was written
+*/
+{
+    "courses": [
+        {
+            "courseCode": "CHLT-1100",
+            "courseName": "University Chinese I",
+            "papers": [
+                {
+                    "pdfName": "[CHLT-1100] [1] 前測",
+                    "topic": "飽",
+                    "date": "20-09-2021"
+                },
+                {
+                    "pdfName": "[CHLT-1100] [2] 語文札記",
+                    "topic": "中英夾雜",
+                    "date": "11-11-2021"
+                },
+                {
+                    "pdfName": "[CHLT-1100] [3] 散文",
+                    "topic": "散文",
+                    "date": "02-12-2021"
+                }
+            ]
+        },
+        {
+            "courseCode": "GECC-1130",
+            "courseName": "Idea of a University",
+            "papers": [
+                {
+                    "pdfName": "[GECC-1130] [1] GECC1130 Reflective report",
+                    "topic": "University goals",
+                    "date": "29-11-2021"
+                },
+                {
+                    "pdfName": "[GECC-1130] [2] Topic Article",
+                    "topic": "Deontology and Teleology",
+                    "date": "09-12-2021"
+                }
+            ]
+        },
+        {
+            "courseCode": "GECC-1131",
+            "courseName": "Idea of a University: Student-Oriented Learning",
+            "papers": [
+                {
+                    "pdfName": "[GECC-1131] [1] Book Report",
+                    "topic": "Book Report on \"Justice: What's the Right Thing to Do?\"",
+                    "date": "10-12-2021"
+                }
+            ]
+        },
+        {
+            "courseCode": "PHYS-1110",
+            "courseName": "Engineering Physics: Mechanics and Thermodynamics",
+            "papers": [
+                {
+                    "pdfName": "[PHYS-1110] [1] PHYS 1110 Final Cheat Sheet",
+                    "topic": "Physics Cheat Sheet",
+                    "date": "09-12-2021"
+                }
+            ]
+        },
+        {
+            "courseCode": "ELTU-1002",
+            "courseName": "English Communication for University Studies",
+            "papers": [
+                {
+                    "pdfName": "[ELTU-1002] [1] ChanCheukKa_1002CP_Proposal_1155174356",
+                    "commentedPDFName": "[ELTU-1002] [1+] ChanCheukKa_1002CP_Proposal_1155174356 (with markup)",
+                    "topic": "Institutional Racism - Proposal",
+                    "date": "30-03-2022"
+                },
+                {
+                    "pdfName": "[ELTU-1002] [2] ChanCheukKa_1002CP_Essay_1155174356",
+                    "topic": "Institutional Racism - Essay",
+                    "date": "29-04-2022"
+                }
+            ]
+        },
+        {
+            "courseCode": "ENGG-1120",
+            "courseName": "Linear Algebra for Engineers",
+            "papers": [
+                {
+                    "pdfName": "[ENGG-1120] [1] ENGG 1120 Final Cheat Sheet",
+                    "topic": "Linear Algebra Cheat Sheet",
+                    "date": "04-05-2022"
+                }
+            ]
+        },
+        {
+            "courseCode": "UGED-1111",
+            "courseName": "Logic",
+            "papers": [
+                {
+                    "pdfName": "[UGED-1111] [1] Final Cheat Sheet",
+                    "topic": "Logic Cheat Sheet",
+                    "date": "05-05-2022"
+                }
+            ]
+        },
+        {
+            "courseCode": "UGFN-1000",
+            "courseName": "In Dialogue with Nature",
+            "papers": [
+                {
+                    "pdfName": "[UGFN-1000] [1] RJ3-174356",
+                    "commentedPDFName": "[UGFN-1000] [1+] RJ3-CHAN-Cheuk-Ka-174356 (Feedback)",
+                    "topic": "Mathematics and Science",
+                    "date": "05-03-2022"
+                },
+                {
+                    "pdfName": "[UGFN-1000] [2] TP4-174356",
+                    "commentedPDFName": "[UGFN-1000] [2+] TP4-CHAN-Cheuk-Ka-174356 (Feedback)",
+                    "topic": "Free Will",
+                    "date": "30-04-2022"
+                }
+            ]
+        },
+        {
+            "courseCode": "BMEG-2602",
+            "courseName": "Hospital Experience and Engineering Practicum",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-2602] [1] PWH+CUMC Training Log Book",
+                    "topic": "Training Log Book",
+                    "date": "11-06-2022"
+                }
+            ]
+        },
+        {
+            "courseCode": "BMEG-2410",
+            "courseName": "Complex Analysis and Differential Equations",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-2410] [1] BMEG 2410 Final Cheat Sheet",
+                    "topic": "Complex Analysis and Differential Equations Cheat Sheet",
+                    "date": "06-12-2022"
+                }
+            ]
+        },
+        {
+            "courseCode": "CHLT-1200",
+            "courseName": "University Chinese II",
+            "papers": [
+                {
+                    "pdfName": "[CHLT-1200] [1] 議論文",
+                    "topic": "取捨",
+                    "date": "26-10-2022"
+                },
+                {
+                    "pdfName": "[CHLT-1200] [2] 演講槁 script",
+                    "topic": "朋友",
+                    "date": "28-11-2022"
+                }
+            ]
+        },
+        {
+            "courseCode": "ENGG-1110",
+            "courseName": "Problem Solving by Programming",
+            "papers": [
+                {
+                    "pdfName": "[ENGG-1110] [1] projectpart2_1155174356",
+                    "topic": "Course Project Report",
+                    "date": "02-12-2022"
+                }
+            ]
+        },
+        {
+            "courseCode": "UGEA-2100",
+            "courseName": "Outline of Chinese Culture",
+            "papers": [
+                {
+                    "pdfName": "[UGEA-2100] [1] 1155174356",
+                    "topic": "莊子、科舉制度 & 孝",
+                    "date": "10-12-2022"
+                }
+            ]
+        }
+    ]
+}

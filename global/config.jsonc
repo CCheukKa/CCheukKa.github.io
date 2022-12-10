@@ -26,6 +26,11 @@
             "emoji": "🗑️"
         },
         {
+            "refName": "papers",
+            "displayName": "Papers",
+            "emoji": "📑"
+        },
+        {
             "refName": "journal",
             "displayName": "Journal",
             "emoji": "📝"
