@@ -6,7 +6,7 @@ getGlobalConfig().then(config => main(config));
 
 //
 function main(config) {
-    buildNavigation(config.catalogue);
+    buildNavigationBar(config.catalogue);
     constructionSign(config.catalogue);
     handleExceptions(config.exception);
     return;
@@ -34,7 +34,7 @@ function removeConstructionElement() {
     return;
 }
 
-function buildNavigation(catalogue) {
+function buildNavigationBar(catalogue) {
     let establishedThisPage = false;
     //
     let separator = document.createElement('span');
