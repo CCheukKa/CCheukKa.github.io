@@ -27,6 +27,7 @@ function socialBoxConstructor(links) {
 }
 
 function createLogo(site) {
+    if (!site.title) { site.title = ''; }
     socialBox.innerHTML = socialBox.innerHTML.concat(`<div title="${site.title}"><a  href="${site.link}" target="_blank"><img src="/global/icons/${site.refName}.svg"></a></div>`);
     return;
 }

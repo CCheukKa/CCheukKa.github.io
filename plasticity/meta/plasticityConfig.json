@@ -1,39 +1,56 @@
+/*
+    refName         (required): The name of the folder in /plasticity/ and the name displayed in the navigation bar
+    displayName     (required): The name that will be displayed on the shelf
+    emoji?          (optional): The emoji that will be displayed on the shelf
+    underConstruction?  (true): If true, the page will be displayed as under construction
+    openInNewTab?      (false): If true, the page will open in a new tab
+*/
 {
-    "projects": [{
-        "refName": "humanity",
-        "displayName": "Humanity",
-        "emoji": "👥"
-    }, {
-        "refName": "resignation",
-        "displayName": "Resignation",
-        "emoji": "📝"
-    }, {
-        "refName": "art",
-        "displayName": "Art",
-        "emoji": "🎨"
-    }, {
-        "refName": "progression",
-        "displayName": "Progression",
-        "emoji": "⚙️"
-    }, {
-        "refName": "bonsai-trees",
-        "displayName": "Bonsai trees",
-        "emoji": "🌴"
-    }, {
-        "refName": "confession",
-        "displayName": "Confession",
-        "emoji": "🙇🏻‍♂️"
-    }, {
-        "refName": "temporal-relativity",
-        "displayName": "Temporal relativity",
-        "emoji": "⏳"
-    }, {
-        "refName": "inactivity-email",
-        "displayName": "Inactivity email",
-        "emoji": "📧"
-    }, {
-        "refName": "bell-ring",
-        "displayName": "打鐘",
-        "emoji": "🔔"
-    }]
+    "projects": [
+        {
+            "refName": "humanity",
+            "displayName": "Humanity",
+            "emoji": "👥"
+        },
+        {
+            "refName": "resignation",
+            "displayName": "Resignation",
+            "emoji": "📝"
+        },
+        {
+            "refName": "art",
+            "displayName": "Art",
+            "emoji": "🎨"
+        },
+        {
+            "refName": "progression",
+            "displayName": "Progression",
+            "emoji": "⚙️"
+        },
+        {
+            "refName": "bonsai-trees",
+            "displayName": "Bonsai trees",
+            "emoji": "🌴"
+        },
+        {
+            "refName": "confession",
+            "displayName": "Confession",
+            "emoji": "🙇🏻‍♂️"
+        },
+        {
+            "refName": "temporal-relativity",
+            "displayName": "Temporal relativity",
+            "emoji": "⏳"
+        },
+        {
+            "refName": "inactivity-email",
+            "displayName": "Inactivity email",
+            "emoji": "📧"
+        },
+        {
+            "refName": "bell-ring",
+            "displayName": "打鐘",
+            "emoji": "🔔"
+        }
+    ]
 }

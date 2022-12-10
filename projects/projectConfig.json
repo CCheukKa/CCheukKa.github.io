@@ -1,41 +1,39 @@
+/*
+    pathName        (required): The name of the folder that contains the project
+    displayName     (required): The name that will be displayed on the shelf
+    htmlName        (required): The name of the html file that will be opened
+    htmlInRoot?        (false): If true, /htmlName.html instead of /pathName/htmlName.html will be opened
+    openInNewTab?      (false): If true, the page will open in a new tab
+*/
 {
-    "projects": [{
+    "projects": [
+        {
             "pathName": "pathfinding+mazegen",
             "displayName": "Pathfind + MazeGen",
-            "htmlName": "page",
-            "htmlInRoot": false,
-            "directToReadme": false,
-            "openInNewTab": true
+            "htmlName": "page"
         },
         {
             "pathName": "snake",
             "displayName": "Snake",
             "htmlName": "page",
-            "htmlInRoot": false,
-            "directToReadme": false,
             "openInNewTab": true
         },
         {
             "pathName": "tetris",
             "displayName": "Tetris",
             "htmlName": "page",
-            "htmlInRoot": false,
-            "directToReadme": false,
             "openInNewTab": true
         },
         {
             "pathName": "chess",
             "displayName": "Chess(es)",
             "htmlName": "chess",
-            "htmlInRoot": true,
-            "directToReadme": false,
-            "openInNewTab": false
-        }, {
+            "htmlInRoot": true
+        },
+        {
             "pathName": "connect-four",
             "displayName": "Connect Four",
             "htmlName": "page",
-            "htmlInRoot": false,
-            "directToReadme": false,
             "openInNewTab": true
         }
     ]

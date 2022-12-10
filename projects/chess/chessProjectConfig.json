@@ -1,33 +1,34 @@
+/*
+    pathName        (required): The name of the folder that contains the project
+    displayName     (required): The name that will be displayed on the shelf
+    htmlName        (required): The name of the html file that will be opened
+*/
 {
-    "projects": [{
+    "projects": [
+        {
             "pathName": "chinese-chess",
             "displayName": "Chinese Chess",
-            "htmlName": "page",
-            "directToReadme": false
+            "htmlName": "page"
         },
         {
             "pathName": "crowded-chinese-chess",
             "displayName": "Crowded Chinese Chess",
-            "htmlName": "page",
-            "directToReadme": false
+            "htmlName": "page"
         },
         {
             "pathName": "vectorised-western-chess",
             "displayName": "Western Chess",
-            "htmlName": "page",
-            "directToReadme": false
+            "htmlName": "page"
         },
         {
             "pathName": "circular-western-chess",
             "displayName": "Circular Western Chess",
-            "htmlName": "page",
-            "directToReadme": false
+            "htmlName": "page"
         },
         {
             "pathName": "western-chess",
             "displayName": "(Old) Western Chess",
-            "htmlName": "page",
-            "directToReadme": false
+            "htmlName": "page"
         }
     ]
 }

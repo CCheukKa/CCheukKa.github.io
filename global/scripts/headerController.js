@@ -42,6 +42,7 @@ function buildNavigation(catalogue) {
     separator.className = 'headerCatalogueSeparator';
     //
     catalogue.forEach(page => {
+        if (page.hideFromNav) { return; }
         let newSpan = document.createElement('span');
         if (useHTML) {
             newSpan.innerHTML = `<a href="/${page.refName}.html">${page.displayName}</a>`;

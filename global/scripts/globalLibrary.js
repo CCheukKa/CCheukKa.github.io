@@ -41,8 +41,13 @@ function getGlobalConfig() {
 function fetchConfig(path) {
     return new Promise((resolve, reject) => {
         fetch(path)
-            .then(response => response.json())
-            .then(data => { resolve(JSON.parse(JSON.stringify(data))); })
+            .then(response => response.text())
+            .then(data => {
+                resolve(JSON.parse(
+                    //? Strip raw JSON text of comments
+                    data.replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m)
+                ));
+            });
     });
 }
 
