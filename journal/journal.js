@@ -21,6 +21,7 @@ const tags = [
     { icon: '🏫', name: 'School life' },
     { icon: '👥', name: 'Relationships' },
     { icon: '💭', name: 'Philosophy' },
+    { icon: '🧠', name: 'Mentality' },
     { icon: '🌞', name: 'Well-being' },
     { icon: '👣', name: 'Experiences' },
     { icon: '💻', name: 'Personal projects' },
