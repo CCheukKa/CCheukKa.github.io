@@ -126,9 +126,8 @@ function addSectionTags(container) {
 }
 
 function appendTags(container) {
-    //TODO: find tags
-    //TODO: append to titles <h4>
-    //TODO: append to table of contents?
+    //TODO: append tags to table of contents
+
     let h4 = container.getElementsByTagName("h4");
     let tags = container.getElementsByTagName("tag");
     let tagIndex = 0;
