@@ -362,6 +362,11 @@ function CalendarControl() {
                             ${calendarControl.localDate.getFullYear()}
                             </div>
                             <div class="calendar-body"></div></div>`;
+
+            let prevBtn = document.querySelector(".calendar .calendar-prev a");
+            if (calendar.getFullYear() == 2021 && calendar.getMonth() == 8) { prevBtn.classList.add("disabled"); }
+            let nextBtn = document.querySelector(".calendar .calendar-next a");
+            if (calendar.getFullYear() == new Date().getFullYear() && calendar.getMonth() == new Date().getMonth()) { nextBtn.classList.add("disabled"); }
         },
         plotDayNames: function () {
             for (let i = 0; i < calendarControl.calWeekDays.length; i++) {
