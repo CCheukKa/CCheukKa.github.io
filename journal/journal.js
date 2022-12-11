@@ -19,20 +19,20 @@ var calendarMode = true;
 const tags = [
     { icon: '📚', name: 'Academics' },
     { icon: '🏫', name: 'School life' },
-    { icon: '👥', name: 'Relationships' },
     { icon: '💭', name: 'Philosophy' },
     { icon: '🧠', name: 'Mentality' },
     { icon: '🌞', name: 'Well-being' },
     { icon: '👣', name: 'Experiences' },
+    { icon: '👥', name: 'Relationships' },
     { icon: '💻', name: 'Personal projects' },
     { icon: '💾', name: 'Technology' },
     // 📚 Academics
     // 🏫 School life
-    // 👥 Relationships
     // 💭 Philosophy
     // 🧠 Mentality
     // 🌞 Well-being
     // 👣 Experiences
+    // 👥 Relationships
     // 💻 Personal projects
     // 💾 Technology
 ];
