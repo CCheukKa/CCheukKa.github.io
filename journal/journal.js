@@ -310,13 +310,25 @@ function CalendarControl() {
         },
         navigateToPreviousMonth: function () {
             if (calendar.getFullYear() == 2021 && calendar.getMonth() == 8) { return; } //? September 2021
+
             calendar.setMonth(calendar.getMonth() - 1);
             calendarControl.attachEventsOnNextPrev();
+
+            let prevBtn = document.querySelector(".calendar .calendar-prev a");
+            if (calendar.getFullYear() == 2021 && calendar.getMonth() == 8) { prevBtn.classList.add("disabled"); }
+            let nextBtn = document.querySelector(".calendar .calendar-next a");
+            nextBtn.classList.remove("disabled");
         },
         navigateToNextMonth: function () {
             if (calendar.getFullYear() == new Date().getFullYear() && calendar.getMonth() == new Date().getMonth()) { return; }
+
             calendar.setMonth(calendar.getMonth() + 1);
             calendarControl.attachEventsOnNextPrev();
+
+            let prevBtn = document.querySelector(".calendar .calendar-prev a");
+            prevBtn.classList.remove("disabled");
+            let nextBtn = document.querySelector(".calendar .calendar-next a");
+            if (calendar.getFullYear() == new Date().getFullYear() && calendar.getMonth() == new Date().getMonth()) { nextBtn.classList.add("disabled"); }
         },
         navigateToCurrentMonth: function () {
             let currentMonth = calendarControl.localDate.getMonth();
@@ -337,11 +349,11 @@ function CalendarControl() {
             document.querySelector(
                 ".calendar"
             ).innerHTML += `<div class="calendar-inner"><div class="calendar-controls">
-                            <div class="calendar-prev"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><path fill="#666" d="M88.2 3.8L35.8 56.23 28 64l7.8 7.78 52.4 52.4 9.78-7.76L45.58 64l52.4-52.4z"/></svg></a></div>
+                            <div class="calendar-prev"><a><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><path fill="#666" d="M88.2 3.8L35.8 56.23 28 64l7.8 7.78 52.4 52.4 9.78-7.76L45.58 64l52.4-52.4z"/></svg></a></div>
                             <div class="calendar-year-month">
                             <a class="calendar-year-month-label"></a>
                             </div>
-                            <div class="calendar-next"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><path fill="#666" d="M38.8 124.2l52.4-52.42L99 64l-7.77-7.78-52.4-52.4-9.8 7.77L81.44 64 29 116.42z"/></svg></a></div>
+                            <div class="calendar-next"><a><svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128"><path fill="#666" d="M38.8 124.2l52.4-52.42L99 64l-7.77-7.78-52.4-52.4-9.8 7.77L81.44 64 29 116.42z"/></svg></a></div>
                             </div>
                             <div class="calendar-today-date">Today: 
                             ${calendarControl.calWeekDays[calendarControl.localDate.getDay()]}, 
@@ -407,10 +419,7 @@ function CalendarControl() {
             let prevBtn = document.querySelector(".calendar .calendar-prev a");
             let nextBtn = document.querySelector(".calendar .calendar-next a");
             let dateNumber = document.querySelectorAll(".calendar .dateNumber");
-            prevBtn.addEventListener(
-                "click",
-                calendarControl.navigateToPreviousMonth
-            );
+            prevBtn.addEventListener("click", calendarControl.navigateToPreviousMonth);
             nextBtn.addEventListener("click", calendarControl.navigateToNextMonth);
             for (var i = 0; i < dateNumber.length; i++) {
                 dateNumber[i].addEventListener(

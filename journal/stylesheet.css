@@ -244,6 +244,11 @@ ul {
     overflow: hidden;
     font-weight: normal;
     border-radius: var(--calendar-border-radius);
+    /* not selectable */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .calendar-inner {
@@ -374,6 +379,20 @@ ul {
     border: 1px solid transparent;
     pointer-events: none;
 }
+
+.calendar .calendar-prev a,
+.calendar .calendar-next a {
+    cursor: pointer;
+}
+
+.calendar .calendar-prev a.disabled,
+.calendar .calendar-next a.disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 20%;
+}
+
+
 
 .calendar .dateNumber {
     opacity: 50%;
