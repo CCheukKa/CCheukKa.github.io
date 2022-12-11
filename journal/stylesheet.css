@@ -385,3 +385,11 @@ ul {
     color: var(--link-colour);
     opacity: 100%;
 }
+
+p:has(tag) {
+    display: none;
+}
+
+.tag-container {
+    margin-left: 5px;
+}

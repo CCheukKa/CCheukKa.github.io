@@ -4,7 +4,7 @@ const lightModeStylesheet = document.getElementById('light-mode-stylesheet');
 var useDarkMode = true;
 lightModeStylesheet.disabled = useDarkMode;
 const fonts = [
-    `Georgia, 'Times New Roman', Times, serif`,
+    `'Times New Roman', serif`,
     `'Atkinson Hyperlegible', sans-serif`,
     `'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif`,
     // `'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif`,
@@ -16,6 +16,15 @@ const fonts = [
 var font = -1;
 cycleFonts(document.getElementById('font-selection'));
 var calendarMode = true;
+const tags = [
+    { icon: '📚', name: 'Academics' },
+    { icon: '🏫', name: 'School life' },
+    { icon: '👥', name: 'Relationships' },
+    { icon: '💭', name: 'Philosophy' },
+    { icon: '🌞', name: 'Well-being' },
+    { icon: '👣', name: 'Experiences' },
+    { icon: '💻', name: 'Personal projects' },
+];
 
 // TOC Modes
 const tocMode = {
@@ -38,10 +47,12 @@ const monthName = {
     December: 12,
 }
 
+
 httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal.md", response => {
     // console.log(response);
-    textContainer.innerHTML = parseResponse(response);
+    textContainer.innerHTML = parseResponse(handleComments(response));
     addSectionTags(textContainer);
+    appendTags(textContainer);
     buildTableOfContents(response, textContainer);
     cycleTocMode(false);
     //
@@ -54,18 +65,30 @@ httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal
     //
 });
 
-function parseResponse(response) {
+function handleComments(rawMD) {
+    // remove unnecessary comments
+    rawMD = rawMD.replaceAll('<!-- omit in toc -->', '');
 
-    response = response.replaceAll('<!-- omit in toc -->', '');
+    // handle tags
+    tags.forEach(tag => {
+        rawMD = rawMD.replaceAll(`<!-- ${tag.icon} ${tag.name} -->`, `<tag id="${tag.icon}">${tag.name}</tag>`);
+    });
+
+    return rawMD;
+}
+
+function parseResponse(uncommentedMD) {
+
     marked.use({
         headerIds: true,
         smartypants: true
     });
-    let result = marked.parse(response);
+    let result = marked.parse(uncommentedMD);
 
     // console.log(result);
     return result;
 }
+
 
 function addSectionTags(container) {
     let tmp = [];
@@ -89,6 +112,34 @@ function addSectionTags(container) {
     let latestTag = document.createElement('span');
     latestTag.id = 'latest';
     latest.appendChild(latestTag)
+}
+
+function appendTags(container) {
+    //TODO: find tags
+    //TODO: append to titles <h4>
+    //TODO: append to table of contents?
+    let h4 = container.getElementsByTagName("h4");
+    let tags = container.getElementsByTagName("tag");
+    let tagIndex = 0;
+    for (let i = 0; i < h4.length; i++) {
+        let tag = tags[tagIndex];
+        if (tag && tag.parentElement.previousSibling.previousSibling == h4[i]) {
+            let tagContainerElement = document.createElement('span');
+            tagContainerElement.className = 'tag-container';
+            h4[i].appendChild(tagContainerElement);
+
+            while (tag && tag.parentElement.previousSibling.previousSibling == h4[i]) {
+                // tagContainerElement.innerHTML += tag.id;
+                let tagElement = document.createElement('span');
+                tagElement.innerHTML = tag.id;
+                tagElement.title = tag.innerHTML;
+                tagContainerElement.appendChild(tagElement);
+
+                tagIndex++;
+                tag = tags[tagIndex];
+            }
+        }
+    }
 }
 
 function toggleDarkMode(icon) {
@@ -310,7 +361,7 @@ function CalendarControl() {
                 calendar.getMonth() + 1,
                 calendar.getFullYear()
             );
-            console.log(calendar.getMonth() + 1, calendar.getFullYear(), calendarDays);
+            // console.log(calendar.getMonth() + 1, calendar.getFullYear(), calendarDays);
             // dates of current month
             for (let i = 1; i < calendarDays; i++) {
                 if (i < calendarControl.firstDayNumber()) {
