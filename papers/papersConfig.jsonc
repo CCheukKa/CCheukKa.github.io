@@ -136,6 +136,17 @@
             ]
         },
         {
+            "courseCode": "BMEG-2210",
+            "courseName": "Orthopaedic Biomechanics and Musculoskeletal Injuries",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-2210] [1] BMEG 2210 Final Cheat Sheet",
+                    "topic": "Orthopaedic Biomechanics and Musculoskeletal Injuries Cheat Sheet",
+                    "date": "16-12-2022"
+                }
+            ]
+        },
+        {
             "courseCode": "BMEG-2410",
             "courseName": "Complex Analysis and Differential Equations",
             "papers": [
