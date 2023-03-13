@@ -194,6 +194,33 @@
                     "date": "10-12-2022"
                 }
             ]
+        },
+        {
+            "courseCode": "ELTU-2014",
+            "courseName": "English for Engineering Students 1",
+            "papers": [
+                {
+                    "pdfName": "[ELTU-2014] [1] 2014BE_Chan Cheuk Ka_script",
+                    "topic": "Artificial Intelligence Presentation Script",
+                    "date": "14-02-2023"
+                }
+            ]
+        },
+        {
+            "courseCode": "LSCI-3000",
+            "courseName": "Synthetic Biology Workshop",
+            "papers": [
+                {
+                    "pdfName": "[LSCI-3000] [1] Lab Log 1",
+                    "topic": "Synthetic Biology Workshop Lab Log 1",
+                    "date": "24-02-2023"
+                },
+                {
+                    "pdfName": "[LSCI-3000] [2] Lab Log 2",
+                    "topic": "Synthetic Biology Workshop Lab Log 2",
+                    "date": "03-03-2023"
+                }
+            ]
         }
     ]
 }
