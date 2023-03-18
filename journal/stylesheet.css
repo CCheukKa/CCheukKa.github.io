@@ -417,4 +417,6 @@ p:has(tag) {
 
 .tag-container {
     margin-left: 5px;
+    font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color", "Android Emoji", sans-serif;
+    ;
 }
