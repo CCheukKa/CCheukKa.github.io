@@ -26,6 +26,7 @@ const tags = [
     { icon: '👥', name: 'Relationships' },
     { icon: '💻', name: 'Personal projects' },
     { icon: '💾', name: 'Technology' },
+    { icon: '🍽', name: 'Food' },
     // 📚 Academics
     // 🏫 School life
     // 💭 Philosophy
@@ -35,6 +36,7 @@ const tags = [
     // 👥 Relationships
     // 💻 Personal projects
     // 💾 Technology
+    // 🍽 Food
 ];
 
 // TOC Modes
