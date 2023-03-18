@@ -180,6 +180,11 @@ table>tbody>tr:last-child>td {
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 8px;
+
 }
 
 ul {
@@ -219,6 +224,7 @@ ul {
 
 #toc-mode-button {
     cursor: pointer;
+    width: 42px;
 }
 
 /* CALENDAR */
