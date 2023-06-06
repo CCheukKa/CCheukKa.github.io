@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-gb">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Sugar Graph</title>
+</head>
+
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible" rel="stylesheet">
+<link rel="stylesheet" href="./css/stylesheet.css">
+<script defer src="./js/script.js"></script>
+
+<body>
+    <div>
+        <label for="file-input" class="button blue">匯入數據 📥</label>
+        <input type="file" id="file-input" accept=".json" hidden title="Import JSON" />
+        <label for="save-button" class="button green">儲存並匯出數據 📤</label>
+        <button id="save-button" hidden></button>
+        <label for="delete-cookie-button" class="button red">移除暫存數據 ⚠</label>
+        <button id="delete-cookie-button" hidden></button>
+    </div>
+
+    <!--  -->
+    <div id="entry-template" hidden>
+        <table>
+            <tr></tr>
+            <tr class="data">
+                <td>
+                    <div class="date-container">
+                        <a style="user-select: none; cursor: pointer;" onclick="removeEntry(this)">❌</a>
+                        <input type="date" class="date" />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input type="number" class="measurement" />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input type="number" class="measurement" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--  -->
+
+    <table id="data-table">
+        <tr>
+            <td class="date">日期 📅</td>
+            <td class="measurement">早上數值 ☀</td>
+            <td class="measurement">晚上數值 🌙</td>
+        </tr>
+    </table>
+
+    <div>
+        <label for="add-entry-button" class="button circle invert">+</label>
+        <button id="add-entry-button" hidden></button>
+    </div>
+
+
+</body>
+
+</html>
