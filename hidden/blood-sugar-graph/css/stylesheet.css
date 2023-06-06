@@ -3,6 +3,24 @@
     color-scheme: dark;
 }
 
+@media only screen and (max-width: 600px) {
+    table {
+        scale: 0.5;
+    }
+
+    .button {
+        scale: 0.8;
+        margin: 0px;
+    }
+
+    .button-container {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+
 body {
     background-color: #19112d;
     /* color: #d3cfca; */
@@ -18,8 +36,13 @@ body {
     font-family: 'Atkinson Hyperlegible', 'Segoe UI Emoji', 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+@media not screen and (max-width: 600px) {
+    .button {
+        margin: 20px;
+    }
+}
+
 .button {
-    margin: 20px;
     border: 4px solid white;
     color: white;
     padding: 10px 20px;
