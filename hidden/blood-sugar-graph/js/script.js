@@ -21,11 +21,12 @@ let cookie;
 try {
     cookie = JSON.parse(document.cookie);
 } catch {
-    try {
-        cookie = JSON.parse(`{${document.cookie.match(/(?<=data={)(.*)(?=};)/)[0]}}`);
-    } catch {
-        cookie = null;
-    }
+    cookie = null;
+    // try {
+    //     cookie = JSON.parse(`{${document.cookie.match(/(?<=data={)(.*)(?=};)/)[0]}}`);
+    // } catch {
+    //     cookie = null;
+    // }
 }
 if (cookie) {
     console.log(cookie);
