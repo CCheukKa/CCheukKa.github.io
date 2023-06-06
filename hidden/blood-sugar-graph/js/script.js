@@ -61,7 +61,7 @@ function importJSON(json) {
     });
 }
 function writeCookie(json) {
-    document.cookie = `table-data=${JSON.stringify(json)}; null`;
+    document.cookie = `table-data=${JSON.stringify(json)}; token=0`;
     console.log(document.cookie);
     let cookie = `{${document.cookie.match(/(?<=table-data={)(.*)(?=};)/)[0]}}`;
     console.log(cookie);
