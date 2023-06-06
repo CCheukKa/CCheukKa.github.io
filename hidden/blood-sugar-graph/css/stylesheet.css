@@ -10,10 +10,6 @@
         margin-top: 10px;
     }
 
-    table tr>td:first-child {
-        width: 20vw;
-    }
-
     .date-container {
         display: block;
         width: 40vw;
