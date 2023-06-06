@@ -20,7 +20,13 @@ deleteCookieButtonElement.addEventListener('click', () => {
 let cookie;
 try {
     cookie = JSON.parse(`{${document.cookie.match(/(?<=table-data={)(.*)(?=};)/)[0]}}`);
-} catch { }
+} catch {
+    try {
+        cookie = JSON.parse(document.cookie);
+    } catch {
+        cookie = null;
+    }
+}
 if (cookie) {
     console.log(cookie);
     importJSON(cookie);
@@ -61,7 +67,7 @@ function importJSON(json) {
     });
 }
 function writeCookie(json) {
-    document.cookie = `table-data=${JSON.stringify(json)}; token=0`;
+    document.cookie = `table-data=${JSON.stringify(json)}; null`;
     console.log(document.cookie);
     let cookie = `{${document.cookie.match(/(?<=table-data={)(.*)(?=};)/)[0]}}`;
     console.log(cookie);
