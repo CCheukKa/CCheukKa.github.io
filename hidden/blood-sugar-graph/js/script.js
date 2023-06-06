@@ -4,7 +4,7 @@ const addEntryButtonElement = document.getElementById('add-entry-button');
 //
 const dataTableElement = document.getElementById('data-table');
 const trTemplateElement = document.getElementById("entry-template").children[0].children[0];
-console.log(document.getElementById('entry-template').children);
+// console.log(document.getElementById('entry-template').children);
 
 
 //? delete cookie
@@ -19,7 +19,7 @@ deleteCookieButtonElement.addEventListener('click', () => {
 //? try get cookie
 let cookie;
 try {
-    cookie = JSON.parse(document.cookie.split('; ').slice(1).join('; '));
+    cookie = JSON.parse(`{${document.cookie.match(/(?<={)(.*)(?=};)/)[0]}}`);
 } catch { }
 if (cookie) {
     console.log(cookie);
@@ -62,6 +62,9 @@ function importJSON(json) {
 }
 function writeCookie(json) {
     document.cookie = JSON.stringify(json);
+    console.log(document.cookie);
+    cookie = JSON.parse(`{${document.cookie.match(/(?<={)(.*)(?=};)/)[0]}}`);
+    console.log(cookie);
 }
 
 function exportJSON() {
@@ -79,10 +82,10 @@ function exportJSON() {
         // TODO: time
         const measurement1 = {};
         measurement1.time = '10:00';
-        measurement1.value = +tr.querySelectorAll('.measurement')[0].value;
+        measurement1.value = +tr.querySelectorAll('.measurement')[0].value != 0 ? +tr.querySelectorAll('.measurement')[0].value : null;
         const measurement2 = {};
         measurement2.time = '22:00';
-        measurement2.value = +tr.querySelectorAll('.measurement')[1].value;
+        measurement2.value = +tr.querySelectorAll('.measurement')[1].value != 0 ? +tr.querySelectorAll('.measurement')[1].value : null;
         entry.measurements = [measurement1, measurement2];
         //
         json.entries.push(entry);
