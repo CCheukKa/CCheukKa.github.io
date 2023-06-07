@@ -1,5 +1,5 @@
 * {
-    /* outline: 1px solid white; */
+    /* outline: 1px solid lime; */
     color-scheme: dark;
 }
 
@@ -218,4 +218,24 @@ input::-webkit-inner-spin-button {
 .date-container {
     display: flex;
     justify-content: space-between;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+    margin-bottom: 5px;
+    width: 90vw;
+    max-width: 90vw;
+    height: 40vh;
+    max-height: 40vh;
+}
+
+canvas {
+    width: 90vw;
+    max-width: 90vw;
+    height: 40vh;
+    max-height: 40vh;
 }

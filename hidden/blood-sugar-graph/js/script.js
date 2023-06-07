@@ -2,6 +2,7 @@ const fileInputElement = document.getElementById('file-input');
 const deleteCookieButtonElement = document.getElementById('delete-cookie-button');
 const addEntryButtonElement = document.getElementById('add-entry-button');
 //
+const canvasElement = document.getElementById('chart');
 const dataTableElement = document.getElementById('data-table');
 const trTemplateElement = document.getElementById("entry-template").children[0].children[0];
 // console.log(document.getElementById('entry-template').children);
@@ -14,7 +15,13 @@ deleteCookieButtonElement.addEventListener('click', () => {
     window.alert('已移除暫存數據');
     location.reload();
 });
+//
 
+
+window.addEventListener('resize', () => {
+    console.log('resize');
+    redrawGraph();
+});
 
 //? try get cookie
 let cookie;
@@ -66,6 +73,7 @@ function importJSON(json) {
         newEntryElement.querySelectorAll('.measurement')[1].value = entry.measurements[1].value;
         dataTableElement.appendChild(newEntryElement);
     });
+    redrawGraph();
 }
 function writeCookie(json) {
     // document.cookie = `data=${JSON.stringify(json)}; null`;
@@ -91,22 +99,23 @@ function exportJSON() {
         entry.date.year = date.getFullYear();
         // TODO: time
         const measurement1 = {};
-        measurement1.time = '10:00';
+        // measurement1.time = '10:00';
         measurement1.value = +tr.querySelectorAll('.measurement')[0].value != 0 ? +tr.querySelectorAll('.measurement')[0].value : null;
         const measurement2 = {};
-        measurement2.time = '22:00';
+        // measurement2.time = '22:00';
         measurement2.value = +tr.querySelectorAll('.measurement')[1].value != 0 ? +tr.querySelectorAll('.measurement')[1].value : null;
         entry.measurements = [measurement1, measurement2];
         //
         json.entries.push(entry);
-    })
+    });
 
     console.log(json);
 
+    const dateTimeString = new Date().toLocaleString().replaceAll('/', '-').replaceAll(':', '-').replaceAll(' ', '_').replaceAll(',', '');
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json));
     const downloadAnchorElement = document.createElement('a');
     downloadAnchorElement.setAttribute("href", dataStr);
-    downloadAnchorElement.setAttribute("download", "data.json");
+    downloadAnchorElement.setAttribute("download", `data_${dateTimeString}.json`);
     downloadAnchorElement.click();
 
     return json;
@@ -116,4 +125,109 @@ function removeEntry(element) {
     if (!window.confirm('確定移除當日數據？')) { return; }
     element.parentElement.parentElement.parentElement.remove();
     window.alert('已移除當日數據');
+    redrawGraph();
+}
+
+function redrawGraph() {
+    // canvasElement.style.width = canvasElement.getBoundingClientRect().width;
+    // canvasElement.style.height = canvasElement.getBoundingClientRect().height;
+
+    const xValues = [];
+    const dayData = [];
+    const nightData = [];
+
+    //! grab data
+    const dataClassElements = dataTableElement.querySelectorAll('.data');
+    let firstDate = new Date(Date.parse(dataClassElements[0].querySelector('.date').value));
+    let lastDate = new Date(Date.parse(dataClassElements[dataClassElements.length - 1].querySelector('.date').value));
+
+    var searchIndex = 0;
+    for (let d = firstDate; d <= lastDate; d.setDate(d.getDate() + 1)) {
+        xValues.push(d.toLocaleDateString());
+
+        const searchDate = new Date(Date.parse(dataClassElements[searchIndex].querySelector('.date').value));
+        if (searchDate > d) {
+            dayData.push(null);
+            nightData.push(null);
+            continue;
+        }
+        const measurementElements = dataClassElements[searchIndex].querySelectorAll('.measurement');
+        dayData.push(+measurementElements[0].value != 0 ? +measurementElements[0].value : null);
+        nightData.push(+measurementElements[1].value != 0 ? +measurementElements[1].value : null);
+        searchIndex++;
+    }
+
+    dataTableElement.querySelectorAll('.data').forEach(tr => {
+        const entry = {};
+        //
+        const date = new Date(Date.parse(tr.querySelector('.date').value));
+        const measurementElements = tr.querySelectorAll('.measurement');
+        value1 = +measurementElements[0].value != 0 ? +measurementElements[0].value : null;
+        value2 = +measurementElements[1].value != 0 ? +measurementElements[1].value : null;
+        //
+    });
+
+    //! draw graph
+    new Chart("chart", {
+        data: {
+            labels: xValues,
+            datasets: [{
+                type: "line",
+                label: "早上血糖",
+                data: dayData,
+                pointBackgroundColor: "yellow",
+                backgroundColor: "yellow",
+                borderColor: "yellow",
+                fill: false,
+                spanGaps: true
+            }, {
+                type: "line",
+                label: "晚上血糖",
+                data: nightData,
+                pointBackgroundColor: "blue",
+                backgroundColor: "blue",
+                borderColor: "blue",
+                fill: false,
+                spanGaps: true
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                display: true,
+                labels: {
+                    fontColor: "#F9EAE1"
+                },
+            },
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true,
+                        fontColor: "#F9EAE1"
+                    },
+                    gridLines: {
+                        // color: "#F9EAE1"
+                        color: "rgba(249, 234, 225, 0.2)"
+                    },
+                    scaleLabel: {
+                        display: true,
+                        labelString: "血糖值 (mmol/L)",
+                        fontColor: "#F9EAE1"
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: "#F9EAE1"
+                    },
+                    gridLines: {
+                        // color: "#F9EAE1"
+                        color: "rgba(249, 234, 225, 0.2)"
+                    }
+                }]
+            }
+        },
+    });
+
+    document.getElementsByClassName('chartjs-hidden-iframe')[0].remove();
 }

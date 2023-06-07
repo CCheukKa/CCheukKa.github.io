@@ -6,11 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blood Sugar Graph</title>
+    <!--  -->
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible" rel="stylesheet">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    <!--  -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script defer src="./js/script.js"></script>
 </head>
-
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible" rel="stylesheet">
-<link rel="stylesheet" href="./css/stylesheet.css">
-<script defer src="./js/script.js"></script>
 
 <body>
     <div class="button-container">
@@ -22,6 +24,11 @@
         <button id="delete-cookie-button" hidden></button>
     </div>
 
+    <div class="chart-container">
+        <canvas id="chart"></canvas>
+    </div>
+
+
     <!--  -->
     <div id="entry-template" hidden>
         <table>
@@ -30,17 +37,17 @@
                 <td>
                     <div class="date-container">
                         <a style="user-select: none; cursor: pointer;" onclick="removeEntry(this)">❌</a>
-                        <input type="date" class="date" />
+                        <input onchange="redrawGraph()" type="date" class="date" />
                     </div>
                 </td>
                 <td>
                     <div>
-                        <input type="number" class="measurement" />
+                        <input onchange="redrawGraph()" type="number" class="measurement" />
                     </div>
                 </td>
                 <td>
                     <div>
-                        <input type="number" class="measurement" />
+                        <input onchange="redrawGraph()" type="number" class="measurement" />
                     </div>
                 </td>
             </tr>
