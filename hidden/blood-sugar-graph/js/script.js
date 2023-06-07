@@ -1,6 +1,7 @@
 const fileInputElement = document.getElementById('file-input');
 const deleteCookieButtonElement = document.getElementById('delete-cookie-button');
 const addEntryButtonElement = document.getElementById('add-entry-button');
+const exportGraphButtonElement = document.getElementById('export-graph-button');
 //
 const chartElement = document.getElementById('chart');
 const dataTableElement = document.getElementById('data-table');
@@ -61,6 +62,11 @@ addEntryButtonElement.addEventListener('click', () => {
 document.getElementById('save-button').addEventListener('click', () => {
     const json = exportJSON();
     writeCookie(json);
+});
+
+//? export graph
+exportGraphButtonElement.addEventListener('click', () => {
+    exportGraph();
 });
 
 /* -------------------------------------------------------------------------- */
@@ -266,11 +272,9 @@ function redrawGraph() {
 }
 
 function exportGraph() {
-    var a = document.createElement('a');
-    a.href = chart.toBase64Image();
     const dateTimeString = new Date().toLocaleString().replaceAll('/', '-').replaceAll(':', '-').replaceAll(' ', '_').replaceAll(',', '');
-    a.download = `graph_${dateTimeString}.png`;
-
-    // Trigger the download
-    a.click();
+    const downloadAnchorElement = document.createElement('a');
+    downloadAnchorElement.setAttribute("href", chart.toBase64Image());
+    downloadAnchorElement.setAttribute("download", `graph_${dateTimeString}.png`);
+    downloadAnchorElement.click();
 }
