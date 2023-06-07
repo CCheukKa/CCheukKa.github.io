@@ -2,7 +2,7 @@ const fileInputElement = document.getElementById('file-input');
 const deleteCookieButtonElement = document.getElementById('delete-cookie-button');
 const addEntryButtonElement = document.getElementById('add-entry-button');
 //
-const canvasElement = document.getElementById('chart');
+const chartElement = document.getElementById('chart');
 const dataTableElement = document.getElementById('data-table');
 const trTemplateElement = document.getElementById("entry-template").children[0].children[0];
 // console.log(document.getElementById('entry-template').children);
@@ -16,6 +16,7 @@ deleteCookieButtonElement.addEventListener('click', () => {
     location.reload();
 });
 //
+var chart;
 
 
 window.addEventListener('resize', () => {
@@ -132,7 +133,7 @@ function redrawGraph() {
     // canvasElement.style.width = canvasElement.getBoundingClientRect().width;
     // canvasElement.style.height = canvasElement.getBoundingClientRect().height;
 
-    const xValues = [];
+    const xLabels = [];
     const dayData = [];
     const nightData = [];
 
@@ -143,7 +144,7 @@ function redrawGraph() {
 
     var searchIndex = 0;
     for (let d = firstDate; d <= lastDate; d.setDate(d.getDate() + 1)) {
-        xValues.push(d.toLocaleDateString());
+        xLabels.push(d.toLocaleDateString());
 
         const searchDate = new Date(Date.parse(dataClassElements[searchIndex].querySelector('.date').value));
         if (searchDate > d) {
@@ -168,9 +169,9 @@ function redrawGraph() {
     });
 
     //! draw graph
-    new Chart("chart", {
+    chart = new Chart("chart", {
         data: {
-            labels: xValues,
+            labels: xLabels,
             datasets: [{
                 type: "line",
                 label: "早上血糖",
@@ -194,40 +195,62 @@ function redrawGraph() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            legend: {
-                display: true,
-                labels: {
-                    fontColor: "#F9EAE1"
-                },
-            },
             scales: {
-                yAxes: [{
+                x: {
                     ticks: {
-                        beginAtZero: true,
-                        fontColor: "#F9EAE1"
+                        color: "#F9EAE1"
                     },
-                    gridLines: {
+                    grid: {
+                        // color: "#F9EAE1"
+                        color: "rgba(249, 234, 225, 0.2)"
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: "#F9EAE1",
+                    },
+                    grid: {
                         // color: "#F9EAE1"
                         color: "rgba(249, 234, 225, 0.2)"
                     },
-                    scaleLabel: {
+                    title: {
                         display: true,
-                        labelString: "血糖值 (mmol/L)",
-                        fontColor: "#F9EAE1"
+                        text: "血糖值 (mmol/L)",
+                        color: "#F9EAE1"
                     }
-                }],
-                xAxes: [{
-                    ticks: {
-                        fontColor: "#F9EAE1"
+                }
+            },
+            plugins: {
+                legend: {
+                    display: true,
+                    labels: {
+                        color: "#F9EAE1"
                     },
-                    gridLines: {
-                        // color: "#F9EAE1"
-                        color: "rgba(249, 234, 225, 0.2)"
-                    }
-                }]
+                }
             }
-        },
+        }
     });
 
     document.getElementsByClassName('chartjs-hidden-iframe')[0].remove();
+}
+
+function exportGraph() {
+    const newCanvas = document.createElement('canvas');
+    const context = newCanvas.getContext('2d');
+    document.body.append(newCanvas);
+    newCanvas.width = chartElement.getBoundingClientRect().width;
+    newCanvas.height = chartElement.getBoundingClientRect().height;
+    context.fillRect(0, 0, 1035, 288);
+
+    var image = new Image();
+    image.src = chart.toBase64Image();
+    console.log(image);
+    context.drawImage(image, 0, 0);
+
+
+    // var dt = chartElement.toDataURL('image/png');
+    // dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
+    // dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
+    // this.href = dt;
 }
