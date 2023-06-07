@@ -36,6 +36,12 @@
         align-items: center;
         justify-content: center;
     }
+
+    .export-graph-button-container {
+        position: relative;
+        top: 32vh;
+        right: 3vw;
+    }
 }
 
 @media not screen and (max-width: 600px) {
@@ -45,6 +51,12 @@
 
     table tr>td:first-child {
         width: 220px;
+    }
+
+    .export-graph-button-container {
+        position: relative;
+        top: 12vh;
+        right: 4vw;
     }
 }
 
@@ -238,4 +250,17 @@ canvas {
     max-width: 90vw;
     height: 40vh;
     max-height: 40vh;
+}
+
+.export-graph-button-container {
+    position: absolute;
+}
+
+.button.pink {
+    background-color: #dd7cd5;
+}
+
+.button.pink:hover {
+    background-color: white;
+    color: black;
 }

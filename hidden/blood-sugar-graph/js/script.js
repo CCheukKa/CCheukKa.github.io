@@ -169,6 +169,7 @@ function redrawGraph() {
     });
 
     //! draw graph
+    if (chart) { chart.destroy() };
     chart = new Chart("chart", {
         data: {
             labels: xLabels,
@@ -195,6 +196,11 @@ function redrawGraph() {
         options: {
             responsive: true,
             maintainAspectRatio: false,
+            elements: {
+                line: {
+                    borderJoinStyle: 'round'
+                }
+            },
             scales: {
                 x: {
                     ticks: {
@@ -257,26 +263,14 @@ function redrawGraph() {
             }
         }]
     });
-
-    document.getElementsByClassName('chartjs-hidden-iframe')[0].remove();
 }
 
 function exportGraph() {
-    const newCanvas = document.createElement('canvas');
-    const context = newCanvas.getContext('2d');
-    document.body.append(newCanvas);
-    newCanvas.width = chartElement.getBoundingClientRect().width;
-    newCanvas.height = chartElement.getBoundingClientRect().height;
-    context.fillRect(0, 0, 1035, 288);
+    var a = document.createElement('a');
+    a.href = chart.toBase64Image();
+    const dateTimeString = new Date().toLocaleString().replaceAll('/', '-').replaceAll(':', '-').replaceAll(' ', '_').replaceAll(',', '');
+    a.download = `graph_${dateTimeString}.png`;
 
-    var image = new Image();
-    image.src = chart.toBase64Image();
-    console.log(image);
-    context.drawImage(image, 0, 0);
-
-
-    // var dt = chartElement.toDataURL('image/png');
-    // dt = dt.replace(/^data:image\/[^;]*/, 'data:application/octet-stream');
-    // dt = dt.replace(/^data:application\/octet-stream/, 'data:application/octet-stream;headers=Content-Disposition%3A%20attachment%3B%20filename=Canvas.png');
-    // this.href = dt;
+    // Trigger the download
+    a.click();
 }
