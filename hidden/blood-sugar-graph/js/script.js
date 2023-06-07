@@ -176,18 +176,18 @@ function redrawGraph() {
                 type: "line",
                 label: "早上血糖",
                 data: dayData,
-                pointBackgroundColor: "yellow",
-                backgroundColor: "yellow",
-                borderColor: "yellow",
+                pointBackgroundColor: "gold",
+                backgroundColor: "gold",
+                borderColor: "gold",
                 fill: false,
                 spanGaps: true
             }, {
                 type: "line",
                 label: "晚上血糖",
                 data: nightData,
-                pointBackgroundColor: "blue",
-                backgroundColor: "blue",
-                borderColor: "blue",
+                pointBackgroundColor: "skyblue",
+                backgroundColor: "skyblue",
+                borderColor: "skyblue",
                 fill: false,
                 spanGaps: true
             }]
@@ -227,9 +227,35 @@ function redrawGraph() {
                     labels: {
                         color: "#F9EAE1"
                     },
+                },
+                annotation: {
+                    annotations: {
+                        range: {
+                            drawTime: 'beforeDatasetsDraw',
+                            type: 'box',
+                            yMin: 5,
+                            yMax: 10,
+                            // backgroundColor: "##48A9A6",
+                            backgroundColor: "rgba(72, 169, 166, 0.5)",
+                        }
+                    }
+                },
+                customCanvasBackgroundColor: {
+                    color: '#19112d',
                 }
             }
-        }
+        },
+        plugins: [{
+            id: 'customCanvasBackgroundColor',
+            beforeDraw: (chart, args, options) => {
+                const { ctx } = chart;
+                ctx.save();
+                ctx.globalCompositeOperation = 'destination-over';
+                ctx.fillStyle = options.color || '#99ffff';
+                ctx.fillRect(0, 0, chart.width, chart.height);
+                ctx.restore();
+            }
+        }]
     });
 
     document.getElementsByClassName('chartjs-hidden-iframe')[0].remove();
