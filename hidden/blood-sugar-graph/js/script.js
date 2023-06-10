@@ -118,7 +118,7 @@ function exportJSON() {
 
     console.log(json);
 
-    const dateTimeString = new Date().toLocaleString().replaceAll('/', '-').replaceAll(':', '-').replaceAll(' ', '_').replaceAll(',', '');
+    const dateTimeString = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Hong_Kong' }).replaceAll('/', '-').replaceAll(':', '-').replaceAll(' ', '_').replaceAll(',', '');
     const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json));
     const downloadAnchorElement = document.createElement('a');
     downloadAnchorElement.setAttribute("href", dataStr);
@@ -272,7 +272,7 @@ function redrawGraph() {
 }
 
 function exportGraph() {
-    const dateTimeString = new Date().toLocaleString().replaceAll('/', '-').replaceAll(':', '-').replaceAll(' ', '_').replaceAll(',', '');
+    const dateTimeString = new Date().toLocaleString('en-GB', { timeZone: 'Asia/Hong_Kong' }).replaceAll('/', '-').replaceAll(':', '-').replaceAll(' ', '_').replaceAll(',', '');
     const downloadAnchorElement = document.createElement('a');
     downloadAnchorElement.setAttribute("href", chart.toBase64Image());
     downloadAnchorElement.setAttribute("download", `graph_${dateTimeString}.png`);
