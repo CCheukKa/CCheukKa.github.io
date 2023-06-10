@@ -75,7 +75,7 @@ function importJSON(json) {
     console.log(json);
     json.entries.forEach(entry => {
         const newEntryElement = trTemplateElement.children[1].cloneNode(true);
-        newEntryElement.querySelector('.date').value = new Date(entry.date.year, entry.date.month - 1, entry.date.day).toISOString().slice(0, 10);
+        newEntryElement.querySelector('.date').value = new Date(entry.date.year, entry.date.month - 1, entry.date.day + 1).toISOString().slice(0, 10); //? toISOString() is jank!
         newEntryElement.querySelectorAll('.measurement')[0].value = entry.measurements[0].value;
         newEntryElement.querySelectorAll('.measurement')[1].value = entry.measurements[1].value;
         dataTableElement.appendChild(newEntryElement);
@@ -101,7 +101,7 @@ function exportJSON() {
         //
         const date = new Date(Date.parse(tr.querySelector('.date').value));
         entry.date = {};
-        entry.date.day = date.getDate() + 1;
+        entry.date.day = date.getDate();
         entry.date.month = date.getMonth() + 1;
         entry.date.year = date.getFullYear();
         // TODO: time
