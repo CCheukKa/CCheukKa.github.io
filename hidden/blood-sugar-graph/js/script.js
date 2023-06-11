@@ -30,12 +30,13 @@ let cookie;
 try {
     cookie = JSON.parse(document.cookie);
 } catch {
-    cookie = null;
-    // try {
-    //     cookie = JSON.parse(`{${document.cookie.match(/(?<=data={)(.*)(?=};)/)[0]}}`);
-    // } catch {
-    //     cookie = null;
-    // }
+    // cookie = null;
+    try {
+        // cookie = JSON.parse(`{${document.cookie.match(/(?<=data={)(.*)(?=};)/)[0]}}`);
+        cookie = JSON.parse(document.cookie.split(';')[0]);
+    } catch {
+        cookie = null;
+    }
 }
 if (cookie) {
     console.log(cookie);
@@ -89,7 +90,8 @@ function writeCookie(json) {
     // let cookie = `{${document.cookie.match(/(?<=data={)(.*)(?=};)/)[0]}}`;
     let cookie = document.cookie;
     console.log(cookie);
-    console.log(JSON.parse(cookie));
+    try { console.log(JSON.parse(cookie)); }
+    catch { console.log(JSON.parse(cookie.split(';')[0])); }
 }
 
 function exportJSON() {
