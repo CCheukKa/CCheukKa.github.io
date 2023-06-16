@@ -248,7 +248,7 @@ function redrawGraph() {
                             drawTime: 'beforeDatasetsDraw',
                             type: 'box',
                             yMin: 5,
-                            yMax: 10,
+                            yMax: 8,
                             // backgroundColor: "##48A9A6",
                             backgroundColor: "rgba(72, 169, 166, 0.5)",
                         }
