@@ -7,18 +7,18 @@ const chartElement = document.getElementById('chart');
 const dataTableElement = document.getElementById('data-table');
 const trTemplateElement = document.getElementById("entry-template").children[0].children[0];
 // console.log(document.getElementById('entry-template').children);
+const COOKIE_NAME = 'blood-sugar-data';
 
 
 //? delete cookie
 deleteCookieButtonElement.addEventListener('click', () => {
     if (!window.confirm('確定移除暫存數據？')) { return; }
-    document.cookie = 'null';
+    Cookies.remove(COOKIE_NAME, { path: '' });
     window.alert('已移除暫存數據');
     location.reload();
 });
 //
 var chart;
-
 
 window.addEventListener('resize', () => {
     console.log('resize');
@@ -26,18 +26,8 @@ window.addEventListener('resize', () => {
 });
 
 //? try get cookie
-let cookie;
-try {
-    cookie = JSON.parse(document.cookie);
-} catch {
-    // cookie = null;
-    try {
-        // cookie = JSON.parse(`{${document.cookie.match(/(?<=data={)(.*)(?=};)/)[0]}}`);
-        cookie = JSON.parse(document.cookie.split(';')[0]);
-    } catch {
-        cookie = null;
-    }
-}
+var cookie;
+try { cookie = JSON.parse(Cookies.get(COOKIE_NAME)); } catch (e) { console.log(e); }
 if (cookie) {
     console.log(cookie);
     importJSON(cookie);
@@ -48,7 +38,6 @@ fileInputElement.addEventListener('change', (event) => {
     dataTableElement.querySelectorAll('.data').forEach(tr => {
         tr.remove();
     });
-
     event.target.files[0].text().then(text => importJSON(JSON.parse(text)));
 });
 
@@ -84,14 +73,11 @@ function importJSON(json) {
     redrawGraph();
 }
 function writeCookie(json) {
-    // document.cookie = `data=${JSON.stringify(json)}; null`;
-    document.cookie = JSON.stringify(json);
-    console.log(document.cookie);
-    // let cookie = `{${document.cookie.match(/(?<=data={)(.*)(?=};)/)[0]}}`;
-    let cookie = document.cookie;
+    Cookies.set(COOKIE_NAME, JSON.stringify(json), { path: '' });
+
+    let cookie = Cookies.get(COOKIE_NAME);
     console.log(cookie);
-    try { console.log(JSON.parse(cookie)); }
-    catch { console.log(JSON.parse(cookie.split(';')[0])); }
+    console.log(JSON.parse(cookie));
 }
 
 function exportJSON() {
