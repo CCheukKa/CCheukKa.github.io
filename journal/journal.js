@@ -3,18 +3,8 @@ const tocContainer = document.getElementById('toc-container');
 const lightModeStylesheet = document.getElementById('light-mode-stylesheet');
 var useDarkMode = true;
 lightModeStylesheet.disabled = useDarkMode;
-const fonts = [
-    `'Times New Roman', serif`,
-    `'Atkinson Hyperlegible', sans-serif`,
-    `'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif`,
-    // `'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif`,
-    // `'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif`,
-    // `'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`,
-    // `Verdana, Geneva, Tahoma, sans-serif`,
-
-];
-var font = -1;
-cycleFonts(document.getElementById('font-selection'));
+const fontCount = 3;
+var currentFont = -1;
 var calendarMode = true;
 const tags = [
     { icon: '📚', name: 'Academics' },
@@ -64,6 +54,7 @@ const monthName = {
 httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal.md", response => {
     // console.log(response);
     textContainer.innerHTML = parseResponse(handleComments(response));
+    cycleFonts(document.getElementById('font-selection'));
     addSectionTags(textContainer);
     appendTags(textContainer);
     buildTableOfContents(response, textContainer);
@@ -101,7 +92,6 @@ function parseResponse(uncommentedMD) {
     // console.log(result);
     return result;
 }
-
 
 function addSectionTags(container) {
     let tmp = [];
@@ -161,21 +151,21 @@ function toggleDarkMode(icon) {
 }
 
 function cycleFonts(button) {
-    font = (font + 1) % fonts.length;
-    button.style.fontFamily = fonts[font];
+    currentFont = (currentFont + 1) % fontCount;
+    button.dataset.font = currentFont;
     [].slice.call(textContainer.getElementsByTagName('p')).forEach(p => {
-        p.style.fontFamily = fonts[font];
+        p.dataset.font = currentFont;
     });
 
     const fontIndicatorElement = document.getElementById('font-indicator');
     let string = '';
-    for (let i = 0; i < fonts.length; i++) {
-        string += i == font ? '●' : '○';
+    for (let i = 0; i < fontCount; i++) {
+        string += i == currentFont ? '●' : '○';
     }
     fontIndicatorElement.innerHTML = string;
 
 
-    console.log('Changed font:', fonts[font]);
+    console.log('Changed font:', currentFont);
 }
 
 function buildTableOfContents(response, text) {
