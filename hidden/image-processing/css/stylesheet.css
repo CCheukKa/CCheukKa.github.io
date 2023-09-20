@@ -33,12 +33,25 @@ canvas {
     gap: 20px;
 }
 
+@media (max-width: 1200px) {
+    #page-container {
+        gap: -1;
+    }
+
+    #container {
+        scale: 0.5;
+        height: 240px;
+    }
+}
+
 @media (max-width: 700px) {
     #container {
         scale: 0.5;
+        height: 240px;
         flex-direction: column;
     }
 }
+
 
 #diagnosticsText {
     font-family: 'Courier New', Courier, monospace;
