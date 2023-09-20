@@ -1,5 +1,10 @@
 html {
+    padding: 10%;
     background-color: black;
+    color: white;
+    font-size: 16pt;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
 }
 
 #videoElement {
@@ -11,9 +16,28 @@ canvas {
     outline: 1px solid white;
 }
 
+#page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
 #container {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
     gap: 20px;
+}
+
+@media (max-width: 700px) {
+    #container {
+        flex-direction: column;
+    }
+}
+
+#diagnosticsText {
+    font-family: 'Courier New', Courier, monospace;
 }

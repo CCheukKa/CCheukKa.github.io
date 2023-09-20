@@ -6,6 +6,7 @@ inputCanvasElement.height = 480;
 outputCanvasElement.width = 640;
 outputCanvasElement.height = 480;
 
+const diagnosticsElement = document.querySelector("#diagnosticsText");
 const FRAME_RATE = 10;
 
 navigator.mediaDevices.getUserMedia({ video: true })
@@ -55,6 +56,9 @@ function main() {
     outputCanvasElement.getContext("2d").putImageData(outputData, 0, 0);
 
     let currentFrameTime = new Date().getTime();
-    console.log(`${currentFrameTime - lastFrameTime}/${Math.round(1000 / FRAME_RATE)}ms (${Math.round(1000 / (currentFrameTime - lastFrameTime) * 100) / 100}/${FRAME_RATE}fps)`);
+    let diagnosticsText = `${currentFrameTime - lastFrameTime}/${Math.round(1000 / FRAME_RATE)}ms (${Math.round(1000 / (currentFrameTime - lastFrameTime) * 100) / 100}/${FRAME_RATE}fps)`;
     lastFrameTime = currentFrameTime;
+
+    diagnosticsElement.innerHTML = diagnosticsText;
+    console.log(diagnosticsText);
 }
