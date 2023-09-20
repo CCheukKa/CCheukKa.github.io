@@ -9,7 +9,13 @@ outputCanvasElement.height = 480;
 const diagnosticsElement = document.querySelector("#diagnosticsText");
 const FRAME_RATE = 10;
 
-navigator.mediaDevices.getUserMedia({ video: true })
+navigator.mediaDevices.getUserMedia({
+    video: {
+        width: { exact: 640 },
+        height: { exact: 480 },
+        facingMode: { ideal: 'environment' }
+    }
+})
     .then(function (stream) {
         videoElement.srcObject = stream;
         setInterval(() => {
