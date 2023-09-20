@@ -1,0 +1,19 @@
+html {
+    background-color: black;
+}
+
+#videoElement {
+    width: 640;
+    height: 480;
+}
+
+canvas {
+    outline: 1px solid white;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
