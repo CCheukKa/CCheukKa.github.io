@@ -179,7 +179,7 @@
             "papers": [
                 {
                     "pdfName": "[ENGG-1110] [1] projectpart2_1155174356",
-                    "topic": "Course Project Report",
+                    "topic": "Tic Tac Toe - Course Project Report",
                     "date": "02-12-2022"
                 }
             ]
@@ -264,6 +264,128 @@
                     "pdfName": "[LSCI-3000] [8] LSCI 3000 iGEM Idea",
                     "topic": "iGEM Project Idea Proposal",
                     "date": "28-03-2023"
+                }
+            ]
+        },
+        {
+            "courseCode": "BMEG-2300",
+            "courseName": "Circuits and Signals for Biomedical Engineering",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-2300] [1] BMEG 2300 Final Cheat Sheet",
+                    "topic": "Circuits and Signals for Biomedical Engineering Cheat Sheet",
+                    "date": "02-05-2023"
+                }
+            ]
+        },
+        {
+            "courseCode": "STAT-3210",
+            "courseName": "Statistical Techniques in Life Sciences",
+            "papers": [
+                {
+                    "pdfName": "[STAT-3210] [1] STAT 3210 Final Cheat Sheet (jank layout)",
+                    "topic": "Statistical Techniques in Life Sciences Cheat Sheet",
+                    "date": "10-05-2023"
+                }
+            ]
+        },
+        {
+            "courseCode": "BMEG-3103",
+            "courseName": "Big Data in Healthcare",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-3103] [1] report",
+                    "topic": "Artificial Intelligence Assignment report",
+                    "date": "10-10-2023"
+                },
+                {
+                    "pdfName": "[BMEG-3103] [2] report1",
+                    "topic": "Artificial Intelligence Project 1 Report",
+                    "date": "28-11-2023"
+                },
+                {
+                    "pdfName": "[BMEG-3103] [3] powerpoint1",
+                    "topic": "Artificial Intelligence Project 1 Presentation Slides",
+                    "date": "28-11-2023"
+                },
+                {
+                    "pdfName": "[BMEG-3103] [4] report2",
+                    "topic": "Artificial Intelligence Project 2 Report",
+                    "date": "21-11-2023"
+                },
+                {
+                    "pdfName": "[BMEG-3103] [5] powerpoint2",
+                    "topic": "Artificial Intelligence Project 2 Presentation Slides",
+                    "date": "28-11-2023"
+                }
+            ]
+        },
+        {
+            "courseCode": "BMEG-3111",
+            "courseName": "Medical Instrumentation and Design",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-3111] [1] Stage 1 Report",
+                    "topic": "Paralyse need to type word - Stage 1 Report",
+                    "date": "02-10-2023"
+                },
+                {
+                    "pdfName": "[BMEG-3111] [2] Stage 2 Report",
+                    "topic": "Paralyse need to type word - Stage 2 Report",
+                    "date": "05-11-2023"
+                },
+                {
+                    "pdfName": "[BMEG-3111] [3] Stage 3 Report",
+                    "topic": "Paralyse need to type word - Stage 3 Report",
+                    "date": "28-11-2023"
+                },
+                {
+                    "pdfName": "[BMEG-3111] [4] BMEG 3111 Final Cheat Sheet",
+                    "topic": "Medical Instrumentation and Design Cheat Sheet",
+                    "date": "11-12-2023"
+                }
+            ]
+        },
+        {
+            "courseCode": "BMEG-3320",
+            "courseName": "Biomedical Imaging",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-3320] [1] BMEG 3320 Final Cheat Sheet",
+                    "topic": "Biomedical Imaging Cheat Sheet",
+                    "date": "06-12-2023"
+                }
+            ]
+        },
+        {
+            "courseCode": "BMEG-3330",
+            "courseName": "Neuroengineering",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-3330] [1] [P] 1-Page Proposal",
+                    "topic": "Brain-Computer Interface Game - 1-Page Proposal",
+                    "date": "02-10-2023"
+                },
+                {
+                    "pdfName": "[BMEG-3330] [2] [M] Midterm Report",
+                    "topic": "Brain-Computer Interface Game - Midterm Report",
+                    "date": "04-11-2023"
+                },
+                {
+                    "pdfName": "[BMEG-3330] [3] [F] Final Report",
+                    "topic": "Brain-Computer Interface Game - Final Report",
+                    "date": "09-12-2023"
+                }
+            ]
+        },
+        {
+            "courseCode": "GECC-1000",
+            "courseName": "College Assembly",
+            "papers": [
+                {
+                    "pdfName": "[GECC-1000] [1] 1155174356_Wrong Pattern",
+                    "topic": "College Assembly Reflective Essay",
+                    "date": "22-12-2023"
                 }
             ]
         }
