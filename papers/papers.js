@@ -11,8 +11,14 @@ function listConstructor(courses) {
                 pdfName: paper.pdfName,
                 commentedPDFName: paper.commentedPDFName,
                 topic: paper.topic,
+                type: paper.type,
                 date: paper.date,
             }
+            //
+            const typeElement = document.createElement('span');
+            typeElement.classList.add('list-item');
+            typeElement.innerHTML = p.type;
+            listElement.appendChild(typeElement);
             //
             const topicElementContainer = document.createElement('div');
             topicElementContainer.classList.add('list-item');
@@ -34,7 +40,7 @@ function listConstructor(courses) {
             //
             const courseInfoElement = document.createElement('span');
             courseInfoElement.classList.add('list-item');
-            courseInfoElement.innerHTML = `${p.courseCode}: ${p.courseName}`;
+            courseInfoElement.innerHTML = `${p.courseCode}:<br>${p.courseName}`;
             listElement.appendChild(courseInfoElement);
 
             //

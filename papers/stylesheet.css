@@ -3,12 +3,17 @@
     /* height: 100%; */
     padding: 0% 2%;
     display: grid;
-    grid-template-columns: 7fr 3fr 1fr;
+    grid-template-columns: 1.5fr 5fr 3fr 0.8fr;
     align-items: flex-end;
     /* background-color: indianred; */
 }
 
-.list-item:nth-child(3n+1)>a {
+.list-item:nth-child(4n+1) {
+    /* type */
+    /* background-color: darkgoldenrod; */
+}
+
+.list-item:nth-child(4n+2)>a {
     /* topic */
     margin-left: 0;
     font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -17,16 +22,16 @@
     /* background-color: cadetblue; */
 }
 
-.list-item:nth-child(3n+2) {
+.list-item:nth-child(4n+3) {
     /* course code */
     font-size: 12pt;
     /* background-color: cornflowerblue; */
 }
 
-.list-item:nth-child(3n+4) {
+.list-item:nth-child(4n+4) {
     /* date */
     margin-right: 0;
-    font-size: 16pt;
+    font-size: 14pt;
     /* justify-self: right; */
     /* background-color: darkseagreen; */
 }
