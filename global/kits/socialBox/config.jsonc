@@ -24,7 +24,8 @@
         {
             "refName": "patreon",
             "link": "https://www.patreon.com/CCheukKa",
-            "title": "My Patreon page"
+            "title": "My Patreon page",
+            "withheld": true
         },
         {
             "refName": "reddit",
@@ -59,8 +60,7 @@
         {
             "refName": "lichess",
             "link": "https://lichess.org/@/CCheukKa",
-            "title": "My lichess profile",
-            "withheld": true
+            "title": "My lichess profile"
         }
     ]
 }
