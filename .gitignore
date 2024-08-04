@@ -1,3 +1,5 @@
 /.vscode
+/node_modules
+/test
 /dev-notes.md
-/hidden/blood-sugar-graph/data.json
+/hidden/**/data.json

@@ -1,0 +1,37 @@
+name: Sync Repo to GitLab
+
+on:
+    workflow_dispatch:
+
+    push:
+        branches: ["main"]
+        tags: "prod"
+
+jobs:
+    sync:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Push to GitLab
+              run: |
+                  github_repo_url=${{ github.server_url }}/${{ github.repository }}.git
+                  gitlab_repo_url=${{ secrets.GITLAB_URL }}
+                  gitlab_repo_url_with_credentials="https://${{ secrets.USERNAME }}:${{ secrets.GITLAB_PAT }}@${gitlab_repo_url#https://}"
+
+                  git clone ${github_repo_url} github-repo
+                  git clone ${gitlab_repo_url} gitlab-repo
+
+                  rm -r gitlab-repo/*
+                  rsync -av --exclude='.git' github-repo/ gitlab-repo/
+                  cd gitlab-repo
+
+                  git config user.name gitlab-repo-syncer[bot]
+                  git config user.email gitlab-repo-syncer[bot]@users.noreply.github.com
+
+                  git remote add gitlab "$gitlab_repo_url_with_credentials"
+                  git add --all
+                  git status
+                  git commit -m "SYNC: ${{ github.event.head_commit.message }}"
+
+                  branch_name=$(echo $GITHUB_REF | sed 's/refs\/heads\///')
+                  git push gitlab "$branch_name"
+              shell: bash
