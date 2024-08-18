@@ -1,0 +1,45 @@
+name: Build static site
+
+on:
+    workflow_dispatch:
+
+    push:
+        branches: ["main"]
+        tags-ignore: "prod"
+
+permissions:
+    contents: write
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        strategy:
+            matrix:
+                node-version: [20.x]
+
+        steps:
+            - uses: actions/checkout@v4
+
+            - name: Use Node.js ${{ matrix.node-version }}
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node-version }}
+                  cache: "npm"
+
+            - name: Install dependencies
+              run: npm ci
+
+            - name: Build static site
+              run: npm run prod-build --if-present
+
+            - name: Run test
+              run: npm test --if-present
+
+            - name: Commit built site to main branch
+              uses: stefanzweifel/git-auto-commit-action@v5
+              with:
+                  commit_message: "STATIC BUILD: ${{ github.event.head_commit.message }}"
+                  commit_user_name: static-site-builder[bot]
+                  commit_user_email: static-site-builder[bot]@users.noreply.github.com
+                  tagging_message: prod

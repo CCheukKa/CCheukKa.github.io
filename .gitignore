@@ -2,4 +2,4 @@
 **/.parcel-cache
 **/node_modules
 /dev-notes.md
-/hidden/blood-sugar-graph/data.json
+/hidden/**/data.json
