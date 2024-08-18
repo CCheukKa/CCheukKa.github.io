@@ -9,5 +9,5 @@ function replaceWithDownload() {
     shelfContainer.style.fontSize = '22pt';
     shelfContainer.style.height = 'fit-content';
     shelfContainer.style.textAlign = 'center';
-    shelfContainer.innerHTML = `<span>It seems that the PDF file cannot be displayed on your device.<br>Come back later using a desktop machine or click <a href="/curriculum-vitae/CCheukKa Curriculum Vitae (reduced + redacted).pdf" download style="font-weight: bold; text-decoration: underline;">HERE</a> to download it instead.</span>`;
+    shelfContainer.innerHTML = `<span>It seems that the PDF file cannot be displayed on your device.<br>Come back later using a desktop machine or click <a href="/curriculum-vitae/CCheukKa Curriculum Vitae [Reduced + Redacted].pdf" download style="font-weight: bold; text-decoration: underline;">HERE</a> to download it instead.</span>`;
 }
