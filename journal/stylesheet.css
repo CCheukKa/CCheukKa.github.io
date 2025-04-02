@@ -437,3 +437,13 @@ p:has(tag) {
     font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color", "Android Emoji", sans-serif;
     ;
 }
+
+.fetch-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 20pt;
+    font-weight: bold;
+}
