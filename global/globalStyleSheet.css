@@ -2,8 +2,8 @@
 
 :root {
     --max-element-width: calc(100% - 16px);
+    color-scheme: dark;
 }
-
 
 /* meta */
 
