@@ -442,8 +442,13 @@ p:has(tag) {
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     height: 100%;
     width: 100%;
     font-size: 20pt;
     font-weight: bold;
+
+    &.wrong {
+        color: #ff9a4d;
+    }
 }

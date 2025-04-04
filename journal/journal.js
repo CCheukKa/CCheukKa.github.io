@@ -50,14 +50,64 @@ const monthName = {
     December: 12,
 }
 
+const VERIFICATION_PASSWORD = 'verification-password';
+let verificationData;
+httpGetAsync("https://raw.githubusercontent.com/CCheukKa/upload-bin/refs/heads/main/output/verification-data.bin", async response => {
+    console.log(response);
+    verificationData = JSON.parse(await decryptData(response, VERIFICATION_PASSWORD));
+    console.log(verificationData);
+    verifyPassword();
+});
 
-httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal.md", response => {
+const password = window.prompt('Password?\n\nIf you know me personally, ask me to generate one for you.\nIf you REALLY know me personally, try your name.', '')
+    .replaceAll(' ', '').toLowerCase();
+verifyPassword();
+
+async function verifyPassword() {
+    if (verificationData === undefined) {
+        console.warn('Verification data not ready');
+        return;
+    }
+    if (password === null) {
+        console.warn('Password not ready');
+        return;
+    }
+
+    console.log(`Verifying password ${password}...`);
+    let verifiedVerification;
+    for (const verification of verificationData) {
+        const decryptedVerificationString = await decryptData(verification.verificationString, password)
+            .catch(err => console.log(`Decryption failed for ${verification.verificationString} with password ${password}`));
+        if (!decryptedVerificationString) { continue; }
+        verifiedVerification = verification;
+        break;
+    }
+    if (!verifiedVerification) {
+        console.warn('No verification found');
+        Array.from(document.getElementsByClassName('fetch-placeholder'))
+            .forEach(element => {
+                element.classList.add('wrong');
+                element.innerHTML = 'Invalid password<br><br>If you know me personally, ask me to generate one for you.<br>If you REALLY know me personally, try your name.<br><br>Refresh to try again.';
+            });
+        return;
+    }
+
+    console.log(`Verified password ${password} with ${verifiedVerification.fileName}`);
+    const verifiedBinUrl = `https://raw.githubusercontent.com/CCheukKa/upload-bin/refs/heads/main/output/${verifiedVerification.fileName}.bin`;
+    httpGetAsync(verifiedBinUrl, async response => {
+        const decryptedString = await decryptData(response, password);
+        console.log(`Decrypted: ${decryptedString}`);
+        buildJournal(decryptedString);
+    });
+}
+
+function buildJournal(md) {
     // console.log(response);
-    textContainer.innerHTML = parseResponse(handleComments(response));
+    textContainer.innerHTML = parseResponse(handleComments(md));
     cycleFonts(document.getElementById('font-selection'));
     addSectionTags(textContainer);
     appendTags(textContainer);
-    buildTableOfContents(response, textContainer);
+    buildTableOfContents(md, textContainer);
     cycleTocMode(false);
     //
     console.log(`Done journal assembly`);
@@ -67,7 +117,9 @@ httpGetAsync("https://raw.githubusercontent.com/CCheukKa/CCheukKa/master/Journal
         console.log(`Redirected to ${redirect}`);
     }
     //
-});
+};
+
+/* -------------------------------------------------------------------------- */
 
 function handleComments(rawMD) {
     // remove unnecessary comments
@@ -482,4 +534,60 @@ function CalendarControl() {
         }
     };
     calendarControl.init();
+}
+
+/* -------------------------------------------------------------------------- */
+
+async function deriveKey(password, salt) {
+    const encoder = new TextEncoder();
+    const passwordBuffer = encoder.encode(password);
+    const importedKey = await crypto.subtle.importKey(
+        "raw",
+        passwordBuffer,
+        { name: "PBKDF2" },
+        false,
+        ["deriveBits", "deriveKey"]
+    );
+    const derivedKey = await crypto.subtle.deriveKey(
+        {
+            name: "PBKDF2",
+            salt: salt,
+            iterations: 100000,
+            hash: "SHA-256"
+        },
+        importedKey,
+        { name: "AES-GCM", length: 256 },
+        false,
+        ["encrypt", "decrypt"]
+    );
+    return derivedKey;
+}
+
+async function decryptData(encryptedBase64, password) {
+    const encryptedData = base64ToArrayBuffer(encryptedBase64);
+    const salt = encryptedData.slice(0, 16);
+    const iv = encryptedData.slice(16, 28);
+    const encryptedBuffer = encryptedData.slice(28);
+    const key = await deriveKey(password, salt);
+    const decryptedBuffer = await crypto.subtle.decrypt(
+        {
+            name: "AES-GCM",
+            iv: iv
+        },
+        key,
+        encryptedBuffer
+    );
+
+    const decoder = new TextDecoder();
+    return decoder.decode(decryptedBuffer);
+    /* -------------------------------------------------------------------------- */
+
+    function base64ToArrayBuffer(base64) {
+        const binaryString = atob(base64);
+        const bytes = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+            bytes[i] = binaryString.charCodeAt(i);
+        }
+        return bytes;
+    }
 }
