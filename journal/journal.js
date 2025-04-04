@@ -59,7 +59,16 @@ httpGetAsync("https://raw.githubusercontent.com/CCheukKa/upload-bin/refs/heads/m
     verifyPassword();
 });
 
-const password = window.prompt('Password?\n\nIf you know me personally, ask me to generate one for you.\nIf you REALLY know me personally, try your name.', '')
+const COOKIE_NAME = 'cck-wtf-journal';
+var cookie;
+try { cookie = Cookies.get(COOKIE_NAME); } catch (e) { console.log(e); }
+if (cookie) {
+    console.log(`Using ${cookie} from cookie as password`);
+} else {
+    console.log('no cookie');
+}
+
+const password = cookie ?? window.prompt('Password?\n\nIf you know me personally, ask me to generate one for you.\nIf you REALLY know me personally, try your name.', '')
     .replaceAll(' ', '').toLowerCase();
 verifyPassword();
 
@@ -84,6 +93,7 @@ async function verifyPassword() {
     }
     if (!verifiedVerification) {
         console.warn('No verification found');
+        Cookies.remove(COOKIE_NAME, { path: '' });
         Array.from(document.getElementsByClassName('fetch-placeholder'))
             .forEach(element => {
                 element.classList.add('wrong');
@@ -93,6 +103,9 @@ async function verifyPassword() {
     }
 
     console.log(`Verified password ${password} with ${verifiedVerification.fileName}`);
+    Cookies.set(COOKIE_NAME, password, { path: '' });
+    console.log('Password cookie set');
+
     const verifiedBinUrl = `https://raw.githubusercontent.com/CCheukKa/upload-bin/refs/heads/main/output/${verifiedVerification.fileName}.bin`;
     httpGetAsync(verifiedBinUrl, async response => {
         const decryptedString = await decryptData(response, password);
