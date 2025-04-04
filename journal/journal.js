@@ -239,15 +239,15 @@ function buildTableOfContents(response, text) {
     var tocTitle = document.getElementById('table-of-contents');
     let tocTable = tocTitle.nextElementSibling;
     //
-    tocContainer.innerHTML = tocTitle.outerHTML + tocTable.outerHTML;
-
-    //
-    tocTitle.hidden = true;
-    tocTable.hidden = true;
     tocTable.nextElementSibling.hidden = true;
 
+    tocContainer.innerHTML = '';
+    tocContainer.appendChild(tocTitle);
+    tocContainer.appendChild(tocTable);
+
+    //
+
     // TOC Mode
-    var tocTitle = document.getElementById('table-of-contents')
     tocTitle.innerHTML = `${tocTitle.innerHTML} <a id="toc-mode-button" onclick="cycleTocMode()"></a>`;
     tocMode.entries = tocContainer.getElementsByTagName('ul')[0];
     tocMode.entries.id = 'toc-entries';
