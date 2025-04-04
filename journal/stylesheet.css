@@ -52,8 +52,7 @@
     direction: ltr;
 }
 
-.textContainer::-webkit-scrollbar,
-.toc-container::-webkit-scrollbar {
+.textContainer::-webkit-scrollbar {
     width: 6px;
 }
 
