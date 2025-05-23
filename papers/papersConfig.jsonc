@@ -666,6 +666,24 @@
                     "date": "16-04-2025"
                 }
             ]
+        },
+        {
+            "courseCode": "BMEG-4510",
+            "courseName": "Biomolecular Engineering",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-4510] [1] BMEG 4510 Bispecific Antibodies Presentation",
+                    "topic": "Bispecific Antibodies",
+                    "type": "Presentation Slides",
+                    "date": "25-04-2024"
+                },
+                {
+                    "pdfName": "[BMEG-4510] [2] BMEG 4510 Presentation Script",
+                    "topic": "Bispecific Antibodies",
+                    "type": "Presentation Script",
+                    "date": "25-04-2024"
+                }
+            ]
         }
     ]
 }
