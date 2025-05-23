@@ -26,14 +26,14 @@ function listConstructor(courses) {
             //
             const topicElement = document.createElement('a');
             topicElement.innerHTML = p.topic;
-            topicElement.href = `/papers/pdfs/${p.pdfName}.pdf`;
+            topicElement.href = `/papers/pdfs/${p.courseCode}/${p.pdfName}.pdf`;
             topicElement.target = '_blank';
             topicElementContainer.appendChild(topicElement);
             //
             const commentElement = document.createElement('a');
             if (p.commentedPDFName) {
                 commentElement.innerHTML = '💬';
-                commentElement.href = `/papers/pdfs/${p.commentedPDFName}.pdf`;
+                commentElement.href = `/papers/pdfs/${p.courseCode}/${p.commentedPDFName}.pdf`;
                 commentElement.target = '_blank';
             }
             topicElementContainer.appendChild(commentElement);
