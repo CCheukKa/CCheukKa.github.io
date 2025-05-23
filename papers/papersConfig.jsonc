@@ -598,6 +598,26 @@
                     "date": "29-11-2024"
                 }
             ]
+        },
+        {
+            "courseCode": "UGFH-1000",
+            "courseName": "In Dialogue with Humanity",
+            "papers": [
+                {
+                    "pdfName": "[UGFH-1000] [1] Reflective Essay",
+                    "commentedPDFName": "[UGFH-1000] [1+] 1155174356 Chan_Assignment_1 (RE Feedback)",
+                    "topic": "Plato & Confucius on the Ladder of Eros and Politics",
+                    "type": "Reflective Essay",
+                    "date": "01-11-2024"
+                },
+                {
+                    "pdfName": "[UGFH-1000] [2] Term Paper",
+                    //TODO: "commentedPDFName": "[UGFH-1000] [2+] 1155174356 Chan_Assignment_1 (TP Feedback)",
+                    "topic": "Termpapia: A State of Democracy, Equality, and Education",
+                    "type": "Argumentative Essay",
+                    "date": "15-12-2024"
+                }
+            ]
         }
     ]
 }
