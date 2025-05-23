@@ -444,6 +444,24 @@
                     "date": "22-12-2023"
                 }
             ]
+        },
+        {
+            "courseCode": "BENG-0004",
+            "courseName": "Biochemistry and Molecular Biology",
+            "papers": [
+                {
+                    "pdfName": "[BENG-0004] [1] DNA Practical Lab Report",
+                    "topic": "DNA Practical Lab Report",
+                    "type": "Lab Report",
+                    "date": "08-03-2024"
+                },
+                {
+                    "pdfName": "[BENG-0004] [2] Protein Practical Lab Report",
+                    "topic": "Protein Practical Lab Report",
+                    "type": "Lab Report",
+                    "date": "30-03-2024"
+                }
+            ]
         }
     ]
 }
