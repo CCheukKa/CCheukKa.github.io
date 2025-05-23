@@ -684,6 +684,78 @@
                     "date": "25-04-2024"
                 }
             ]
+        },
+        {
+            "courseCode": "BMEG-4998",
+            "courseName": "Final Year Project 1",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-4998] [1] Progress Report 1",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Progress Report 1",
+                    "date": "22-09-2024"
+                },
+                {
+                    "pdfName": "[BMEG-4998] [2] Progress Report 2",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Progress Report 2",
+                    "date": "20-10-2024"
+                },
+                {
+                    "pdfName": "[BMEG-4998] [3] Thesis 1",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Thesis 1",
+                    "date": "01-12-2024"
+                },
+                {
+                    "pdfName": "[BMEG-4998] [4] Presentation 1",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Project Presentation 1 Slides",
+                    "date": "01-12-2024"
+                },
+                {
+                    "pdfName": "[BMEG-4998] [5] presentation script",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Project Presentation 1 Script",
+                    "date": "01-12-2024"
+                }
+            ]
+        },
+        {
+            "courseCode": "BMEG-4999",
+            "courseName": "Final Year Project 2",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-4999] [1] Progress Report 3",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Progress Report 3",
+                    "date": "16-02-2025"
+                },
+                {
+                    "pdfName": "[BMEG-4999] [2] Progress Report 4",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Progress Report 4",
+                    "date": "16-03-2025"
+                },
+                {
+                    "pdfName": "[BMEG-4999] [3] Thesis 2",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Thesis 2",
+                    "date": "13-04-2025"
+                },
+                {
+                    "pdfName": "[BMEG-4999] [4] Presentation 2",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Project Presentation 2 Slides",
+                    "date": "28-04-2025"
+                },
+                {
+                    "pdfName": "[BMEG-4999] [5] presentation script",
+                    "topic": "Hypoxia in Cartilage Tissue Engineering",
+                    "type": "Project Presentation 2 Script",
+                    "date": "28-04-2025"
+                }
+            ]
         }
     ]
 }
