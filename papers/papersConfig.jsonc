@@ -462,6 +462,36 @@
                     "date": "30-03-2024"
                 }
             ]
+        },
+        {
+            "courseCode": "BMEG-3105",
+            "courseName": "Data Analytics for Personalised Genomics and Precision Medicine",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-3105] [1] Project Proposal",
+                    "topic": "Diagnosis of Thyroid Diseases from Blood Work Results",
+                    "type": "Project Proposal",
+                    "date": "08-11-2024"
+                },
+                {
+                    "pdfName": "[BMEG-3105] [2] presentation",
+                    "topic": "Diagnosis of Thyroid Diseases from Blood Work Results",
+                    "type": "Project Presentation Slides",
+                    "date": "29-11-2024"
+                },
+                {
+                    "pdfName": "[BMEG-3105] [3] script",
+                    "topic": "Diagnosis of Thyroid Diseases from Blood Work Results",
+                    "type": "Project Presentation Script",
+                    "date": "29-11-2024"
+                },
+                {
+                    "pdfName": "[BMEG-3105] [4] Project Report",
+                    "topic": "Diagnosis of Thyroid Diseases from Blood Work Results",
+                    "type": "Project Report",
+                    "date": "02-12-2024"
+                }
+            ]
         }
     ]
 }
