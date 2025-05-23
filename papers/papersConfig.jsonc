@@ -510,6 +510,30 @@
                     "date": "26-11-2024"
                 }
             ]
+        },
+        {
+            "courseCode": "BMEG-3430",
+            "courseName": "Biomaterials and Tissue Engineering",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-3430] [1] Project Report",
+                    "topic": "Biomaterials for Cartilage Tissue Repair and Regeneration",
+                    "type": "Project Report",
+                    "date": "21-11-2024"
+                },
+                {
+                    "pdfName": "[BMEG-3430] [2] presentation slides",
+                    "topic": "Biomaterials for Cartilage Tissue Repair and Regeneration",
+                    "type": "Project Presentation Slides",
+                    "date": "25-11-2024"
+                },
+                {
+                    "pdfName": "[BMEG-3430] [3] presentation script",
+                    "topic": "Biomaterials for Cartilage Tissue Repair and Regeneration",
+                    "type": "Project Presentation Script",
+                    "date": "25-11-2024"
+                }
+            ]
         }
     ]
 }
