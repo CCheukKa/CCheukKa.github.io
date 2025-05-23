@@ -562,6 +562,42 @@
                     "date": "27-11-2024"
                 }
             ]
+        },
+        {
+            "courseCode": "GECC-4130",
+            "courseName": "Senior Seminar",
+            "papers": [
+                {
+                    "pdfName": "[GECC-4130] [1] Proposal",
+                    "topic": " Emotional Management of University Students",
+                    "type": "Project Proposal",
+                    "date": "31-05-2024"
+                },
+                {
+                    "pdfName": "[GECC-4130] [2] GECC Presentation",
+                    "topic": "Emotional Management of University Students",
+                    "type": "Project Presentation Slides",
+                    "date": "08-11-2024"
+                },
+                {
+                    "pdfName": "[GECC-4130] [3] GECC Discussion",
+                    "topic": "Emotional Management of University Students",
+                    "type": "Project Discussion Slides",
+                    "date": "08-11-2024"
+                },
+                {
+                    "pdfName": "[GECC-4130] [4] Project Report",
+                    "topic": "Emotional Management of University Students",
+                    "type": "Project Report",
+                    "date": "21-11-2024"
+                },
+                {
+                    "pdfName": "[GECC-4130] [5] Reflective Essay",
+                    "topic": "Senior Seminar Reflective Essay",
+                    "type": "Reflective Essay",
+                    "date": "29-11-2024"
+                }
+            ]
         }
     ]
 }
