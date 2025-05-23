@@ -492,6 +492,24 @@
                     "date": "02-12-2024"
                 }
             ]
+        },
+        {
+            "courseCode": "BMEG-3140",
+            "courseName": "Molecular and Cellular Engineering Laboratory",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-3140] [1] BMEG 3140 Presentation",
+                    "topic": "Are genetically modified food safe for human consumption?",
+                    "type": "Presentation Slides",
+                    "date": "26-11-2024"
+                },
+                {
+                    "pdfName": "[BMEG-3140] [2] presentation script",
+                    "topic": "Are genetically modified food safe for human consumption?",
+                    "type": "Presentation Script",
+                    "date": "26-11-2024"
+                }
+            ]
         }
     ]
 }
