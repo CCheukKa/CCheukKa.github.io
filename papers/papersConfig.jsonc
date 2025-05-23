@@ -534,6 +534,34 @@
                     "date": "25-11-2024"
                 }
             ]
+        },
+        {
+            "courseCode": "ELTU-3415",
+            "courseName": "English through Food",
+            "papers": [
+                {
+                    "pdfName": "[ELTU-3415] [1] food journal",
+                    "commentedPDFName": "[ELTU-3415] [1+] Ka_3415Q_Food Journal Grading Rubric",
+                    "topic": "Food Journal",
+                    "type": "Food Journal",
+                    "date": "20-09-2024"
+                },
+                {
+                    "pdfName": "[ELTU-3415] [2] Annotated Bibliography",
+                    "commentedPDFName": "[ELTU-3415] [2+] Annotated Bibliography_Ka",
+                    "topic": "Video Annotated Bibliography",
+                    "type": "Video: Annotated Bibliography",
+                    "date": "27-10-2024"
+                },
+                {
+                    "pdfName": "[ELTU-3415] [3] video",
+                    "commentedPDFName": "[ELTU-3415] [3+] Ka_3415Q_Food Programme Grading Rubric",
+                    // https://www.youtube.com/watch?v=rlTHqr-6cBo
+                    "topic": "Desserted: On Food, Fun, and Friendship",
+                    "type": "Video: Food Video",
+                    "date": "27-11-2024"
+                }
+            ]
         }
     ]
 }
