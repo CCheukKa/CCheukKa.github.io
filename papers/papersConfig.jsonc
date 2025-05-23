@@ -618,6 +618,36 @@
                     "date": "15-12-2024"
                 }
             ]
+        },
+        {
+            "courseCode": "BMEG-3102",
+            "courseName": "Bioinformatics",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-3102] [1] 3102_present",
+                    "topic": "Protein Function Prediction",
+                    "type": "Product Presentation Slides",
+                    "date": "09-04-2025"
+                },
+                {
+                    "pdfName": "[BMEG-3102] [2] 3102_script",
+                    "topic": "Protein Function Prediction",
+                    "type": "Project Presentation Script",
+                    "date": "09-04-2025"
+                },
+                {
+                    "pdfName": "[BMEG-3102] [3] BMEG 3102 Project Report",
+                    "topic": "Protein Function Prediction",
+                    "type": "Project Report",
+                    "date": "28-04-2025"
+                },
+                {
+                    "pdfName": "[BMEG-3102] [4] BMEG 3102 Final Cheat Sheet",
+                    "topic": "Bioinformatics",
+                    "type": "Cheat Sheet",
+                    "date": "28-04-2025"
+                }
+            ]
         }
     ]
 }
