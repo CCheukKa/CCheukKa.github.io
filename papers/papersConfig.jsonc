@@ -648,6 +648,24 @@
                     "date": "28-04-2025"
                 }
             ]
+        },
+        {
+            "courseCode": "BMEG-4450",
+            "courseName": "Bionanotechnology",
+            "papers": [
+                {
+                    "pdfName": "[BMEG-4450] [1] BMEG 4450 presentation",
+                    "topic": "Lab-on-a-chip",
+                    "type": "Presentation Slides",
+                    "date": "16-04-2025"
+                },
+                {
+                    "pdfName": "[BMEG-4450] [2] BMEG 4450 presentation script",
+                    "topic": "Lab-on-a-chip",
+                    "type": "Presentation Script",
+                    "date": "16-04-2025"
+                }
+            ]
         }
     ]
 }
