@@ -68,7 +68,7 @@ if (cookie) {
     console.log('no cookie');
 }
 
-const password = cookie ?? window.prompt('Password?\n\nIf you know me personally, ask me to generate one for you.\nIf you REALLY know me personally, try your name.', '')
+const password = cookie ?? window.prompt('Password?\n\nIf you know me personally, ask me to generate one for you.\nIf you REALLY know me personally, try your name (no spaces, all lowercase).', '')
     .replaceAll(' ', '').toLowerCase();
 verifyPassword();
 
