@@ -1,0 +1,25 @@
+name: Update Submodules
+
+on:
+    repository_dispatch:
+        types: [submodule-updated]
+    workflow_dispatch:
+
+jobs:
+    update-submodules:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+              with:
+                  submodules: true
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Update submodules to latest commit
+              run: |
+                  git submodule update --remote --merge
+                  git config --global user.email "submodules-updater[bot]@users.noreply.github.com"
+                  git config --global user.name "submodules-updater[bot]"
+                  git add .
+                  git commit -am "Auto-update submodule: ${{ github.event.client_payload.submodule_name }} - (${{ github.event.client_payload.commit_hash }}) ${{ github.event.client_payload.commit_message }}"
+                  git push
