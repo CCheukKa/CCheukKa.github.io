@@ -35,6 +35,12 @@
             "displayName": "Connect Four",
             "htmlName": "page",
             "openInNewTab": true
+        },
+        {
+            "pathName": "racing-ai",
+            "displayName": "Racing AI",
+            "htmlName": "page",
+            "openInNewTab": true
         }
     ]
 }
