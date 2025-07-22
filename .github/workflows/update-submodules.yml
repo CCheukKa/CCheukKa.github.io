@@ -15,7 +15,7 @@ jobs:
 
             - name: Update submodules to latest commit
               run: |
-                  git submodule update --remote --merge
+                  git submodule update --remote --merge --allow-unrelated-histories
                   git config --global user.email "submodules-updater[bot]@users.noreply.github.com"
                   git config --global user.name "submodules-updater[bot]"
                   git add .
