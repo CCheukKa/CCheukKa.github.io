@@ -15,9 +15,9 @@ jobs:
 
             - name: Update submodules to latest commit
               run: |
-                  git submodule update --remote --merge --allow-unrelated-histories
+                  git submodule update --remote --merge
                   git config --global user.email "submodules-updater[bot]@users.noreply.github.com"
                   git config --global user.name "submodules-updater[bot]"
                   git add .
-                  git commit -am "Auto-update submodule: ${{ github.event.client_payload.submodule_name }} - (${{ github.event.client_payload.commit_hash }}) ${{ github.event.client_payload.commit_message }}"
+                  git commit -m "Auto-update submodule: ${{ github.event.client_payload.submodule_name }} - (${{ github.event.client_payload.commit_hash }}) ${{ github.event.client_payload.commit_message }}"
                   git push
