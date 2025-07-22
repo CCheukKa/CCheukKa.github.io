@@ -1,6 +1,11 @@
 name: Update Submodules
 
 on:
+    push:
+        branches:
+            - main
+        paths:
+            - "projects/racing-ai/**"
     workflow_dispatch:
 
 jobs:
