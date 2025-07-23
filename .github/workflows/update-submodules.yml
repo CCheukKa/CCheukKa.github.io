@@ -1,6 +1,8 @@
 name: Update Submodules
 
 on:
+    repository_dispatch:
+        types: [update-submodules]
     workflow_dispatch:
 
 jobs:
