@@ -1,11 +1,6 @@
 name: Update Submodules
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - "projects/racing-ai/**"
     workflow_dispatch:
 
 jobs:
@@ -25,10 +20,10 @@ jobs:
                   git config --global user.name "submodules-updater[bot]"
                   git add .
 
-                  if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
-                      git commit -am "Auto-update submodule: ${{ github.event.client_payload.submodule_name }} - (${{ github.event.client_payload.commit_hash }}) ${{ github.event.client_payload.commit_message }}"
+                  if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+                    git commit -am "Manual submodule update"
                   else
-                      git commit -am "Auto-update submodules"
+                    git commit -am "Auto-update submodule: ${{ github.event.client_payload.source_repo }} - (${{ github.event.client_payload.commit_hash }}) ${{ github.event.client_payload.commit_message }}"
                   fi
 
                   git push
