@@ -41,6 +41,12 @@
             "displayName": "Racing AI",
             "htmlName": "page",
             "openInNewTab": true
+        },
+        {
+            "pathName": "seating-constraint-solver",
+            "displayName": "Seating Constraint Solver",
+            "htmlName": "page",
+            "openInNewTab": true
         }
     ]
 }
