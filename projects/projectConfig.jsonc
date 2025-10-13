@@ -47,10 +47,9 @@
             "openInNewTab": true
         },
         {
-            "pathName": "seating-constraint-solver",
             "displayName": "Seating Constraint Solver",
-            "htmlName": "page",
-            "openInNewTab": true
+            "isLocal": false,
+            "redirectURL": "https://cck.wtf/seating-constraint-solver"
         }
     ]
 }
