@@ -64,10 +64,14 @@ function insensitiveIsEqual(a, b) {
 }
 
 function urlExists(url) {
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    return http.status != 404;
+    try {
+        var http = new XMLHttpRequest();
+        http.open('HEAD', url, false);
+        http.send();
+        return http.status == 200;
+    } catch {
+        return false;
+    }
 }
 
 function pickRandom(list) {
