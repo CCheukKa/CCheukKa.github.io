@@ -9,27 +9,35 @@ function projectShelfConstructor(projects) {
     widthTester.style.fontFamily = "'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif";
     //
     projects.forEach(project => {
-        let displayName = project.displayName,
-            pathName = project.pathName,
-            htmlName = project.htmlName;
+        let displayName = project.displayName;
         widthTester.innerHTML = displayName;
-        if (useHTML) { htmlName = htmlName.concat('.html'); }
         let pageURL;
-        if (project.htmlInRoot) {
-            pageURL = `/projects/${htmlName}`;
+        let thumbnailURL;
+
+        let isLocal = project.isLocal ?? true;
+        if (isLocal) {
+            let pathName = project.pathName;
+            let htmlName = project.htmlName;
+            if (useHTML) { htmlName = htmlName.concat('.html'); }
+            if (project.htmlInRoot) {
+                pageURL = `/projects/${htmlName}`;
+            } else {
+                pageURL = `/projects/${pathName}/${htmlName}`;
+            }
+            thumbnailURL = `/projects/${pathName}/thumbnail.png`;
         } else {
-            pageURL = `/projects/${pathName}/${htmlName}`;
+            pageURL = project.redirectURL;
+            thumbnailURL = `${pageURL}/thumbnail.png`;
         }
-        const thumbnailURL = `/projects/${pathName}/thumbnail.png`;
-        const thumbnailExists = urlExists(thumbnailURL);
         //
         let innerHTML = `<div class="shelf-item-wrapper">`;
-        if (project.openInNewTab) {
+        if (project.openInNewTab || !isLocal) {
             innerHTML += `<a href="${pageURL}" target="_blank">`;
         } else {
             innerHTML += `<a href="${pageURL}">`;
         }
         innerHTML += `<fieldset class="shelf-item"`;
+        const thumbnailExists = urlExists(thumbnailURL);
         if (thumbnailExists) {
             innerHTML += ` style="background-image: url('${thumbnailURL}');"><legend>`;
         } else {
