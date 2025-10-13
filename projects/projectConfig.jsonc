@@ -42,9 +42,8 @@
         },
         {
             "displayName": "Racing AI",
-            "pathName": "racing-ai",
-            "htmlName": "page",
-            "openInNewTab": true
+            "isLocal": false,
+            "redirectURL": "https://cck.wtf/racing-ai"
         },
         {
             "displayName": "Seating Constraint Solver",

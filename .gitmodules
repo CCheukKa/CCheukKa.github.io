@@ -1,4 +1,0 @@
-[submodule "projects/racing-ai"]
-	path = projects/racing-ai
-	url = https://github.com/CCheukKa/racing-ai.git
-	branch = main
