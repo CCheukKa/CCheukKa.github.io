@@ -8,24 +8,9 @@ export default function NotFoundPage() {
 
             <Header />
 
-            <div style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
-                width: "100svw",
-                height: "90svh",
-            }}>
-                <h1 style={{
-                    fontFamily: "'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif",
-                }}>
-                    404 - Page Not Found
-                </h1>
-                <p style={{
-                    fontFamily: "'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif",
-                }}>
-                    The page you are looking for does not exist.
-                </p>
+            <div className={styles._404Container}>
+                <h1 className={styles._404Title}>404 - Page Not Found</h1>
+                <p className={styles._404Message}>The page you are looking for does not exist.</p>
                 <br />
                 <button
                     onClick={() => window.history.back()}
