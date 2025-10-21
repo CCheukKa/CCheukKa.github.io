@@ -14,6 +14,11 @@ export default function Header() {
     const thisPageRefName = absoluteRefPath[absoluteRefPath.length - 1];
     const thisPage = config.catalogue.find(page => page.refName === thisPageRefName);
 
+    const appendedCatalogue = (thisPage
+        ? config.catalogue
+        : [...config.catalogue, { refName: thisPageRefName, displayName: thisPageRefName } as Page]
+    );
+
     return (
         <div className={styles.headerContainer}>
             <header className={styles.header}>
@@ -39,15 +44,12 @@ export default function Header() {
                 }
                 <nav className={styles.headerCatalogue}>
                     {
-                        (thisPage
-                            ? config.catalogue
-                            : [...config.catalogue, { refName: thisPageRefName, displayName: thisPageRefName } as Page]
-                        ).map((page, index) => {
+                        appendedCatalogue.map((page, index) => {
                             if (page.hideFromNav) { return null; }
                             return (<>
                                 {getCatalogueItem(page)}
                                 {
-                                    index < config.catalogue.length - 1
+                                    index < appendedCatalogue.length - 1
                                         ? <span className={styles.headerCatalogueSeparator}> | </span>
                                         : null
                                 }
