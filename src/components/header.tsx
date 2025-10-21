@@ -27,10 +27,10 @@ export default function Header() {
                     ))}
                 </div>
                 {
-                    (
+                    ((
                         (thisPage || config.exceptions.find(exc => exc.refName === thisPageRefName))
                         && !thisPage?.underConstruction
-                    )
+                    ) || thisPageRefName === "404")
                         ? null
                         : <>
                             <span className={`${styles.headerCatalogueSelected} ${styles.constructionSign}`}>🚧</span>

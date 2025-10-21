@@ -1,0 +1,15 @@
+.backButton {
+    background-color: #303030;
+    border: 2px solid #606060;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12pt;
+
+    &:hover {
+        background-color: #4a4a4a;
+        border-color: #808080;
+    }
+}
