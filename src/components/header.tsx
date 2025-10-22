@@ -5,10 +5,11 @@ import { useRouter } from "next/router";
 export default function Header() {
     const router = useRouter();
 
-    const absolutePath = router.pathname.split('/').slice(1);
+    // Use asPath to get the actual URL path instead of the route pattern
+    const absolutePath = router.asPath.split('/').slice(1);
     const absoluteRefPath = (absolutePath.length === 1 && absolutePath[0] === "")
         ? ["home"]
-        : router.pathname.split('/').slice(1);
+        : router.asPath.split('/').slice(1);
 
     const thisPageRefName = absoluteRefPath[absoluteRefPath.length - 1];
     const thisPage = homeConfig.shelfItems.find(item => item.refPath === thisPageRefName);
