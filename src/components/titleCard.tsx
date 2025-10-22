@@ -10,9 +10,8 @@ export default function TitleCard({ title, flavourText, description }: TitleCard
     return (
         <div className={styles.titleCard}>
             <div className={styles.pageTitleContainer}>
-                <span className={styles.pageTitle}>{title}</span>
-                <br />
-                <span className={styles.flavourText}>{flavourText}</span>
+                <div className={styles.pageTitle}>{title}</div>
+                <div className={styles.flavourText}>{flavourText}</div>
             </div>
             <div className={styles.descriptionWrapper}>
                 <span
