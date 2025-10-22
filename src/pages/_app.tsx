@@ -6,7 +6,9 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <Header />
-            <Component {...pageProps} />
+            <div style={{ width: "100%", flexGrow: 1 }}>
+                <Component {...pageProps} />
+            </div>
         </>
     );
 }
