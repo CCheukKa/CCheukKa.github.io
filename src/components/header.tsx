@@ -29,7 +29,11 @@ export default function Header() {
                             <span> / </span>
                             <a
                                 href={`/${absoluteRefPath.slice(0, index + 1).join('/')}`}
-                                style={{ fontWeight: "bold", textDecoration: "underline" }}
+                                style={
+                                    index === absoluteRefPath.length - 1
+                                        ? { fontWeight: "bold", textDecoration: "underline" }
+                                        : {}
+                                }
                             >
                                 {path || 'home'}
                             </a>
