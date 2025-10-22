@@ -41,7 +41,11 @@ export default function Header() {
                     ))}
                 </div>
                 {
-                    ((thisPage && !thisPage?.underConstruction) || thisPageRefName === "404")
+                    (
+                        (thisPage && !thisPage?.underConstruction)
+                        || router.pathname.split('/').pop() === "[slug]"
+                        || thisPageRefName === "404"
+                    )
                         ? null
                         : <>
                             <span className={`${styles.headerCatalogueSelected} ${styles.constructionSign}`}>🚧</span>
