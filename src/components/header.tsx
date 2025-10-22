@@ -1,5 +1,5 @@
 import styles from "@/styles/header.module.css";
-import { config, Page } from "@/types/config";
+import { config, Page } from "@/configs/config";
 import { useRouter } from "next/router";
 
 export default function Header() {
