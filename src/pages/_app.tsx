@@ -6,9 +6,16 @@ export default function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <Header />
-            <div style={{ width: "100%", flexGrow: 1 }}>
+            <main style={{
+                width: "100%",
+                flexGrow: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+            }}>
                 <Component {...pageProps} />
-            </div>
+            </main>
         </>
     );
 }
