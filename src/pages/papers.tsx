@@ -44,7 +44,7 @@ function ListItem({ course, paper }: ListItemProps) {
 
     return (
         <div className={styles.list}>
-            <span className={styles.type}>{paper.type}</span>
+            <span>{paper.type}</span>
             <div className={styles.topic}>
                 <a className={styles.pdf} href={pdfPath} target="_blank">{paper.topic}</a>
                 {
