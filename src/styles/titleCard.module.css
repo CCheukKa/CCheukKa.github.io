@@ -12,7 +12,7 @@
 }
 
 .pageTitleContainer {
-    width: 100%;
+    min-width: 600px;
     margin-top: -25px;
     margin-bottom: -20px;
     text-align: center;
@@ -30,15 +30,14 @@
     text-align: center;
     font-weight: bold;
     font-size: 18pt;
-    width: fit-content;
-    white-space: nowrap;
+    width: max-content;
 }
 
 .descriptionWrapper {
     text-align: left;
     align-content: center;
     height: 100%;
-    width: 80%;
+    flex-grow: 1;
     margin-left: 25px;
     margin-right: -5px;
 }
