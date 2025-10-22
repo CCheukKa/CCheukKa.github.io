@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
-                justifyContent: "center",
+                justifyContent: "flex-start",
             }}>
                 <Component {...pageProps} />
             </main>
