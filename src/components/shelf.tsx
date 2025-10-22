@@ -27,10 +27,11 @@ type ShelfItemProps = {
 function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
     if (shelfItem.hideFromShelf) { return null; }
 
-    const fullRefPath = shelfItem.isRemote
+    const fullRefDir = shelfItem.isRemote
         ? shelfItem.refPath
         : `/${rootRefName}/${shelfItem.refPath}`;
-    const thumbnailPath = `${fullRefPath}/thumbnail.png`;
+    const fullRefPage = `${fullRefDir}/${shelfItem.refPage}`;
+    const thumbnailPath = `${fullRefDir}/thumbnail.png`;
 
     let span1 = "";
     let span2 = "";
@@ -60,7 +61,7 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
     return (
         <div className={styles.shelfItemWrapper}>
             <a
-                href={fullRefPath}
+                href={fullRefPage}
                 target={shelfItem.openInNewTab ? "_blank" : undefined}
             >
                 <fieldset

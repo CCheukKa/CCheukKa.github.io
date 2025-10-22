@@ -43,6 +43,7 @@ export default function Header() {
                 {
                     (
                         (thisPage && !thisPage?.underConstruction)
+                        || homeConfig.constructionExceptionRefPaths.includes(thisPageRefName)
                         || router.pathname.split('/').pop() === "[slug]"
                         || thisPageRefName === "404"
                     )

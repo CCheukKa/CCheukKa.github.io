@@ -5,6 +5,7 @@ export type ShelfConfig<T extends ShelfItem = ShelfItem> = {
 
 export type ShelfItem = {
     refPath: string;
+    refPage?: string;
     displayName: string;
     emoji?: string;
     hideFromShelf?: boolean;

@@ -5,17 +5,20 @@ export const projectsConfig: ShelfConfig = {
     shelfItems: [
         {
             displayName: "Pathfind + MazeGen",
-            refPath: "pathfinding+mazegen/page",
+            refPath: "pathfinding+mazegen",
+            refPage: "page",
             openInNewTab: true
         },
         {
             displayName: "Snake",
-            refPath: "snake/page",
+            refPath: "snake",
+            refPage: "page",
             openInNewTab: true
         },
         {
             displayName: "Tetris",
-            refPath: "tetris/page",
+            refPath: "tetris",
+            refPage: "page",
             openInNewTab: true
         },
         {
@@ -24,7 +27,8 @@ export const projectsConfig: ShelfConfig = {
         },
         {
             displayName: "Connect Four",
-            refPath: "connect-four/page",
+            refPath: "connect-four",
+            refPage: "page",
             openInNewTab: true
         },
         {
