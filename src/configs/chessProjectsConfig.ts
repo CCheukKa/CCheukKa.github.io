@@ -5,28 +5,38 @@ export const chessProjectsConfig: ShelfConfig = {
     shelfItems: [
         {
             displayName: "Chinese Chess",
-            refPath: "https://raw.githubusercontent.com/CCheukKa/random-small-code/refs/heads/main/HTML%20JS%20Stuff/HTML%20Chess%20Engine/Project/Chinese%20Chess",
+            isRemote: true,
+            refPath: "https://cck.wtf/chess/chinese-chess",
             refPage: "page",
+            openInNewTab: true
         },
         {
             displayName: "Crowded Chinese Chess",
-            refPath: "crowded-chinese-chess/page",
-            refPage: "page"
+            isRemote: true,
+            refPath: "https://cck.wtf/chess/crowded-chinese-chess",
+            refPage: "page",
+            openInNewTab: true
         },
         {
             displayName: "Western Chess",
-            refPath: "vectorised-western-chess/page",
-            refPage: "page"
+            isRemote: true,
+            refPath: "https://cck.wtf/chess/vectorised-western-chess",
+            refPage: "page",
+            openInNewTab: true
         },
         {
             displayName: "Circular Western Chess",
-            refPath: "circular-western-chess/page",
-            refPage: "page"
+            isRemote: true,
+            refPath: "https://cck.wtf/chess/circular-western-chess",
+            refPage: "page",
+            openInNewTab: true
         },
         {
             displayName: "(Old) Western Chess",
-            refPath: "western-chess/page",
-            refPage: "page"
+            isRemote: true,
+            refPath: "https://cck.wtf/chess/western-chess",
+            refPage: "page",
+            openInNewTab: true
         }
     ]
 }
