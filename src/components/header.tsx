@@ -25,10 +25,15 @@ export default function Header() {
                 <div className={styles.headerTitle}>
                     <a href="/">CCheukKa's Site</a>
                     {absoluteRefPath.map((path, index) => (
-                        <>
+                        <span key={index}>
                             <span> / </span>
-                            <a href={`/${absoluteRefPath.slice(0, index + 1).join('/')}`} style={{ fontWeight: "bold", textDecoration: "underline" }}>{path || 'home'}</a>
-                        </>
+                            <a
+                                href={`/${absoluteRefPath.slice(0, index + 1).join('/')}`}
+                                style={{ fontWeight: "bold", textDecoration: "underline" }}
+                            >
+                                {path || 'home'}
+                            </a>
+                        </span>
                     ))}
                 </div>
                 {
@@ -46,14 +51,14 @@ export default function Header() {
                     {
                         appendedCatalogue.map((page, index) => {
                             if (page.hideFromNav) { return null; }
-                            return (<>
+                            return (<span key={page.refName}>
                                 {getCatalogueItem(page)}
                                 {
                                     index < appendedCatalogue.length - 1
                                         ? <span className={styles.headerCatalogueSeparator}> | </span>
                                         : null
                                 }
-                            </>);
+                            </span>);
                         })
                     }
                 </nav>
