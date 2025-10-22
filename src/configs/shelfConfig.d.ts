@@ -1,9 +1,9 @@
-export type ShelfConfig = {
+export type ShelfConfig<T extends ShelfItem = ShelfItem> = {
     rootRefName: string;
-    shelfItems: ShelfItem[];
+    shelfItems: T[];
 }
 
-type ShelfItem = {
+export type ShelfItem = {
     refPath: string;
     displayName: string;
     emoji?: string;

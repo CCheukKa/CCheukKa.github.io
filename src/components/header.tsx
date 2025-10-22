@@ -1,5 +1,5 @@
 import styles from "@/styles/header.module.css";
-import { config, Page } from "@/configs/config";
+import { homeConfig, HomeShelfItem } from "@/configs/homeConfig";
 import { useRouter } from "next/router";
 
 export default function Header() {
@@ -12,11 +12,11 @@ export default function Header() {
     console.log({ absolutePath: absoluteRefPath });
 
     const thisPageRefName = absoluteRefPath[absoluteRefPath.length - 1];
-    const thisPage = config.catalogue.find(page => page.refName === thisPageRefName);
+    const thisPage = homeConfig.shelfItems.find(item => item.refPath === thisPageRefName);
 
     const appendedCatalogue = (thisPage
-        ? config.catalogue
-        : [...config.catalogue, { refName: thisPageRefName, displayName: thisPageRefName } as Page]
+        ? homeConfig.shelfItems
+        : [...homeConfig.shelfItems, { refPath: thisPageRefName, displayName: thisPageRefName } as HomeShelfItem]
     );
 
     return (
@@ -37,10 +37,7 @@ export default function Header() {
                     ))}
                 </div>
                 {
-                    ((
-                        (thisPage || config.exceptions.find(exc => exc.refName === thisPageRefName))
-                        && !thisPage?.underConstruction
-                    ) || thisPageRefName === "404")
+                    ((thisPage && !thisPage?.underConstruction) || thisPageRefName === "404")
                         ? null
                         : <>
                             <span className={`${styles.headerCatalogueSelected} ${styles.constructionSign}`}>🚧</span>
@@ -51,7 +48,7 @@ export default function Header() {
                     {
                         appendedCatalogue.map((page, index) => {
                             if (page.hideFromNav) { return null; }
-                            return (<span key={page.refName}>
+                            return (<span key={page.refPath}>
                                 {getCatalogueItem(page)}
                                 {
                                     index < appendedCatalogue.length - 1
@@ -68,16 +65,16 @@ export default function Header() {
 
     /* -------------------------------------------------------------------------- */
 
-    function getCatalogueItem(page: Page) {
+    function getCatalogueItem(shelfItem: HomeShelfItem) {
         return (<a
-            href={`/${page.refName}`}
+            href={`/${shelfItem.refPath}`}
             className={
-                page.refName === thisPageRefName
+                shelfItem.refPath === thisPageRefName
                     ? styles.headerCatalogueSelected
                     : styles.headerCatalogueUnselected
             }
         >
-            {page.displayName}
+            {shelfItem.displayName}
         </a>);
     }
 }
