@@ -9,7 +9,6 @@ export default function Header() {
     const absoluteRefPath = (absolutePath.length === 1 && absolutePath[0] === "")
         ? ["home"]
         : router.pathname.split('/').slice(1);
-    console.log({ absolutePath: absoluteRefPath });
 
     const thisPageRefName = absoluteRefPath[absoluteRefPath.length - 1];
     const thisPage = homeConfig.shelfItems.find(item => item.refPath === thisPageRefName);
