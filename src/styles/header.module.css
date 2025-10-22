@@ -1,7 +1,11 @@
 .headerContainer {
     width: 100svw;
-    padding-top: 8px;
-    padding-inline: 8px;
+    padding: 8px 8px 0 8px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
+    backdrop-filter: blur(8px);
 }
 
 .header {
