@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
     /* config options here */
     reactStrictMode: true,
     output: 'export',
-    distDir: 'out',
+    distDir: 'build',
     productionBrowserSourceMaps: true,
 };
 
