@@ -2,7 +2,7 @@ import Shelf from "@/components/shelf";
 import TitleCard from "@/components/titleCard";
 import { projectsConfig } from "@/configs/projectsConfig";
 
-export default function Projects() {
+export default function ProjectsPage() {
     return (
         <>
             <title>Projects</title>

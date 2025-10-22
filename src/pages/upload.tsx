@@ -1,4 +1,4 @@
-export default function Upload() {
+export default function UploadPage() {
     return (
         <>
             <title>Redirecting to Upload Bin...</title>

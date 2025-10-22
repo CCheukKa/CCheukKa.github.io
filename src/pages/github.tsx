@@ -1,4 +1,4 @@
-export default function GitHub() {
+export default function GitHubPage() {
     return (
         <>
             <title>Redirecting to GitHub...</title>

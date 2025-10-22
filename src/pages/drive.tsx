@@ -1,4 +1,4 @@
-export default function Drive() {
+export default function DrivePage() {
     return (
         <>
             <title>Redirecting to Google Drive...</title>

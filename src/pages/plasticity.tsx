@@ -2,7 +2,7 @@ import Shelf from "@/components/shelf";
 import TitleCard from "@/components/titleCard";
 import { plasticityConfig } from "@/configs/plasticityConfig";
 
-export default function Plasticity() {
+export default function PlasticityPage() {
     return (
         <>
             <title>Plasticity</title>
