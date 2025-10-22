@@ -37,7 +37,7 @@
 .descriptionWrapper {
     text-align: left;
     align-content: center;
-    padding-top: 6px;
+    height: 100%;
     width: 80%;
     margin-left: 25px;
     margin-right: -5px;

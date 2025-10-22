@@ -15,9 +15,10 @@ export default function TitleCard({ title, flavourText, description }: TitleCard
                 <span className={styles.flavourText}>{flavourText}</span>
             </div>
             <div className={styles.descriptionWrapper}>
-                <span className={styles.description}>
-                    {description}
-                </span>
+                <span
+                    className={styles.description}
+                    dangerouslySetInnerHTML={{ __html: description }}
+                />
             </div>
         </div>
     );
