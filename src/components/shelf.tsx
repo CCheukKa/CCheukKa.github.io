@@ -30,7 +30,7 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
     const fullRefDir = shelfItem.isRemote
         ? shelfItem.refPath
         : `/${rootRefName}/${shelfItem.refPath}`;
-    const fullRefPage = `${fullRefDir}/${shelfItem.refPage}`;
+    const fullRefPage = `${fullRefDir}/${shelfItem.refPage ?? ""}`;
     const thumbnailPath = `${fullRefDir}/thumbnail.png`;
 
     let span1 = "";

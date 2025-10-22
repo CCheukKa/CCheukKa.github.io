@@ -5,20 +5,20 @@ export const projectsConfig: ShelfConfig = {
     shelfItems: [
         {
             displayName: "Pathfind + MazeGen",
-            refPath: "pathfinding+mazegen",
-            refPage: "page",
+            isRemote: true,
+            refPath: "https://cck.wtf/pathfinding-mazegen",
             openInNewTab: true
         },
         {
             displayName: "Snake",
-            refPath: "snake",
-            refPage: "page",
+            isRemote: true,
+            refPath: "https://cck.wtf/snake",
             openInNewTab: true
         },
         {
             displayName: "Tetris",
-            refPath: "tetris",
-            refPage: "page",
+            isRemote: true,
+            refPath: "https://cck.wtf/tetris",
             openInNewTab: true
         },
         {
@@ -27,19 +27,21 @@ export const projectsConfig: ShelfConfig = {
         },
         {
             displayName: "Connect Four",
-            refPath: "connect-four",
-            refPage: "page",
+            isRemote: true,
+            refPath: "https://cck.wtf/connect-four",
             openInNewTab: true
         },
         {
             displayName: "Racing AI",
             isRemote: true,
-            refPath: "https://cck.wtf/racing-ai"
+            refPath: "https://cck.wtf/racing-ai",
+            openInNewTab: true
         },
         {
             displayName: "Seating Constraint Solver",
             isRemote: true,
-            refPath: "https://cck.wtf/seating-constraint-solver"
+            refPath: "https://cck.wtf/seating-constraint-solver",
+            openInNewTab: true
         }
     ]
 }
