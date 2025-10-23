@@ -18,7 +18,7 @@ type PapersConfig = {
 };
 
 export const papersConfig: PapersConfig = {
-    rootPath: "https://cck.wtf/papers",
+    rootPath: "https://cck.wtf/paperPDFs",
     courses: [
         {
             courseCode: "CHLT-1100",
