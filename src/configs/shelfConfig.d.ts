@@ -12,4 +12,5 @@ export type ShelfItem = {
     openInNewTab?: boolean;
     underConstruction?: boolean;
     isRemote?: boolean;
+    thumbnailPathOverride?: string;
 }

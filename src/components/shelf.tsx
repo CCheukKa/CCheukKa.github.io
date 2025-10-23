@@ -31,7 +31,7 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
         ? shelfItem.refPath
         : `/${rootRefName}/${shelfItem.refPath}`;
     const fullRefPage = `${fullRefDir}/${shelfItem.refPage ?? ""}`;
-    const thumbnailPath = `${fullRefDir}/thumbnail.png`;
+    const thumbnailPath = shelfItem.thumbnailPathOverride ?? `${fullRefDir}/thumbnail.png`;
 
     let span1 = "";
     let span2 = "";

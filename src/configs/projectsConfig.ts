@@ -24,6 +24,7 @@ export const projectsConfig: ShelfConfig = {
         {
             displayName: "Chess(es)",
             refPath: "chess",
+            thumbnailPathOverride: "https://cck.wtf/chess/thumbnail.png"
         },
         {
             displayName: "Connect Four",
