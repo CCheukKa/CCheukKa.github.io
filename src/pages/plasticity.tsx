@@ -1,5 +1,5 @@
-import Shelf from "@/components/shelf";
-import TitleCard from "@/components/titleCard";
+import Shelf from "@/components/Shelf";
+import TitleCard from "@/components/TitleCard";
 import { plasticityConfig } from "@/configs/plasticityConfig";
 
 export default function PlasticityPage() {

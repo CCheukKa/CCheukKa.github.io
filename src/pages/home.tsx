@@ -1,4 +1,4 @@
-import Shelf from "@/components/shelf";
+import Shelf from "@/components/Shelf";
 import { homeConfig } from "@/configs/homeConfig";
 import titleCardStyles from "@/styles/titleCard.module.css";
 import styles from "@/styles/home.module.css";

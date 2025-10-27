@@ -3,8 +3,8 @@ import { plasticityConfig } from '@/configs/plasticityConfig';
 import styles from '@/styles/plasticity.module.css';
 import fs from 'fs';
 import path from 'path';
-import TitleCard from '@/components/titleCard';
-import Shelf from '@/components/shelf';
+import TitleCard from '@/components/TitleCard';
+import Shelf from '@/components/Shelf';
 
 type PlasticityContentPageProps = {
     metadata: {
