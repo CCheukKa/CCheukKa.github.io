@@ -19,25 +19,23 @@ export default function JournalPage() {
         LOADING_CONTENT = "LOADING_CONTENT",
         CONTENT_LOADED = "CONTENT_LOADED"
     }
+    const [currentState, setState] = useState<State>(State.INITIAL);
 
     type VerificationData = { verificationString: string, fileName: string };
     const [verificationData, setVerificationData] = useState<VerificationData[] | null>(null);
     const [password, setPassword] = useState<string | null>(null);
     const [decryptedMdString, setDecryptedMdString] = useState<string>("");
-    const [currentState, setState] = useState<State>(State.INITIAL);
 
     const enum Theme {
         LIGHT = "light",
         DARK = "dark"
     }
-
     const FONT_COUNT = 3;
     const enum Font {
         TIMES_NEW_ROMAN,
         ATKINSON_HYPERLEGIBLE,
         BELLOTA_TEXT
     }
-
     type Preference = {
         theme: Theme,
         font: Font,
@@ -47,17 +45,16 @@ export default function JournalPage() {
         font: Font.TIMES_NEW_ROMAN,
     });
     const PREFERENCE_COOKIE_NAME = 'cck-wtf-journal-preferences';
-
     useEffect(() => {
-        let cookie: string | undefined;
+        let preferenceCookie: string | undefined;
         try {
-            cookie = Cookies.get(PREFERENCE_COOKIE_NAME);
+            preferenceCookie = Cookies.get(PREFERENCE_COOKIE_NAME);
         } catch (e) {
             console.log(e);
         }
-        if (cookie) {
-            console.log(`Using ${cookie} from cookie as preference`);
-            const parsedPreferences = JSON.parse(cookie) as Preference;
+        if (preferenceCookie) {
+            const parsedPreferences = JSON.parse(preferenceCookie) as Preference;
+            console.log('Using', parsedPreferences, 'from cookie as preference');
             setPreferences(parsedPreferences);
         } else {
             console.log('no preference cookie');
@@ -69,27 +66,29 @@ export default function JournalPage() {
 
     const VERIFICATION_PASSWORD = 'verification-password';
     const AUTH_COOKIE_NAME = 'cck-wtf-journal-auth';
-
     useEffect(() => {
         //! Load password from cookie or prompt user
-        let cookie: string | undefined;
+        let authCookie: string | undefined;
         try {
-            cookie = Cookies.get(AUTH_COOKIE_NAME);
+            authCookie = Cookies.get(AUTH_COOKIE_NAME);
         } catch (e) {
             console.log(e);
         }
-        if (cookie) {
-            console.log(`Using ${cookie} from cookie as password`);
-            setPassword(cookie);
+        if (authCookie) {
+            console.log(`Using ${authCookie} from cookie as password`);
+            setPassword(authCookie);
         } else {
-            console.log('no cookie');
+            console.log('no password cookie');
             const userPassword = window.prompt(
                 'Password?\n\nIf you know me personally, ask me to generate one for you.\nIf you REALLY know me personally, try your name (no spaces, all lowercase). Terrible security I know.',
                 ''
             );
-            if (userPassword !== null) {
-                const cleanedPassword = userPassword.replaceAll(' ', '').toLowerCase();
-                setPassword(cleanedPassword);
+
+            if (userPassword === null) {
+                console.log('User cancelled password prompt');
+                setState(State.AUTH_FAILED);
+            } else {
+                setPassword(userPassword?.replaceAll(' ', '').toLowerCase());
             }
         }
 
@@ -104,10 +103,11 @@ export default function JournalPage() {
             }
         );
     }, []);
-
     useEffect(() => {
         if (password && verificationData) {
             verifyPassword(password, verificationData);
+        } else {
+            setState(State.AUTH_FAILED);
         }
     }, [password, verificationData]);
 
