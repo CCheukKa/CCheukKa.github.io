@@ -66,6 +66,7 @@ main {
     justify-content: flex-start;
     overflow-y: scroll;
     overflow-x: visible;
+    scroll-padding-top: 20px;
 
     &::-webkit-scrollbar {
         width: 8px;
