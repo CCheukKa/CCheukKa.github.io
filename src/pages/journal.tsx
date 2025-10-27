@@ -20,6 +20,11 @@ export default function JournalPage() {
         CONTENT_LOADED = "CONTENT_LOADED"
     }
 
+    const enum Theme {
+        LIGHT = "light",
+        DARK = "dark"
+    }
+
     const enum Font {
         TIMES_NEW_ROMAN,
         ATKINSON_HYPERLEGIBLE,
@@ -31,7 +36,7 @@ export default function JournalPage() {
     const [password, setPassword] = useState<string | null>(null);
     const [decryptedMdString, setDecryptedMdString] = useState<string>("");
     const [currentState, setState] = useState<State>(State.INITIAL);
-    const [theme, setTheme] = useState<"light" | "dark">("dark");
+    const [theme, setTheme] = useState<Theme>(Theme.DARK);
     const [font, setFont] = useState<Font>(Font.TIMES_NEW_ROMAN);
 
     const VERIFICATION_PASSWORD = 'verification-password';
@@ -139,9 +144,9 @@ export default function JournalPage() {
                         <a href={`#${INTRODUCTION_ID}`}>🔝</a>
                         <a href={`#${LATEST_ID}`}>⏬</a>
                         <button
-                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                            onClick={() => setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK)}
                         >
-                            {theme === "dark" ? "🔆" : "🌙"}
+                            {theme === Theme.DARK ? "🔆" : "🌙"}
                         </button>
                         <button
                             className={styles.fontCycleButton}
