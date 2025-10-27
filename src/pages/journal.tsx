@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, useRef } from 'react';
 import TitleCard from '@/components/TitleCard';
 import { HTTP } from '@/library/http';
 import { Encryption } from '@/library/encryption';
@@ -248,19 +248,24 @@ function JournalContent({ mdString }: JournalContentProps) {
         gfmHeadingId()
     ).parse(mdString);
 
-    const headingList = getHeadingList();
+    const contentRef = useRef<HTMLDivElement>(null);
 
-    if (!headingList.find(heading => heading.id === TABLE_OF_CONTENTS_ID)) {
-        console.warn(`Table of contents ID "${TABLE_OF_CONTENTS_ID}" not found in headings.`);
-    }
-    if (!headingList.find(heading => heading.id === INTRODUCTION_ID)) {
-        console.warn(`Introduction ID "${INTRODUCTION_ID}" not found in headings.`);
-    }
-    if (!headingList.find(heading => heading.id === LATEST_ID)) {
-        console.warn(`Latest ID "${LATEST_ID}" not found in headings.`);
-    }
+    useEffect(() => {
+        if (contentRef.current) {
+            //^ Insert "latest" marker before the last <h4>
+            const latestElement = document.createElement('div');
+            latestElement.id = 'latest';
+            const h4Elements = contentRef.current.getElementsByTagName('h4');
+            if (h4Elements.length > 0) {
+                const lastH4 = h4Elements[h4Elements.length - 1];
+                lastH4.parentNode?.insertBefore(latestElement, lastH4);
+            } else {
+                console.warn('No <h4> elements found to insert before.');
+            }
+        }
+    }, [result]);
 
     return (
-        <div dangerouslySetInnerHTML={{ __html: result }} />
+        <div ref={contentRef} dangerouslySetInnerHTML={{ __html: result }} />
     );
 }
