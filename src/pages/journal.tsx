@@ -20,33 +20,61 @@ export default function JournalPage() {
         CONTENT_LOADED = "CONTENT_LOADED"
     }
 
+    type VerificationData = { verificationString: string, fileName: string };
+    const [verificationData, setVerificationData] = useState<VerificationData[] | null>(null);
+    const [password, setPassword] = useState<string | null>(null);
+    const [decryptedMdString, setDecryptedMdString] = useState<string>("");
+    const [currentState, setState] = useState<State>(State.INITIAL);
+
     const enum Theme {
         LIGHT = "light",
         DARK = "dark"
     }
 
+    const FONT_COUNT = 3;
     const enum Font {
         TIMES_NEW_ROMAN,
         ATKINSON_HYPERLEGIBLE,
         BELLOTA_TEXT
     }
 
-    type VerificationData = { verificationString: string, fileName: string };
-    const [verificationData, setVerificationData] = useState<VerificationData[] | null>(null);
-    const [password, setPassword] = useState<string | null>(null);
-    const [decryptedMdString, setDecryptedMdString] = useState<string>("");
-    const [currentState, setState] = useState<State>(State.INITIAL);
-    const [theme, setTheme] = useState<Theme>(Theme.DARK);
-    const [font, setFont] = useState<Font>(Font.TIMES_NEW_ROMAN);
+    type Preference = {
+        theme: Theme,
+        font: Font,
+    }
+    const [preferences, setPreferences] = useState<Preference>({
+        theme: Theme.DARK,
+        font: Font.TIMES_NEW_ROMAN,
+    });
+    const PREFERENCE_COOKIE_NAME = 'cck-wtf-journal-preferences';
+
+    useEffect(() => {
+        let cookie: string | undefined;
+        try {
+            cookie = Cookies.get(PREFERENCE_COOKIE_NAME);
+        } catch (e) {
+            console.log(e);
+        }
+        if (cookie) {
+            console.log(`Using ${cookie} from cookie as preference`);
+            const parsedPreferences = JSON.parse(cookie) as Preference;
+            setPreferences(parsedPreferences);
+        } else {
+            console.log('no preference cookie');
+        }
+    }, []);
+    useEffect(() => {
+        Cookies.set(PREFERENCE_COOKIE_NAME, JSON.stringify(preferences), { expires: 365 });
+    }, [preferences]);
 
     const VERIFICATION_PASSWORD = 'verification-password';
-    const COOKIE_NAME = 'cck-wtf-journal';
+    const AUTH_COOKIE_NAME = 'cck-wtf-journal-auth';
 
     useEffect(() => {
         //! Load password from cookie or prompt user
         let cookie: string | undefined;
         try {
-            cookie = Cookies.get(COOKIE_NAME);
+            cookie = Cookies.get(AUTH_COOKIE_NAME);
         } catch (e) {
             console.log(e);
         }
@@ -104,8 +132,8 @@ export default function JournalPage() {
                     </div>
                     <div
                         className={styles.textContainer}
-                        data-theme={theme}
-                        data-font={font}
+                        data-theme={preferences.theme}
+                        data-font={preferences.font}
                     >
                         {
                             useMemo(() => (() => {
@@ -144,21 +172,27 @@ export default function JournalPage() {
                         <a href={`#${INTRODUCTION_ID}`}>🔝</a>
                         <a href={`#${LATEST_ID}`}>⏬</a>
                         <button
-                            onClick={() => setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK)}
+                            onClick={() => setPreferences({
+                                ...preferences,
+                                theme: preferences.theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
+                            })}
                         >
-                            {theme === Theme.DARK ? "🔆" : "🌙"}
+                            {preferences.theme === Theme.DARK ? "🔆" : "🌙"}
                         </button>
                         <button
                             className={styles.fontCycleButton}
-                            onClick={() => setFont((font + 1) % 3)}
-                            data-font={font}
+                            onClick={() => setPreferences({
+                                ...preferences,
+                                font: (preferences.font + 1) % FONT_COUNT
+                            })}
+                            data-font={preferences.font}
                         >
                             A
                         </button>
                         <span className={styles.fontIndicator}>
                             {
-                                Array.from({ length: 3 }, (_, i) => (
-                                    font === i ? '●' : '○'
+                                Array.from({ length: FONT_COUNT }, (_, i) => (
+                                    preferences.font === i ? '●' : '○'
                                 )).join('')
                             }
                         </span>
@@ -185,12 +219,12 @@ export default function JournalPage() {
 
         if (!verifiedVerification) {
             console.warn('No verification found');
-            Cookies.remove(COOKIE_NAME, { path: '' });
+            Cookies.remove(AUTH_COOKIE_NAME, { path: '' });
             setState(State.AUTH_FAILED);
             return;
         }
 
-        Cookies.set(COOKIE_NAME, password, { expires: 7 }); // Save cookie for 7 days
+        Cookies.set(AUTH_COOKIE_NAME, password, { expires: 7 }); // Save cookie for 7 days
         console.log('Password verified successfully');
         setState(State.LOADING_CONTENT);
 
