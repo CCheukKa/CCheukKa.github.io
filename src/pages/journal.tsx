@@ -31,6 +31,7 @@ export default function JournalPage() {
     const [password, setPassword] = useState<string | null>(null);
     const [decryptedMdString, setDecryptedMdString] = useState<string>("");
     const [currentState, setState] = useState<State>(State.INITIAL);
+    const [theme, setTheme] = useState<"light" | "dark">("dark");
     const [font, setFont] = useState<Font>(Font.TIMES_NEW_ROMAN);
 
     const VERIFICATION_PASSWORD = 'verification-password';
@@ -98,6 +99,7 @@ export default function JournalPage() {
                     </div>
                     <div
                         className={styles.textContainer}
+                        data-theme={theme}
                         data-font={font}
                     >
                         {
@@ -136,7 +138,11 @@ export default function JournalPage() {
                     <div className={styles.controlsContainer}>
                         <a href={`#${INTRODUCTION_ID}`}>🔝</a>
                         <a href={`#${LATEST_ID}`}>⏬</a>
-                        <a style={{ cursor: "pointer" }} /*onClick={() => toggleDarkMode()}*/>🔅</a>
+                        <button
+                            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                        >
+                            {theme === "dark" ? "🔆" : "🌙"}
+                        </button>
                         <button
                             className={styles.fontCycleButton}
                             onClick={() => setFont((font + 1) % 3)}

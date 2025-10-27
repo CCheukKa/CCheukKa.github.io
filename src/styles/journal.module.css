@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible');
 
-:root {
-    --line-colour: #d3cfca60;
-    --dark-line-colour: #ffffff18;
-    --link-colour: #8fc3fff0;
-}
-
 .bodyContainer {
     display: flex;
     justify-items: center;
@@ -32,17 +26,30 @@
     width: 60%;
     padding: 10px 40px 50px 60px;
 
-    a[href^="#"],
-    blockquote>a,
-    blockquote>*>a,
-    blockquote>*>*>a,
-    p>a {
+    &[data-theme="dark"] {
+        --primary-line-colour: #d3cfca60;
+        --secondary-line-colour: #ffffff18;
+        --link-colour: #8fc3fff0;
+        --table-background-colour: #ffffff0a;
+    }
+
+    &[data-theme="light"] {
+        --primary-line-colour: #a9b9c7;
+        --secondary-line-colour: #94a6b6;
+        --link-colour: #0052b0f0;
+        --table-background-colour: ##ffffff28;
+
+        color: #222426;
+        background-color: #d6c7b1;
+    }
+
+    a {
         color: var(--link-colour);
     }
 
     h1,
     h2 {
-        border-bottom: 2px solid var(--dark-line-colour);
+        border-bottom: 2px solid var(--secondary-line-colour);
     }
 
     h4 {
@@ -51,35 +58,19 @@
 
     hr {
         height: 0.2em;
-        background-color: var(--line-colour);
+        background-color: var(--primary-line-colour);
         border: 0;
         margin: 8px 50px;
     }
 
     blockquote {
-        border-left: 5px solid var(--line-colour);
+        border-left: 5px solid var(--primary-line-colour);
         padding: 0 1em;
     }
 
     p {
         font-size: 14pt;
         line-height: 21pt;
-    }
-
-    [data-font="0"] {
-        font-family: 'Times New Roman', serif;
-    }
-
-    [data-font="1"] {
-        font-family: 'Atkinson Hyperlegible', sans-serif;
-    }
-
-    [data-font="2"] {
-        font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    }
-
-    a {
-        color: #faf8f5;
     }
 
     table {
@@ -92,7 +83,7 @@
         font-size: 11pt;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         line-height: 20pt;
-        background-color: #ffffff0a;
+        background-color: var(--table-background-colour);
         border-radius: 14px;
     }
 
@@ -100,7 +91,7 @@
         padding-top: 5px;
         padding-left: 12px;
         padding-right: 12px;
-        border-bottom: 2px solid var(--line-colour);
+        border-bottom: 2px solid var(--primary-line-colour);
         font-size: 13pt;
     }
 
@@ -110,7 +101,7 @@
     }
 
     table>tbody>tr+tr>td {
-        border-top: 1px solid var(--dark-line-colour);
+        border-top: 1px solid var(--secondary-line-colour);
     }
 
     table>tbody>tr:last-child>td {
@@ -250,7 +241,7 @@
 #tocContainer>ul>li>ul>li {
     padding-top: 5px;
     padding-bottom: 0px;
-    border-bottom: 2px solid var(--dark-line-colour);
+    border-bottom: 2px solid var(--secondary-line-colour);
 }
 
 #tocContainer>ul>li>a,
