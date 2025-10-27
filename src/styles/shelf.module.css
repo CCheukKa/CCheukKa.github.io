@@ -1,37 +1,14 @@
-body::-webkit-scrollbar {
-    display: none;
-}
-
 .shelf {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
     width: 90%;
-    overflow: auto;
     flex-grow: 1;
     margin-bottom: 40px;
     background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);
     border-radius: 16px;
     box-shadow: 0px 0px 20px #00000066;
-
-    &::-webkit-scrollbar {
-        width: 6px;
-    }
-
-    &::-webkit-scrollbar-track:hover {
-        background-color: #55555744;
-        border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: #555557;
-        border-radius: 10px;
-    }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: #7c7c7c;
-    }
 }
 
 .shelfItemWrapper {

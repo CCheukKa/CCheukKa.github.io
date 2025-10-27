@@ -32,15 +32,60 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    height: 100svh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    height: 100svh;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
 }
 
 #__next {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+main {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-y: scroll;
+    overflow-x: visible;
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+
+        &:hover {
+            background-color: #55555744;
+            border-radius: 10px;
+        }
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #555557;
+        border-radius: 10px;
+
+        &:hover {
+            background-color: #7c7c7c;
+        }
+    }
 }
