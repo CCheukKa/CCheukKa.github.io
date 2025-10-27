@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible');
 
 :root {
     --line-colour: #d3cfca60;
@@ -170,10 +170,49 @@
     flex-direction: column;
     align-items: center;
     font-weight: bold;
+
+    &>* {
+        height: 45px;
+    }
+
+    &>button {
+        background: none;
+        border: none;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        padding: 0;
+        margin: 0;
+    }
+
+    .fontIndicator {
+        font-size: 10pt;
+        width: 0;
+        position: absolute;
+        bottom: 0;
+        left: 4px;
+        rotate: 90deg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
+.textContainer,
 .fontCycleButton {
-    font-size: 32pt;
+
+    &[data-font="0"] {
+        font-family: "Times New Roman", serif;
+    }
+
+    &[data-font="1"] {
+        font-family: "Atkinson Hyperlegible", sans-serif;
+    }
+
+    &[data-font="2"] {
+        font-family: "Bellota Text", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+    }
 }
 
 /* table of contents list */

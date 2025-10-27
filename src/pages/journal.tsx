@@ -20,11 +20,18 @@ export default function JournalPage() {
         CONTENT_LOADED = "CONTENT_LOADED"
     }
 
+    const enum Font {
+        TIMES_NEW_ROMAN,
+        ATKINSON_HYPERLEGIBLE,
+        BELLOTA_TEXT
+    }
+
     type VerificationData = { verificationString: string, fileName: string };
     const [verificationData, setVerificationData] = useState<VerificationData[] | null>(null);
     const [password, setPassword] = useState<string | null>(null);
     const [decryptedMdString, setDecryptedMdString] = useState<string>("");
     const [currentState, setState] = useState<State>(State.INITIAL);
+    const [font, setFont] = useState<Font>(Font.TIMES_NEW_ROMAN);
 
     const VERIFICATION_PASSWORD = 'verification-password';
     const COOKIE_NAME = 'cck-wtf-journal';
@@ -89,7 +96,10 @@ export default function JournalPage() {
                     <div className={styles.tocContainer}>
                         <div className={styles.fetchPlaceholder}>Fetching table of contents...</div>
                     </div>
-                    <div className={styles.textContainer}>
+                    <div
+                        className={styles.textContainer}
+                        data-font={font}
+                    >
                         {
                             useMemo(() => (() => {
                                 switch (currentState) {
@@ -127,8 +137,20 @@ export default function JournalPage() {
                         <a href={`#${INTRODUCTION_ID}`}>🔝</a>
                         <a href={`#${LATEST_ID}`}>⏬</a>
                         <a style={{ cursor: "pointer" }} /*onClick={() => toggleDarkMode()}*/>🔅</a>
-                        <a className={styles.fontCycleButton} style={{ cursor: "pointer", height: "53px" }} /*onClick={() => cycleFonts()}*/>A</a>
-                        <span style={{ fontSize: "10pt", position: "relative", bottom: "10px" }}>●○○</span>
+                        <button
+                            className={styles.fontCycleButton}
+                            onClick={() => setFont((font + 1) % 3)}
+                            data-font={font}
+                        >
+                            A
+                        </button>
+                        <span className={styles.fontIndicator}>
+                            {
+                                Array.from({ length: 3 }, (_, i) => (
+                                    font === i ? '●' : '○'
+                                )).join('')
+                            }
+                        </span>
                     </div>
                 </div>
             }
