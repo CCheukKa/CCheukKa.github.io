@@ -1,9 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible');
 
+:root {
+    --dark-primary-line-colour: #d3cfca60;
+    --dark-secondary-line-colour: #ffffff18;
+    --dark-link-colour: #8fc3fff0;
+    --dark-table-background-colour: #ffffff0a;
+
+    --light-primary-line-colour: #a9b9c7;
+    --light-secondary-line-colour: #94a6b6;
+    --light-link-colour: #0052b0f0;
+    --light-table-background-colour: ##ffffff28;
+}
+
 .bodyContainer {
     display: flex;
     justify-items: center;
     justify-content: center;
+    align-items: flex-start;
     width: 100%;
     gap: 1%;
     padding-bottom: 60svh;
@@ -27,17 +40,17 @@
     padding: 10px 40px 50px 60px;
 
     &[data-theme="dark"] {
-        --primary-line-colour: #d3cfca60;
-        --secondary-line-colour: #ffffff18;
-        --link-colour: #8fc3fff0;
-        --table-background-colour: #ffffff0a;
+        --primary-line-colour: var(--dark-primary-line-colour);
+        --secondary-line-colour: var(--dark-secondary-line-colour);
+        --link-colour: var(--dark-link-colour);
+        --table-background-colour: var(--dark-table-background-colour);
     }
 
     &[data-theme="light"] {
-        --primary-line-colour: #a9b9c7;
-        --secondary-line-colour: #94a6b6;
-        --link-colour: #0052b0f0;
-        --table-background-colour: ##ffffff28;
+        --primary-line-colour: var(--light-primary-line-colour);
+        --secondary-line-colour: var(--light-secondary-line-colour);
+        --link-colour: var(--light-link-colour);
+        --table-background-colour: var(--light-table-background-colour);
 
         color: #222426;
         background-color: #d6c7b1;
@@ -107,6 +120,12 @@
     table>tbody>tr:last-child>td {
         padding-bottom: 5px;
     }
+
+    :global(#table-of-contents),
+    :global(#table-of-contents + ul),
+    :global(#table-of-contents + ul + hr) {
+        display: none;
+    }
 }
 
 .tocContainer {
@@ -149,7 +168,6 @@
             background-color: #7c7c7c;
         }
     }
-
 }
 
 .controlsContainer {
@@ -208,56 +226,74 @@
 
 /* table of contents list */
 
-#tableOfContents {
-    /* not selectable */
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    display: flex;
-    justify-content: center;
-    align-items: end;
-    gap: 8px;
-
-    ul {
-        padding-left: 25px;
+.tocContainer {
+    .tocTitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 20pt;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--dark-secondary-line-colour);
     }
 
-    &>ul>li>ul>li>a {
-        padding-bottom: 50px;
+    .tocModeButton {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font: inherit;
+        padding: 0;
+        margin: 0;
+        width: 42px;
     }
+
+    .tocList>ul {
+        a {
+            text-decoration: none;
+            color: var(--dark-link-colour);
+        }
+
+        &>li>ul>li {
+            border-bottom: 2px solid var(--dark-secondary-line-colour);
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+
+        &>li>ul>li>ul {
+            margin: 0;
+            padding-left: 25px;
+        }
+    }
+
 }
 
-#tocContainer>ul>li>ul>li>ul>li,
-#calendar-entries>ul>li {
+.tocContainer>div>ul>li>ul>li>ul>li,
+.calendarEntries>ul>li {
     padding-top: 2px;
     padding-bottom: 2px;
 }
 
-#tocContainer>ul>li>ul {
+.tocContainer>div>ul>li>ul {
     padding-left: 15px;
 }
 
-#tocContainer>ul>li>ul>li {
+.tocContainer>div>ul>li>ul>li {
     padding-top: 5px;
     padding-bottom: 0px;
     border-bottom: 2px solid var(--secondary-line-colour);
 }
 
-#tocContainer>ul>li>a,
-#tocContainer>ul>li>ul>li>ul>li>a,
-#calendar-entries>ul>li>a {
+.tocContainer>div>ul>li>a,
+.tocContainer>div>ul>li>ul>li>ul>li>a,
+.calendarEntries>ul>li>a {
     font-weight: bold;
 }
 
-#tocContainer>ul>li>ul>li>ul>li>ul {
+.tocContainer>div>ul>li>ul>li>ul>li>ul {
     padding-left: 30px;
     list-style-type: "-  ";
-}
-
-#tocModeButton {
-    cursor: pointer;
-    width: 42px;
 }
 
 /* CALENDAR */

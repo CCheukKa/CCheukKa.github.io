@@ -1,16 +1,36 @@
-import { useState, useEffect, useMemo, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import TitleCard from '@/components/TitleCard';
 import { HTTP } from '@/library/http';
 import { Encryption } from '@/library/encryption';
 import Cookies from 'js-cookie';
 import { marked } from 'marked';
 import { markedSmartypants } from "marked-smartypants";
-import { gfmHeadingId, getHeadingList } from 'marked-gfm-heading-id';
+import { gfmHeadingId } from 'marked-gfm-heading-id';
 import styles from "@/styles/journal.module.css";
 
 const TABLE_OF_CONTENTS_ID = "table-of-contents";
 const INTRODUCTION_ID = "introduction";
 const LATEST_ID = "latest";
+
+const enum Theme {
+    LIGHT = "light",
+    DARK = "dark"
+}
+const FONT_COUNT = 3;
+const enum Font {
+    TIMES_NEW_ROMAN,
+    ATKINSON_HYPERLEGIBLE,
+    BELLOTA_TEXT
+}
+const enum TocMode {
+    CALENDAR = "calendar",
+    LIST = "list"
+}
+type Preference = {
+    theme: Theme,
+    font: Font,
+    tocMode: TocMode
+}
 
 export default function JournalPage() {
     const enum State {
@@ -26,23 +46,10 @@ export default function JournalPage() {
     const [password, setPassword] = useState<string | null>(null);
     const [decryptedMdString, setDecryptedMdString] = useState<string>("");
 
-    const enum Theme {
-        LIGHT = "light",
-        DARK = "dark"
-    }
-    const FONT_COUNT = 3;
-    const enum Font {
-        TIMES_NEW_ROMAN,
-        ATKINSON_HYPERLEGIBLE,
-        BELLOTA_TEXT
-    }
-    type Preference = {
-        theme: Theme,
-        font: Font,
-    }
     const [preferences, setPreferences] = useState<Preference>({
         theme: Theme.DARK,
         font: Font.TIMES_NEW_ROMAN,
+        tocMode: TocMode.LIST
     });
     const PREFERENCE_COOKIE_NAME = 'cck-wtf-journal-preferences';
     useEffect(() => {
@@ -111,6 +118,8 @@ export default function JournalPage() {
         }
     }, [password, verificationData]);
 
+    const [tocHTML, setTocHTML] = useState<string>("");
+
     return (
         <>
             <title>Journal</title>
@@ -128,45 +137,68 @@ export default function JournalPage() {
             {
                 <div className={styles.bodyContainer}>
                     <div className={styles.tocContainer}>
-                        <div className={styles.fetchPlaceholder}>Fetching table of contents...</div>
+                        {(() => {
+                            switch (currentState) {
+                                case State.INITIAL:
+                                    return <div className={styles.fetchPlaceholder}>
+                                        Awaiting authentication...
+                                    </div>;
+                                case State.AUTH_FAILED:
+                                    return <div className={styles.fetchPlaceholder}>
+                                        Invalid password
+                                    </div>;
+                                case State.LOADING_CONTENT:
+                                    return <div className={styles.fetchPlaceholder}>
+                                        Fetching table of contents...
+                                    </div>;
+                                case State.CONTENT_LOADED:
+                                    return <TableOfContents
+                                        tocHTML={tocHTML}
+                                        preferences={preferences}
+                                        setPreferences={setPreferences}
+                                    />;
+
+                                default:
+                                    console.error(`Unhandled state: ${currentState}`);
+                                    return <div className={styles.fetchPlaceholder}>Undefined state</div>;
+                            }
+                        })()}
                     </div>
                     <div
                         className={styles.textContainer}
                         data-theme={preferences.theme}
                         data-font={preferences.font}
                     >
-                        {
-                            useMemo(() => (() => {
-                                switch (currentState) {
-                                    case State.INITIAL:
-                                        return <div className={styles.fetchPlaceholder}>
-                                            Awaiting authentication...
-                                        </div>;
-                                    case State.AUTH_FAILED:
-                                        return <div className={styles.fetchPlaceholder}>
-                                            Invalid password
-                                            <br />
-                                            <br />
-                                            If you know me personally, ask me to generate one for you.
-                                            <br />
-                                            If you REALLY know me personally, try your name.
-                                            <br />
-                                            <br />
-                                            Refresh to try again.
-                                        </div>;
-                                    case State.LOADING_CONTENT:
-                                        return <div className={styles.fetchPlaceholder}>
-                                            Fetching content...
-                                        </div>;
-                                    case State.CONTENT_LOADED:
-                                        return <JournalContent mdString={decryptedMdString} />;
+                        {(() => {
+                            switch (currentState) {
+                                case State.INITIAL:
+                                    return <div className={styles.fetchPlaceholder}>
+                                        Awaiting authentication...
+                                    </div>;
+                                case State.AUTH_FAILED:
+                                    return <div className={styles.fetchPlaceholder}>
+                                        Invalid password
+                                        <br />
+                                        <br />
+                                        If you know me personally, ask me to generate one for you.
+                                        <br />
+                                        If you REALLY know me personally, try your name.
+                                        <br />
+                                        <br />
+                                        Refresh to try again.
+                                    </div>;
+                                case State.LOADING_CONTENT:
+                                    return <div className={styles.fetchPlaceholder}>
+                                        Fetching content...
+                                    </div>;
+                                case State.CONTENT_LOADED:
+                                    return <JournalContent mdString={decryptedMdString} setTocHTML={setTocHTML} />;
 
-                                    default:
-                                        console.error(`Unhandled state: ${currentState}`);
-                                        return <div className={styles.fetchPlaceholder}>Undefined state</div>;
-                                }
-                            })(), [currentState, decryptedMdString])
-                        }
+                                default:
+                                    console.error(`Unhandled state: ${currentState}`);
+                                    return <div className={styles.fetchPlaceholder}>Undefined state</div>;
+                            }
+                        })()}
                     </div>
                     <div className={styles.controlsContainer}>
                         <a href={`#${INTRODUCTION_ID}`}>🔝</a>
@@ -241,21 +273,22 @@ export default function JournalPage() {
 
 type JournalContentProps = {
     mdString: string;
+    setTocHTML: (tocHTML: string) => void;
 };
-function JournalContent({ mdString }: JournalContentProps) {
+function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
     const result = marked.use(
         markedSmartypants(),
         gfmHeadingId()
     ).parse(mdString);
 
-    const contentRef = useRef<HTMLDivElement>(null);
+    const journalContentRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (contentRef.current) {
+        if (journalContentRef.current) {
             //^ Insert "latest" marker before the last <h4>
             const latestElement = document.createElement('div');
             latestElement.id = 'latest';
-            const h4Elements = contentRef.current.getElementsByTagName('h4');
+            const h4Elements = journalContentRef.current.getElementsByTagName('h4');
             if (h4Elements.length > 0) {
                 const lastH4 = h4Elements[h4Elements.length - 1];
                 lastH4.parentNode?.insertBefore(latestElement, lastH4);
@@ -265,7 +298,39 @@ function JournalContent({ mdString }: JournalContentProps) {
         }
     }, [result]);
 
+    useEffect(() => {
+        if (!journalContentRef.current) { return; }
+        const tocH1 = journalContentRef.current.querySelector(`#${TABLE_OF_CONTENTS_ID}`);
+        const tocList = tocH1?.nextElementSibling;
+        setTocHTML(tocList?.outerHTML ?? "");
+    }, [result, journalContentRef.current]);
+
     return (
-        <div ref={contentRef} dangerouslySetInnerHTML={{ __html: result }} />
+        <div ref={journalContentRef} dangerouslySetInnerHTML={{ __html: result }} />
     );
+}
+
+type TableOfContentsProps = {
+    tocHTML: string;
+    preferences: Preference;
+    setPreferences: (prefs: Preference) => void;
+};
+function TableOfContents({ tocHTML, preferences, setPreferences }: TableOfContentsProps) {
+    return (<>
+        <div className={styles.tocTitle}>
+            <span>Table of Contents</span>
+            <button
+                className={styles.tocModeButton}
+                onClick={() => setPreferences({
+                    ...preferences,
+                    tocMode: preferences.tocMode === TocMode.LIST ? TocMode.CALENDAR : TocMode.LIST
+                })}
+            >
+                {
+                    preferences.tocMode === TocMode.LIST ? "📆" : "🧾"
+                }
+            </button>
+        </div>
+        <div className={styles.tocList} dangerouslySetInnerHTML={{ __html: tocHTML }} />
+    </>);
 }
