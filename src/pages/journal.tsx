@@ -115,7 +115,7 @@ export default function JournalPage() {
         if (password && verificationData) {
             verifyPassword(password, verificationData);
         } else {
-            setState(State.AUTH_FAILED);
+            setState(State.INITIAL);
         }
     }, [password, verificationData]);
 
