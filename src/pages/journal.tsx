@@ -229,7 +229,7 @@ export default function JournalPage() {
                                 theme: preferences.theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
                             })}
                         >
-                            {preferences.theme === Theme.DARK ? "🔆" : "🌙"}
+                            {preferences.theme === Theme.DARK ? "🌙" : "🔆"}
                         </button>
                         <button
                             className={styles.fontCycleButton}
