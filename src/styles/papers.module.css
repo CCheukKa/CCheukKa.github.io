@@ -12,7 +12,7 @@
 
 .topic {
     margin-left: 0;
-    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, 'Segoe UI Emoji';
     font-weight: bold;
     font-size: 20pt;
     display: flex;

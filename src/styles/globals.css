@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Bellota Text");
 @import url("https://fonts.googleapis.com/css?family=Montserrat Alternates");
 
+@font-face {
+    font-family: "Segoe UI Emoji";
+    src: url("/public/seguiemj.ttf") format("true-type");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --max-element-width: calc(100% - 16px);
     color-scheme: dark;
