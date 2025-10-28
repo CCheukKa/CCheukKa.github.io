@@ -59,6 +59,7 @@
 
         color: #222426;
         background-color: #d6c7b1;
+        box-shadow: inset 0px 0px 20px #00000066;
     }
 
     a {
