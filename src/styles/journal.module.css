@@ -42,7 +42,7 @@
     justify-content: center;
     align-content: flex-start;
     width: 60%;
-    padding: 10px 40px 50px 60px;
+    padding: 15px 40px 15px 60px;
 
     &[data-theme="dark"] {
         --primary-line-colour: var(--dark-primary-line-colour);
