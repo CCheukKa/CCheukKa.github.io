@@ -36,15 +36,16 @@ type Preference = {
 export default function JournalPage() {
     const enum State {
         INITIAL = "INITIAL",
+        PASSWORD_ENTERED = "PASSWORD_ENTERED",
         AUTH_FAILED = "AUTH_FAILED",
         LOADING_CONTENT = "LOADING_CONTENT",
         CONTENT_LOADED = "CONTENT_LOADED"
     }
-    const [currentState, setState] = useState<State>(State.INITIAL);
+    const [currentState, setCurrentState] = useState<State>(State.INITIAL);
 
     type VerificationData = { verificationString: string, fileName: string };
     const [verificationData, setVerificationData] = useState<VerificationData[] | null>(null);
-    const [password, setPassword] = useState<string | null>(null);
+    const [password, setPassword] = useState<string>("");
     const [decryptedMdString, setDecryptedMdString] = useState<string>("");
 
     const [preferences, setPreferences] = useState<Preference>({
@@ -75,7 +76,6 @@ export default function JournalPage() {
     const VERIFICATION_PASSWORD = 'verification-password';
     const AUTH_COOKIE_NAME = 'cck-wtf-journal-auth';
     useEffect(() => {
-        //! Load password from cookie or prompt user
         let authCookie: string | undefined;
         try {
             authCookie = Cookies.get(AUTH_COOKIE_NAME);
@@ -85,19 +85,15 @@ export default function JournalPage() {
         if (authCookie) {
             console.log(`Using ${authCookie} from cookie as password`);
             setPassword(authCookie);
+            setCurrentState(State.PASSWORD_ENTERED);
         } else {
             console.log('no password cookie');
             const userPassword = window.prompt(
                 'Password?\n\nIf you know me personally, ask me to generate one for you.\nIf you REALLY know me personally, try your name (no spaces, all lowercase). Terrible security I know.',
                 ''
             );
-
-            if (userPassword === null) {
-                console.log('User cancelled password prompt');
-                setState(State.AUTH_FAILED);
-            } else {
-                setPassword(userPassword?.replaceAll(' ', '').toLowerCase());
-            }
+            setPassword(userPassword?.replaceAll(' ', '').toLowerCase() ?? "");
+            setCurrentState(State.PASSWORD_ENTERED);
         }
 
         HTTP.httpGetAsync(
@@ -112,12 +108,10 @@ export default function JournalPage() {
         );
     }, []);
     useEffect(() => {
-        if (password && verificationData) {
+        if (currentState === State.PASSWORD_ENTERED && verificationData) {
             verifyPassword(password, verificationData);
-        } else {
-            setState(State.INITIAL);
         }
-    }, [password, verificationData]);
+    }, [currentState, password, verificationData]);
 
     const [tocHTML, setTocHTML] = useState<string>("");
 
@@ -161,6 +155,10 @@ export default function JournalPage() {
                                     return <div className={styles.fetchPlaceholder}>
                                         Awaiting authentication...
                                     </div>;
+                                case State.PASSWORD_ENTERED:
+                                    return <div className={styles.fetchPlaceholder}>
+                                        Verifying password...
+                                    </div>;
                                 case State.AUTH_FAILED:
                                     return <div className={styles.fetchPlaceholder}>
                                         Invalid password
@@ -192,6 +190,10 @@ export default function JournalPage() {
                                 case State.INITIAL:
                                     return <div className={styles.fetchPlaceholder}>
                                         Awaiting authentication...
+                                    </div>;
+                                case State.PASSWORD_ENTERED:
+                                    return <div className={styles.fetchPlaceholder}>
+                                        Verifying password...
                                     </div>;
                                 case State.AUTH_FAILED:
                                     return <div className={styles.fetchPlaceholder}>
@@ -270,13 +272,13 @@ export default function JournalPage() {
         if (!verifiedVerification) {
             console.warn('No verification found');
             Cookies.remove(AUTH_COOKIE_NAME, { path: '' });
-            setState(State.AUTH_FAILED);
+            setCurrentState(State.AUTH_FAILED);
             return;
         }
 
         Cookies.set(AUTH_COOKIE_NAME, password, { expires: 7 }); // Save cookie for 7 days
         console.log('Password verified successfully');
-        setState(State.LOADING_CONTENT);
+        setCurrentState(State.LOADING_CONTENT);
 
 
         const verifiedBinUrl = `https://raw.githubusercontent.com/CCheukKa/upload-bin/refs/heads/main/output/${verifiedVerification.fileName}.bin`;
@@ -284,7 +286,7 @@ export default function JournalPage() {
             const decryptedMdString = await Encryption.decryptData(response, password);
             // console.log(`Decrypted: ${decryptedMdString}`);
             setDecryptedMdString(decryptedMdString);
-            setState(State.CONTENT_LOADED);
+            setCurrentState(State.CONTENT_LOADED);
         });
     }
 }
