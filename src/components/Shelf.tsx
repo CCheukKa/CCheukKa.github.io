@@ -1,6 +1,6 @@
 import styles from "@/styles/shelf.module.css";
 import type { ShelfConfig, ShelfItem } from "@/configs/shelfConfig";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type ShelfProps = {
     shelfConfig: ShelfConfig;
@@ -38,13 +38,11 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
     let span2Colour: string | undefined = undefined;
     const [thumbnailExists, setThumbnailExists] = useState(true);
 
-    (async () => {
-        const thumbnailExists = await fetch(thumbnailPath, { method: 'HEAD' })
-            .then(res => res.ok)
-            .catch(() => false);
-
-        setThumbnailExists(thumbnailExists);
-    })();
+    useEffect(() => {
+        fetch(thumbnailPath, { method: 'HEAD' })
+            .then(res => setThumbnailExists(res.ok))
+            .catch(() => setThumbnailExists(false));
+    }, [thumbnailPath]);
 
     if (shelfItem.underConstruction) {
         span1 = "🚧";
