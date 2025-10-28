@@ -257,20 +257,19 @@
     }
 }
 
-.textContainer,
-.fontCycleButton {
+.fontCycleButton[data-font="0"],
+.textContainer[data-font="0"] p {
+    font-family: var(--times-new-roman-font-family);
+}
 
-    &[data-font="0"] {
-        font-family: var(--times-new-roman-font-family);
-    }
+.fontCycleButton[data-font="1"],
+.textContainer[data-font="1"] p {
+    font-family: var(--atkinson-hyperlegible-font-family);
+}
 
-    &[data-font="1"] {
-        font-family: var(--atkinson-hyperlegible-font-family);
-    }
-
-    &[data-font="2"] {
-        font-family: var(--bellota-text-font-family);
-    }
+.fontCycleButton[data-font="2"],
+.textContainer[data-font="2"] p {
+    font-family: var(--bellota-text-font-family);
 }
 
 /* table of contents list */
