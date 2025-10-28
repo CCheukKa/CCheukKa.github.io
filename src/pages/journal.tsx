@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import TitleCard from '@/components/TitleCard';
 import { HTTP } from '@/library/http';
 import { Encryption } from '@/library/encryption';
@@ -155,7 +155,7 @@ export default function JournalPage() {
             {
                 <div className={styles.bodyContainer}>
                     <div className={styles.tocContainer} ref={tocContainerRef}>
-                        {(() => {
+                        {useMemo(() => {
                             switch (currentState) {
                                 case State.INITIAL:
                                     return <div className={styles.fetchPlaceholder}>
@@ -180,14 +180,14 @@ export default function JournalPage() {
                                     console.error(`Unhandled state: ${currentState}`);
                                     return <div className={styles.fetchPlaceholder}>Undefined state</div>;
                             }
-                        })()}
+                        }, [currentState, tocHTML, preferences])}
                     </div>
                     <div
                         className={styles.textContainer}
                         data-theme={preferences.theme}
                         data-font={preferences.font}
                     >
-                        {(() => {
+                        {useMemo(() => {
                             switch (currentState) {
                                 case State.INITIAL:
                                     return <div className={styles.fetchPlaceholder}>
@@ -216,7 +216,7 @@ export default function JournalPage() {
                                     console.error(`Unhandled state: ${currentState}`);
                                     return <div className={styles.fetchPlaceholder}>Undefined state</div>;
                             }
-                        })()}
+                        }, [currentState, decryptedMdString])}
                     </div>
                     <div className={styles.controlsContainer}>
                         <a href={`#${INTRODUCTION_ID}`}>🔝</a>
