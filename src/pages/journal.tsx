@@ -306,7 +306,7 @@ function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
         { icon: '👥', name: 'Relationships' },
         { icon: '💻', name: 'Personal projects' },
         { icon: '💾', name: 'Technology' },
-        { icon: '🍽', name: 'Food' },
+        { icon: '🍽️', name: 'Food' },
     ];
     tags.forEach(tag => {
         mdString = mdString.replaceAll(`<!-- ${tag.icon} ${tag.name} -->`, `<tag class="${tag.icon}">${tag.name}</tag>`);
