@@ -318,6 +318,15 @@ function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
         } else {
             console.warn('No <h4> elements found to insert before.');
         }
+
+        //^ Scroll to # if present in URL
+        const hash = window.location.hash;
+        if (hash) {
+            const targetElement = journalContentRef.current.querySelector(hash);
+            if (targetElement) {
+                targetElement.scrollIntoView();
+            }
+        }
     }, [result, journalContentRef.current]);
 
     return (
