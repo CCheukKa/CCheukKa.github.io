@@ -133,39 +133,83 @@
     top: 10px;
     height: min-content;
     width: 25%;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 10px;
-    padding-bottom: 50px;
-    direction: rtl;
+    padding: 15px;
+    transition: none;
+    display: flex;
+    flex-direction: column;
 
-    &>* {
-        direction: ltr;
+    .tocTitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 20pt;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--dark-secondary-line-colour);
     }
 
-    &>h1 {
-        text-align: center;
+    .tocModeButton {
+        cursor: pointer;
+        background: none;
+        border: none;
+        font: inherit;
+        padding: 0;
+        margin: 0;
+        width: 42px;
     }
 
-    &::-webkit-scrollbar {
-        width: 3.5px;
-    }
+    .tocList {
+        flex-grow: 1;
+        overflow-y: scroll;
+        direction: rtl;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
 
-    &::-webkit-scrollbar-track {
-        background-color: transparent;
-
-        &:hover {
-            background-color: #55555744;
-            border-radius: 10px;
+        &::-webkit-scrollbar {
+            width: 5px;
         }
-    }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: #555557;
-        border-radius: 10px;
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
 
-        &:hover {
-            background-color: #7c7c7c;
+            &:hover {
+                background-color: #55555744;
+                border-radius: 10px;
+            }
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #555557;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: #7c7c7c;
+            }
+        }
+
+        &>ul {
+            direction: ltr;
+            text-align: left;
+            margin: 0;
+            padding-left: 30px;
+
+            a {
+                text-decoration: none;
+                color: var(--dark-link-colour);
+            }
+
+            &>li>ul>li {
+                border-bottom: 2px solid var(--dark-secondary-line-colour);
+                padding-bottom: 5px;
+                margin-bottom: 5px;
+            }
+
+            &>li>ul>li>ul {
+                margin: 0;
+                padding-left: 25px;
+            }
         }
     }
 }
@@ -225,49 +269,6 @@
 }
 
 /* table of contents list */
-
-.tocContainer {
-    .tocTitle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        font-size: 20pt;
-        font-weight: bold;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        border-bottom: 2px solid var(--dark-secondary-line-colour);
-    }
-
-    .tocModeButton {
-        cursor: pointer;
-        background: none;
-        border: none;
-        font: inherit;
-        padding: 0;
-        margin: 0;
-        width: 42px;
-    }
-
-    .tocList>ul {
-        a {
-            text-decoration: none;
-            color: var(--dark-link-colour);
-        }
-
-        &>li>ul>li {
-            border-bottom: 2px solid var(--dark-secondary-line-colour);
-            padding-bottom: 5px;
-            margin-bottom: 5px;
-        }
-
-        &>li>ul>li>ul {
-            margin: 0;
-            padding-left: 25px;
-        }
-    }
-
-}
 
 .tocContainer>div>ul>li>ul>li>ul>li,
 .calendarEntries>ul>li {

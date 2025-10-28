@@ -7,6 +7,7 @@ import { marked } from 'marked';
 import { markedSmartypants } from "marked-smartypants";
 import { gfmHeadingId } from 'marked-gfm-heading-id';
 import styles from "@/styles/journal.module.css";
+import { useLayout } from '@/context/LayoutContext';
 
 const TABLE_OF_CONTENTS_ID = "table-of-contents";
 const INTRODUCTION_ID = "introduction";
@@ -120,6 +121,23 @@ export default function JournalPage() {
 
     const [tocHTML, setTocHTML] = useState<string>("");
 
+    const { mainRef } = useLayout();
+    const tocContainerRef = useRef<HTMLDivElement>(null);
+    useEffect(() => {
+        updateTocHeight();
+        mainRef.current?.addEventListener('scroll', updateTocHeight);
+        window.addEventListener('resize', updateTocHeight);
+        return;
+        /* -------------------------------------------------------------------------- */
+        function updateTocHeight() {
+            if (tocContainerRef.current) {
+                const rect = tocContainerRef.current.getBoundingClientRect();
+                const maxHeight = window.innerHeight - rect.top - 20;
+                tocContainerRef.current.style.maxHeight = `${maxHeight}px`;
+            }
+        };
+    }, [mainRef.current, tocContainerRef.current]);
+
     return (
         <>
             <title>Journal</title>
@@ -136,7 +154,7 @@ export default function JournalPage() {
 
             {
                 <div className={styles.bodyContainer}>
-                    <div className={styles.tocContainer}>
+                    <div className={styles.tocContainer} ref={tocContainerRef}>
                         {(() => {
                             switch (currentState) {
                                 case State.INITIAL:
