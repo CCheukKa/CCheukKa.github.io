@@ -152,19 +152,19 @@ export default function JournalPage() {
                         {useMemo(() => {
                             switch (currentState) {
                                 case State.INITIAL:
-                                    return <div className={styles.fetchPlaceholder}>
+                                    return <div className={styles.statusText}>
                                         Awaiting authentication...
                                     </div>;
                                 case State.PASSWORD_ENTERED:
-                                    return <div className={styles.fetchPlaceholder}>
+                                    return <div className={styles.statusText}>
                                         Verifying password...
                                     </div>;
                                 case State.AUTH_FAILED:
-                                    return <div className={styles.fetchPlaceholder}>
+                                    return <div className={styles.statusText}>
                                         Invalid password
                                     </div>;
                                 case State.LOADING_CONTENT:
-                                    return <div className={styles.fetchPlaceholder}>
+                                    return <div className={styles.statusText}>
                                         Fetching table of contents...
                                     </div>;
                                 case State.CONTENT_LOADED:
@@ -176,7 +176,7 @@ export default function JournalPage() {
 
                                 default:
                                     console.error(`Unhandled state: ${currentState}`);
-                                    return <div className={styles.fetchPlaceholder}>Undefined state</div>;
+                                    return <div className={styles.statusText}>Undefined state</div>;
                             }
                         }, [currentState, tocHTML, preferences])}
                     </div>
@@ -188,15 +188,15 @@ export default function JournalPage() {
                         {useMemo(() => {
                             switch (currentState) {
                                 case State.INITIAL:
-                                    return <div className={styles.fetchPlaceholder}>
+                                    return <div className={styles.statusText}>
                                         Awaiting authentication...
                                     </div>;
                                 case State.PASSWORD_ENTERED:
-                                    return <div className={styles.fetchPlaceholder}>
+                                    return <div className={styles.statusText}>
                                         Verifying password...
                                     </div>;
                                 case State.AUTH_FAILED:
-                                    return <div className={styles.fetchPlaceholder}>
+                                    return <div className={styles.statusText}>
                                         Invalid password
                                         <br />
                                         <br />
@@ -208,7 +208,7 @@ export default function JournalPage() {
                                         Refresh to try again.
                                     </div>;
                                 case State.LOADING_CONTENT:
-                                    return <div className={styles.fetchPlaceholder}>
+                                    return <div className={styles.statusText}>
                                         Fetching content...
                                     </div>;
                                 case State.CONTENT_LOADED:
@@ -216,7 +216,7 @@ export default function JournalPage() {
 
                                 default:
                                     console.error(`Unhandled state: ${currentState}`);
-                                    return <div className={styles.fetchPlaceholder}>Undefined state</div>;
+                                    return <div className={styles.statusText}>Undefined state</div>;
                             }
                         }, [currentState, decryptedMdString])}
                     </div>

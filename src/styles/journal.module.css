@@ -272,7 +272,16 @@
     font-family: var(--bellota-text-font-family);
 }
 
-/* table of contents list */
+.statusText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-size: 20pt;
+    font-weight: bold;
+}
 
 .tocContainer>div>ul>li>ul>li>ul>li,
 .calendarEntries>ul>li {
@@ -301,7 +310,6 @@
     list-style-type: "-  ";
 }
 
-/* CALENDAR */
 
 :root {
     --calendar-bg-color: #262829;
@@ -320,7 +328,6 @@
 .calendar {
     position: relative;
     max-width: 400px;
-    /*change as per your design need */
     min-width: 320px;
     background: var(--calendar-bg-color);
     color: var(--calendar-font-color);
@@ -329,7 +336,6 @@
     overflow: hidden;
     font-weight: normal;
     border-radius: var(--calendar-border-radius);
-    /* not selectable */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -398,7 +404,6 @@
 }
 
 .calendar .calendarInner .calendarControls .calendarYearMonth {
-    /* outline: 1px solid red; */
     display: flex;
     min-width: fit-content;
     justify-content: center;
@@ -414,11 +419,9 @@
     font-size: 20px;
     color: white;
     font-weight: bold;
-    /* text-decoration: underline; */
 }
 
 .calendar .calendarInner .calendarBody .calendarToday {
-    /* background: var(--calendar-today-color); */
     border-radius: 4px;
     outline: 3px solid #03a9f4;
 }
@@ -495,19 +498,4 @@ p:has(tag) {
 .tagContainer {
     margin-left: 5px;
     font-family: var(--segeo-ui-emoji-font-family);
-}
-
-.fetchPlaceholder {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
-    width: 100%;
-    font-size: 20pt;
-    font-weight: bold;
-
-    &.wrong {
-        color: #ff9a4d;
-    }
 }
