@@ -309,7 +309,7 @@ function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
         { icon: '🍽️', name: 'Food' },
     ];
     tags.forEach(tag => {
-        mdString = mdString.replaceAll(`<!-- ${tag.icon} ${tag.name} -->`, `<tag class="${tag.icon}">${tag.name}</tag>`);
+        mdString = mdString.replaceAll(`<!-- ${tag.icon} ${tag.name} -->`, `<tag data-icon="${tag.icon}" data-name="${tag.name}"></tag>`);
     });
 
     const result = marked.use(
@@ -338,8 +338,8 @@ function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
 
                     while (tag && tag.parentElement?.previousSibling?.previousSibling == h4[i]) {
                         let tagElement = document.createElement('span');
-                        tagElement.innerHTML = tag.className;
-                        tagElement.title = tag.innerHTML;
+                        tagElement.innerHTML = tag.getAttribute('data-icon') ?? "";
+                        tagElement.title = tag.getAttribute('data-name') ?? "";
                         tagContainerElement.appendChild(tagElement);
 
                         tagIndex++;
