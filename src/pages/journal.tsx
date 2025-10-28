@@ -296,6 +296,22 @@ type JournalContentProps = {
     setTocHTML: (tocHTML: string) => void;
 };
 function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
+    const tags = [
+        { icon: '📚', name: 'Academics' },
+        { icon: '🏫', name: 'School life' },
+        { icon: '💭', name: 'Philosophy' },
+        { icon: '🧠', name: 'Mentality' },
+        { icon: '🌞', name: 'Well-being' },
+        { icon: '👣', name: 'Experiences' },
+        { icon: '👥', name: 'Relationships' },
+        { icon: '💻', name: 'Personal projects' },
+        { icon: '💾', name: 'Technology' },
+        { icon: '🍽', name: 'Food' },
+    ];
+    tags.forEach(tag => {
+        mdString = mdString.replaceAll(`<!-- ${tag.icon} ${tag.name} -->`, `<tag class="${tag.icon}">${tag.name}</tag>`);
+    });
+
     const result = marked.use(
         markedSmartypants(),
         gfmHeadingId()
@@ -307,6 +323,32 @@ function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
         const tocH1 = journalContentRef.current.querySelector(`#${TABLE_OF_CONTENTS_ID}`);
         const tocList = tocH1?.nextElementSibling;
         setTocHTML(tocList?.outerHTML ?? "");
+
+        //TODO: append tags to table of contents
+        if (!journalContentRef.current.getAttribute('data-has-tags')) {
+            let h4 = journalContentRef.current.getElementsByTagName("h4");
+            let tags = journalContentRef.current.getElementsByTagName("tag");
+            let tagIndex = 0;
+            for (let i = 0; i < h4.length; i++) {
+                let tag = tags[tagIndex];
+                if (tag && tag.parentElement?.previousSibling?.previousSibling == h4[i]) {
+                    let tagContainerElement = document.createElement('span');
+                    tagContainerElement.className = 'tagContainer';
+                    h4[i].appendChild(tagContainerElement);
+
+                    while (tag && tag.parentElement?.previousSibling?.previousSibling == h4[i]) {
+                        let tagElement = document.createElement('span');
+                        tagElement.innerHTML = tag.className;
+                        tagElement.title = tag.innerHTML;
+                        tagContainerElement.appendChild(tagElement);
+
+                        tagIndex++;
+                        tag = tags[tagIndex];
+                    }
+                }
+            }
+            journalContentRef.current.setAttribute('data-has-tags', true.toString());
+        }
 
         //^ Insert "latest" marker before the last <h4>
         const latestElement = document.createElement('div');

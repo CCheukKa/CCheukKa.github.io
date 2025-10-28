@@ -131,6 +131,15 @@
     :global(#table-of-contents + ul + hr) {
         display: none;
     }
+
+    p:has(tag) {
+        display: none;
+    }
+
+    :global(.tagContainer) {
+        margin-left: 5px;
+        font-family: var(--segoe-ui-emoji-font-family);
+    }
 }
 
 .tocContainer {
@@ -498,13 +507,4 @@
     text-decoration: underline;
     color: var(--link-colour);
     opacity: 100%;
-}
-
-p:has(tag) {
-    display: none;
-}
-
-.tagContainer {
-    margin-left: 5px;
-    font-family: var(--segeo-ui-emoji-font-family);
 }
