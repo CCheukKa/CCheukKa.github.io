@@ -6,14 +6,14 @@
     width: 100%;
     height: 100%;
     padding: 30px 100px;
-    font-family: 'Bellota Text', 'Trebuchet MS', sans-serif;
+    font-family: var(--bellota-text-font-family);
     font-size: 16pt;
     text-align: justify;
     position: relative;
 }
 
 .date {
-    font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--montserrat-alternates-font-family);
     top: 5px;
     right: 15px;
     text-align: center;

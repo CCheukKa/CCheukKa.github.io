@@ -6,13 +6,13 @@
 
     margin: 10px 40px;
     height: fit-content;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--noto-sans-hk-font-family);
     border-bottom: 1px dashed #d3cfca;
 }
 
 .topic {
     margin-left: 0;
-    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, 'Segoe UI Emoji';
+    font-family: var(--bellota-text-font-family);
     font-weight: bold;
     font-size: 20pt;
     display: flex;

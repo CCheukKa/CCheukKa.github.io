@@ -9,7 +9,7 @@
 }
 
 .header {
-    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--bellota-text-font-family);
     background: linear-gradient(to right, #305166 10%, #3b7094 90%);
     color: #ffffff;
     font-weight: lighter;
@@ -34,7 +34,7 @@
 
 .headerCatalogue {
     font-size: 12pt;
-    font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, 'Segoe UI Emoji';
+    font-family: var(--montserrat-alternates-font-family);
 }
 
 .headerCatalogueUnselected {

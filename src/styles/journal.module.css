@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible');
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+HK&display=swap");
 
 :root {
     --dark-primary-line-colour: #d3cfca60;
@@ -10,6 +11,10 @@
     --light-secondary-line-colour: #94a6b6;
     --light-link-colour: #0052b0f0;
     --light-table-background-colour: ##ffffff28;
+
+    --times-new-roman-font-family: 'Times New Roman', 'Noto Serif HK', 'Segoe UI Emoji', serif;
+    --atkinson-hyperlegible-font-family: 'Atkinson Hyperlegible', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+    --bellota-text-font-family: 'Bellota Text', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
 }
 
 .bodyContainer {
@@ -27,7 +32,7 @@
     display: block;
     border-radius: 16px;
     box-shadow: 0px 0px 20px #00000066;
-    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, 'Segoe UI Emoji';
+    font-family: var(--bellota-text-font-family);
     text-align: justify;
 }
 
@@ -94,7 +99,7 @@
         box-sizing: border-box;
         text-indent: initial;
         font-size: 11pt;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: var(--noto-sans-hk-font-family);
         line-height: 20pt;
         background-color: var(--table-background-colour);
         border-radius: 14px;
@@ -256,15 +261,15 @@
 .fontCycleButton {
 
     &[data-font="0"] {
-        font-family: "Times New Roman", serif;
+        font-family: var(--times-new-roman-font-family);
     }
 
     &[data-font="1"] {
-        font-family: "Atkinson Hyperlegible", sans-serif;
+        font-family: var(--atkinson-hyperlegible-font-family);
     }
 
     &[data-font="2"] {
-        font-family: "Bellota Text", "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+        font-family: var(--bellota-text-font-family);
     }
 }
 
@@ -490,8 +495,7 @@ p:has(tag) {
 
 .tagContainer {
     margin-left: 5px;
-    font-family: "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji", "EmojiOne Color", "Android Emoji", sans-serif;
-    ;
+    font-family: var(--segeo-ui-emoji-font-family);
 }
 
 .fetchPlaceholder {

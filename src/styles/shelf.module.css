@@ -22,7 +22,7 @@
 
 .shelfItem {
     font-size: xx-large;
-    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, 'Segoe UI Emoji';
+    font-family: var(--bellota-text-font-family);
     border-radius: 16px;
     border: 5px solid #3a3b3d;
     min-width: 300px;

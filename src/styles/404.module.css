@@ -7,11 +7,11 @@
 }
 
 ._404Title {
-    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--bellota-text-font-family);
 }
 
 ._404Message {
-    font-family: 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--montserrat-alternates-font-family);
 }
 
 .backButton {
@@ -20,7 +20,7 @@
     border-radius: 8px;
     padding: 10px 20px;
     cursor: pointer;
-    font-family: 'Bellota Text', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: var(--bellota-text-font-family);
     font-weight: bold;
     font-size: 12pt;
 
