@@ -300,27 +300,22 @@ function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
     ).parse(mdString);
 
     const journalContentRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        if (journalContentRef.current) {
-            //^ Insert "latest" marker before the last <h4>
-            const latestElement = document.createElement('div');
-            latestElement.id = 'latest';
-            const h4Elements = journalContentRef.current.getElementsByTagName('h4');
-            if (h4Elements.length > 0) {
-                const lastH4 = h4Elements[h4Elements.length - 1];
-                lastH4.parentNode?.insertBefore(latestElement, lastH4);
-            } else {
-                console.warn('No <h4> elements found to insert before.');
-            }
-        }
-    }, [result]);
-
     useEffect(() => {
         if (!journalContentRef.current) { return; }
         const tocH1 = journalContentRef.current.querySelector(`#${TABLE_OF_CONTENTS_ID}`);
         const tocList = tocH1?.nextElementSibling;
         setTocHTML(tocList?.outerHTML ?? "");
+
+        //^ Insert "latest" marker before the last <h4>
+        const latestElement = document.createElement('div');
+        latestElement.id = 'latest';
+        const h4Elements = journalContentRef.current.getElementsByTagName('h4');
+        if (h4Elements.length > 0) {
+            const lastH4 = h4Elements[h4Elements.length - 1];
+            lastH4.parentNode?.insertBefore(latestElement, lastH4);
+        } else {
+            console.warn('No <h4> elements found to insert before.');
+        }
     }, [result, journalContentRef.current]);
 
     return (
