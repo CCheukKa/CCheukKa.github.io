@@ -1,11 +1,10 @@
 import styles from "@/styles/404.module.css"
-import Title from "@/components/Title";
+import { GetStaticProps } from "next";
+import { AppPageProps } from "./_app";
 
 export default function NotFoundPage() {
     return (
         <>
-            <Title title="404 (Page Not Found)" />
-
             <div className={styles._404Container}>
                 <h1 className={styles._404Title}>404 - Page Not Found</h1>
                 <p className={styles._404Message}>The page you are looking for does not exist.</p>
@@ -20,3 +19,11 @@ export default function NotFoundPage() {
         </>
     );
 }
+
+export const getStaticProps: GetStaticProps<AppPageProps> = async () => {
+    return {
+        props: {
+            title: "404 (Page Not Found)"
+        }
+    };
+};

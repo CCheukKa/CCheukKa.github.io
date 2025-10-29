@@ -2,13 +2,12 @@ import Shelf from "@/components/Shelf";
 import TitleCard from "@/components/TitleCard";
 import { Course, Paper, papersConfig } from "@/configs/papersConfig";
 import styles from "@/styles/papers.module.css";
-import Title from "@/components/Title";
+import { GetStaticProps } from "next";
+import { AppPageProps } from "./_app";
 
 export default function PapersPage() {
     return (
         <>
-            <Title title="Papers" />
-
             <TitleCard
                 title="Papers"
                 flavourText="Stuff I have written for university"
@@ -59,3 +58,11 @@ function ListItem({ course, paper }: ListItemProps) {
         </div>
     );
 }
+
+export const getStaticProps: GetStaticProps<AppPageProps> = async () => {
+    return {
+        props: {
+            title: "Papers"
+        }
+    };
+};

@@ -5,9 +5,9 @@ import fs from 'fs';
 import path from 'path';
 import TitleCard from '@/components/TitleCard';
 import Shelf from '@/components/Shelf';
-import Title from '@/components/Title';
+import { AppPageProps } from '../_app';
 
-type PlasticityContentPageProps = {
+type PlasticityContentPageProps = AppPageProps & {
     metadata: {
         title: string;
         flavourText: string;
@@ -20,8 +20,6 @@ type PlasticityContentPageProps = {
 export default function PlasticityContentPage({ metadata, content }: PlasticityContentPageProps) {
     return (
         <>
-            <Title title={metadata.title} />
-
             <TitleCard
                 title={metadata.title}
                 flavourText={metadata.flavourText}
@@ -54,7 +52,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<PlasticityContentPageProps> = async ({ params }) => {
     const slug = params?.slug as string;
 
     try {
@@ -67,6 +65,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
         return {
             props: {
+                title: `Plasticity • ${metadata.title}`,
                 metadata,
                 content
             }

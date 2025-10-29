@@ -1,13 +1,12 @@
 import Shelf from "@/components/Shelf";
-import Title from "@/components/Title";
 import TitleCard from "@/components/TitleCard";
 import { projectsConfig } from "@/configs/projectsConfig";
+import { GetStaticProps } from "next";
+import { AppPageProps } from "./_app";
 
 export default function ProjectsPage() {
     return (
         <>
-            <Title title="Projects" />
-
             <TitleCard
                 title="Projects"
                 flavourText="Some random coding projects I have done in the past"
@@ -20,3 +19,11 @@ export default function ProjectsPage() {
         </>
     );
 }
+
+export const getStaticProps: GetStaticProps<AppPageProps> = async () => {
+    return {
+        props: {
+            title: "Projects"
+        }
+    };
+};

@@ -1,13 +1,12 @@
 import Shelf from "@/components/Shelf";
 import TitleCard from "@/components/TitleCard";
 import { plasticityConfig } from "@/configs/plasticityConfig";
-import Title from "@/components/Title";
+import { GetStaticProps } from "next";
+import { AppPageProps } from "./_app";
 
 export default function PlasticityPage() {
     return (
         <>
-            <Title title="Plasticity" />
-
             <TitleCard
                 title="Plasticity"
                 flavourText="Random dumb pieces of texts I sometimes write"
@@ -22,3 +21,11 @@ export default function PlasticityPage() {
         </>
     );
 }
+
+export const getStaticProps: GetStaticProps<AppPageProps> = async () => {
+    return {
+        props: {
+            title: "Plasticity"
+        }
+    };
+};

@@ -5,11 +5,29 @@ import { useRef } from "react";
 import LayoutContext from "@/context/LayoutContext";
 import Head from "next/head";
 
-export default function App({ Component, pageProps }: AppProps) {
+export type AppPageProps = {
+    title?: string;
+    useTitleAffix?: boolean;
+};
+
+export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
     const mainRef = useRef<HTMLElement>(null);
+
+    const title = pageProps.title;
+    const useTitleAffix = pageProps.useTitleAffix ?? true;
+
     return (
         <LayoutContext.Provider value={{ mainRef }}>
             <Head>
+                <title>
+                    {
+                        title
+                            ? useTitleAffix
+                                ? `${title} - cck.wtf`
+                                : title
+                            : "cck.wtf"
+                    }
+                </title>
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             </Head>

@@ -1,13 +1,12 @@
 import Shelf from "@/components/Shelf";
 import TitleCard from "@/components/TitleCard";
 import { chessProjectsConfig } from "@/configs/chessProjectsConfig";
-import Title from "@/components/Title";
+import { GetStaticProps } from "next";
+import { AppPageProps } from "../_app";
 
 export default function ChessProjectsPage() {
     return (
         <>
-            <Title title="Chess Projects" />
-
             <TitleCard
                 title="Chess projects"
                 flavourText="A couple random chess things I have done"
@@ -22,3 +21,11 @@ export default function ChessProjectsPage() {
         </>
     );
 }
+
+export const getStaticProps: GetStaticProps<AppPageProps> = async () => {
+    return {
+        props: {
+            title: "Chess Projects"
+        }
+    };
+};

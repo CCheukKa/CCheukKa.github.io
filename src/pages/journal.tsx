@@ -8,7 +8,8 @@ import { markedSmartypants } from "marked-smartypants";
 import { gfmHeadingId } from 'marked-gfm-heading-id';
 import styles from "@/styles/journal.module.css";
 import { useLayout } from '@/context/LayoutContext';
-import Title from '@/components/Title';
+import { GetStaticProps } from 'next';
+import { AppPageProps } from './_app';
 
 const TABLE_OF_CONTENTS_ID = "table-of-contents";
 const INTRODUCTION_ID = "introduction";
@@ -130,8 +131,6 @@ export default function JournalPage() {
 
     return (
         <>
-            <Title title="Journal" />
-
             <TitleCard
                 title="Journal"
                 flavourText="Thoughts, ideas, and musings"
@@ -395,3 +394,11 @@ function TableOfContents({ tocHTML }: TableOfContentsProps) {
         />
     </>);
 }
+
+export const getStaticProps: GetStaticProps<AppPageProps> = async () => {
+    return {
+        props: {
+            title: "Journal"
+        }
+    };
+};
