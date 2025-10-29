@@ -8,6 +8,7 @@ import Head from "next/head";
 export type AppPageProps = {
     title?: string;
     useTitleAffix?: boolean;
+    redirectUrl?: string;
 };
 
 export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
@@ -28,6 +29,10 @@ export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
                             : "cck.wtf"
                     }
                 </title>
+                {pageProps.redirectUrl
+                    ? <meta http-equiv="refresh" content={`0; url=${pageProps.redirectUrl}`} />
+                    : null
+                }
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             </Head>
