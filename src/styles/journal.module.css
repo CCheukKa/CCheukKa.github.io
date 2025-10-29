@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+HK&display=swap");
 
 :root {
@@ -12,9 +13,9 @@
     --light-link-colour: #0052b0f0;
     --light-table-background-colour: #ffffff28;
 
-    --times-new-roman-font-family: 'Times New Roman', 'Noto Serif HK', 'Segoe UI Emoji', serif;
-    --atkinson-hyperlegible-font-family: 'Atkinson Hyperlegible', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
-    --bellota-text-font-family: 'Bellota Text', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+    --times-new-roman-font-family: 'Times New Roman', 'Noto Serif', 'Noto Serif HK', 'Segoe UI Emoji', serif;
+    --atkinson-hyperlegible-font-family: 'Atkinson Hyperlegible', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+    --bellota-text-font-family: 'Bellota Text', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
 }
 
 .bodyContainer {
@@ -292,19 +293,24 @@
     }
 }
 
-.fontCycleButton[data-font="0"],
-.textContainer[data-font="0"] p {
+.fontCycleButton[data-font="times-new-roman"],
+.textContainer[data-font="times-new-roman"] p {
     font-family: var(--times-new-roman-font-family);
 }
 
-.fontCycleButton[data-font="1"],
-.textContainer[data-font="1"] p {
+.fontCycleButton[data-font="atkinson-hyperlegible"],
+.textContainer[data-font="atkinson-hyperlegible"] p {
     font-family: var(--atkinson-hyperlegible-font-family);
 }
 
-.fontCycleButton[data-font="2"],
-.textContainer[data-font="2"] p {
+.fontCycleButton[data-font="bellota-text"],
+.textContainer[data-font="bellota-text"] p {
     font-family: var(--bellota-text-font-family);
+}
+
+.fontCycleButton[data-font="noto-sans"],
+.textContainer[data-font="noto-sans"] p {
+    font-family: var(--noto-sans-font-family);
 }
 
 .statusText {

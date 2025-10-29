@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bellota+Text&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+HK&display=swap");
 
 @font-face {
@@ -13,10 +14,10 @@
 :root {
     color-scheme: dark;
 
-    --bellota-text-font-family: 'Bellota Text', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
-    --montserrat-alternates-font-family: 'Montserrat Alternates', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
-    --noto-sans-hk-font-family: 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
-    --segeo-ui-emoji-font-family: 'Segoe UI Emoji', 'Noto Sans HK', sans-serif;
+    --bellota-text-font-family: 'Bellota Text', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+    --montserrat-alternates-font-family: 'Montserrat Alternates', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+    --noto-sans-font-family: 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+    --segeo-ui-emoji-font-family: 'Segoe UI Emoji', 'Noto Sans', 'Noto Sans HK', sans-serif;
 }
 
 html,

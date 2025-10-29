@@ -18,12 +18,13 @@ const enum Theme {
     LIGHT = "light",
     DARK = "dark"
 }
-const FONT_COUNT = 3;
-const enum Font {
-    TIMES_NEW_ROMAN,
-    ATKINSON_HYPERLEGIBLE,
-    BELLOTA_TEXT
+enum Font {
+    TIMES_NEW_ROMAN = "times-new-roman",
+    ATKINSON_HYPERLEGIBLE = "atkinson-hyperlegible",
+    BELOTA_TEXT = "bellota-text",
+    NOTO_SANS = "noto-sans"
 }
+const fontArray = Object.values(Font);
 const enum TocMode {
     CALENDAR = "calendar",
     LIST = "list"
@@ -51,7 +52,7 @@ export default function JournalPage() {
 
     const [preferences, setPreferences] = useState<Preference>({
         theme: Theme.DARK,
-        font: Font.TIMES_NEW_ROMAN,
+        font: Font.ATKINSON_HYPERLEGIBLE,
         tocMode: TocMode.LIST
     });
     const PREFERENCE_COOKIE_NAME = 'cck-wtf-journal-preferences';
@@ -238,7 +239,7 @@ export default function JournalPage() {
                             className={styles.fontCycleButton}
                             onClick={() => setPreferences({
                                 ...preferences,
-                                font: (preferences.font + 1) % FONT_COUNT
+                                font: fontArray[(fontArray.indexOf(preferences.font) + 1) % fontArray.length] as Font
                             })}
                             data-font={preferences.font}
                         >
@@ -246,8 +247,8 @@ export default function JournalPage() {
                         </button>
                         <span className={styles.fontIndicator}>
                             {
-                                Array.from({ length: FONT_COUNT }, (_, i) => (
-                                    preferences.font === i ? '●' : '○'
+                                fontArray.map(font => (
+                                    preferences.font === font ? '●' : '○'
                                 )).join('')
                             }
                         </span>
