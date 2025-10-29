@@ -6,6 +6,7 @@
     z-index: 1000;
     background: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
     backdrop-filter: blur(8px);
+    transition: none;
 }
 
 .header {
