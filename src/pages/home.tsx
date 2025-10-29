@@ -1,14 +1,12 @@
-import Head from "next/head";
 import Shelf from "@/components/Shelf";
 import { homeConfig } from "@/configs/homeConfig";
 import titleCardStyles from "@/styles/titleCard.module.css";
+import Title from "@/components/Title";
 
 export default function HomePage() {
     return (
         <>
-            <Head>
-                <title>Home</title>
-            </Head>
+            <Title title="Home" />
 
             <HomeTitleCard />
 

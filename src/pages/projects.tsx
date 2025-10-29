@@ -1,14 +1,12 @@
-import Head from "next/head";
 import Shelf from "@/components/Shelf";
+import Title from "@/components/Title";
 import TitleCard from "@/components/TitleCard";
 import { projectsConfig } from "@/configs/projectsConfig";
 
 export default function ProjectsPage() {
     return (
         <>
-            <Head>
-                <title>Projects</title>
-            </Head>
+            <Title title="Projects" />
 
             <TitleCard
                 title="Projects"

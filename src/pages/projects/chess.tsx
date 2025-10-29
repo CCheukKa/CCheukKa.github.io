@@ -1,14 +1,12 @@
-import Head from "next/head";
 import Shelf from "@/components/Shelf";
 import TitleCard from "@/components/TitleCard";
 import { chessProjectsConfig } from "@/configs/chessProjectsConfig";
+import Title from "@/components/Title";
 
 export default function ChessProjectsPage() {
     return (
         <>
-            <Head>
-                <title>Chess Projects</title>
-            </Head>
+            <Title title="Chess Projects" />
 
             <TitleCard
                 title="Chess projects"

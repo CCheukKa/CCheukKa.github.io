@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
-import Head from 'next/head';
 import TitleCard from '@/components/TitleCard';
 import { HTTP } from '@/library/http';
 import { Encryption } from '@/library/encryption';
@@ -9,6 +8,7 @@ import { markedSmartypants } from "marked-smartypants";
 import { gfmHeadingId } from 'marked-gfm-heading-id';
 import styles from "@/styles/journal.module.css";
 import { useLayout } from '@/context/LayoutContext';
+import Title from '@/components/Title';
 
 const TABLE_OF_CONTENTS_ID = "table-of-contents";
 const INTRODUCTION_ID = "introduction";
@@ -130,9 +130,7 @@ export default function JournalPage() {
 
     return (
         <>
-            <Head>
-                <title>Journal</title>
-            </Head>
+            <Title title="Journal" />
 
             <TitleCard
                 title="Journal"

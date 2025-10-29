@@ -1,15 +1,13 @@
-import Head from "next/head";
 import Shelf from "@/components/Shelf";
 import TitleCard from "@/components/TitleCard";
 import { Course, Paper, papersConfig } from "@/configs/papersConfig";
 import styles from "@/styles/papers.module.css";
+import Title from "@/components/Title";
 
 export default function PapersPage() {
     return (
         <>
-            <Head>
-                <title>Papers</title>
-            </Head>
+            <Title title="Papers" />
 
             <TitleCard
                 title="Papers"
