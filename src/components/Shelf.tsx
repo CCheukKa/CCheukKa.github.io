@@ -27,9 +27,11 @@ type ShelfItemProps = {
 function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
     if (shelfItem.hideFromShelf) { return null; }
 
-    const fullRefDir = shelfItem.isRemote
+    const fullRefDir = (
+        shelfItem.isRemote
         ? shelfItem.refPath
-        : `/${rootRefName}/${shelfItem.refPath}`;
+        : `/${rootRefName}/${shelfItem.refPath}`
+    ).replaceAll(/\/+/g, "/");
     const fullRefPage = `${fullRefDir}/${shelfItem.refPage ?? ""}`;
     const thumbnailPath = shelfItem.thumbnailPathOverride ?? `${fullRefDir}/thumbnail.png`;
 
