@@ -166,16 +166,6 @@
         border-bottom: 2px solid var(--dark-secondary-line-colour);
     }
 
-    .tocModeButton {
-        cursor: pointer;
-        background: none;
-        border: none;
-        font: inherit;
-        padding: 0;
-        margin: 0;
-        width: 42px;
-    }
-
     .tocList {
         flex-grow: 1;
         overflow-y: scroll;

@@ -25,14 +25,9 @@ enum Font {
     NOTO_SANS = "noto-sans"
 }
 const fontArray = Object.values(Font);
-const enum TocMode {
-    CALENDAR = "calendar",
-    LIST = "list"
-}
 type Preference = {
     theme: Theme,
-    font: Font,
-    tocMode: TocMode
+    font: Font
 }
 
 export default function JournalPage() {
@@ -53,7 +48,6 @@ export default function JournalPage() {
     const [preferences, setPreferences] = useState<Preference>({
         theme: Theme.DARK,
         font: Font.ATKINSON_HYPERLEGIBLE,
-        tocMode: TocMode.LIST
     });
     const PREFERENCE_COOKIE_NAME = 'cck-wtf-journal-preferences';
     useEffect(() => {
@@ -172,11 +166,7 @@ export default function JournalPage() {
                                         Fetching table of contents...
                                     </div>;
                                 case State.CONTENT_LOADED:
-                                    return <TableOfContents
-                                        tocHTML={tocHTML}
-                                        preferences={preferences}
-                                        setPreferences={setPreferences}
-                                    />;
+                                    return <TableOfContents tocHTML={tocHTML} />;
 
                                 default:
                                     console.error(`Unhandled state: ${currentState}`);
@@ -382,24 +372,11 @@ function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
 
 type TableOfContentsProps = {
     tocHTML: string;
-    preferences: Preference;
-    setPreferences: (prefs: Preference) => void;
 };
-function TableOfContents({ tocHTML, preferences, setPreferences }: TableOfContentsProps) {
+function TableOfContents({ tocHTML }: TableOfContentsProps) {
     return (<>
         <div className={styles.tocTitle}>
             <span>Table of Contents</span>
-            <button
-                className={styles.tocModeButton}
-                onClick={() => setPreferences({
-                    ...preferences,
-                    tocMode: preferences.tocMode === TocMode.LIST ? TocMode.CALENDAR : TocMode.LIST
-                })}
-            >
-                {
-                    preferences.tocMode === TocMode.LIST ? "📆" : "🧾"
-                }
-            </button>
         </div>
         <div className={styles.tocList} dangerouslySetInnerHTML={{ __html: tocHTML }} />
     </>);
