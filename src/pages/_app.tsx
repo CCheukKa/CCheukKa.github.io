@@ -17,22 +17,31 @@ export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
     const title = pageProps.title;
     const useTitleAffix = pageProps.useTitleAffix ?? true;
 
+    const titleTag = (
+        <title>
+            {
+                title
+                    ? useTitleAffix
+                        ? `${title} - cck.wtf`
+                        : title
+                    : "cck.wtf"
+            }
+        </title>
+    );
+
+    if (pageProps.redirectUrl) {
+        return (
+            <Head>
+                {titleTag}
+                <meta http-equiv="refresh" content={`0; url=${pageProps.redirectUrl}`} />
+            </Head>
+        );
+    }
+
     return (
         <LayoutContext.Provider value={{ mainRef }}>
             <Head>
-                <title>
-                    {
-                        title
-                            ? useTitleAffix
-                                ? `${title} - cck.wtf`
-                                : title
-                            : "cck.wtf"
-                    }
-                </title>
-                {pageProps.redirectUrl
-                    ? <meta http-equiv="refresh" content={`0; url=${pageProps.redirectUrl}`} />
-                    : null
-                }
+                {titleTag}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
             </Head>
