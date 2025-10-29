@@ -50,6 +50,10 @@
 .headerCatalogueSeparator {
     margin: 5px;
     opacity: 50%;
+
+    &:last-child {
+        display: none;
+    }
 }
 
 .constructionSign {

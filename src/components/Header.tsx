@@ -65,14 +65,14 @@ export default function Header() {
                     {
                         appendedCatalogue.map((page, index) => {
                             if (page.hideFromNav) { return null; }
-                            return (<span key={page.refPath}>
+                            return (<>
                                 {getCatalogueItem(page)}
                                 {
                                     index < appendedCatalogue.length - 1
                                         ? <span className={styles.headerCatalogueSeparator}> | </span>
                                         : null
                                 }
-                            </span>);
+                            </>);
                         })
                     }
                 </nav>
