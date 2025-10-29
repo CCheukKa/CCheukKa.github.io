@@ -1,13 +1,11 @@
-import Title from "@/components/Title"
-import Head from "next/head"
+import Redirect from "@/components/Redirect";
+import Title from "@/components/Title";
 
 export default function GitHubPage() {
     return (
         <>
             <Title title="Redirecting to GitHub..." />
-            <Head>
-                <meta http-equiv="refresh" content="0; url=https://github.com/CCheukKa" />
-            </Head>
+            <Redirect url="https://github.com/CCheukKa" />
         </>
     );
 }
