@@ -28,18 +28,21 @@ export const projectsConfig: ShelfConfig = {
         },
         {
             displayName: "Connect Four",
+            emoji: "🎰",
             isRemote: true,
             refPath: "https://cck.wtf/connect-four",
             openInNewTab: true
         },
         {
             displayName: "Racing AI",
+            emoji: "🏎️",
             isRemote: true,
             refPath: "https://cck.wtf/racing-ai",
             openInNewTab: true
         },
         {
             displayName: "Seating Constraint Solver",
+            emoji: "💺",
             isRemote: true,
             refPath: "https://cck.wtf/seating-constraint-solver",
             openInNewTab: true
