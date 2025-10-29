@@ -1,12 +1,21 @@
 import styles from "@/styles/header.module.css";
 import { homeConfig, HomeShelfItem } from "@/configs/homeConfig";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function Header() {
     const router = useRouter();
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        setIsClient(true);
+    }, []);
 
     // Use asPath to get the actual URL path instead of the route pattern
-    const absolutePath = router.asPath.split('#')[0].replaceAll('.html', '').split('/').slice(1);
+    const absolutePath = isClient
+        ? router.asPath.split('#')[0].replaceAll('.html', '').split('/').slice(1)
+        : [];
+
     const absoluteRefPath = (absolutePath.length === 1 && absolutePath[0] === "")
         ? ["home"]
         : absolutePath;
@@ -24,7 +33,7 @@ export default function Header() {
             <header className={styles.header}>
                 <div className={styles.headerTitle}>
                     <a href="/">CCheukKa's Site</a>
-                    {absoluteRefPath.map((path, index) => (
+                    {isClient && absoluteRefPath.map((path, index) => (
                         <span key={index}>
                             <span> / </span>
                             <a
@@ -41,12 +50,11 @@ export default function Header() {
                     ))}
                 </div>
                 {
-                    (
-                        (thisPage && !thisPage?.underConstruction)
+                    !isClient
+                        || (thisPage && !thisPage?.underConstruction)
                         || homeConfig.constructionExceptionRefPaths.includes(thisPageRefName)
                         || router.pathname.split('/').pop() === "[slug]"
-                        || thisPageRefName === "404"
-                    )
+                        || router.pathname.split('/').pop() === "404"
                         ? null
                         : <>
                             <span className={`${styles.headerCatalogueSelected} ${styles.constructionSign}`}>🚧</span>
@@ -78,7 +86,7 @@ export default function Header() {
         return (<a
             href={`/${shelfItem.refPath}`}
             className={
-                shelfItem.refPath === thisPageRefName
+                isClient && shelfItem.refPath === thisPageRefName
                     ? styles.headerCatalogueSelected
                     : styles.headerCatalogueUnselected
             }
