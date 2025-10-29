@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     output: 'export',
     distDir: 'out',
     productionBrowserSourceMaps: true,
+    reactCompiler: true,
 };
 
 export default nextConfig;
