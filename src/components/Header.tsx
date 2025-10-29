@@ -1,39 +1,29 @@
 import styles from "@/styles/header.module.css";
 import { homeConfig, HomeShelfItem } from "@/configs/homeConfig";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useLayout } from "@/context/LayoutContext";
+import { Fragment } from "react";
 
 export default function Header() {
     const router = useRouter();
-    const [isClient, setIsClient] = useState(false);
+    const { currentPageRefName, absoluteRefPath } = useLayout();
 
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
+    const thisPage = homeConfig.shelfItems.find(item => item.refPath === currentPageRefName);
 
-    // Use asPath to get the actual URL path instead of the route pattern
-    const absolutePath = isClient
-        ? router.asPath.split('#')[0].replaceAll('.html', '').split('/').slice(1)
-        : [];
+    const appendedCatalogue =
+        thisPage
+            ? homeConfig.shelfItems
+            : [...homeConfig.shelfItems, { refPath: currentPageRefName, displayName: currentPageRefName } as HomeShelfItem];
 
-    const absoluteRefPath = (absolutePath.length === 1 && absolutePath[0] === "")
-        ? ["home"]
-        : absolutePath;
-
-    const thisPageRefName = absoluteRefPath[absoluteRefPath.length - 1];
-    const thisPage = homeConfig.shelfItems.find(item => item.refPath === thisPageRefName);
-
-    const appendedCatalogue = (thisPage
-        ? homeConfig.shelfItems
-        : [...homeConfig.shelfItems, { refPath: thisPageRefName, displayName: thisPageRefName } as HomeShelfItem]
-    );
+    const isNotFoundPage = router.pathname === '/404';
+    const isDynamicPage = router.pathname.includes('[slug]');
 
     return (
         <div className={styles.headerContainer}>
             <header className={styles.header}>
                 <div className={styles.headerTitle}>
                     <a href="/">CCheukKa's Site</a>
-                    {isClient && absoluteRefPath.map((path, index) => (
+                    {absoluteRefPath.map((path, index) => (
                         <span key={index}>
                             <span> / </span>
                             <a
@@ -44,17 +34,16 @@ export default function Header() {
                                         : {}
                                 }
                             >
-                                {path || 'home'}
+                                {path}
                             </a>
                         </span>
                     ))}
                 </div>
                 {
-                    !isClient
-                        || (thisPage && !thisPage?.underConstruction)
-                        || homeConfig.constructionExceptionRefPaths.includes(thisPageRefName)
-                        || router.pathname.split('/').pop() === "[slug]"
-                        || router.pathname.split('/').pop() === "404"
+                    (thisPage && !thisPage?.underConstruction)
+                        || homeConfig.constructionExceptionRefPaths.includes(currentPageRefName)
+                        || isDynamicPage
+                        || isNotFoundPage
                         ? null
                         : <>
                             <span className={`${styles.headerCatalogueSelected} ${styles.constructionSign}`}>🚧</span>
@@ -65,14 +54,16 @@ export default function Header() {
                     {
                         appendedCatalogue.map((page, index) => {
                             if (page.hideFromNav) { return null; }
-                            return (<>
-                                {getCatalogueItem(page)}
-                                {
-                                    index < appendedCatalogue.length - 1
-                                        ? <span className={styles.headerCatalogueSeparator}> | </span>
-                                        : null
-                                }
-                            </>);
+                            return (
+                                <Fragment key={index}>
+                                    {getCatalogueItem(page, currentPageRefName)}
+                                    {
+                                        index < appendedCatalogue.length - 1
+                                            ? <span className={styles.headerCatalogueSeparator}> | </span>
+                                            : null
+                                    }
+                                </Fragment>
+                            );
                         })
                     }
                 </nav>
@@ -82,11 +73,11 @@ export default function Header() {
 
     /* -------------------------------------------------------------------------- */
 
-    function getCatalogueItem(shelfItem: HomeShelfItem) {
+    function getCatalogueItem(shelfItem: HomeShelfItem, currentPage: string) {
         return (<a
             href={`/${shelfItem.refPath}`}
             className={
-                isClient && shelfItem.refPath === thisPageRefName
+                shelfItem.refPath === currentPage
                     ? styles.headerCatalogueSelected
                     : styles.headerCatalogueUnselected
             }

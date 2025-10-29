@@ -1,9 +1,10 @@
 import type { AppProps } from "next/app";
 import Header from "@/components/Header";
 import "@/styles/globals.css";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import LayoutContext from "@/context/LayoutContext";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 export type AppPageProps = {
     title?: string;
@@ -13,6 +14,19 @@ export type AppPageProps = {
 
 export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
     const mainRef = useRef<HTMLElement>(null);
+    const router = useRouter();
+
+    // Calculate path from router.asPath (includes actual slug values)
+    const absoluteRefPath = useMemo(() => {
+        // Use asPath to get the actual URL with slug values
+        const pathname = router.asPath.split('?')[0].split('#')[0]; // Remove query params and hash
+        const segments = pathname
+            .split('/')
+            .filter(s => s);
+        return segments.length === 0 ? ['home'] : segments;
+    }, [router.asPath]);
+
+    const currentPageRefName = absoluteRefPath[absoluteRefPath.length - 1];
 
     const title = pageProps.title;
     const useTitleAffix = pageProps.useTitleAffix ?? true;
@@ -33,13 +47,13 @@ export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
         return (
             <Head>
                 {titleTag}
-                <meta http-equiv="refresh" content={`0; url=${pageProps.redirectUrl}`} />
+                <meta httpEquiv="refresh" content={`0; url=${pageProps.redirectUrl}`} />
             </Head>
         );
     }
 
     return (
-        <LayoutContext.Provider value={{ mainRef }}>
+        <LayoutContext.Provider value={{ mainRef, currentPageRefName, absoluteRefPath }}>
             <Head>
                 {titleTag}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />

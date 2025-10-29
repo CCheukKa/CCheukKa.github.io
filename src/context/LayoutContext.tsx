@@ -2,9 +2,11 @@ import { createContext, useContext, RefObject } from "react";
 
 type LayoutContextValue = {
     mainRef: RefObject<HTMLElement | null>;
+    currentPageRefName: string;
+    absoluteRefPath: string[];
 };
 
-const LayoutContext = createContext<LayoutContextValue | null>(null);
+const LayoutContext = createContext<LayoutContextValue>(null);
 
 export function useLayout() {
     const ctx = useContext(LayoutContext);
