@@ -374,10 +374,26 @@ type TableOfContentsProps = {
     tocHTML: string;
 };
 function TableOfContents({ tocHTML }: TableOfContentsProps) {
+    const tocListRef = useRef<HTMLDivElement>(null);
+
     return (<>
         <div className={styles.tocTitle}>
             <span>Table of Contents</span>
+            <button
+                onClick={() => { tocListRef.current?.scrollTo({ top: 0 }); }}
+            >
+                🔝
+            </button>
+            <button
+                onClick={() => { tocListRef.current?.scrollTo({ top: tocListRef.current.scrollHeight }); }}
+            >
+                ⏬
+            </button>
         </div>
-        <div className={styles.tocList} dangerouslySetInnerHTML={{ __html: tocHTML }} />
+        <div
+            ref={tocListRef}
+            className={styles.tocList}
+            dangerouslySetInnerHTML={{ __html: tocHTML }}
+        />
     </>);
 }
