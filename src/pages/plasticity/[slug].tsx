@@ -3,6 +3,7 @@ import { plasticityConfig } from '@/configs/plasticityConfig';
 import styles from '@/styles/plasticity.module.css';
 import fs from 'fs';
 import path from 'path';
+import Head from 'next/head';
 import TitleCard from '@/components/TitleCard';
 import Shelf from '@/components/Shelf';
 
@@ -19,7 +20,9 @@ type PlasticityContentPageProps = {
 export default function PlasticityContentPage({ metadata, content }: PlasticityContentPageProps) {
     return (
         <>
-            <title>{metadata.title}</title>
+            <Head>
+                <title>{metadata.title}</title>
+            </Head>
 
             <TitleCard
                 title={metadata.title}

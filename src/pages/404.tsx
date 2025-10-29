@@ -1,9 +1,12 @@
+import Head from "next/head"
 import styles from "@/styles/404.module.css"
 
 export default function NotFoundPage() {
     return (
         <>
-            <title>404 - Page Not Found</title>
+            <Head>
+                <title>404 - Page Not Found</title>
+            </Head>
 
             <div className={styles._404Container}>
                 <h1 className={styles._404Title}>404 - Page Not Found</h1>

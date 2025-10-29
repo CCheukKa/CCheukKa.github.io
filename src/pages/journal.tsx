@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useMemo } from 'react';
+import Head from 'next/head';
 import TitleCard from '@/components/TitleCard';
 import { HTTP } from '@/library/http';
 import { Encryption } from '@/library/encryption';
@@ -134,7 +135,9 @@ export default function JournalPage() {
 
     return (
         <>
-            <title>Journal</title>
+            <Head>
+                <title>Journal</title>
+            </Head>
 
             <TitleCard
                 title="Journal"

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Shelf from "@/components/Shelf";
 import TitleCard from "@/components/TitleCard";
 import { plasticityConfig } from "@/configs/plasticityConfig";
@@ -5,7 +6,9 @@ import { plasticityConfig } from "@/configs/plasticityConfig";
 export default function PlasticityPage() {
     return (
         <>
-            <title>Plasticity</title>
+            <Head>
+                <title>Plasticity</title>
+            </Head>
 
             <TitleCard
                 title="Plasticity"

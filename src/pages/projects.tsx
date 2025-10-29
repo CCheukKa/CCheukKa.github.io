@@ -1,3 +1,4 @@
+import Head from "next/head";
 import Shelf from "@/components/Shelf";
 import TitleCard from "@/components/TitleCard";
 import { projectsConfig } from "@/configs/projectsConfig";
@@ -5,7 +6,9 @@ import { projectsConfig } from "@/configs/projectsConfig";
 export default function ProjectsPage() {
     return (
         <>
-            <title>Projects</title>
+            <Head>
+                <title>Projects</title>
+            </Head>
 
             <TitleCard
                 title="Projects"
