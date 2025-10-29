@@ -54,8 +54,8 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
         span1 = shelfItem.emoji;
     } else if (!thumbnailExists) {
         span1 = pickRandom(['😐', '🙃', '🥴', '🤪', '😵', '🤔', '🤨', '💀']);
-        span2 = "Thumbnail failed to load!";
-        span2Colour = '#a6ed8d';
+        span2 = "Thumbnail failed to load";
+        span2Colour = '#a6ed8d50';
     }
 
     return (
