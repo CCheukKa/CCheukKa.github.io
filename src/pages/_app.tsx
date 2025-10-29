@@ -44,6 +44,7 @@ export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
                 {titleTag}
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+                <meta name="view-transition" content="same-origin" />
             </Head>
             <Header />
             <main ref={mainRef}>
