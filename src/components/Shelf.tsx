@@ -29,11 +29,11 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
 
     const fullRefDir = (
         shelfItem.isRemote
-        ? shelfItem.refPath
-        : `/${rootRefName}/${shelfItem.refPath}`
+            ? shelfItem.refPath
+            : `/${rootRefName}/${shelfItem.refPath}`
     ).replaceAll(/\/+/g, "/");
-    const fullRefPage = `${fullRefDir}/${shelfItem.refPage ?? ""}`;
-    const thumbnailPath = shelfItem.thumbnailPathOverride ?? `${fullRefDir}/thumbnail.png`;
+    const fullRefPage = `${fullRefDir}/${shelfItem.refPage ?? ""}`.replaceAll(/(cck.wtf\/)+/g, "cck.wtf/");
+    const thumbnailPath = (shelfItem.thumbnailPathOverride ?? `${fullRefDir}/thumbnail.png`).replaceAll(/(cck.wtf\/)+/g, "cck.wtf/");
 
     let span1 = "";
     let span2 = "";
