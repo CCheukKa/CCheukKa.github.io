@@ -3,7 +3,7 @@
     display: grid;
     grid-template-columns: 1.5fr 5fr 3fr 0.8fr;
     align-items: flex-end;
-
+    gap: 10px;
     margin: 10px 40px;
     height: fit-content;
     font-family: var(--noto-sans-font-family);
@@ -19,13 +19,14 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    gap: 5px;
 
     .pdf {
         color: #8fc3fff0;
     }
 
     .commentedPDF {
-        margin-right: 10px;
+        font-family: var(--segeo-ui-emoji-font-family);
     }
 }
 
