@@ -3,9 +3,9 @@
 name: Trigger Submodule Update in Parent Repo
 
 on:
-    push:
-        branches:
-            - main
+    # push:
+    #     branches:
+    #         - main
     workflow_dispatch:
 
 jobs:
