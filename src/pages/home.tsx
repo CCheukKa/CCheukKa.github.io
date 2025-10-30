@@ -108,14 +108,16 @@ function SocialBox() {
     const filteredLinks = socialBoxConfig.links.filter(site => !site.hidden);
     const firstHalf = filteredLinks.slice(0, Math.floor(filteredLinks.length / 2));
     const secondHalf = filteredLinks.slice(Math.floor(filteredLinks.length / 2));
+    const balanced = firstHalf.length === secondHalf.length;
 
     return (
         <div className={styles.socialBox}>
             <div />
             {firstHalf.map((link) => (<SocialLinkIcon key={link.refName} link={link} />))}
+            {balanced ? null : <div />}
             <div className={styles.lineBreak} />
             {secondHalf.map((link) => (<SocialLinkIcon key={link.refName} link={link} />))}
-            <div />
+            {balanced ? <div /> : null}
         </div>
     );
 
