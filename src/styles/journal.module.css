@@ -25,7 +25,6 @@
     align-items: flex-start;
     width: 100%;
     gap: 1%;
-    padding-bottom: 60svh;
 }
 
 .textContainer,
@@ -44,6 +43,26 @@
     align-content: flex-start;
     width: 60%;
     padding: 15px 40px 15px 60px;
+    position: relative;
+
+    &:not(:has(.statusText)) {
+        --margin-bottom: 80svh;
+
+        margin-bottom: var(--margin-bottom);
+
+        &::after {
+            content: "There is nothing more to see here 🙈";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            translate: 0 calc(var(--margin-bottom) - 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            opacity: 0.2;
+        }
+    }
 
     &[data-theme="dark"] {
         --primary-line-colour: var(--dark-primary-line-colour);
