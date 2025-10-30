@@ -1,0 +1,250 @@
+* {
+    /* outline: 1px solid lime; */
+    color-scheme: dark;
+}
+
+@media only screen and (max-width: 600px) {
+    table {
+        /* font-size: 12pt; */
+        font-size: 4vw;
+        margin-top: 10px;
+    }
+
+    .date-container {
+        display: block;
+        width: 40vw;
+    }
+
+    input.date {
+        /* font-size: 12pt; */
+        font-size: 4vw;
+    }
+
+    input.measurement {
+        /* font-size: 12pt; */
+        font-size: 4vw;
+        width: 100%;
+    }
+
+    .button {
+        scale: 0.8;
+        margin: 0px;
+    }
+
+    .button-container {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media not screen and (max-width: 600px) {
+    .button {
+        margin: 20px;
+    }
+
+    table tr>td:first-child {
+        width: 220px;
+    }
+}
+
+body {
+    background-color: #19112d;
+    /* color: #d3cfca; */
+    color: #F9EAE1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 0;
+    height: 100%;
+    font-size: 24px;
+    font-family: 'Atkinson Hyperlegible', 'Segoe UI Emoji', 'Montserrat Alternates', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.button {
+    border: 4px solid white;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+    font-weight: bold;
+    user-select: none;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+.button.blue {
+    background-color: #4281A4;
+}
+
+.button.blue:hover {
+    background-color: white;
+    color: black;
+}
+
+.button.green {
+    background-color: #48A9A6;
+
+}
+
+.button.green:hover {
+    background-color: white;
+    color: black;
+}
+
+.button.red {
+    text-decoration: solid white underline !important;
+    background-color: #C1666B;
+}
+
+.button.red:hover {
+    background-color: white;
+    color: black;
+    text-decoration: solid black underline !important;
+}
+
+.button.circle {
+    border-radius: 50px;
+    border: 0;
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+    justify-content: center;
+    align-items: center;
+}
+
+.button.invert {
+    background-color: #F9EAE1;
+    color: #19112d;
+}
+
+table {
+    border-collapse: collapse;
+    font-weight: bold;
+}
+
+table tr:first-child {
+    background-color: #F9EAE1;
+    color: #19112d;
+    border: 1px solid #19112d;
+}
+
+table tr:first-child>td {
+    border: 1px solid #19112d;
+}
+
+table tr:not(:first-child) {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+table tr:not(:first-child)>td {
+    border: 1px solid #F9EAE1;
+}
+
+table tr>td:first-child {
+    border-left: none;
+}
+
+table tr>td:last-child {
+    border-right: none;
+}
+
+table tr:first-child>td {
+    border-top: none;
+}
+
+table tr:nth-child(2)>td {
+    border-top: none;
+}
+
+table tr:first-child>td:first-child {
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+
+table tr:first-child>td:nth-child(2) {
+    border-top-left-radius: 18px;
+}
+
+table tr:first-child>td:last-child {
+    border-top-right-radius: 18px;
+}
+
+table tr:last-child>td {
+    border-bottom: none;
+}
+
+td {
+    padding: 5px 0px;
+    text-align: center;
+}
+
+input {
+    border: 0;
+    background-color: transparent;
+    color: #F9EAE1;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+.date {
+    width: 180px;
+    justify-content: center;
+}
+
+.measurement {
+    width: 200px;
+    justify-content: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.date-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+    margin-bottom: 5px;
+    width: 90vw;
+    max-width: 90vw;
+    height: 40vh;
+    max-height: 40vh;
+}
+
+canvas {
+    width: 90vw;
+    max-width: 90vw;
+    height: 40vh;
+    max-height: 40vh;
+}
+
+.button.pink {
+    background-color: #dd7cd5;
+}
+
+.button.pink:hover {
+    background-color: white;
+    color: black;
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shapely value calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div>
+        <div class="title">
+            Shapely value calculator
+            <button id="calculate-button">Calculate</button>
+        </div>
+        <table id="shapely-table">
+            <thead>
+                <th> <button id="add-row-button">+</button> </th>
+                <th>Player</th>
+                <th>Cost</th>
+                <th>Shapely value</th>
+                <th>Difference</th>
+                <th>%</th>
+            </thead>
+            <tbody>
+                <template id="row-template">
+                    <tr>
+                        <td> <button class="delete-row-button">×</button> </td>
+                        <td class="player"><input type="text" id="player"></td>
+                        <td class="cost"><input type="number" id="cost"></td>
+                        <td class="shapely"></td>
+                        <td class="difference"></td>
+                        <td class="percent"></td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+        <div class="code">
+            <span>
+                <input type="checkbox" id="use-custom-cost-function">
+                Use custom cost function?
+            </span>
+            const costFunction: CostFunction = (coalition: string[], costs: PlayerValue): number => {
+            <textarea id="cost-function">
+const coalitionCosts = coalition.map(player => costs[player]).sort((a, b) => a - b);
+const totalCost = coalitionCosts.slice(-4).reduce((sum, cost) => sum + cost / 2, 0);
+const remainingSum = coalitionCosts.slice(0, -4).reduce((sum, cost) => sum + cost, 0);
+returnValue = totalCost + remainingSum;
+</textarea>
+            };
+        </div>
+    </div>
+
+    <script>
+        const textarea = document.getElementById('cost-function');
+
+        textarea.addEventListener('input', function () {
+            this.style.height = 'auto'; // Reset height to auto to calculate the new height
+            this.style.height = this.scrollHeight + 'px'; // Set the height to the scroll height
+        });
+
+        // Trigger the input event to resize initially
+        textarea.dispatchEvent(new Event('input'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Processing</title>
+
+    <link rel="stylesheet" href="./css/stylesheet.css">
+
+    <script defer src="./js/pixel.js"></script>
+    <script defer src="./js/image-processing.js"></script>
+    <script defer src="./js/script.js"></script>
+</head>
+
+<body>
+    <div id="page-container">
+        Isolate laser pointer from live camera feed (640x480)
+        <br>
+        Use landscape mode on mobile devices
+        <div id="container">
+            <video hidden autoplay="true" id="videoElement"> </video>
+            <canvas id="inputCanvas"></canvas>
+            <canvas id="outputCanvas"></canvas>
+        </div>
+        <span id="diagnosticsText"></span>
+    </div>
+</body>
+
+</html>

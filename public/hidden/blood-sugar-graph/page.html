@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-hk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>血糖記錄圖表 🩸📊</title>
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <!--  -->
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible" rel="stylesheet">
+    <link rel="stylesheet" href="./css/stylesheet.css">
+    <!--  -->
+    <script defer src="https://cdn.jsdelivr.net/npm/js-cookie/dist/js.cookie.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.0/chart.umd.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/3.0.1/chartjs-plugin-annotation.min.js"></script>
+    <script defer src="./js/script.js"></script>
+</head>
+
+<body>
+    <div class="button-container">
+        <label for="file-input" class="button blue">匯入數據 📥</label>
+        <input type="file" id="file-input" accept=".json" hidden title="Import JSON" />
+        <label for="save-button" class="button green">儲存並匯出數據 📤</label>
+        <button id="save-button" hidden></button>
+        <label for="delete-cookie-button" class="button red">移除暫存數據 ⚠</label>
+        <button id="delete-cookie-button" hidden></button>
+    </div>
+
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0; margin-bottom: 10px;">
+        <div class="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+        <div>
+            <label for="export-graph-button" class="button pink">下載圖表 📊</label>
+            <button id="export-graph-button" hidden></button>
+        </div>
+    </div>
+
+
+    <!--  -->
+    <div id="entry-template" hidden>
+        <table>
+            <tr></tr>
+            <tr class="data">
+                <td>
+                    <div class="date-container">
+                        <a style="user-select: none; cursor: pointer;" onclick="removeEntry(this)">❌</a>
+                        <input onchange="redrawGraph()" type="date" class="date" />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input onchange="redrawGraph()" type="number" class="measurement" />
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <input onchange="redrawGraph()" type="number" class="measurement" />
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <!--  -->
+
+    <table id="data-table">
+        <tr>
+            <td class="date">日期 📅</td>
+            <td class="measurement">早上數值 ☀</td>
+            <td class="measurement">晚上數值 🌙</td>
+        </tr>
+    </table>
+
+    <div>
+        <label for="add-entry-button" class="button circle invert">+</label>
+        <button id="add-entry-button" hidden></button>
+    </div>
+
+
+</body>
+
+</html>
