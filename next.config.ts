@@ -11,6 +11,7 @@ const nextConfig: NextConfig = {
     productionBrowserSourceMaps: true,
     reactCompiler: true,
     reactStrictMode: true,
+    trailingSlash: false,
     typedRoutes: true,
 };
 
