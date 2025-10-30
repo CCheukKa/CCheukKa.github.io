@@ -120,7 +120,7 @@
         box-sizing: border-box;
         text-indent: initial;
         font-size: 11pt;
-        font-family: var(--noto-sans-hk-font-family);
+        font-family: var(--noto-sans-font-family);
         line-height: 20pt;
         background-color: var(--table-background-colour);
         border-radius: 14px;
