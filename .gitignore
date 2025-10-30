@@ -43,3 +43,4 @@ yarn-error.log*
 **/.vscode
 **/PAT.md
 **/.parcel-cache
+/next-env.d.ts
