@@ -6,7 +6,7 @@ type LayoutContextValue = {
     absoluteRefPath: string[];
 };
 
-const LayoutContext = createContext<LayoutContextValue>(null);
+const LayoutContext = createContext<LayoutContextValue | null>(null);
 
 export function useLayout() {
     const ctx = useContext(LayoutContext);
