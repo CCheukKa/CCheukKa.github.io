@@ -1,24 +1,37 @@
 import styles from "@/styles/titleCard.module.css";
 
 type TitleCardProps = {
-    title: string;
-    flavourText: string;
-    description: string;
-};
+    style?: React.CSSProperties;
+}
+    & ({
+        title: string;
+        flavourText: string;
+        description: string;
+        children?: never;
+    } | {
+        title?: never;
+        flavourText?: never;
+        description?: never;
+        children: React.ReactNode;
+    });
 
-export default function TitleCard({ title, flavourText, description }: TitleCardProps) {
+export default function TitleCard({ style, title, flavourText, description, children }: TitleCardProps) {
+
     return (
-        <div className={styles.titleCard}>
-            <div className={styles.pageTitleContainer}>
-                <div className={styles.pageTitle}>{title}</div>
-                <div className={styles.flavourText}>{flavourText}</div>
-            </div>
-            <div className={styles.descriptionWrapper}>
-                <span
-                    className={styles.description}
-                    dangerouslySetInnerHTML={{ __html: description }}
-                />
-            </div>
+        <div className={styles.titleCard} style={style}>
+            {children ?? (<>
+                <div className={styles.pageTitleContainer}>
+                    <div className={styles.pageTitle}>{title}</div>
+                    <div className={styles.flavourText}>{flavourText}</div>
+                </div>
+                <div className={styles.descriptionWrapper}>
+                    <span
+                        className={styles.description}
+                        dangerouslySetInnerHTML={{ __html: description ?? "" }}
+                    />
+                </div>
+            </>)
+            }
         </div>
     );
 }
