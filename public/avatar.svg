@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg width="160px" height="160px" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="120" style="fill: #13293D; opacity: 0.2;"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(219, 87, 72);"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(0, 151, 32);" x="15"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(251, 95, 34);" x="30"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(253, 111, 13);" x="45"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(247, 148, 5);" x="60"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(0, 151, 32);" x="75"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(176, 209, 4);" x="90"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(127, 204, 14);" x="105"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(0, 151, 32);" y="15"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(245, 77, 48);" x="15" y="15"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(0, 151, 32);" x="30" y="15"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(0, 151, 32);" x="45" y="15"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(0, 151, 32);" x="60" y="15"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(226, 197, 9);" x="75" y="15"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(0, 151, 32);" x="90" y="15"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(0, 151, 32);" x="105" y="15"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(253, 101, 87);" y="30"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(63, 20, 13);" x="15" y="30"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(62, 23, 6);" x="30" y="30"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(251, 107, 10);" x="45" y="30"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(244, 146, 4);" x="60" y="30"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(57, 49, 2);" x="75" y="30"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(47, 56, 1);" x="90" y="30"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(143, 237, 17);" x="105" y="30"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(253, 101, 88);" y="45"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(63, 20, 13);" x="15" y="45"/>
+  <rect width="15.75" height="15.75" style="" x="30" y="45"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(251, 111, 11);" x="45" y="45"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(244, 146, 4);" x="60" y="45"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(0, 0, 2);" x="75" y="45"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(49, 56, 2);" x="90" y="45"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(146, 235, 19);" x="105" y="45"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(255, 101, 83);" y="60"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(253, 82, 52);" x="15" y="60"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(247, 95, 30);" x="30" y="60"/>
+  <rect width="15.75" height="15.75" style="" x="45" y="60"/>
+  <rect width="15.75" height="15.75" style="" x="60" y="60"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(231, 198, 9);" x="75" y="60"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(192, 227, 1);" x="90" y="60"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(145, 237, 16);" x="105" y="60"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(253, 101, 87);" y="75"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(249, 84, 54);" x="15" y="75"/>
+  <rect width="15.75" height="15.75" style="" x="30" y="75"/>
+  <rect width="15.75" height="15.75" style="" x="45" y="75"/>
+  <rect width="15.75" height="15.75" style="" x="60" y="75"/>
+  <rect width="15.75" height="15.75" style="" x="75" y="75"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(192, 226, 5);" x="90" y="75"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(143, 237, 16);" x="105" y="75"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(231, 100, 82);" y="90"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(232, 84, 54);" x="15" y="90"/>
+  <rect width="15.75" height="15.75" style="" x="30" y="90"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(229, 100, 19);" x="45" y="90"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(232, 131, 15);" x="60" y="90"/>
+  <rect width="15.75" height="15.75" style="" x="75" y="90"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(182, 200, 16);" x="90" y="90"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(140, 205, 23);" x="105" y="90"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(193, 87, 71);" y="105"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(194, 74, 47);" x="15" y="105"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(178, 67, 22);" x="30" y="105"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(177, 75, 13);" x="45" y="105"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(177, 101, 5);" x="60" y="105"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(166, 129, 12);" x="75" y="105"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(166, 171, 27);" x="90" y="105"/>
+  <rect width="15.75" height="15.75" style="fill: rgb(134, 173, 30);" x="105" y="105"/>
+</svg>
