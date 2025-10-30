@@ -1,0 +1,39 @@
+.list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.5fr 5fr 3fr 0.8fr;
+    align-items: flex-end;
+
+    margin: 10px 40px;
+    height: fit-content;
+    font-family: var(--noto-sans-hk-font-family);
+    border-bottom: 1px dashed #d3cfca;
+}
+
+.topic {
+    margin-left: 0;
+    font-family: var(--bellota-text-font-family);
+    font-weight: bold;
+    font-size: 20pt;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .pdf {
+        color: #8fc3fff0;
+    }
+
+    .commentedPDF {
+        margin-right: 10px;
+    }
+}
+
+.course {
+    font-size: 12pt;
+}
+
+.date {
+    margin-right: 0;
+    font-size: 14pt;
+}

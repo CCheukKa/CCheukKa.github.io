@@ -1,0 +1,31 @@
+._404Container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+._404Title {
+    font-family: var(--bellota-text-font-family);
+}
+
+._404Message {
+    font-family: var(--montserrat-alternates-font-family);
+}
+
+.backButton {
+    background-color: #303030;
+    border: 2px solid #606060;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: var(--bellota-text-font-family);
+    font-weight: bold;
+    font-size: 12pt;
+
+    &:hover {
+        background-color: #4a4a4a;
+        border-color: #808080;
+    }
+}

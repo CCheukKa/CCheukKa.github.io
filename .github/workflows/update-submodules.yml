@@ -30,3 +30,10 @@ jobs:
                   fi
 
                   git push
+
+            - name: Trigger site rebuild
+              uses: peter-evans/repository-dispatch@v2
+              with:
+                  token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+                  repository: ${{ github.repository }}
+                  event-type: build-site

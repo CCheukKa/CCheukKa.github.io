@@ -1,0 +1,519 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+HK&display=swap");
+
+:root {
+    --dark-primary-line-colour: #d3cfca60;
+    --dark-secondary-line-colour: #ffffff18;
+    --dark-link-colour: #8fc3fff0;
+    --dark-table-background-colour: #ffffff0a;
+
+    --light-primary-line-colour: #a9b9c7;
+    --light-secondary-line-colour: #94a6b6;
+    --light-link-colour: #0052b0f0;
+    --light-table-background-colour: #ffffff28;
+
+    --times-new-roman-font-family: 'Times New Roman', 'Noto Serif', 'Noto Serif HK', 'Segoe UI Emoji', serif;
+    --atkinson-hyperlegible-font-family: 'Atkinson Hyperlegible', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+    --bellota-text-font-family: 'Bellota Text', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+}
+
+.bodyContainer {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    gap: 1%;
+    padding-bottom: 60svh;
+}
+
+.textContainer,
+.tocContainer {
+    display: block;
+    border-radius: 16px;
+    box-shadow: 0px 0px 20px #00000066;
+    font-family: var(--bellota-text-font-family);
+    text-align: justify;
+}
+
+.textContainer {
+    font-size: 16pt;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 60%;
+    padding: 15px 40px 15px 60px;
+
+    &[data-theme="dark"] {
+        --primary-line-colour: var(--dark-primary-line-colour);
+        --secondary-line-colour: var(--dark-secondary-line-colour);
+        --link-colour: var(--dark-link-colour);
+        --table-background-colour: var(--dark-table-background-colour);
+    }
+
+    &[data-theme="light"] {
+        --primary-line-colour: var(--light-primary-line-colour);
+        --secondary-line-colour: var(--light-secondary-line-colour);
+        --link-colour: var(--light-link-colour);
+        --table-background-colour: var(--light-table-background-colour);
+
+        color: #222426;
+        background-color: #d6c7b1;
+        box-shadow: inset 0px 0px 20px #00000066;
+    }
+
+    a {
+        color: var(--link-colour);
+    }
+
+    h1,
+    h2 {
+        border-bottom: 2px solid var(--secondary-line-colour);
+    }
+
+    h4 {
+        margin-left: 30px;
+    }
+
+    hr {
+        height: 0.2em;
+        background-color: var(--primary-line-colour);
+        border: 0;
+        margin: 8px 50px;
+    }
+
+    blockquote {
+        border-left: 5px solid var(--primary-line-colour);
+        padding: 0 1em;
+    }
+
+    p {
+        font-size: 14pt;
+        line-height: 21pt;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 0.7em;
+        display: table;
+        box-sizing: border-box;
+        text-indent: initial;
+        font-size: 11pt;
+        font-family: var(--noto-sans-hk-font-family);
+        line-height: 20pt;
+        background-color: var(--table-background-colour);
+        border-radius: 14px;
+    }
+
+    th {
+        padding-top: 5px;
+        padding-left: 12px;
+        padding-right: 12px;
+        border-bottom: 2px solid var(--primary-line-colour);
+        font-size: 13pt;
+    }
+
+    td {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    table>tbody>tr+tr>td {
+        border-top: 1px solid var(--secondary-line-colour);
+    }
+
+    table>tbody>tr:last-child>td {
+        padding-bottom: 5px;
+    }
+
+    :global(#table-of-contents),
+    :global(#table-of-contents + ul),
+    :global(#table-of-contents + ul + hr) {
+        display: none;
+    }
+
+    p:has(tag) {
+        display: none;
+    }
+
+    :global(.tagContainer) {
+        margin-left: 5px;
+        font-family: var(--segoe-ui-emoji-font-family);
+    }
+}
+
+.tocContainer {
+    position: sticky;
+    top: 10px;
+    height: min-content;
+    width: 25%;
+    padding: 15px;
+    transition: none;
+    display: flex;
+    flex-direction: column;
+
+    .tocTitle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-size: 20pt;
+        font-weight: bold;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid var(--dark-secondary-line-colour);
+
+        &>button {
+            background: none;
+            border: none;
+            color: inherit;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+            padding: 0;
+            margin: 0;
+            font-size: 16pt;
+        }
+    }
+
+    .tocList {
+        flex-grow: 1;
+        overflow-y: scroll;
+        direction: rtl;
+        overscroll-behavior: contain;
+        scrollbar-gutter: stable;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background-color: transparent;
+
+            &:hover {
+                background-color: #55555744;
+                border-radius: 10px;
+            }
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #555557;
+            border-radius: 10px;
+
+            &:hover {
+                background-color: #7c7c7c;
+            }
+        }
+
+        &>ul {
+            direction: ltr;
+            text-align: left;
+            margin: 0;
+            padding-left: 30px;
+
+            &>li {
+                &>ul {
+                    padding-left: 15px;
+
+                    &>li {
+                        border-bottom: 2px solid var(--dark-secondary-line-colour);
+                        margin-bottom: 5px;
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+
+                        &>ul {
+                            margin: 0;
+                            padding-left: 25px;
+
+                            &>li {
+                                padding-top: 2px;
+                                padding-bottom: 2px;
+
+                                &>ul {
+                                    padding-left: 30px;
+                                    list-style-type: "-  ";
+                                }
+
+                                &>a {
+                                    font-weight: bold;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &>a {
+                    font-weight: bold;
+                }
+            }
+
+            a {
+                text-decoration: none;
+                color: var(--dark-link-colour);
+            }
+        }
+    }
+}
+
+.controlsContainer {
+    font-size: 25pt;
+    position: sticky;
+    top: 10px;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+
+    &>* {
+        height: 45px;
+    }
+
+    &>button {
+        background: none;
+        border: none;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        padding: 0;
+        margin: 0;
+    }
+
+    .fontIndicator {
+        font-size: 10pt;
+        width: 0;
+        position: absolute;
+        bottom: 0;
+        left: 4px;
+        rotate: 90deg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.fontCycleButton[data-font="times-new-roman"],
+.textContainer[data-font="times-new-roman"] p {
+    font-family: var(--times-new-roman-font-family);
+}
+
+.fontCycleButton[data-font="atkinson-hyperlegible"],
+.textContainer[data-font="atkinson-hyperlegible"] p {
+    font-family: var(--atkinson-hyperlegible-font-family);
+}
+
+.fontCycleButton[data-font="bellota-text"],
+.textContainer[data-font="bellota-text"] p {
+    font-family: var(--bellota-text-font-family);
+}
+
+.fontCycleButton[data-font="noto-sans"],
+.textContainer[data-font="noto-sans"] p {
+    font-family: var(--noto-sans-font-family);
+}
+
+.statusText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+
+
+/* .calendarEntries>ul>li {
+    padding-top: 2px;
+    padding-bottom: 2px;
+} */
+
+/* .calendarEntries>ul>li>a {
+    font-weight: bold;
+} */
+
+
+:root {
+    --calendar-bg-color: #262829;
+    --calendar-font-color: #FFF;
+    --weekdays-border-bottom-color: #404040;
+    --calendar-date-hover-color: #505050;
+    --calendar-current-date-color: #1b1f21;
+    --calendar-today-color: linear-gradient(to bottom, #03a9f4, #2196f3);
+    --calendar-today-innerborder-color: transparent;
+    --calendar-nextprev-bg-color: transparent;
+    --next-prev-arrow-color: #FFF;
+    --calendar-border-radius: 16px;
+    --calendar-prevnext-date-color: #484848
+}
+
+.calendar {
+    position: relative;
+    max-width: 400px;
+    min-width: 320px;
+    background: var(--calendar-bg-color);
+    color: var(--calendar-font-color);
+    margin: 20px auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-weight: normal;
+    border-radius: var(--calendar-border-radius);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.calendarInner {
+    padding: 10px 10px;
+}
+
+.calendar .calendarInner .calendarBody {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.calendar .calendarInner .calendarBody div {
+    padding: 4px;
+    min-height: 30px;
+    line-height: 30px;
+    border: 1px solid transparent;
+    margin: 0px 2px 0px;
+}
+
+.calendar .calendarInner .calendarBody div:nth-child(-n+7) {
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--weekdays-border-bottom-color);
+}
+
+.calendar .calendarInner .calendarBody div:nth-child(-n+7):hover {
+    border: 1px solid transparent;
+    border-bottom: 1px solid var(--weekdays-border-bottom-color);
+}
+
+.calendar .calendarInner .calendarBody div>a {
+    color: var(--calendar-font-color);
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+}
+
+.calendar .calendarInner .calendarBody div:hover {
+    border: 1px solid var(--calendar-date-hover-color);
+    border-radius: 4px;
+}
+
+.calendar .calendarInner .calendarBody div.emptyDates:hover {
+    border: 1px solid transparent;
+}
+
+.calendar .calendarInner .calendarControls {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+}
+
+.calendar .calendarInner .calendarTodayDate {
+    display: grid;
+    text-align: center;
+    cursor: pointer;
+    margin: 3px 0px;
+    background: var(--calendar-current-date-color);
+    padding: 8px 0px;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+}
+
+.calendar .calendarInner .calendarControls .calendarYearMonth {
+    display: flex;
+    min-width: fit-content;
+    justify-content: center;
+    align-items: center;
+}
+
+.calendar .calendarInner .calendarControls .calendarNext {
+    text-align: right;
+}
+
+.calendar .calendarInner .calendarControls .calendarYearMonth .calendarYearMonthLabel {
+    font-weight: 500;
+    font-size: 20px;
+    color: white;
+    font-weight: bold;
+}
+
+.calendar .calendarInner .calendarBody .calendarToday {
+    border-radius: 4px;
+    outline: 3px solid #03a9f4;
+}
+
+.calendar .calendarInner .calendarBody .calendarToday:hover {
+    border: 1px solid transparent;
+}
+
+.calendar .calendarInner .calendarBody .calendarToday a {
+    outline: 2px solid var(--calendar-today-innerborder-color);
+}
+
+.calendar .calendarInner .calendarControls .calendarNext a,
+.calendar .calendarInner .calendarControls .calendarPrev a {
+    color: var(--calendar-font-color);
+    font-family: arial, consolas, sans-serif;
+    font-size: 26px;
+    text-decoration: none;
+    padding: 0px 12px;
+    display: inline-block;
+    background: var(--calendar-nextprev-bg-color);
+    margin: 0;
+}
+
+.calendar .calendarInner .calendarControls .calendarNext a svg,
+.calendar .calendarInner .calendarControls .calendarPrev a svg {
+    height: 20px;
+    width: 20px;
+}
+
+.calendar .calendarInner .calendarControls .calendarNext a svg path,
+.calendar .calendarInner .calendarControls .calendarPrev a svg path {
+    fill: var(--next-prev-arrow-color);
+}
+
+.calendar .calendarInner .calendarBody .prevDates,
+.calendar .calendarInner .calendarBody .nextDates {
+    color: var(--calendar-prevnext-date-color);
+}
+
+.calendar .calendarInner .calendarBody .prevDates:hover,
+.calendar .calendarInner .calendarBody .nextDates:hover {
+    border: 1px solid transparent;
+    pointer-events: none;
+}
+
+.calendar .calendarPrev a,
+.calendar .calendarNext a {
+    cursor: pointer;
+}
+
+.calendar .calendarPrev a.disabled,
+.calendar .calendarNext a.disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 20%;
+}
+
+.calendar .dateNumber {
+    opacity: 50%;
+}
+
+.calendar #loggedDate {
+    font-weight: bold;
+    text-decoration: underline;
+    color: var(--link-colour);
+    opacity: 100%;
+}

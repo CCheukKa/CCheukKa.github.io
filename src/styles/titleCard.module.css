@@ -1,0 +1,62 @@
+.titleCard {
+    margin: 8px;
+    padding: 0px 32px 20px 32px;
+    border-radius: 12px;
+    background-color: #2c3035;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 24px;
+    width: 85%;
+    height: fit-content;
+}
+
+.pageTitleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 550px;
+    width: max-content;
+    flex: 0 0 auto;
+    gap: 5px;
+    text-align: center;
+}
+
+.pageTitle {
+    font-family: var(--montserrat-alternates-font-family);
+    text-align: center;
+    font-size: 64pt;
+    font-weight: bold;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.flavourText {
+    font-family: var(--montserrat-alternates-font-family);
+    text-align: center;
+    font-weight: bold;
+    font-size: 18pt;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.descriptionWrapper {
+    text-align: left;
+    align-content: center;
+    height: 100%;
+    flex: 1 1 auto;
+    padding-top: 10px;
+    margin-left: 25px;
+    margin-right: -5px;
+}
+
+.description {
+    font-family: var(--bellota-text-font-family);
+    text-align: center;
+    font-size: 14pt;
+    font-weight: bold;
+    opacity: 80%;
+    white-space: pre-line;
+}

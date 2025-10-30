@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Am I Apple?</title>
+</head>
+
+<body>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            overflow: hidden;
+            flex-direction: column;
+            gap: 2rem;
+            font-size: xx-large;
+        }
+    </style>
+
+    <h1>Am I Apple?</h1>
+    <div id="answer"></div>
+
+    <script>
+        function isAppleDevice() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Check for iOS devices
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                return true;
+            }
+
+            // Check for macOS devices
+            if (/Macintosh/.test(userAgent)) {
+                return true;
+            }
+
+            return false;
+        }
+
+        const answer = document.getElementById("answer");
+        if (isAppleDevice()) {
+            console.log("User is on an Apple device.");
+            answer.textContent = "Yes";
+        } else {
+            console.log("User is not on an Apple device.");
+            answer.textContent = "No";
+        }
+    </script>
+</body>
+
+</html>

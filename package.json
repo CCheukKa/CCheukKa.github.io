@@ -1,0 +1,26 @@
+{
+    "name": "ccheukka.github.io",
+    "private": true,
+    "scripts": {
+        "dev": "next dev --turbopack",
+        "build": "next build --turbopack",
+        "start": "next start"
+    },
+    "dependencies": {
+        "js-cookie": "^3.0.5",
+        "marked": "^16.4.1",
+        "marked-gfm-heading-id": "^4.1.2",
+        "marked-smartypants": "^1.1.10",
+        "next": "16.0.1",
+        "react": "19.2.0",
+        "react-dom": "19.2.0"
+    },
+    "devDependencies": {
+        "@types/js-cookie": "^3.0.6",
+        "@types/node": "^24",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "babel-plugin-react-compiler": "^1.0.0",
+        "typescript": "^5"
+    }
+}
