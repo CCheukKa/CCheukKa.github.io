@@ -360,6 +360,20 @@ function JournalContent({ mdString, setTocHTML }: JournalContentProps) {
                 targetElement.scrollIntoView();
             }
         }
+
+        //^ Add clickable behavior to headings for direct linking
+        const headingElements = journalContentRef.current.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        headingElements.forEach(heading => {
+            heading.addEventListener('click', () => {
+                const id = heading.id;
+                if (!id) { return; }
+                if (!journalContentRef.current) { return; }
+                const url = new URL(window.location.href);
+                url.hash = `#${id}`;
+                window.history.replaceState({}, '', url.toString());
+                heading.scrollIntoView();
+            });
+        });
     }, [result, journalContentRef.current]);
 
     return (
