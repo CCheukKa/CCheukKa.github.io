@@ -32,7 +32,7 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
             ? shelfItem.refPath
             : `/${rootRefName}/${shelfItem.refPath}`
     ).replaceAll(/(?<!:\/?)\/+/g, "/");
-    const fullRefPage = `${fullRefDir}/${shelfItem.refPage ?? ""}`;
+    const fullRefPage = [fullRefDir, shelfItem.refPage].filter(p => p !== undefined).join('/');
     const thumbnailPath = (shelfItem.thumbnailPathOverride ?? `${fullRefDir}/thumbnail.png`);
 
     let span1 = "";
