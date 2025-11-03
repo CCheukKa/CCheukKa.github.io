@@ -3,8 +3,7 @@
     "private": true,
     "scripts": {
         "dev": "next dev --turbopack",
-        "build": "next build --turbopack",
-        "start": "next start"
+        "build": "rm -r out || true && next build --turbopack"
     },
     "dependencies": {
         "js-cookie": "^3.0.5",
