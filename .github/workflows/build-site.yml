@@ -34,6 +34,13 @@ jobs:
               run: bun install --frozen-lockfile
             - name: Build with Next.js
               run: bun run build
+            - name: Generate GitHub context JSON
+              run: |
+                  echo '${{ toJson(github) }}'
+                  | jq '{job, ref, sha, repository, repository_Url, run_id, run_number, run_attempt, artifact_cache_size_limit, actor, trigerring_actor, workflow, event_name, event, ref_name, ref_protected, ref_type, secret_source, workflow_ref, workflow_sha, workspace}'
+                  | jq 'del(.event.base_ref, .event.organization, .event.repository, .event.sender)'
+                  > public/github-context.json
+              shell: bash
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:
