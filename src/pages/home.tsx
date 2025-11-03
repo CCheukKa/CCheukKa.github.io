@@ -31,7 +31,7 @@ function HomeTitleCard() {
         <TitleCard style={{ padding: 0 }}>
             <div className={styles.titleCard}>
                 <div className={styles.avatarContainer}>
-                    <img src="/avatar.svg" alt="Avatar" width="60%" />
+                    <img src="/assets/avatar.svg" alt="Avatar" width="60%" />
                     <span className={styles.description}>Consistent* profile avatar</span>
                 </div>
                 <div className={styles.centerContainer}>
@@ -97,7 +97,7 @@ function EmailButton() {
             }}
         >
             <div className={styles.tooltip} ref={sendEmailTooltipRef}>📧 Send email</div>
-            <img src="/sendEmail.svg" alt="Email icon" width="40px" />
+            <img src="/assets/sendEmail.svg" alt="Email icon" width="40px" />
         </a>
     </div>);
 }
@@ -129,7 +129,7 @@ function SocialBox() {
     function SocialLinkIcon({ link }: SocialLinkIconProps) {
         return (
             <a href={link.link} target="_blank" title={link.title}>
-                <img src={`/icons/${link.refName}.svg`} height={ICON_SIZE} width={ICON_SIZE} />
+                <img src={`/socialBoxIcons/${link.refName}.svg`} height={ICON_SIZE} width={ICON_SIZE} />
             </a>
         );
     }
