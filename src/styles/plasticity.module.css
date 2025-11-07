@@ -1,15 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+HK&display=swap");
+
+:root {
+    --times-new-roman-font-family: 'Times New Roman', 'Noto Serif', 'Noto Serif HK', 'Segoe UI Emoji', serif;
+    --atkinson-hyperlegible-font-family: 'Atkinson Hyperlegible', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+    --bellota-text-font-family: 'Bellota Text', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
+}
+
+.bodyWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 90%;
+    gap: 1%;
+    margin-top: 20px;
+}
+
 .textContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
-    width: 100%;
-    height: 100%;
-    padding: 30px 100px;
+    flex-grow: 1;
+    margin-bottom: 40px;
+    background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);
+    border-radius: 16px;
+    box-shadow: 0px 0px 20px #00000066;
+    padding: 50px 100px;
     font-family: var(--bellota-text-font-family);
     font-size: 16pt;
     text-align: justify;
     position: relative;
+
+    &[data-theme="light"] {
+        color: #222426;
+        background-color: #d6c7b1;
+        box-shadow: inset 0px 0px 20px #00000066;
+    }
 }
 
 .date {
@@ -25,4 +53,66 @@
     font-weight: bold;
     font-size: 16pt;
     text-decoration: underline;
+}
+
+.controlsContainer {
+    font-size: 25pt;
+    position: sticky;
+    top: 10px;
+    height: min-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+
+    &>* {
+        height: 45px;
+    }
+
+    &>a {
+        text-decoration: none;
+    }
+
+    &>button {
+        background: none;
+        border: none;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        padding: 0;
+        margin: 0;
+    }
+
+    .fontIndicator {
+        font-size: 10pt;
+        width: 0;
+        position: absolute;
+        bottom: 0;
+        left: 4px;
+        rotate: 90deg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.fontCycleButton[data-font="times-new-roman"],
+.textContainer[data-font="times-new-roman"] {
+    font-family: var(--times-new-roman-font-family);
+}
+
+.fontCycleButton[data-font="atkinson-hyperlegible"],
+.textContainer[data-font="atkinson-hyperlegible"] {
+    font-family: var(--atkinson-hyperlegible-font-family);
+}
+
+.fontCycleButton[data-font="bellota-text"],
+.textContainer[data-font="bellota-text"] {
+    font-family: var(--bellota-text-font-family);
+}
+
+.fontCycleButton[data-font="noto-sans"],
+.textContainer[data-font="noto-sans"] {
+    font-family: var(--noto-sans-font-family);
 }

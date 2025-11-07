@@ -4,8 +4,25 @@ import styles from '@/styles/plasticity.module.css';
 import fs from 'fs';
 import path from 'path';
 import TitleCard from '@/components/TitleCard';
-import Shelf from '@/components/Shelf';
 import { AppPageProps } from '../_app';
+import { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
+
+const enum Theme {
+    LIGHT = "light",
+    DARK = "dark"
+}
+enum Font {
+    TIMES_NEW_ROMAN = "times-new-roman",
+    ATKINSON_HYPERLEGIBLE = "atkinson-hyperlegible",
+    BELOTA_TEXT = "bellota-text",
+    NOTO_SANS = "noto-sans"
+}
+const fontArray = Object.values(Font);
+type Preference = {
+    theme: Theme,
+    font: Font
+}
 
 type PlasticityContentPageProps = AppPageProps & {
     metadata: {
@@ -18,6 +35,31 @@ type PlasticityContentPageProps = AppPageProps & {
 };
 
 export default function PlasticityContentPage({ metadata, content }: PlasticityContentPageProps) {
+
+    const [preferences, setPreferences] = useState<Preference>({
+        theme: Theme.DARK,
+        font: Font.ATKINSON_HYPERLEGIBLE,
+    });
+    const PREFERENCE_COOKIE_NAME = 'cck-wtf-plasticity-preferences';
+    useEffect(() => {
+        let preferenceCookie: string | undefined;
+        try {
+            preferenceCookie = Cookies.get(PREFERENCE_COOKIE_NAME);
+        } catch (e) {
+            console.log(e);
+        }
+        if (preferenceCookie) {
+            const parsedPreferences = JSON.parse(preferenceCookie) as Preference;
+            console.log('Using', parsedPreferences, 'from cookie as preference');
+            setPreferences(parsedPreferences);
+        } else {
+            console.log('no preference cookie');
+        }
+    }, []);
+    useEffect(() => {
+        Cookies.set(PREFERENCE_COOKIE_NAME, JSON.stringify(preferences), { expires: 365 });
+    }, [preferences]);
+
     return (
         <>
             <TitleCard
@@ -30,11 +72,42 @@ export default function PlasticityContentPage({ metadata, content }: PlasticityC
                 <span>Written on: </span>
                 <span className={styles.dateText}>{metadata.date}</span>
             </div>
-            <Shelf>
-                <div className={styles.textContainer}>
+            <div className={styles.bodyWrapper}>
+                <div
+                    className={styles.textContainer}
+                    data-theme={preferences.theme}
+                    data-font={preferences.font}
+                >
                     <div dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br>') }} />
                 </div>
-            </Shelf>
+                <div className={styles.controlsContainer}>
+                    <button
+                        onClick={() => setPreferences({
+                            ...preferences,
+                            theme: preferences.theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
+                        })}
+                    >
+                        {preferences.theme === Theme.DARK ? "🌙" : "🔆"}
+                    </button>
+                    <button
+                        className={styles.fontCycleButton}
+                        onClick={() => setPreferences({
+                            ...preferences,
+                            font: fontArray[(fontArray.indexOf(preferences.font) + 1) % fontArray.length] as Font
+                        })}
+                        data-font={preferences.font}
+                    >
+                        A
+                    </button>
+                    <span className={styles.fontIndicator}>
+                        {
+                            fontArray.map(font => (
+                                preferences.font === font ? '●' : '○'
+                            )).join('')
+                        }
+                    </span>
+                </div>
+            </div>
         </>
     );
 }

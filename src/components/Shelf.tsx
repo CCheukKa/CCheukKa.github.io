@@ -4,18 +4,13 @@ import { useState, useEffect } from "react";
 
 type ShelfProps = {
     shelfConfig: ShelfConfig;
-    children?: never;
-} | {
-    shelfConfig?: never;
-    children: React.ReactNode;
 };
-export default function Shelf({ shelfConfig, children }: ShelfProps) {
+export default function Shelf({ shelfConfig }: ShelfProps) {
     return (
         <div className={styles.shelf}>
-            {shelfConfig?.shelfItems.map((item: ShelfItem) => (
+            {shelfConfig.shelfItems.map((item: ShelfItem) => (
                 <ShelfItem key={item.refPath} rootRefName={shelfConfig.rootRefName} shelfItem={item} />
             ))}
-            {children}
         </div>
     );
 }
