@@ -7,6 +7,7 @@ import TitleCard from '@/components/TitleCard';
 import { AppPageProps } from '../_app';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
+import { useLayout } from '@/context/LayoutContext';
 
 const enum Theme {
     LIGHT = "light",
@@ -60,6 +61,8 @@ export default function PlasticityContentPage({ metadata, content }: PlasticityC
         Cookies.set(PREFERENCE_COOKIE_NAME, JSON.stringify(preferences), { expires: 365 });
     }, [preferences]);
 
+    const mainRef = useLayout().mainRef.current;
+
     return (
         <>
             <TitleCard
@@ -81,6 +84,11 @@ export default function PlasticityContentPage({ metadata, content }: PlasticityC
                     <div dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br>') }} />
                 </div>
                 <div className={styles.controlsContainer}>
+                    <button
+                        onClick={() => mainRef?.scrollTo({ top: 0, behavior: 'smooth' })}
+                    >
+                        🔝
+                    </button>
                     <button
                         onClick={() => setPreferences({
                             ...preferences,
@@ -107,7 +115,7 @@ export default function PlasticityContentPage({ metadata, content }: PlasticityC
                         }
                     </span>
                 </div>
-            </div>
+            </div >
         </>
     );
 }
