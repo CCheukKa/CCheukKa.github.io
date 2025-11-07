@@ -2,8 +2,8 @@
     "name": "ccheukka.github.io",
     "private": true,
     "scripts": {
-        "dev": "next dev --turbopack",
-        "build": "rm -r out || true && next build --turbopack"
+        "dev": "(rm -r out/dev || true) && next dev --turbopack",
+        "build": "(rm -r out || true) && next build --turbopack"
     },
     "dependencies": {
         "js-cookie": "^3.0.5",
