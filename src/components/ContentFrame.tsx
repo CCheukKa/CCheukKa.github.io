@@ -1,29 +1,24 @@
-import styles from "@/styles/shelf.module.css";
+import styles from "@/styles/contentFrame.module.css";
 import type { ShelfConfig, ShelfItem } from "@/configs/shelfConfig";
 import { useState, useEffect } from "react";
 
-type ShelfProps = {
+type ContentFrameProps = {
     shelfConfig: ShelfConfig;
     children?: never;
 } | {
     shelfConfig?: never;
     children: React.ReactNode;
 };
-export default function Shelf({ shelfConfig, children }: ShelfProps) {
+export default function ContentFrame({ shelfConfig, children }: ContentFrameProps) {
+    const isShelf = shelfConfig !== undefined;
+
     return (
-        <div
-            className={styles.shelf}
-            style={
-                children
-                    ? { gap: 'initial' }
-                    : {}
-            }
-        >
-            {children
-                ? children
-                : shelfConfig?.shelfItems.map((item: ShelfItem) => (
+        <div className={[styles.contentFrame, isShelf ? styles.shelf : ''].join(' ')}>
+            {isShelf
+                ? shelfConfig?.shelfItems.map((item: ShelfItem) => (
                     <ShelfItem key={item.refPath} rootRefName={shelfConfig.rootRefName} shelfItem={item} />
                 ))
+                : children
             }
         </div>
     );

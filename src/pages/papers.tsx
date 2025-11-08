@@ -1,4 +1,4 @@
-import Shelf from "@/components/Shelf";
+import ContentFrame from "@/components/ContentFrame";
 import TitleCard from "@/components/TitleCard";
 import { Course, Paper, papersConfig } from "@/configs/papersConfig";
 import styles from "@/styles/papers.module.css";
@@ -20,13 +20,13 @@ export default function PapersPage() {
                 }
             />
 
-            <Shelf>
+            <ContentFrame>
                 {papersConfig.courses.map(course => (
                     course.papers.map(paper =>
                         <ListItem key={paper.pdfName} course={course} paper={paper} />
                     )
                 ))}
-            </Shelf>
+            </ContentFrame>
         </>
     );
 }

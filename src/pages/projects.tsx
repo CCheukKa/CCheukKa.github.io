@@ -1,4 +1,4 @@
-import Shelf from "@/components/Shelf";
+import ContentFrame from "@/components/ContentFrame";
 import TitleCard from "@/components/TitleCard";
 import { projectsConfig } from "@/configs/projectsConfig";
 import { GetStaticProps } from "next";
@@ -15,7 +15,7 @@ export default function ProjectsPage() {
                 }
             />
 
-            <Shelf shelfConfig={projectsConfig} />
+            <ContentFrame shelfConfig={projectsConfig} />
         </>
     );
 }

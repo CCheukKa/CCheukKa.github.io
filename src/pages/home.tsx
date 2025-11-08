@@ -1,4 +1,4 @@
-import Shelf from "@/components/Shelf";
+import ContentFrame from "@/components/ContentFrame";
 import { homeConfig } from "@/configs/homeConfig";
 import { GetStaticProps } from "next";
 import { AppPageProps } from "./_app";
@@ -11,7 +11,7 @@ export default function HomePage() {
     return (
         <>
             <HomeTitleCard />
-            <Shelf shelfConfig={homeConfig} />
+            <ContentFrame shelfConfig={homeConfig} />
         </>
     );
 }

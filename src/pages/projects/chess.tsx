@@ -1,4 +1,4 @@
-import Shelf from "@/components/Shelf";
+import ContentFrame from "@/components/ContentFrame";
 import TitleCard from "@/components/TitleCard";
 import { chessProjectsConfig } from "@/configs/chessProjectsConfig";
 import { GetStaticProps } from "next";
@@ -17,7 +17,7 @@ export default function ChessProjectsPage() {
                 }
             />
 
-            <Shelf shelfConfig={chessProjectsConfig} />
+            <ContentFrame shelfConfig={chessProjectsConfig} />
         </>
     );
 }
