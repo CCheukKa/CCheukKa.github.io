@@ -1,4 +1,4 @@
-import styles from "@/styles/titleCard.module.css";
+import styles from "@/components/TitleCard.module.css";
 
 type TitleCardProps = {
     style?: React.CSSProperties;

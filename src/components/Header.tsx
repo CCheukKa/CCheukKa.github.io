@@ -1,4 +1,4 @@
-import styles from "@/styles/header.module.css";
+import styles from "@/components/Header.module.css";
 import { homeConfig, HomeShelfItem } from "@/configs/homeConfig";
 import { useRouter } from "next/router";
 import { useLayout } from "@/context/LayoutContext";

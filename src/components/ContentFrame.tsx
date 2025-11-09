@@ -1,4 +1,4 @@
-import styles from "@/styles/contentFrame.module.css";
+import styles from "@/components/ContentFrame.module.css";
 import type { ShelfConfig, ShelfItem } from "@/configs/shelfConfig";
 import { useState, useEffect } from "react";
 
