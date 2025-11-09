@@ -1,0 +1,17 @@
+.contentCard {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    border-radius: 16px;
+    box-shadow: 0px 0px 20px #00000066;
+    padding: 10px;
+    height: 100%;
+    flex-grow: 1;
+    font-family: var(--bellota-text-font-family);
+
+    &[data-theme="light"] {
+        color: #222426;
+        background-color: #d6c7b1;
+        box-shadow: inset 0px 0px 20px #00000066;
+    }
+}

@@ -1,8 +1,10 @@
-import ContentFrame from "@/components/ContentFrame";
-import TitleCard from "@/components/TitleCard";
 import { chessProjectsConfig } from "@/configs/chessProjectsConfig";
 import { GetStaticProps } from "next";
 import { AppPageProps } from "../_app";
+import TitleCard from "@/components/TitleCard";
+import Body from "@/components/Body";
+import ContentCard from "@/components/ContentCard";
+import Shelf from "@/components/Shelf";
 
 export default function ChessProjectsPage() {
     return (
@@ -17,7 +19,11 @@ export default function ChessProjectsPage() {
                 }
             />
 
-            <ContentFrame shelfConfig={chessProjectsConfig} />
+            <Body>
+                <ContentCard>
+                    <Shelf shelfConfig={chessProjectsConfig} />
+                </ContentCard>
+            </Body>
         </>
     );
 }

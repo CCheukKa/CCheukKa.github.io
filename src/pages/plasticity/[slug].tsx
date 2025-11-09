@@ -1,13 +1,15 @@
-import { GetStaticProps, GetStaticPaths } from 'next';
-import { plasticityConfig } from '@/configs/plasticityConfig';
 import styles from '@/styles/plasticity.module.css';
 import fs from 'fs';
 import path from 'path';
-import TitleCard from '@/components/TitleCard';
+import Cookies from 'js-cookie';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { plasticityConfig } from '@/configs/plasticityConfig';
 import { AppPageProps } from '../_app';
 import { useEffect, useState } from 'react';
-import Cookies from 'js-cookie';
 import { useLayout } from '@/context/LayoutContext';
+import TitleCard from '@/components/TitleCard';
+import Body from '@/components/Body';
+import ContentCard from '@/components/ContentCard';
 
 const enum Theme {
     LIGHT = "light",
@@ -71,18 +73,21 @@ export default function PlasticityContentPage({ metadata, content }: PlasticityC
                 description={metadata.description}
             />
 
-            <div className={styles.date}>
-                <span>Written on: </span>
-                <span className={styles.dateText}>{metadata.date}</span>
-            </div>
-            <div className={styles.bodyWrapper}>
-                <div
+            <Body
+                beforeChildren={
+                    <div className={styles.date}>
+                        <span>Written on: </span>
+                        <span className={styles.dateText}>{metadata.date}</span>
+                    </div>
+                }
+            >
+                <ContentCard
                     className={styles.textContainer}
                     data-theme={preferences.theme}
                     data-font={preferences.font}
+                    dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br>') }}
                 >
-                    <div dangerouslySetInnerHTML={{ __html: content.replace(/\n/g, '<br>') }} />
-                </div>
+                </ContentCard>
                 <div className={styles.controlsContainer}>
                     <button
                         onClick={() => mainRef?.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -115,7 +120,7 @@ export default function PlasticityContentPage({ metadata, content }: PlasticityC
                         }
                     </span>
                 </div>
-            </div >
+            </Body>
         </>
     );
 }

@@ -1,20 +1,12 @@
-.contentFrame {
+.shelf {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
+    flex-direction: row;
     flex-grow: 1;
-    margin-bottom: 40px;
-    background: linear-gradient(to top, #ffffff04 0px, #80696900 80px);
-    border-radius: 16px;
-    box-shadow: 0px 0px 20px #00000066;
-    width: 90%;
-    padding: 10px;
-
-    &.shelf {
-        padding: 30px;
-        gap: 20px 25px;
-    }
+    padding: 20px;
+    gap: 20px 25px;
 }
 
 .shelfItemWrapper {

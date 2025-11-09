@@ -1,3 +1,4 @@
+import styles from "@/styles/journal.module.css";
 import { useState, useEffect, useRef, useMemo } from 'react';
 import TitleCard from '@/components/TitleCard';
 import { HTTP } from '@/library/http';
@@ -6,10 +7,11 @@ import Cookies from 'js-cookie';
 import { marked } from 'marked';
 import { markedSmartypants } from "marked-smartypants";
 import { gfmHeadingId } from 'marked-gfm-heading-id';
-import styles from "@/styles/journal.module.css";
 import { useLayout } from '@/context/LayoutContext';
 import { GetStaticProps } from 'next';
 import { AppPageProps } from './_app';
+import Body from "@/components/Body";
+import ContentCard from "@/components/ContentCard";
 
 const TABLE_OF_CONTENTS_ID = "table-of-contents";
 const INTRODUCTION_ID = "introduction";
@@ -141,107 +143,110 @@ export default function JournalPage() {
                 }
             />
 
-            {
-                <div className={styles.bodyContainer}>
-                    <div className={styles.tocContainer} ref={tocContainerRef}>
-                        {useMemo(() => {
-                            switch (currentState) {
-                                case State.INITIAL:
-                                    return <div className={styles.statusText}>
-                                        Awaiting authentication...
-                                    </div>;
-                                case State.PASSWORD_ENTERED:
-                                    return <div className={styles.statusText}>
-                                        Verifying password...
-                                    </div>;
-                                case State.AUTH_FAILED:
-                                    return <div className={styles.statusText}>
-                                        Invalid password
-                                    </div>;
-                                case State.LOADING_CONTENT:
-                                    return <div className={styles.statusText}>
-                                        Fetching table of contents...
-                                    </div>;
-                                case State.CONTENT_LOADED:
-                                    return <TableOfContents tocHTML={tocHTML} />;
+            <Body className={styles.body}>
+                <ContentCard
+                    width="28%"
+                    className={styles.tocContainer}
+                    ref={tocContainerRef}
+                >
+                    {useMemo(() => {
+                        switch (currentState) {
+                            case State.INITIAL:
+                                return <div className={styles.statusText}>
+                                    Awaiting authentication...
+                                </div>;
+                            case State.PASSWORD_ENTERED:
+                                return <div className={styles.statusText}>
+                                    Verifying password...
+                                </div>;
+                            case State.AUTH_FAILED:
+                                return <div className={styles.statusText}>
+                                    Invalid password
+                                </div>;
+                            case State.LOADING_CONTENT:
+                                return <div className={styles.statusText}>
+                                    Fetching table of contents...
+                                </div>;
+                            case State.CONTENT_LOADED:
+                                return <TableOfContents tocHTML={tocHTML} />;
 
-                                default:
-                                    console.error(`Unhandled state: ${currentState}`);
-                                    return <div className={styles.statusText}>Undefined state</div>;
-                            }
-                        }, [currentState, tocHTML, preferences])}
-                    </div>
-                    <div
-                        className={styles.textContainer}
-                        data-theme={preferences.theme}
+                            default:
+                                console.error(`Unhandled state: ${currentState}`);
+                                return <div className={styles.statusText}>Undefined state</div>;
+                        }
+                    }, [currentState, tocHTML, preferences])}
+                </ContentCard>
+                <ContentCard
+                    width="65%"
+                    className={styles.textContainer}
+                    data-theme={preferences.theme}
+                    data-font={preferences.font}
+                >
+                    {useMemo(() => {
+                        switch (currentState) {
+                            case State.INITIAL:
+                                return <div className={styles.statusText}>
+                                    Awaiting authentication...
+                                </div>;
+                            case State.PASSWORD_ENTERED:
+                                return <div className={styles.statusText}>
+                                    Verifying password...
+                                </div>;
+                            case State.AUTH_FAILED:
+                                return <div className={styles.statusText}>
+                                    Invalid password
+                                    <br />
+                                    <br />
+                                    If you know me personally, ask me to generate one for you.
+                                    <br />
+                                    If you REALLY know me personally, try your name.
+                                    <br />
+                                    <br />
+                                    Refresh to try again.
+                                </div>;
+                            case State.LOADING_CONTENT:
+                                return <div className={styles.statusText}>
+                                    Fetching content...
+                                </div>;
+                            case State.CONTENT_LOADED:
+                                return <JournalContent mdString={decryptedMdString} setTocHTML={setTocHTML} />;
+
+                            default:
+                                console.error(`Unhandled state: ${currentState}`);
+                                return <div className={styles.statusText}>Undefined state</div>;
+                        }
+                    }, [currentState, decryptedMdString])}
+                </ContentCard>
+                <div className={styles.controlsContainer}>
+                    <a href={`#${INTRODUCTION_ID}`}>🔝</a>
+                    <a href={`#${LATEST_ID}`}>⏬</a>
+                    <button
+                        onClick={() => setPreferences({
+                            ...preferences,
+                            theme: preferences.theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
+                        })}
+                    >
+                        {preferences.theme === Theme.DARK ? "🌙" : "🔆"}
+                    </button>
+                    <button
+                        className={styles.fontCycleButton}
+                        onClick={() => setPreferences({
+                            ...preferences,
+                            font: fontArray[(fontArray.indexOf(preferences.font) + 1) % fontArray.length] as Font
+                        })}
                         data-font={preferences.font}
                     >
-                        {useMemo(() => {
-                            switch (currentState) {
-                                case State.INITIAL:
-                                    return <div className={styles.statusText}>
-                                        Awaiting authentication...
-                                    </div>;
-                                case State.PASSWORD_ENTERED:
-                                    return <div className={styles.statusText}>
-                                        Verifying password...
-                                    </div>;
-                                case State.AUTH_FAILED:
-                                    return <div className={styles.statusText}>
-                                        Invalid password
-                                        <br />
-                                        <br />
-                                        If you know me personally, ask me to generate one for you.
-                                        <br />
-                                        If you REALLY know me personally, try your name.
-                                        <br />
-                                        <br />
-                                        Refresh to try again.
-                                    </div>;
-                                case State.LOADING_CONTENT:
-                                    return <div className={styles.statusText}>
-                                        Fetching content...
-                                    </div>;
-                                case State.CONTENT_LOADED:
-                                    return <JournalContent mdString={decryptedMdString} setTocHTML={setTocHTML} />;
-
-                                default:
-                                    console.error(`Unhandled state: ${currentState}`);
-                                    return <div className={styles.statusText}>Undefined state</div>;
-                            }
-                        }, [currentState, decryptedMdString])}
-                    </div>
-                    <div className={styles.controlsContainer}>
-                        <a href={`#${INTRODUCTION_ID}`}>🔝</a>
-                        <a href={`#${LATEST_ID}`}>⏬</a>
-                        <button
-                            onClick={() => setPreferences({
-                                ...preferences,
-                                theme: preferences.theme === Theme.DARK ? Theme.LIGHT : Theme.DARK
-                            })}
-                        >
-                            {preferences.theme === Theme.DARK ? "🌙" : "🔆"}
-                        </button>
-                        <button
-                            className={styles.fontCycleButton}
-                            onClick={() => setPreferences({
-                                ...preferences,
-                                font: fontArray[(fontArray.indexOf(preferences.font) + 1) % fontArray.length] as Font
-                            })}
-                            data-font={preferences.font}
-                        >
-                            A
-                        </button>
-                        <span className={styles.fontIndicator}>
-                            {
-                                fontArray.map(font => (
-                                    preferences.font === font ? '●' : '○'
-                                )).join('')
-                            }
-                        </span>
-                    </div>
+                        A
+                    </button>
+                    <span className={styles.fontIndicator}>
+                        {
+                            fontArray.map(font => (
+                                preferences.font === font ? '●' : '○'
+                            )).join('')
+                        }
+                    </span>
                 </div>
-            }
+            </Body>
         </>
     );
 

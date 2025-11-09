@@ -1,17 +1,24 @@
-import ContentFrame from "@/components/ContentFrame";
+import styles from "@/styles/home.module.css";
 import { homeConfig } from "@/configs/homeConfig";
 import { GetStaticProps } from "next";
 import { AppPageProps } from "./_app";
-import styles from "@/styles/home.module.css";
-import TitleCard from "@/components/TitleCard";
 import { useRef, useState } from "react";
 import { socialBoxConfig, SocialLink } from "@/configs/socialBoxConfig";
+import TitleCard from "@/components/TitleCard";
+import Body from "@/components/Body";
+import ContentCard from "@/components/ContentCard";
+import Shelf from "@/components/Shelf";
 
 export default function HomePage() {
     return (
         <>
             <HomeTitleCard />
-            <ContentFrame shelfConfig={homeConfig} />
+
+            <Body>
+                <ContentCard>
+                    <Shelf shelfConfig={homeConfig} />
+                </ContentCard>
+            </Body>
         </>
     );
 }

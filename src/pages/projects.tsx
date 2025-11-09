@@ -1,8 +1,10 @@
-import ContentFrame from "@/components/ContentFrame";
-import TitleCard from "@/components/TitleCard";
 import { projectsConfig } from "@/configs/projectsConfig";
 import { GetStaticProps } from "next";
 import { AppPageProps } from "./_app";
+import TitleCard from "@/components/TitleCard";
+import Body from "@/components/Body";
+import ContentCard from "@/components/ContentCard";
+import Shelf from "@/components/Shelf";
 
 export default function ProjectsPage() {
     return (
@@ -15,7 +17,11 @@ export default function ProjectsPage() {
                 }
             />
 
-            <ContentFrame shelfConfig={projectsConfig} />
+            <Body>
+                <ContentCard>
+                    <Shelf shelfConfig={projectsConfig} />
+                </ContentCard>
+            </Body>
         </>
     );
 }

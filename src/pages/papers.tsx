@@ -1,9 +1,10 @@
-import ContentFrame from "@/components/ContentFrame";
-import TitleCard from "@/components/TitleCard";
-import { Course, Paper, papersConfig } from "@/configs/papersConfig";
 import styles from "@/styles/papers.module.css";
+import { Course, Paper, papersConfig } from "@/configs/papersConfig";
 import { GetStaticProps } from "next";
 import { AppPageProps } from "./_app";
+import TitleCard from "@/components/TitleCard";
+import Body from "@/components/Body";
+import ContentCard from "@/components/ContentCard";
 
 export default function PapersPage() {
     return (
@@ -20,22 +21,32 @@ export default function PapersPage() {
                 }
             />
 
-            <ContentFrame>
-                {papersConfig.courses.map(course => (
-                    course.papers.map(paper =>
-                        <ListItem key={paper.pdfName} course={course} paper={paper} />
-                    )
-                ))}
-            </ContentFrame>
+            <Body>
+                <ContentCard>
+                    <PaperList />
+                </ContentCard>
+            </Body>
         </>
     );
 }
 
-type ListItemProps = {
+function PaperList() {
+    return (
+        <div className={styles.paperList}>
+            {papersConfig.courses.map(course => (
+                course.papers.map(paper =>
+                    <PaperListItem key={paper.pdfName} course={course} paper={paper} />
+                )
+            ))}
+        </div>
+    );
+}
+
+type PaperListItemProps = {
     course: Course;
     paper: Paper;
 };
-function ListItem({ course, paper }: ListItemProps) {
+function PaperListItem({ course, paper }: PaperListItemProps) {
     const pdfPath = `${papersConfig.rootPath}/${course.courseCode}/${paper.pdfName}.pdf`;
     const commentedPDFPath =
         paper.commentedPDFName
@@ -43,7 +54,7 @@ function ListItem({ course, paper }: ListItemProps) {
             : null;
 
     return (
-        <div className={styles.list}>
+        <div className={styles.paperListItem}>
             <span>{paper.type}</span>
             <div className={styles.topic}>
                 <a className={styles.pdf} href={pdfPath} target="_blank">{paper.topic}</a>

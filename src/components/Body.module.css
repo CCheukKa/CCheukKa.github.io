@@ -1,0 +1,19 @@
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    flex-grow: 1;
+    margin-bottom: 40px;
+}
+
+.bodyMain {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+    gap: 1%;
+    flex-grow: 1;
+}

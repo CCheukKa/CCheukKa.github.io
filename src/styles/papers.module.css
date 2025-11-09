@@ -1,10 +1,17 @@
-.list {
+.paperList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 40px;
+}
+
+.paperListItem {
     width: 100%;
     display: grid;
     grid-template-columns: 1.5fr 5fr 3fr 0.8fr;
     align-items: flex-end;
     gap: 10px;
-    margin: 10px 40px;
+    /* margin: 10px 40px; */
     height: fit-content;
     font-family: var(--noto-sans-font-family);
     border-bottom: 1px dashed #d3cfca;

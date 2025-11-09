@@ -1,8 +1,10 @@
-import ContentFrame from "@/components/ContentFrame";
-import TitleCard from "@/components/TitleCard";
 import { plasticityConfig } from "@/configs/plasticityConfig";
 import { GetStaticProps } from "next";
 import { AppPageProps } from "./_app";
+import TitleCard from "@/components/TitleCard";
+import Body from "@/components/Body";
+import ContentCard from "@/components/ContentCard";
+import Shelf from "@/components/Shelf";
 
 export default function PlasticityPage() {
     return (
@@ -17,7 +19,11 @@ export default function PlasticityPage() {
                 }
             />
 
-            <ContentFrame shelfConfig={plasticityConfig} />
+            <Body>
+                <ContentCard>
+                    <Shelf shelfConfig={plasticityConfig} />
+                </ContentCard>
+            </Body>
         </>
     );
 }

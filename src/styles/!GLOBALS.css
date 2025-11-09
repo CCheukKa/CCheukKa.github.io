@@ -14,6 +14,8 @@
 :root {
     color-scheme: dark;
 
+    --root-text-colour: #d3cfca;
+
     --bellota-text-font-family: 'Bellota Text', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
     --montserrat-alternates-font-family: 'Montserrat Alternates', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
     --noto-sans-font-family: 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
@@ -34,6 +36,9 @@ body {
     transition: all 0.3s ease;
     scroll-behavior: smooth;
     box-sizing: border-box;
+
+    /* DEBUG */
+    /* outline: 1px solid #ff000040; */
 }
 
 a {
@@ -47,7 +52,7 @@ a {
 
 body {
     background: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
-    color: #d3cfca;
+    color: var(--root-text-colour);
     margin: 0;
     padding: 0;
     display: flex;

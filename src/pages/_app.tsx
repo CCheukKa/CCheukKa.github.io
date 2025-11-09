@@ -1,6 +1,6 @@
+import "@/styles/!GLOBALS.css";
 import type { AppProps } from "next/app";
 import Header from "@/components/Header";
-import "@/styles/GLOBALS.css";
 import { useRef, useMemo } from "react";
 import LayoutContext from "@/context/LayoutContext";
 import Head from "next/head";
