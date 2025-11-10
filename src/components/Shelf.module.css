@@ -10,12 +10,13 @@
 }
 
 .shelfCategoryHeader {
-    --header-width: 90%;
+    --header-width: 100%;
 
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 40px;
+    margin-top: 60px;
+    margin-bottom: 20px;
     flex-basis: 100%;
     flex-grow: 0;
     position: relative;
@@ -26,8 +27,12 @@
 
     .categoryNameWrapper {
         width: var(--header-width);
-        padding-inline: 50px;
+        padding-inline: 60px;
         z-index: 1;
+        position: relative;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
 
         .categoryName {
             font-size: 24pt;
@@ -35,6 +40,15 @@
             font-family: var(--noto-sans-font-family);
             cursor: pointer;
             text-decoration: none;
+        }
+
+        &::before {
+            content: "#";
+            position: absolute;
+            left: 5px;
+            font-size: 32pt;
+            font-weight: bold;
+            font-family: var(--montserrat-alternates-font-family);
         }
     }
 
