@@ -42,12 +42,12 @@ function ShelfCategory({ rootRefName, categoryName, shelfItems }: ShelfCategoryP
     if (filteredShelfItems.length === 0) { return null; }
 
     return (
-        <>
+        <div className={styles.shelfCategory}>
             {categoryName ? <ShelfCategoryHeader categoryName={categoryName} /> : null}
             {filteredShelfItems.map((item: ShelfItem) => (
                 <ShelfItem key={item.refPath} rootRefName={rootRefName} shelfItem={item} />
             ))}
-        </>
+        </div>
     );
 }
 
@@ -62,13 +62,13 @@ function ShelfCategoryHeader({ categoryName }: ShelfCategoryHeaderProps) {
             .toLowerCase();
 
     return (
-        <div className={styles.shelfCategoryHeader}>
+        <h3 className={styles.shelfCategoryHeader}>
             <div className={styles.categoryNameWrapper}>
                 <a className={styles.categoryName} id={headerId} href={`#${headerId}`}>
                     {categoryName}
                 </a>
             </div>
-        </div>
+        </h3>
     );
 }
 

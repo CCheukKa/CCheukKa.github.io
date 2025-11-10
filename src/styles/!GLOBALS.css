@@ -15,6 +15,7 @@
     color-scheme: dark;
 
     --root-text-colour: #d3cfca;
+    --root-background-gradient: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
 
     --bellota-text-font-family: 'Bellota Text', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
     --montserrat-alternates-font-family: 'Montserrat Alternates', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
@@ -51,7 +52,7 @@ a {
 }
 
 body {
-    background: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
+    background: var(--root-background-gradient);
     color: var(--root-text-colour);
     margin: 0;
     padding: 0;

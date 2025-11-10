@@ -9,6 +9,17 @@
     gap: 20px 25px;
 }
 
+.shelfCategory {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    flex-direction: row;
+    flex-grow: 1;
+    width: 100%;
+    gap: 20px 25px;
+}
+
 .shelfCategoryHeader {
     --header-width: 100%;
 
@@ -18,7 +29,11 @@
     margin-top: 60px;
     flex-basis: 100%;
     flex-grow: 0;
-    position: relative;
+    position: sticky;
+    padding-top: 5px;
+    top: 0;
+    background: var(--root-background-gradient);
+    z-index: 1;
 
     &:first-child {
         margin-top: 0;
