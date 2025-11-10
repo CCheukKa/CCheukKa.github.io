@@ -192,5 +192,15 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             refPath: "https://www.instagram.com/cuhk_flaretrikos",
             projectCategory: PortfolioProjectCategory.STUDENT_SOCIETY_MATERIALS,
         },
+
+        //^ Miscellaneous
+        {
+            isRemote: true,
+            openInNewTab: true,
+            displayName: "(very old!) Putonghua Project Video",
+            refPath: "https://www.youtube.com/watch?v=K7gvz_uZ1jg",
+            thumbnailPathOverride: "https://img.youtube.com/vi/K7gvz_uZ1jg/sddefault.jpg",
+            mediumCategory: PortfolioMediumCategory.VIDEO_PRODUCTION,
+        },
     ]
 }
