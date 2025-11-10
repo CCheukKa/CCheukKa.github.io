@@ -29,6 +29,11 @@ export const homeConfig: HomeConfig = {
             emoji: "🗑️"
         },
         {
+            refPath: "portfolio",
+            displayName: "Portfolio",
+            emoji: "🖼️"
+        },
+        {
             refPath: "papers",
             displayName: "Papers",
             emoji: "📑"

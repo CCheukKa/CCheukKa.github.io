@@ -1,0 +1,42 @@
+.body {
+    gap: 0 !important;
+}
+
+.contentCard {
+    position: relative;
+
+    &:not(:has(h3)) {
+        padding-top: 20px !important;
+    }
+
+    h3 {
+        margin: unset;
+    }
+}
+
+.controlsContainer {
+    position: sticky;
+    top: 10px;
+    z-index: 999;
+}
+
+.categorisationDropdown {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid #ffffff80;
+    padding: 1px 5px;
+    font-family: var(--noto-sans-font-family);
+    transition: none;
+
+    &:open {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
