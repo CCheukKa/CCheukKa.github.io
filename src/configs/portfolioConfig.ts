@@ -32,6 +32,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/catapult-workshop/handout.png",
             projectCategory: PortfolioProjectCategory.STEM_WORKSHOP_MATERIALS,
             mediumCategory: PortfolioMediumCategory.GRAPHIC_DESIGN_AND_ANIMATION,
+            starred: true,
         }, {
             isRemote: true,
             openInNewTab: true,
@@ -39,6 +40,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             refPath: "https://cck.wtf/racing-ai",
             projectCategory: PortfolioProjectCategory.STEM_WORKSHOP_MATERIALS,
             mediumCategory: PortfolioMediumCategory.WEB_DEVELOPMENT,
+            starred: true,
         }, {
             isRemote: true,
             openInNewTab: true,
@@ -55,6 +57,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/hydraulics-workshop/title.png",
             projectCategory: PortfolioProjectCategory.STEM_WORKSHOP_MATERIALS,
             mediumCategory: PortfolioMediumCategory.PRESENTATION_SLIDES,
+            starred: true,
         }, {
             isRemote: true,
             openInNewTab: true,
@@ -63,6 +66,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/vacuum-workshop/title.png",
             projectCategory: PortfolioProjectCategory.STEM_WORKSHOP_MATERIALS,
             mediumCategory: PortfolioMediumCategory.PRESENTATION_SLIDES,
+            starred: true,
         }, {
             isRemote: true,
             openInNewTab: true,
@@ -90,6 +94,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/resisense/wiki.png",
             projectCategory: PortfolioProjectCategory.RESEARCH_PROJECTS,
             mediumCategory: PortfolioMediumCategory.WEB_DEVELOPMENT,
+            starred: true,
         }, {
             isRemote: true,
             openInNewTab: true,
@@ -98,6 +103,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             thumbnailPathOverride: "https://img.youtube.com/vi/C-wbhdFBsfY/sddefault.jpg",
             projectCategory: PortfolioProjectCategory.RESEARCH_PROJECTS,
             mediumCategory: PortfolioMediumCategory.VIDEO_PRODUCTION,
+            starred: true,
         }, {
             isRemote: true,
             openInNewTab: true,
