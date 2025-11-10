@@ -143,7 +143,7 @@ export default function JournalPage() {
                 }
             />
 
-            <Body className={styles.body}>
+            <Body outerClassName={styles.body}>
                 <ContentCard
                     width="28%"
                     className={styles.tocContainer}

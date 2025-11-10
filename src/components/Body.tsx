@@ -6,17 +6,18 @@ type BodyProps = {
     beforeChildren?: React.ReactNode;
     children?: React.ReactNode;
 
-    className?: string;
+    outerClassName?: string;
+    innerClassName?: string;
 };
 
-export default function Body({ width, beforeChildren, children, className }: BodyProps) {
+export default function Body({ width, beforeChildren, children, outerClassName, innerClassName }: BodyProps) {
     return (
         <div
-            className={[styles.body, className].filter(Boolean).join(" ")}
+            className={[styles.body, outerClassName].filter(Boolean).join(" ")}
             style={{ width: width ?? "90%" }}
         >
             {beforeChildren}
-            <div className={styles.bodyMain}>
+            <div className={[styles.bodyMain, innerClassName].filter(Boolean).join(" ")}>
                 {children}
             </div>
         </div>
