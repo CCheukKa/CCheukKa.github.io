@@ -8,12 +8,12 @@ export default function Header() {
     const router = useRouter();
     const { currentPageRefName, absoluteRefPath } = useLayout();
 
-    const thisPage = homeConfig.shelfItems.find(item => item.refPath === currentPageRefName);
+    const thisPage = homeConfig.shelfItems?.find(item => item.refPath === currentPageRefName);
 
     const appendedCatalogue =
         thisPage
             ? homeConfig.shelfItems
-            : [...homeConfig.shelfItems, { refPath: currentPageRefName, displayName: currentPageRefName } as HomeShelfItem];
+            : [...homeConfig.shelfItems ?? [], { refPath: currentPageRefName, displayName: currentPageRefName } as HomeShelfItem];
 
     const isNotFoundPage = router.pathname === '/404';
     const isDynamicPage = router.pathname.includes('[slug]');
@@ -52,7 +52,7 @@ export default function Header() {
                 }
                 <nav className={styles.headerCatalogue}>
                     {
-                        appendedCatalogue.map((page, index) => {
+                        appendedCatalogue?.map((page, index) => {
                             if (page.hideFromNav) { return null; }
                             return (
                                 <Fragment key={index}>
