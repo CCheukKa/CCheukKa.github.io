@@ -111,7 +111,7 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
     }
 
     return (
-        <div className={styles.shelfItemWrapper}>
+        <div className={[styles.shelfItemWrapper, shelfItem.starred ? styles.starred : ''].join(' ')}>
             <a
                 href={fullRefPage}
                 target={shelfItem.openInNewTab ? "_blank" : undefined}

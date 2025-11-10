@@ -19,4 +19,5 @@ export type ShelfItem = {
     underConstruction?: boolean;
     isRemote?: boolean;
     thumbnailPathOverride?: string;
+    starred?: boolean;
 }
