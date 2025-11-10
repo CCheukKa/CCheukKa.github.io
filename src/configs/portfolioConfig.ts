@@ -9,8 +9,8 @@ export enum PortfolioProjectCategory {
 
 export enum PortfolioMediumCategory {
     PRESENTATION_SLIDES = "Presentation Slides",
+    WEB_DEVELOPMENT = "Web Development",
     VIDEO_PRODUCTION = "Video Production",
-    WEBSITE = "Web Application",
     GRAPHIC_DESIGN_AND_ANIMATION = "Graphic Design/ Animation",
 }
 
@@ -35,10 +35,10 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
         }, {
             isRemote: true,
             openInNewTab: true,
-            displayName: "Racing AI Workshop Web App",
+            displayName: "Racing AI Workshop App",
             refPath: "https://cck.wtf/racing-ai",
             projectCategory: PortfolioProjectCategory.STEM_WORKSHOP_MATERIALS,
-            mediumCategory: PortfolioMediumCategory.WEBSITE,
+            mediumCategory: PortfolioMediumCategory.WEB_DEVELOPMENT,
         }, {
             isRemote: true,
             openInNewTab: true,
@@ -78,7 +78,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             refPath: "https://cck.wtf/Green-STEM-Q-and-A-game",
             refPage: "page.html",
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/green-stem-innocarnival-game/game.png",
-            mediumCategory: PortfolioMediumCategory.WEBSITE,
+            mediumCategory: PortfolioMediumCategory.WEB_DEVELOPMENT,
         },
 
         //^ ResiSense
@@ -89,7 +89,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             refPath: "https://resisense.github.io",
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/resisense/wiki.png",
             projectCategory: PortfolioProjectCategory.RESEARCH_PROJECTS,
-            mediumCategory: PortfolioMediumCategory.WEBSITE,
+            mediumCategory: PortfolioMediumCategory.WEB_DEVELOPMENT,
         }, {
             isRemote: true,
             openInNewTab: true,
