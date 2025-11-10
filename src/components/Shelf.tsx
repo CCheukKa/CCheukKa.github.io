@@ -8,13 +8,6 @@ type ShelfProps = {
 export default function Shelf({ shelfConfig }: ShelfProps) {
     return (
         <div className={styles.shelf}>
-            {shelfConfig.shelfItems
-                ? <ShelfCategory
-                    rootRefName={shelfConfig.rootRefName}
-                    shelfItems={shelfConfig.shelfItems ?? []}
-                />
-                : null
-            }
             {
                 shelfConfig.shelfCategories
                     ? shelfConfig.shelfCategories.map((category) => (
@@ -26,6 +19,14 @@ export default function Shelf({ shelfConfig }: ShelfProps) {
                         />
                     ))
                     : null
+            }
+            {shelfConfig.shelfItems
+                ? <ShelfCategory
+                    categoryName={shelfConfig.shelfCategories ? "Uncategorised" : undefined}
+                    rootRefName={shelfConfig.rootRefName}
+                    shelfItems={shelfConfig.shelfItems ?? []}
+                />
+                : null
             }
         </div>
     );
