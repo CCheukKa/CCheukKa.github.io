@@ -38,7 +38,10 @@ function HomeTitleCard() {
         <TitleCard style={{ padding: 0 }}>
             <div className={styles.titleCard}>
                 <div className={styles.avatarContainer}>
-                    <img src="/assets/avatar.svg" alt="Avatar" width="60%" />
+                    <div className={styles.avatarWrapper}>
+                        <img src="/assets/avatar.svg" alt="Avatar" width="100%" />
+                        <img src="/assets/avatar2.jpg" alt="Avatar2" width="100%" />
+                    </div>
                     <span className={styles.description}>Consistent* profile avatar</span>
                 </div>
                 <div className={styles.centerContainer}>

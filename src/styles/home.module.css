@@ -23,6 +23,33 @@
         justify-content: center;
         align-items: center;
         gap: 5px;
+
+        .avatarWrapper {
+            width: 60%;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+
+            &>img {
+                position: absolute;
+            }
+
+            &>img:nth-child(2) {
+                --cut-center: 50%;
+                --cut-width: 20%;
+
+                animation: avatarSlide 10s linear infinite alternate;
+
+                clip-path: polygon(calc(var(--cut-center) + var(--cut-width) / 2) 0,
+                        100% 0,
+                        100% 100%,
+                        calc(var(--cut-center) - var(--cut-width) / 2) 100%);
+            }
+        }
     }
 
     .centerContainer {
@@ -187,5 +214,32 @@
     .lineBreak {
         flex-basis: 120%;
         height: 5px;
+    }
+}
+
+@property --cut-center {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+@property --cut-width {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 40%;
+}
+
+@keyframes avatarSlide {
+
+    0%,
+    30% {
+        --cut-center: calc(0% - var(--cut-width) / 2);
+        animation-timing-function: cubic-bezier(0.70, 0.0, 0.30, 1.0);
+    }
+
+    70%,
+    100% {
+        --cut-center: calc(100% + var(--cut-width) / 2);
+        animation-timing-function: cubic-bezier(0.70, 0.0, 0.30, 1.0);
     }
 }
