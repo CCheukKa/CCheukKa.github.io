@@ -10,6 +10,8 @@
 }
 
 .shelfCategoryHeader {
+    --header-width: 90%;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,17 +24,22 @@
         margin-top: 0;
     }
 
-    .categoryName {
-        width: 90%;
-        font-size: 24pt;
-        font-weight: bold;
+    .categoryNameWrapper {
+        width: var(--header-width);
         padding-inline: 50px;
-        font-family: var(--noto-sans-font-family);
         z-index: 1;
+
+        .categoryName {
+            font-size: 24pt;
+            font-weight: bold;
+            font-family: var(--noto-sans-font-family);
+            cursor: pointer;
+            text-decoration: none;
+        }
     }
 
     &::after {
-        width: 90%;
+        width: var(--header-width);
         position: absolute;
         content: "";
         display: block;

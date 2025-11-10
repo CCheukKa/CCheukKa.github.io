@@ -54,11 +54,15 @@ type ShelfCategoryHeaderProps = {
     categoryName: string;
 };
 function ShelfCategoryHeader({ categoryName }: ShelfCategoryHeaderProps) {
+    const headerId = categoryName.replaceAll(/[^a-zA-Z0-9]/g, '-').toLowerCase();
+
     return (
         <div className={styles.shelfCategoryHeader}>
-            <span className={styles.categoryName}>
-                {categoryName}
-            </span>
+            <div className={styles.categoryNameWrapper}>
+                <a className={styles.categoryName} id={headerId} href={`#${headerId}`}>
+                    {categoryName}
+                </a>
+            </div>
         </div>
     );
 }
