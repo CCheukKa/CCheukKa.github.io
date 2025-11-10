@@ -37,7 +37,8 @@ export const projectsConfig: ShelfConfig = {
             displayName: "Racing AI",
             isRemote: true,
             refPath: "https://cck.wtf/racing-ai",
-            openInNewTab: true
+            openInNewTab: true,
+            starred: true,
         },
         {
             displayName: "Seating Constraint Solver",
