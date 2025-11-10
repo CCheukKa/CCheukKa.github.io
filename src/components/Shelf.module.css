@@ -87,13 +87,13 @@
     }
 
     &.starred {
-        .shelfItem {
+        .legend {
             position: relative;
 
             &::before {
                 position: absolute;
-                left: 0px;
-                top: calc(-1 * var(--top-bar-height) - 5px);
+                left: -26px;
+                top: 17px;
                 height: 0;
                 width: 0;
                 display: flex;
