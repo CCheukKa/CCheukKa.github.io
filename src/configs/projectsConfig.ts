@@ -35,7 +35,6 @@ export const projectsConfig: ShelfConfig = {
         },
         {
             displayName: "Racing AI",
-            emoji: "🏎️",
             isRemote: true,
             refPath: "https://cck.wtf/racing-ai",
             openInNewTab: true
