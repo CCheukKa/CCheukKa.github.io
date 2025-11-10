@@ -5,12 +5,8 @@
 .contentCard {
     position: relative;
 
-    &:not(:has(h3)) {
+    &:not(:has([data-header])) {
         padding-top: 20px !important;
-    }
-
-    h3 {
-        margin: unset;
     }
 }
 

@@ -62,13 +62,13 @@ function ShelfCategoryHeader({ categoryName }: ShelfCategoryHeaderProps) {
             .toLowerCase();
 
     return (
-        <h3 className={styles.shelfCategoryHeader}>
+        <div className={styles.shelfCategoryHeader} data-header>
             <div className={styles.categoryNameWrapper}>
                 <a className={styles.categoryName} id={headerId} href={`#${headerId}`}>
                     {categoryName}
                 </a>
             </div>
-        </h3>
+        </div>
     );
 }
 
