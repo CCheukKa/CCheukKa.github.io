@@ -101,6 +101,7 @@
                 justify-content: center;
                 content: "★";
                 color: #ffd700;
+                text-shadow: 0 0 20px #ffd70088;
                 font-family: var(--segeo-ui-emoji-font-family);
             }
         }
