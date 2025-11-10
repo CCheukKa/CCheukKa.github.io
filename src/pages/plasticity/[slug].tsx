@@ -126,7 +126,7 @@ export default function PlasticityContentPage({ metadata, content }: PlasticityC
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const paths = plasticityConfig.shelfItems
+    const paths = (plasticityConfig.shelfItems ?? [])
         .filter(item => !item.isRemote)
         .map(item => ({
             params: { slug: item.refPath }
