@@ -11,7 +11,7 @@ export default function PapersPage() {
         <>
             <TitleCard
                 title="Papers"
-                flavourText="Stuff I have written for university"
+                flavourText="Stuff I have written for university & +"
                 description={
                     "The topics vary quite drastically, and so does the quality. Interesting stuff; some of them are even good."
                     + "\n" +

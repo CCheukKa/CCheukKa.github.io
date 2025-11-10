@@ -21,6 +21,48 @@ export const papersConfig: PapersConfig = {
     rootPath: "https://cck.wtf/paperPDFs",
     courses: [
         {
+            courseCode: "SJC-INTEGRATED-HUMANITIES",
+            courseName: "Secondary School Integrated Humanities",
+            papers: [
+                {
+                    pdfName: "IH Project",
+                    topic: "Stress Coping in Hong Kong Secondary Students",
+                    type: "Project Learning Report",
+                    date: "18-11-2017"
+                },
+            ]
+        },
+        {
+            courseCode: "SJC-ENGLISH",
+            courseName: "Secondary School English",
+            papers: [
+                {
+                    pdfName: "Book Report",
+                    topic: "On \"Replay\"",
+                    type: "Book Report",
+                    date: "12-02-2019"
+                },
+            ]
+        },
+        {
+            courseCode: "SJC-LIBERAL-STUDIES",
+            courseName: "Secondary School Liberal Studies",
+            papers: [
+                {
+                    pdfName: "LS News Commentary #1",
+                    topic: "Repurposing Country Parks for Sustainable Development",
+                    type: "News Commentary",
+                    date: "07-03-2019"
+                },
+                {
+                    pdfName: "IES Report",
+                    topic: "Facial Recognition Technology in Public Surveillance Systems",
+                    type: "Independent Enquiry Study Report",
+                    date: "19-07-2020"
+                },
+            ]
+        },
+        {
             courseCode: "CHLT-1100",
             courseName: "University Chinese I",
             papers: [
