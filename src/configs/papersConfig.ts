@@ -49,7 +49,7 @@ export const papersConfig: PapersConfig = {
             courseName: "Secondary School Liberal Studies",
             papers: [
                 {
-                    pdfName: "LS News Commentary #1",
+                    pdfName: "LS News Commentary 1",
                     topic: "Repurposing Country Parks for Sustainable Development",
                     type: "News Commentary",
                     date: "07-03-2019"
