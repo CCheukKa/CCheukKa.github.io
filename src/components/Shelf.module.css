@@ -67,11 +67,15 @@
     min-width: 300px;
     width: fit-content;
     height: 220px;
+    background-image:
+        linear-gradient(to bottom, #00000060 10px, transparent 25%),
+        var(--bg-image);
     background-size: cover;
     background-position: center;
     text-align: center;
     padding: 10px 24px 20px 24px;
     margin: 0;
+    overflow: hidden;
 
     &:hover {
         cursor: pointer;
@@ -79,7 +83,7 @@
 }
 
 .legend {
-    color: #ccc9c5;
+    color: var(--root-text-colour);
     text-shadow: 1px 1px 10px #000000;
     font-weight: bold;
     background: linear-gradient(to top, #3a3b3d00 20%, #3a3b3d99 40%, #3a3b3d99 50%, #3a3b3d00 75%);

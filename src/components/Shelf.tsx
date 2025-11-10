@@ -115,7 +115,7 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
                     className={styles.shelfItem}
                     style={
                         thumbnailExists
-                            ? { backgroundImage: `url(${thumbnailPath})` }
+                            ? ({ "--bg-image": `url(${thumbnailPath})` } as React.CSSProperties)
                             : {}
                     }
                 >
