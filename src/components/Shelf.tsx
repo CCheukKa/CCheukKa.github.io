@@ -8,9 +8,57 @@ type ShelfProps = {
 export default function Shelf({ shelfConfig }: ShelfProps) {
     return (
         <div className={styles.shelf}>
-            {shelfConfig.shelfItems.map((item: ShelfItem) => (
-                <ShelfItem key={item.refPath} rootRefName={shelfConfig.rootRefName} shelfItem={item} />
+            {shelfConfig.shelfItems
+                ? <ShelfCategory
+                    rootRefName={shelfConfig.rootRefName}
+                    shelfItems={shelfConfig.shelfItems ?? []}
+                />
+                : null
+            }
+            {
+                shelfConfig.shelfCategories
+                    ? shelfConfig.shelfCategories.map((category) => (
+                        <ShelfCategory
+                            key={category.categoryName}
+                            rootRefName={shelfConfig.rootRefName}
+                            categoryName={category.categoryName}
+                            shelfItems={category.shelfItems}
+                        />
+                    ))
+                    : null
+            }
+        </div>
+    );
+}
+
+type ShelfCategoryProps = {
+    rootRefName: string;
+    categoryName?: string;
+    shelfItems: ShelfItem[];
+};
+function ShelfCategory({ rootRefName, categoryName, shelfItems }: ShelfCategoryProps) {
+    const filteredShelfItems = shelfItems.filter(item => !item.hideFromShelf);
+    if (filteredShelfItems.length === 0) { return null; }
+
+    return (
+        <>
+            {categoryName ? <ShelfCategoryHeader categoryName={categoryName} /> : null}
+            {filteredShelfItems.map((item: ShelfItem) => (
+                <ShelfItem key={item.refPath} rootRefName={rootRefName} shelfItem={item} />
             ))}
+        </>
+    );
+}
+
+type ShelfCategoryHeaderProps = {
+    categoryName: string;
+};
+function ShelfCategoryHeader({ categoryName }: ShelfCategoryHeaderProps) {
+    return (
+        <div className={styles.shelfCategoryHeader}>
+            <span className={styles.categoryName}>
+                {categoryName}
+            </span>
         </div>
     );
 }

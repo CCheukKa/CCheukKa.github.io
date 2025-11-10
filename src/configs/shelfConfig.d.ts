@@ -1,5 +1,11 @@
 export type ShelfConfig<T extends ShelfItem = ShelfItem> = {
     rootRefName: string;
+    shelfItems?: T[];
+    shelfCategories?: ShelfCategory<T>[];
+}
+
+export type ShelfCategory<T extends ShelfItem = ShelfItem> = {
+    categoryName: string;
     shelfItems: T[];
 }
 
