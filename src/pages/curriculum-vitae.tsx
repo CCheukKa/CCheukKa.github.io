@@ -16,7 +16,7 @@ export default function CurriculumVitaePage() {
                         "Here is my CV, detailing my educational background, work experience, skills, and other relevant qualifications. This document provides an overview of my professional journey and accomplishments to date."
                         + "\n"
                         + "\n"
-                        + "Sensitive and personal information has been redacted. The redaction and updating of this document is done daily automatically."
+                        + "Sensitive and personal information has been redacted. The redaction and updating of this document is done daily automatically with a cron job."
                     }
                     className={styles.titleCard}
                 />
