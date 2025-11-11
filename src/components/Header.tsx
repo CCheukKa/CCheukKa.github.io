@@ -53,7 +53,7 @@ export default function Header() {
                 <nav className={styles.headerCatalogue}>
                     {
                         appendedCatalogue?.map((page, index) => {
-                            if (page.hideFromNav) { return null; }
+                            if (page.hideFromNav && page.refPath !== currentPageRefName) { return null; }
                             return (
                                 <Fragment key={index}>
                                     {getCatalogueItem(page, currentPageRefName)}
