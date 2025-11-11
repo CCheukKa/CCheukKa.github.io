@@ -48,7 +48,7 @@ export const homeConfig: HomeConfig = {
             displayName: "CV",
             emoji: "📜",
             hideFromShelf: true,
-            hideFromNav: true,
+            // hideFromNav: true,
         },
         {
             refPath: "github",
