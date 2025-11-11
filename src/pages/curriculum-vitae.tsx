@@ -8,15 +8,18 @@ import ContentCard from "@/components/ContentCard";
 export default function CurriculumVitaePage() {
     return (
         <>
-            <TitleCard
-                title="Curriculum Vitae"
-                flavourText="My professional experience and qualifications"
-                description={
-                    "Here is my Curriculum Vitae (CV), detailing my educational background, work experience, skills, and other relevant qualifications. This document provides an overview of my professional journey and accomplishments to date."
-                }
-            />
-
             <Body>
+                <TitleCard
+                    title="Curriculum Vitae"
+                    flavourText="My professional experience and qualifications"
+                    description={
+                        "Here is my CV, detailing my educational background, work experience, skills, and other relevant qualifications. This document provides an overview of my professional journey and accomplishments to date."
+                        + "\n"
+                        + "\n"
+                        + "Sensitive and personal information has been redacted. The redaction and updating of this document is done daily automatically."
+                    }
+                    className={styles.titleCard}
+                />
                 <ContentCard className={styles.contentCard}>
                     <iframe
                         src="https://cck.wtf/curriculum-vitae-redact/CCheukKa Curriculum Vitae (REDACTED).pdf"
