@@ -16,44 +16,44 @@ export const homeConfig: HomeConfig = {
         {
             refPath: "home",
             displayName: "🏠 Home",
-            hideFromShelf: true
+            hideFromShelf: true,
         },
         {
             refPath: "projects",
             displayName: "Projects",
-            emoji: "👨🏻‍💻"
+            emoji: "👨🏻‍💻",
         },
         {
             refPath: "plasticity",
             displayName: "Plasticity",
-            emoji: "🗑️"
+            emoji: "🗑️",
         },
         {
             refPath: "portfolio",
             displayName: "Portfolio",
-            emoji: "🖼️"
+            emoji: "🖼️",
         },
         {
             refPath: "papers",
             displayName: "Papers",
-            emoji: "📑"
+            emoji: "📑",
         },
         {
             refPath: "journal",
             displayName: "Journal",
-            emoji: "📝"
+            emoji: "📝",
         },
         {
             refPath: "curriculum-vitae",
             displayName: "CV",
             emoji: "📜",
             hideFromShelf: true,
-            hideFromNav: true
+            hideFromNav: true,
         },
         {
             refPath: "github",
             displayName: "Github ➹",
-            hideFromShelf: true
+            hideFromShelf: true,
         }
     ],
     constructionExceptionRefPaths: [
