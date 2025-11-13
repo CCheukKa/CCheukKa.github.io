@@ -1,7 +1,12 @@
+.body {
+    width: 95% !important;
+}
+
 .titleCard {
     flex-direction: column !important;
     width: min-content !important;
     margin-top: 20px !important;
+    padding-inline: 25px !important;
 
     &>div:last-child {
         margin-left: 0 !important;
@@ -12,7 +17,8 @@
 .contentCard {
     padding: 0 !important;
     overflow: hidden;
-    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 5px !important;
+    border-bottom-right-radius: 5px !important;
     margin-top: 20px !important;
 }
 

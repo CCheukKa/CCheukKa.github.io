@@ -8,7 +8,7 @@ import ContentCard from "@/components/ContentCard";
 export default function CurriculumVitaePage() {
     return (
         <>
-            <Body>
+            <Body outerClassName={styles.body}>
                 <TitleCard
                     title="Curriculum Vitae"
                     flavourText="My professional experience and qualifications"
