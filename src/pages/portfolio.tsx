@@ -37,15 +37,26 @@ export default function PortfolioPage() {
 
     const { mainRef } = useLayout();
     const [categorisation, setCategorisation] = useState<Categorisation>();
+    function updateUrlWithHashAndSearchParams(categorisation?: Categorisation) {
+        const url = new URL(window.location.href);
+        if (categorisation !== undefined) {
+            url.searchParams.set("categorisation", categorisation);
+        }
+        if (url.hash && !document.getElementById(url.hash.substring(1))) {
+            url.hash = "";
+        }
+        window.history.replaceState({}, "", url.toString());
+        return url;
+    }
+
     useEffect(() => {
-        setCategorisation(new URLSearchParams(window.location.search).get("categorisation") as Categorisation);
+        const url = updateUrlWithHashAndSearchParams();
+        setCategorisation(url.searchParams.get("categorisation") as Categorisation);
     }, []);
+
     useEffect(() => {
         if (!categorisation) { return; }
-        const url = new URL(window.location.href);
-        url.searchParams.set("categorisation", categorisation);
-        url.hash = "";
-        window.history.replaceState({}, "", url.toString());
+        updateUrlWithHashAndSearchParams(categorisation);
         mainRef.current?.scrollTo({ top: 0 });
     }, [categorisation]);
 
