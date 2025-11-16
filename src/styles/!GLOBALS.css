@@ -16,6 +16,7 @@
 
     --root-text-colour: #d3cfca;
     --root-background-gradient: linear-gradient(to bottom, #222426 10%, #1d1f20 90%) fixed;
+    --root-page-padding: 8px;
 
     --bellota-text-font-family: 'Bellota Text', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
     --montserrat-alternates-font-family: 'Montserrat Alternates', 'Noto Sans', 'Noto Sans HK', 'Segoe UI Emoji', sans-serif;
@@ -37,6 +38,7 @@ body {
     transition: all 0.3s ease;
     scroll-behavior: smooth;
     box-sizing: border-box;
+    interpolate-size: allow-keywords;
 
     /* DEBUG */
     /* outline: 1px solid #ff000040; */
