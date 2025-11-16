@@ -1,16 +1,25 @@
 import styles from "@/components/Header.module.css";
 import { homeConfig, HomeShelfItem } from "@/configs/homeConfig";
 import { useLayout } from "@/context/LayoutContext";
+import { useRouter } from "next/router";
 import { Fragment, useEffect, useState } from "react";
 
 export default function Header() {
     const { currentPageRefName, absoluteRefPath } = useLayout();
 
+    const router = useRouter();
+    const isNotFoundPage = router.route === "/404";
+
     const [hydrated, setHydrated] = useState(false);
     useEffect(() => { setHydrated(true); }, []);
-
-    const displayCurrentPageRefName = hydrated ? currentPageRefName : "Loading...";
-    const displayAbsoluteRefPath = hydrated ? absoluteRefPath : [];
+    const displayCurrentPageRefName =
+        isNotFoundPage
+            ? (hydrated ? currentPageRefName : "Loading...")
+            : currentPageRefName;
+    const displayAbsoluteRefPath =
+        isNotFoundPage
+            ? (hydrated ? absoluteRefPath : [])
+            : absoluteRefPath;
 
     return (
         <div className={styles.headerContainer}>
