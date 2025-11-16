@@ -1,11 +1,9 @@
 import styles from "@/components/Header.module.css";
 import { homeConfig, HomeShelfItem } from "@/configs/homeConfig";
-import { useRouter } from "next/router";
 import { useLayout } from "@/context/LayoutContext";
 import { Fragment } from "react";
 
 export default function Header() {
-    const router = useRouter();
     const { currentPageRefName, absoluteRefPath } = useLayout();
 
     const thisPage = homeConfig.shelfItems?.find(item => item.refPath === currentPageRefName);
@@ -14,9 +12,6 @@ export default function Header() {
         thisPage
             ? homeConfig.shelfItems
             : [...homeConfig.shelfItems ?? [], { refPath: currentPageRefName, displayName: currentPageRefName } as HomeShelfItem];
-
-    const isNotFoundPage = router.pathname === '/404';
-    const isDynamicPage = router.pathname.includes('[slug]');
 
     return (
         <div className={styles.headerContainer}>
@@ -39,17 +34,6 @@ export default function Header() {
                         </span>
                     ))}
                 </div>
-                {
-                    (thisPage && !thisPage?.underConstruction)
-                        || homeConfig.constructionExceptionRefPaths.includes(currentPageRefName)
-                        || isDynamicPage
-                        || isNotFoundPage
-                        ? null
-                        : <>
-                            <span className={`${styles.headerCatalogueSelected} ${styles.constructionSign}`}>🚧</span>
-                            <span className={`${styles.headerCatalogueSelected} ${styles.constructionText}`}>Page under construction!</span>
-                        </>
-                }
                 <nav className={styles.headerCatalogue}>
                     {
                         appendedCatalogue?.map((page, index) => {

@@ -4,11 +4,7 @@ export type HomeShelfItem = ShelfItem & {
     hideFromNav?: boolean;
 }
 
-type HomeConfig =
-    ShelfConfig<HomeShelfItem>
-    & {
-        constructionExceptionRefPaths: string[]
-    };
+type HomeConfig = ShelfConfig<HomeShelfItem>;
 
 export const homeConfig: HomeConfig = {
     rootRefName: "",
@@ -56,7 +52,4 @@ export const homeConfig: HomeConfig = {
             hideFromShelf: true,
         }
     ],
-    constructionExceptionRefPaths: [
-        "chess",
-    ]
 }

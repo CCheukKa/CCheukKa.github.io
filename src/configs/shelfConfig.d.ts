@@ -16,7 +16,6 @@ export type ShelfItem = {
     emoji?: string;
     hideFromShelf?: boolean;
     openInNewTab?: boolean;
-    underConstruction?: boolean;
     isRemote?: boolean;
     thumbnailPathOverride?: string;
     starred?: boolean;

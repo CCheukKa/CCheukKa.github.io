@@ -98,11 +98,7 @@ function ShelfItem({ rootRefName, shelfItem }: ShelfItemProps) {
             .catch(() => setThumbnailExists(false));
     }, [thumbnailPath]);
 
-    if (shelfItem.underConstruction) {
-        span1 = "🚧";
-        span2 = "Page under construction!";
-        span2Colour = '#f35858';
-    } else if (shelfItem.emoji) {
+    if (shelfItem.emoji) {
         span1 = shelfItem.emoji;
     } else if (!thumbnailExists) {
         span1 = pickRandom(['😐', '🙃', '🥴', '🤪', '😵', '🤔', '🤨', '💀']);
