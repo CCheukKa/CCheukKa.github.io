@@ -96,6 +96,7 @@
         .fullName {
             font-family: var(--montserrat-alternates-font-family);
             font-size: 18pt;
+            white-space: nowrap;
         }
 
         .statusText {
@@ -113,7 +114,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 5px;
+        gap: 15px;
     }
 }
 
@@ -217,7 +218,6 @@
 
 .socialBox {
     position: relative;
-    top: 10px;
     width: 100%;
     height: 40%;
     display: flex;
@@ -278,7 +278,6 @@
 
             .socialBox {
                 flex-wrap: nowrap;
-                top: 0;
 
                 .lineBreak {
                     display: none;
@@ -294,7 +293,7 @@
     }
 }
 
-@media screen and (max-width:780px) {
+@media screen and (max-width:780px) and (min-width:760px) {
     .titleCard {
         flex-wrap: wrap;
         justify-content: space-around !important;
@@ -313,11 +312,112 @@
 
             .socialBox {
                 flex-wrap: nowrap;
-                top: 0;
 
                 .lineBreak {
                     display: none;
                 }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:760px) {
+    .titleCard {
+        flex-wrap: wrap;
+        justify-content: space-around !important;
+        padding: 10px !important;
+
+        .avatarContainer {
+            gap: 0;
+            min-width: initial;
+
+            .avatarDescription {
+                opacity: 0;
+                height: 0;
+            }
+        }
+
+        .centerContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: fit-content;
+            height: fit-content;
+            margin: 0;
+            padding: 0;
+            min-width: initial;
+
+            .nameContainer {
+                .handleName {
+                    font-size: 48pt;
+                }
+            }
+
+            .statusText {
+                display: none;
+            }
+        }
+
+        .contactsContainer {
+            flex-direction: column;
+            width: 100%;
+
+            .emailContainer {
+                height: initial;
+                width: initial;
+                justify-content: center;
+                gap: 10px;
+                padding: 10px 20px;
+
+                .copyEmailButton {
+                    flex-direction: row;
+
+                    .emailLine1,
+                    .emailLine2 {
+                        translate: 0 0;
+                    }
+                }
+            }
+
+            .socialBox {
+                flex-wrap: nowrap;
+
+                .lineBreak {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:450px) {
+    .titleCard {
+        flex-direction: column;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 0 !important;
+
+        .centerContainer {
+            .nameContainer {
+                .handleName {
+                    font-size: 42pt;
+                }
+            }
+
+            .fullName {
+                display: none;
+            }
+        }
+
+        .contactsContainer {
+            .emailContainer {
+                width: 100%;
+            }
+
+            .socialBox {
+                width: 100%;
+                flex-wrap: wrap;
             }
         }
     }
