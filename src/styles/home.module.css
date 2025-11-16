@@ -266,6 +266,7 @@
 @media screen and (max-width:1000px) and (min-width:780px) {
     .titleCard {
         flex-wrap: wrap;
+        justify-content: space-around !important;
 
         .contactsContainer {
             width: 100%;
@@ -296,6 +297,7 @@
 @media screen and (max-width:780px) {
     .titleCard {
         flex-wrap: wrap;
+        justify-content: space-around !important;
 
         .avatarContainer {
             max-width: 30%;
