@@ -107,7 +107,7 @@ function EmailButton() {
             }}
         >
             <div className={styles.tooltip} ref={sendEmailTooltipRef}>📧 Send email</div>
-            <img src="/assets/sendEmail.svg" alt="Email icon" width="40px" />
+            <Icon iconName="outgoing_mail" className={styles.sendEmailIcon} />
         </a>
     </div>);
 }

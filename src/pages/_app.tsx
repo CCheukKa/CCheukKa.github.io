@@ -59,8 +59,6 @@ export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
         <LayoutContext.Provider value={{ mainRef, currentPageRefName, absoluteRefPath }}>
             <Head>
                 {titleTag}
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
                 <meta name="view-transition" content="same-origin" />
             </Head>
             <Header />

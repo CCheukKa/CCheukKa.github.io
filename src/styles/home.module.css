@@ -163,10 +163,11 @@
         justify-content: center;
         align-items: center;
 
-        img {
+        .sendEmailIcon {
             position: relative;
+            font-size: 36pt;
             top: 4px;
-            filter: drop-shadow(2px 2px 2px #1c3344);
+            filter: drop-shadow(2px 2px 2px #1c334480);
         }
     }
 
