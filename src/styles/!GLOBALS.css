@@ -105,7 +105,7 @@ main {
 
     &::-webkit-scrollbar-track {
         background-color: transparent;
-        margin: 8px;
+        margin: var(--root-page-padding);
 
         &:hover {
             background-color: #55555744;
