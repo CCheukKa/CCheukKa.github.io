@@ -19,7 +19,10 @@ export default function App({ Component, pageProps }: AppProps<AppPageProps>) {
     // Calculate path from router.asPath (includes actual slug values)
     const absoluteRefPath = useMemo(() => {
         // Use asPath to get the actual URL with slug values
-        const pathname = router.asPath.split('?')[0].split('#')[0]; // Remove query params and hash
+        const pathname = router.asPath
+            .split('?')[0]
+            .split('#')[0]
+            .replace(".html", "");
         const segments = pathname
             .split('/')
             .filter(s => s);
