@@ -16,6 +16,13 @@
     padding: 80px;
     background-color: #2c3035;
     box-shadow: 0px 0px 20px #00000066;
+    text-align: center;
+
+    @media screen and (max-width:600px) {
+        padding: var(--root-page-padding);
+        background: none;
+        box-shadow: none;
+    }
 }
 
 ._404Title {

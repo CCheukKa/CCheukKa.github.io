@@ -73,7 +73,7 @@ export default function PortfolioPage() {
                 }
             />
 
-            <Body innerClassName={styles.body}>
+            <Body rowBodyClassName={styles.body}>
                 <ContentCard className={styles.contentCard}>
                     {useMemo(() => (
                         <Shelf shelfConfig={(() => {

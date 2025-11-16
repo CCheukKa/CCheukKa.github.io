@@ -8,6 +8,7 @@ import TitleCard from "@/components/TitleCard";
 import Body from "@/components/Body";
 import ContentCard from "@/components/ContentCard";
 import Shelf from "@/components/Shelf";
+import Icon from "@/components/Icon";
 
 export default function HomePage() {
     return (
@@ -35,29 +36,26 @@ export const getStaticProps: GetStaticProps<AppPageProps> = async () => {
 
 function HomeTitleCard() {
     return (
-        <TitleCard style={{ padding: 0 }}>
-            <div className={styles.titleCard}>
-                <div className={styles.avatarContainer}>
-                    <div className={styles.avatarWrapper}>
-                        <img src="/assets/avatar.svg" alt="Avatar" width="100%" />
-                        <img src="/assets/avatar2.jpg" alt="Avatar2" width="100%" />
-                    </div>
-                    <span className={styles.description}>Consistent* profile avatar</span>
+        <TitleCard className={styles.titleCard}>
+            <div className={styles.avatarContainer}>
+                <div className={styles.avatarWrapper}>
+                    <img src="/assets/avatar.svg" alt="Avatar" width="100%" />
+                    <img src="/assets/avatar2.jpg" alt="Avatar2" width="100%" />
                 </div>
-                <div className={styles.centerContainer}>
-                    <div className={styles.nameContainer}>
-                        <span className={styles.hiText}>Hi! I'm</span>
-                        <span className={styles.handleName}>CCheukKa</span>
-                        <span className={styles.hiText} style={{ opacity: 0, userSelect: "none" }}>Hi! I'm</span>
-                    </div>
-                    <span className={styles.fullName}>(Chan Cheuk Ka)</span>
-                    <br />
-                    <span className={styles.statusText}>I am but a blob of meat who lives on a slab of rock floating on layers of lava on the surface of a piece of wet rock circling a ball of flames drifting among the great darkness and beyond.</span>
+                <span className={styles.avatarDescription}>Consistent* profile avatar</span>
+            </div>
+            <div className={styles.centerContainer}>
+                <div className={styles.nameContainer}>
+                    <span className={styles.hiText}>Hi! I'm</span>
+                    <span className={styles.handleName}>CCheukKa</span>
                 </div>
-                <div className={styles.contactsContainer}>
-                    <EmailButton />
-                    <SocialBox />
-                </div>
+                <span className={styles.fullName}>(Chan Cheuk Ka)</span>
+                <br />
+                <span className={styles.statusText}>I am but a blob of meat who lives on a slab of rock floating on layers of lava on the surface of a piece of wet rock circling a ball of flames drifting among the great darkness and beyond.</span>
+            </div>
+            <div className={styles.contactsContainer}>
+                <EmailButton />
+                <SocialBox />
             </div>
         </TitleCard >
     );

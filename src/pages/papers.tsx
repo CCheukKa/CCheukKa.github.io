@@ -55,7 +55,7 @@ function PaperListItem({ course, paper }: PaperListItemProps) {
 
     return (
         <div className={styles.paperListItem}>
-            <span>{paper.type}</span>
+            <span className={styles.type}>{paper.type}</span>
             <div className={styles.topic}>
                 <a className={styles.pdf} href={pdfPath} target="_blank">{paper.topic}</a>
                 {
@@ -64,7 +64,7 @@ function PaperListItem({ course, paper }: PaperListItemProps) {
                         : null
                 }
             </div>
-            <span className={styles.course}>{course.courseCode}:<br />{course.courseName}</span>
+            <span className={styles.course}>{`${course.courseCode}: `}<br />{course.courseName}</span>
             <span className={styles.date}>{paper.date}</span>
         </div>
     );

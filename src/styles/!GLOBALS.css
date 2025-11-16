@@ -41,7 +41,7 @@ body {
     interpolate-size: allow-keywords;
 
     /* DEBUG */
-    /* outline: 1px solid #ff000040; */
+    /* outline: 1px solid #ffff0020; */
 }
 
 a {
@@ -94,17 +94,18 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    overflow-y: scroll;
-    overflow-x: visible;
+    overflow-x: auto;
+    overflow-y: auto;
     scroll-padding-top: 20px;
 
     &::-webkit-scrollbar {
         width: 8px;
+        height: 8px;
     }
 
     &::-webkit-scrollbar-track {
         background-color: transparent;
-        margin-block: 10px;
+        margin: 10px;
 
         &:hover {
             background-color: #55555744;
@@ -118,6 +119,16 @@ main {
 
         &:hover {
             background-color: #7c7c7c;
+        }
+    }
+
+    @media (hover: none) and (pointer: coarse) {
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+            display: none;
         }
     }
 }

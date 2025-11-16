@@ -6,7 +6,7 @@ type TitleCardProps = {
 }
     & ({
         title: string;
-        flavourText: string;
+        flavourText?: string;
         description: string;
         children?: never;
     } | {
@@ -23,7 +23,10 @@ export default function TitleCard({ style, className, title, flavourText, descri
             {children ?? (<>
                 <div className={styles.pageTitleContainer}>
                     <div className={styles.pageTitle}>{title}</div>
-                    <div className={styles.flavourText}>{flavourText}</div>
+                    {flavourText
+                        ? <div className={styles.flavourText}>{flavourText}</div>
+                        : null
+                    }
                 </div>
                 <div className={styles.descriptionWrapper}>
                     <span

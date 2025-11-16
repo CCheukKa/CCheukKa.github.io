@@ -1,15 +1,25 @@
 .shelf {
+    --shelf-padding: 20px;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
     flex-direction: row;
     flex-grow: 1;
-    padding: 20px;
+    padding: var(--shelf-padding);
     gap: 80px 25px;
+
+    @media screen and (max-width: 750px) {
+        --shelf-padding: 10px;
+        gap: 40px 15px;
+    }
 }
 
 .shelfCategory {
+    --shelf-vertical-gap: 20px;
+    --shelf-horizontal-gap: 25px;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -17,7 +27,7 @@
     flex-direction: row;
     flex-grow: 1;
     width: 100%;
-    gap: 20px 25px;
+    gap: var(--shelf-vertical-gap) var(--shelf-horizontal-gap);
 }
 
 .shelfCategoryHeader {
@@ -102,6 +112,15 @@
             }
         }
     }
+
+    @media screen and (max-width: 750px) {
+        min-width: calc(50% - var(--shelf-horizontal-gap) / 2);
+
+    }
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
 }
 
 .shelfItem {
@@ -125,6 +144,10 @@
     &:hover {
         cursor: pointer;
     }
+
+    @media screen and (max-width: 750px) {
+        min-width: 100%;
+    }
 }
 
 .legend {
@@ -139,6 +162,10 @@
     white-space: nowrap;
     border-radius: 10px;
     padding: 0;
+
+    @media screen and (max-width: 600px) {
+        white-space: initial;
+    }
 }
 
 .shelfSpan1 {
