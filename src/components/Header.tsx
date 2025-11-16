@@ -12,18 +12,6 @@ export default function Header() {
     const displayCurrentPageRefName = hydrated ? currentPageRefName : "Loading...";
     const displayAbsoluteRefPath = hydrated ? absoluteRefPath : [];
 
-    const thisPage = hydrated
-        ? homeConfig.shelfItems?.find(item => item.refPath === displayCurrentPageRefName)
-        : undefined;
-
-    const appendedCatalogue = hydrated
-        ? (thisPage
-            ? homeConfig.shelfItems
-            : [...homeConfig.shelfItems ?? [], { refPath: displayCurrentPageRefName, displayName: displayCurrentPageRefName } as HomeShelfItem])
-        : [];
-
-    console.log("Header render:", { hydrated, displayCurrentPageRefName, displayAbsoluteRefPath, thisPage, appendedCatalogue });
-
     return (
         <div className={styles.headerContainer}>
             <header className={styles.header}>
@@ -49,13 +37,13 @@ export default function Header() {
                 </div>
                 <nav className={styles.headerCatalogue}>
                     {
-                        appendedCatalogue?.map((page, index) => {
+                        homeConfig.shelfItems?.map((page, index, array) => {
                             if (page.hideFromNav && page.refPath !== displayCurrentPageRefName) { return null; }
                             return (
                                 <Fragment key={index}>
                                     {getCatalogueItem(page, displayCurrentPageRefName)}
                                     {
-                                        index < appendedCatalogue.length - 1
+                                        index < array.length - 1
                                             ? <span className={styles.headerCatalogueSeparator}> | </span>
                                             : null
                                     }
