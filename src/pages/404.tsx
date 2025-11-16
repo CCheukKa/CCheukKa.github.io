@@ -4,9 +4,9 @@ import { AppPageProps } from "./_app";
 
 export default function NotFoundPage() {
     return (
-        <>
-            <div className={styles._404Container}>
-                <h1 className={styles._404Title}>404 - Page Not Found</h1>
+        <div className={styles._404Container}>
+            <div className={styles._404Card}>
+                <span className={styles._404Title}>404 - Page Not Found</span>
                 <p className={styles._404Message}>The page you are looking for does not exist.</p>
                 <br />
                 <button
@@ -16,7 +16,7 @@ export default function NotFoundPage() {
                     ⬅️ Go back from whence you came
                 </button>
             </div>
-        </>
+        </div>
     );
 }
 
