@@ -25,6 +25,10 @@
         flex-direction: column;
         align-items: center;
     }
+
+    @media screen and (max-width: 450px) {
+        padding: 10px 20px;
+    }
 }
 
 .pageTitleContainer {
@@ -85,6 +89,10 @@
     @media screen and (max-width: 750px) {
         font-size: 48pt;
     }
+
+    @media screen and (max-width: 450px) {
+        font-size: 32pt;
+    }
 }
 
 .flavourText {
@@ -130,4 +138,8 @@
     font-weight: bold;
     opacity: 80%;
     white-space: pre-line;
+
+    @media screen and (max-width: 450px) {
+        font-size: 12pt;
+    }
 }

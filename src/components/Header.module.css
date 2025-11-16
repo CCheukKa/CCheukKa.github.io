@@ -35,6 +35,21 @@
     font-size: 15pt;
     max-width: 380px;
     white-space: nowrap;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.headerPagePath {
+    .slash {
+        margin-inline: 5px;
+    }
+
+    @media screen and (max-width:450px) {
+        opacity: 0;
+        pointer-events: none;
+        width: 0;
+    }
 }
 
 .headerCatalogue {

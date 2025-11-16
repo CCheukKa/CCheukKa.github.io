@@ -27,10 +27,10 @@ export default function Header() {
             <header className={styles.header}>
                 <div className={styles.headerTitle}>
                     <a href="/">CCheukKa's Site</a>
-                    <span>
+                    <div className={styles.headerPagePath}>
                         {displayAbsoluteRefPath.map((path, index) => (
                             <span key={index}>
-                                <span> / </span>
+                                <span className={styles.slash}>/</span>
                                 <a
                                     href={`/${displayAbsoluteRefPath.slice(0, index + 1).join('/')}`}
                                     style={
@@ -43,7 +43,7 @@ export default function Header() {
                                 </a>
                             </span>
                         ))}
-                    </span>
+                    </div>
                 </div>
                 <CatalogueNav displayCurrentPageRefName={displayCurrentPageRefName} />
                 <HamburgerMenu displayCurrentPageRefName={displayCurrentPageRefName} />
