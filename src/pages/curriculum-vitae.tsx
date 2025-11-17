@@ -15,9 +15,8 @@ export default function CurriculumVitaePage() {
                 className={styles.titleCard}
             />
             <ContentCard className={styles.contentCard}>
-                <embed
-                    type="application/pdf"
-                    src="https://cck.wtf/curriculum-vitae-redact/CCheukKa Curriculum Vitae (REDACTED).pdf"
+                <iframe
+                    src="https://cck.wtf/curriculum-vitae-redact/CCheukKa-Curriculum-Vitae-(REDACTED).pdf"
                     width="100%"
                     height="100%"
                     className={styles.pdf}
