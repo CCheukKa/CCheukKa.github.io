@@ -15,11 +15,11 @@ export default function CurriculumVitaePage() {
                 className={styles.titleCard}
             />
             <ContentCard className={styles.contentCard}>
-                <iframe
-                    src="https://cck.wtf/curriculum-vitae-redact/CCheukKa%20Curriculum%20Vitae%20(REDACTED).pdf"
+                <embed
+                    src="https://cck.wtf/curriculum-vitae-redact/CCheukKa Curriculum Vitae (REDACTED).pdf"
                     width="100%"
                     height="100%"
-                    className={styles.pdfIFrame}
+                    className={styles.pdf}
                     title="Curriculum Vitae"
                 />
             </ContentCard>

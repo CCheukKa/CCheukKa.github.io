@@ -38,7 +38,7 @@
     border-bottom-right-radius: 5px !important;
     grid-area: 1 / 2 / 3 / 3;
 
-    .pdfIFrame {
+    .pdf {
         border: none;
         color-scheme: dark;
     }
