@@ -118,7 +118,7 @@
 }
 
 .descriptionWrapper {
-    text-align: left;
+    text-align: justify;
     align-content: center;
     height: 100%;
     flex: 1 1 auto;
