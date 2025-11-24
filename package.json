@@ -8,7 +8,7 @@
     "dependencies": {
         "js-cookie": "^3.0.5",
         "marked": "^17.0.0",
-        "marked-gfm-heading-id": "^4.1.2",
+        "marked-gfm-heading-id": "^4.1.3",
         "marked-smartypants": "^1.1.11",
         "next": "16.0.1",
         "react": "19.2.0",
