@@ -5,7 +5,7 @@
       "name": "ccheukka.github.io",
       "dependencies": {
         "js-cookie": "^3.0.5",
-        "marked": "^17.0.0",
+        "marked": "^17.0.1",
         "marked-gfm-heading-id": "^4.1.3",
         "marked-smartypants": "^1.1.11",
         "next": "16.0.1",
@@ -119,7 +119,7 @@
 
     "js-cookie": ["js-cookie@3.0.5", "", {}, "sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw=="],
 
-    "marked": ["marked@17.0.0", "", { "bin": { "marked": "bin/marked.js" } }, "sha512-KkDYEWEEiYJw/KC+DVm1zzlpMQSMIu6YRltkcCvwheCp8HWPXCk9JwOmHJKBlGfzcpzcIt6x3sMnTsRm/51oDg=="],
+    "marked": ["marked@17.0.1", "", { "bin": { "marked": "bin/marked.js" } }, "sha512-boeBdiS0ghpWcSwoNm/jJBwdpFaMnZWRzjA6SkUMYb40SVaN1x7mmfGKp0jvexGcx+7y2La5zRZsYFZI6Qpypg=="],
 
     "marked-gfm-heading-id": ["marked-gfm-heading-id@4.1.3", "", { "dependencies": { "github-slugger": "^2.0.0" }, "peerDependencies": { "marked": ">=13 <18" } }, "sha512-aR0i63LmFbuxU/gAgrgz1Ir+8HK6zAIFXMlckeKHpV+qKbYaOP95L4Ux5Gi+sKmCZU5qnN2rdKpvpb7PnUBIWg=="],
 
