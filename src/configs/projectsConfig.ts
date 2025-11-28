@@ -50,7 +50,7 @@ export const projectsConfig: ShelfConfig = {
             displayName: "Chinese Stroke Input Method",
             emoji: "✍🏻",
             isRemote: true,
-            refPath: "https://cck.wtf/g6",
+            refPath: "https://cck.wtf/stroke",
             openInNewTab: true
         }
     ]
