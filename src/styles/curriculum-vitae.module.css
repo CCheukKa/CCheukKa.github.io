@@ -12,14 +12,14 @@
     @media screen and (max-width: 630px) {
         .pageTitle {
             margin-top: 8px;
-            font-size: 46pt !important;
+            font-size: 44pt !important;
         }
     }
 
     @media screen and (max-width: 610px) {
         .pageTitle {
             margin-top: 8px;
-            font-size: 36pt !important;
+            font-size: 34pt !important;
         }
     }
 
