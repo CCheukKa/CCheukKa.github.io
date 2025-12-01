@@ -7,7 +7,7 @@ type TitleCardProps = {
     & ({
         title: string;
         flavourText?: string;
-        description: string;
+        description?: string;
         children?: never;
     } | {
         title?: never;
@@ -28,12 +28,15 @@ export default function TitleCard({ style, className, title, flavourText, descri
                         : null
                     }
                 </div>
-                <div className={styles.descriptionWrapper}>
-                    <span
-                        className={styles.description}
-                        dangerouslySetInnerHTML={{ __html: description ?? "" }}
-                    />
-                </div>
+                {description
+                    ? <div className={styles.descriptionWrapper}>
+                        <span
+                            className={styles.description}
+                            dangerouslySetInnerHTML={{ __html: description ?? "" }}
+                        />
+                    </div>
+                    : null
+                }
             </>)
             }
         </div>
