@@ -25,7 +25,7 @@ export default function CurriculumVitaeContentPage({ abbreviation, displayName }
             />
             <ContentCard className={styles.contentCard}>
                 <iframe
-                    src={`https://cck.wtf/curriculum-vitae-redact/CCheukKa-Curriculum-Vitae-${abbreviation}-(REDACTED).pdf`}
+                    src={`https://cck.wtf/curriculum-vitae-redact/Curriculum-Vitae-${abbreviation}-(REDACTED).pdf`}
                     width="100%"
                     height="100%"
                     className={styles.pdf}
