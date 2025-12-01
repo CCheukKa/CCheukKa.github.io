@@ -2,7 +2,8 @@ import styles from "@/components/TitleCard.module.css";
 
 type TitleCardProps = {
     style?: React.CSSProperties;
-    className?: string;
+    titleCardClassName?: string;
+    pageTitleContainerClassName?: string;
 }
     & ({
         title: string;
@@ -16,12 +17,12 @@ type TitleCardProps = {
         children: React.ReactNode;
     });
 
-export default function TitleCard({ style, className, title, flavourText, description, children }: TitleCardProps) {
+export default function TitleCard({ style, titleCardClassName, pageTitleContainerClassName, title, flavourText, description, children }: TitleCardProps) {
 
     return (
-        <div className={[styles.titleCard, className].filter(Boolean).join(" ")} style={style}>
+        <div className={[styles.titleCard, titleCardClassName].filter(Boolean).join(" ")} style={style}>
             {children ?? (<>
-                <div className={styles.pageTitleContainer}>
+                <div className={[styles.pageTitleContainer, pageTitleContainerClassName].filter(Boolean).join(" ")}>
                     <div className={styles.pageTitle}>{title}</div>
                     {flavourText
                         ? <div className={styles.flavourText}>{flavourText}</div>

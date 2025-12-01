@@ -36,7 +36,7 @@ export const getStaticProps: GetStaticProps<AppPageProps> = async () => {
 
 function HomeTitleCard() {
     return (
-        <TitleCard className={styles.titleCard}>
+        <TitleCard titleCardClassName={styles.titleCard}>
             <div className={styles.avatarContainer}>
                 <div className={styles.avatarWrapper}>
                     <img src="/assets/avatar.svg" alt="Avatar" width="100%" />
