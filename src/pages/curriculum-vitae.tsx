@@ -3,27 +3,27 @@ import { GetStaticProps } from "next";
 import { AppPageProps } from "./_app";
 import TitleCard from "@/components/TitleCard";
 import ContentCard from "@/components/ContentCard";
+import Body from "@/components/Body";
+import Shelf from "@/components/Shelf";
+import { curriculumVitaeConfig } from "@/configs/curriculumVitaeConfig";
 
 export default function CurriculumVitaePage() {
     return (
-        <div className={styles.gridContainer}>
+        <>
             <TitleCard
-                title="Curriculum Vitae"
-                description={
-                    "Sensitive and personal information has been redacted. The redaction and updating of this document is done daily automatically with a cron job."
-                }
-                className={styles.titleCard}
+                title="Curriculum Vitaeₛ"
+                flavourText="Variants of my CV tailored for different fields"
+                pageTitleContainerClassName={styles.pageTitleContainer}
+                pageTitleClassName={styles.pageTitle}
+                flavourTextClassName={styles.flavourText}
             />
-            <ContentCard className={styles.contentCard}>
-                <iframe
-                    src="https://cck.wtf/curriculum-vitae-redact/CCheukKa-Curriculum-Vitae-(REDACTED).pdf"
-                    width="100%"
-                    height="100%"
-                    className={styles.pdf}
-                    title="Curriculum Vitae"
-                />
-            </ContentCard>
-        </div>
+
+            <Body>
+                <ContentCard>
+                    <Shelf shelfConfig={curriculumVitaeConfig} />
+                </ContentCard>
+            </Body>
+        </>
     );
 }
 

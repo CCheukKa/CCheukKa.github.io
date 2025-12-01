@@ -41,7 +41,7 @@ export const homeConfig: HomeConfig = {
         },
         {
             refPath: "curriculum-vitae",
-            displayName: "CV",
+            displayName: "CVs",
             emoji: "📜",
             hideFromShelf: true,
             // hideFromNav: true,
