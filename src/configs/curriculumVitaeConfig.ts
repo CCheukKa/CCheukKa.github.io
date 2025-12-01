@@ -32,6 +32,7 @@ export const curriculumVitaeConfig: CurriculumVitaeConfig = {
             displayName: "Design",
             emoji: "🎨",
             abbreviation: "Design",
+            hideFromShelf: true,
         },
     ],
 }
