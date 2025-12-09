@@ -1,38 +1,15 @@
-.body {
-    gap: 0 !important;
-}
+.pageTitle {
+    font-size: 58pt !important;
 
-.contentCard {
-    position: relative;
-
-    &:not(:has([data-header])) {
-        padding-top: 20px !important;
-    }
-}
-
-.controlsContainer {
-    position: sticky;
-    top: 10px;
-    z-index: 999;
-}
-
-.categorisationDropdown {
-    position: absolute;
-    top: 0;
-    right: 0;
-    height: 30px;
-    border-radius: 15px;
-    border: 1px solid #ffffff80;
-    padding: 1px 5px;
-    font-family: var(--noto-sans-font-family);
-    transition: none;
-
-    &:open {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+    @media screen and (max-width: 1300px) {
+        font-size: 48pt !important;
     }
 
-    &:focus {
-        outline: none;
+    @media screen and (max-width: 750px) {
+        font-size: 32pt !important;
+    }
+
+    @media screen and (max-width: 450px) {
+        font-size: 24pt !important;
     }
 }
