@@ -223,7 +223,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
         }, {
             isRemote: true,
             openInNewTab: true,
-            displayName: "Department Booklet",
+            displayName: "BME Department Booklet",
             refPath: "https://cck.wtf/portfolioAssets/bme-dept/booklet.pdf",
             tags: [
                 portfolioTags.CUHK_BME_PROMOTION_MATERIALS,
