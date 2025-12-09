@@ -1,15 +1,15 @@
 import type { ShelfConfig, ShelfItem } from "./shelfConfig"
 
 export enum PortfolioProjectCategory {
-    STEM_WORKSHOP_MATERIALS = "STEM Workshop Materials",
     RESEARCH_PROJECTS = "Research Projects",
+    STEM_WORKSHOP_MATERIALS = "STEM Workshop Materials",
     CUHK_BME_PROMOTION_MATERIALS = "CUHK BME Promotion Materials",
     STUDENT_SOCIETY_MATERIALS = "Student Society Materials",
 }
 
 export enum PortfolioMediumCategory {
+    CODING_PROJECTS = "Coding Projects",
     PRESENTATION_SLIDES = "Presentation Slides",
-    WEB_DEVELOPMENT = "Web Development",
     VIDEO_PRODUCTION = "Video Production",
     GRAPHIC_DESIGN_AND_ANIMATION = "Graphic Design/ Animation",
 }
@@ -39,7 +39,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             displayName: "Racing AI Workshop App",
             refPath: "https://cck.wtf/racing-ai",
             projectCategory: PortfolioProjectCategory.STEM_WORKSHOP_MATERIALS,
-            mediumCategory: PortfolioMediumCategory.WEB_DEVELOPMENT,
+            mediumCategory: PortfolioMediumCategory.CODING_PROJECTS,
             starred: true,
         }, {
             isRemote: true,
@@ -82,7 +82,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             refPath: "https://cck.wtf/Green-STEM-Q-and-A-game",
             refPage: "page.html",
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/green-stem-innocarnival-game/game.png",
-            mediumCategory: PortfolioMediumCategory.WEB_DEVELOPMENT,
+            mediumCategory: PortfolioMediumCategory.CODING_PROJECTS,
         },
 
         //^ ResiSense
@@ -93,7 +93,7 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             refPath: "https://resisense.github.io",
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/resisense/wiki.png",
             projectCategory: PortfolioProjectCategory.RESEARCH_PROJECTS,
-            mediumCategory: PortfolioMediumCategory.WEB_DEVELOPMENT,
+            mediumCategory: PortfolioMediumCategory.CODING_PROJECTS,
             starred: true,
         }, {
             isRemote: true,
@@ -201,6 +201,18 @@ export const portfolioConfig: Omit<ShelfConfig<PortfolioShelfItem>, "shelfCatego
             refPath: "https://www.youtube.com/watch?v=K7gvz_uZ1jg",
             thumbnailPathOverride: "https://img.youtube.com/vi/K7gvz_uZ1jg/sddefault.jpg",
             mediumCategory: PortfolioMediumCategory.VIDEO_PRODUCTION,
-        },
+        }, {
+            isRemote: true,
+            openInNewTab: true,
+            displayName: "CUHK Bus Clock App",
+            refPath: "https://github.com/CCheukKa/CUHK-bus-clock",
+            mediumCategory: PortfolioMediumCategory.CODING_PROJECTS,
+        }, {
+            isRemote: true,
+            openInNewTab: true,
+            displayName: "Chinese Stroke Input Method",
+            refPath: "https://cck.wtf/stroke",
+            mediumCategory: PortfolioMediumCategory.CODING_PROJECTS,
+        }
     ]
 }

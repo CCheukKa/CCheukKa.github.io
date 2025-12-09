@@ -52,6 +52,12 @@ export const projectsConfig: ShelfConfig = {
             isRemote: true,
             refPath: "https://cck.wtf/stroke",
             openInNewTab: true
+        }, {
+            displayName: "CUHK Bus Clock App",
+            emoji: "🚌",
+            isRemote: true,
+            refPath: "https://github.com/CCheukKa/CUHK-bus-clock",
+            openInNewTab: true
         }
     ]
 }
