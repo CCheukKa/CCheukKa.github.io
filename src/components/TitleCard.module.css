@@ -12,6 +12,10 @@
     width: 85%;
     height: fit-content;
 
+    &:not(:has(.flavourText)) {
+        padding-bottom: 8px;
+    }
+
     @media screen and (max-width: 1300px) {
         gap: 0;
     }
