@@ -3,19 +3,37 @@ import type { ShelfConfig, ShelfItem } from "./shelfConfig"
 export type PortfolioTag = {
     displayName: string;
     abbreviation: string;
+    emoji?: string;
     starred?: boolean;
 };
 export const portfolioTags: Record<string, PortfolioTag> = {
-    // Project
     RESEARCH_PROJECTS: {
         displayName: "Research Projects",
         abbreviation: "Research",
+        emoji: "🔬",
         starred: true,
     },
     STEM_WORKSHOP_MATERIALS: {
         displayName: "STEM Workshop Materials",
         abbreviation: "STEM",
+        emoji: "⚙️",
         starred: true,
+    },
+    CODING_PROJECTS: {
+        displayName: "Coding Projects",
+        abbreviation: "Coding",
+        emoji: "💻",
+        starred: true,
+    },
+    PRESENTATION_SLIDES: {
+        displayName: "Presentation Slides",
+        abbreviation: "Slides",
+        emoji: "📊",
+    },
+    VIDEO_AND_GRAPHICS: {
+        displayName: "Video & Graphics",
+        abbreviation: "Design",
+        emoji: "🎨",
     },
     CUHK_BME_PROMOTION_MATERIALS: {
         displayName: "CUHK BME Promotion Materials",
@@ -24,20 +42,6 @@ export const portfolioTags: Record<string, PortfolioTag> = {
     STUDENT_SOCIETY_MATERIALS: {
         displayName: "Student Society Materials",
         abbreviation: "Society",
-    },
-    // Medium
-    CODING_PROJECTS: {
-        displayName: "Coding Projects",
-        abbreviation: "Coding",
-        starred: true,
-    },
-    PRESENTATION_SLIDES: {
-        displayName: "Presentation Slides",
-        abbreviation: "Slides",
-    },
-    VIDEO_AND_GRAPHICS: {
-        displayName: "Video & Graphics",
-        abbreviation: "Design",
     },
 } as const;
 
