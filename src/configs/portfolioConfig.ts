@@ -35,12 +35,8 @@ export const portfolioTags: Record<string, PortfolioTag> = {
         displayName: "Presentation Slides",
         abbreviation: "Slides",
     },
-    VIDEO_PRODUCTION: {
-        displayName: "Video Production",
-        abbreviation: "Video",
-    },
-    GRAPHIC_DESIGN_AND_ANIMATION: {
-        displayName: "Graphic Design/ Animation",
+    VIDEO_AND_GRAPHICS: {
+        displayName: "Video & Graphics",
         abbreviation: "Design",
     },
 } as const;
@@ -68,6 +64,51 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
     rootRefName: "portfolio",
     shelfItems: [
 
+        //^ ResiSense
+        {
+            isRemote: true,
+            openInNewTab: true,
+            displayName: "ResiSense Wiki Website",
+            refPath: "https://resisense.github.io",
+            thumbnailPathOverride: "https://cck.wtf/portfolioAssets/resisense/wiki.png",
+            tags: [
+                portfolioTags.RESEARCH_PROJECTS,
+                portfolioTags.CODING_PROJECTS,
+            ],
+            starred: true,
+        }, {
+            isRemote: true,
+            openInNewTab: true,
+            displayName: "ResiSense Promotion Video",
+            refPath: "https://www.youtube.com/watch?v=C-wbhdFBsfY",
+            thumbnailPathOverride: "https://img.youtube.com/vi/C-wbhdFBsfY/sddefault.jpg",
+            tags: [
+                portfolioTags.RESEARCH_PROJECTS,
+                portfolioTags.VIDEO_AND_GRAPHICS,
+            ],
+            starred: true,
+        }, {
+            isRemote: true,
+            openInNewTab: true,
+            displayName: "ResiSense Presentation Video",
+            refPath: "https://www.youtube.com/watch?v=8oYWNQBkCFI",
+            thumbnailPathOverride: "https://img.youtube.com/vi/8oYWNQBkCFI/sddefault.jpg",
+            tags: [
+                portfolioTags.RESEARCH_PROJECTS,
+                portfolioTags.VIDEO_AND_GRAPHICS,
+            ],
+        }, {
+            isRemote: true,
+            openInNewTab: true,
+            displayName: "ResiSense Presentation Slides",
+            refPath: "https://www.figma.com/proto/CXkUXf3W9ccRuE5iuGOnCD/Symposium-Material?node-id=100-3",
+            thumbnailPathOverride: "https://cck.wtf/portfolioAssets/resisense/symposium.png",
+            tags: [
+                portfolioTags.RESEARCH_PROJECTS,
+                portfolioTags.PRESENTATION_SLIDES,
+            ],
+        },
+
         //^ CINTEC
         {
             isRemote: true,
@@ -77,7 +118,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/catapult-workshop/handout.png",
             tags: [
                 portfolioTags.STEM_WORKSHOP_MATERIALS,
-                portfolioTags.GRAPHIC_DESIGN_AND_ANIMATION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
             starred: true,
         }, {
@@ -130,7 +171,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/vacuum-workshop/guide.png",
             tags: [
                 portfolioTags.STEM_WORKSHOP_MATERIALS,
-                portfolioTags.GRAPHIC_DESIGN_AND_ANIMATION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         }, {
             isRemote: true,
@@ -144,51 +185,6 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             ],
         },
 
-        //^ ResiSense
-        {
-            isRemote: true,
-            openInNewTab: true,
-            displayName: "ResiSense Wiki Website",
-            refPath: "https://resisense.github.io",
-            thumbnailPathOverride: "https://cck.wtf/portfolioAssets/resisense/wiki.png",
-            tags: [
-                portfolioTags.RESEARCH_PROJECTS,
-                portfolioTags.CODING_PROJECTS,
-            ],
-            starred: true,
-        }, {
-            isRemote: true,
-            openInNewTab: true,
-            displayName: "ResiSense Promotion Video",
-            refPath: "https://www.youtube.com/watch?v=C-wbhdFBsfY",
-            thumbnailPathOverride: "https://img.youtube.com/vi/C-wbhdFBsfY/sddefault.jpg",
-            tags: [
-                portfolioTags.RESEARCH_PROJECTS,
-                portfolioTags.VIDEO_PRODUCTION,
-            ],
-            starred: true,
-        }, {
-            isRemote: true,
-            openInNewTab: true,
-            displayName: "ResiSense Presentation Video",
-            refPath: "https://www.youtube.com/watch?v=8oYWNQBkCFI",
-            thumbnailPathOverride: "https://img.youtube.com/vi/8oYWNQBkCFI/sddefault.jpg",
-            tags: [
-                portfolioTags.RESEARCH_PROJECTS,
-                portfolioTags.VIDEO_PRODUCTION,
-            ],
-        }, {
-            isRemote: true,
-            openInNewTab: true,
-            displayName: "ResiSense Presentation Slides",
-            refPath: "https://www.figma.com/proto/CXkUXf3W9ccRuE5iuGOnCD/Symposium-Material?node-id=100-3",
-            thumbnailPathOverride: "https://cck.wtf/portfolioAssets/resisense/symposium.png",
-            tags: [
-                portfolioTags.RESEARCH_PROJECTS,
-                portfolioTags.PRESENTATION_SLIDES,
-            ],
-        },
-
         //^ CUHK BME
         {
             isRemote: true,
@@ -198,7 +194,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             thumbnailPathOverride: "https://img.youtube.com/vi/ybDdRa6nVQc/sddefault.jpg",
             tags: [
                 portfolioTags.CUHK_BME_PROMOTION_MATERIALS,
-                portfolioTags.VIDEO_PRODUCTION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         }, {
             isRemote: true,
@@ -208,7 +204,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/bme-dept/ricky-interview.png",
             tags: [
                 portfolioTags.CUHK_BME_PROMOTION_MATERIALS,
-                portfolioTags.VIDEO_PRODUCTION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         }, {
             isRemote: true,
@@ -218,7 +214,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/bme-dept/summer-training.png",
             tags: [
                 portfolioTags.CUHK_BME_PROMOTION_MATERIALS,
-                portfolioTags.VIDEO_PRODUCTION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         }, {
             isRemote: true,
@@ -227,7 +223,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             refPath: "https://cck.wtf/portfolioAssets/bme-dept/booklet.pdf",
             tags: [
                 portfolioTags.CUHK_BME_PROMOTION_MATERIALS,
-                portfolioTags.GRAPHIC_DESIGN_AND_ANIMATION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         },
 
@@ -239,7 +235,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             refPath: "https://cck.wtf/portfolioAssets/flaretrikos/handbill.pdf",
             tags: [
                 portfolioTags.STUDENT_SOCIETY_MATERIALS,
-                portfolioTags.GRAPHIC_DESIGN_AND_ANIMATION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         }, {
             isRemote: true,
@@ -248,7 +244,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             refPath: "https://cck.wtf/portfolioAssets/flaretrikos/card.pdf",
             tags: [
                 portfolioTags.STUDENT_SOCIETY_MATERIALS,
-                portfolioTags.GRAPHIC_DESIGN_AND_ANIMATION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         }, {
             isRemote: true,
@@ -257,7 +253,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             refPath: "https://cck.wtf/portfolioAssets/flaretrikos/t-shirt.png",
             tags: [
                 portfolioTags.STUDENT_SOCIETY_MATERIALS,
-                portfolioTags.GRAPHIC_DESIGN_AND_ANIMATION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         }, {
             isRemote: true,
@@ -266,7 +262,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             refPath: "https://cck.wtf/portfolioAssets/flaretrikos/animation.mp4",
             tags: [
                 portfolioTags.STUDENT_SOCIETY_MATERIALS,
-                portfolioTags.GRAPHIC_DESIGN_AND_ANIMATION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         }, {
             isRemote: true,
@@ -275,7 +271,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             refPath: "https://www.instagram.com/cuhk_flaretrikos",
             tags: [
                 portfolioTags.STUDENT_SOCIETY_MATERIALS,
-                portfolioTags.GRAPHIC_DESIGN_AND_ANIMATION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         },
 
@@ -287,7 +283,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             refPath: "https://www.youtube.com/watch?v=K7gvz_uZ1jg",
             thumbnailPathOverride: "https://img.youtube.com/vi/K7gvz_uZ1jg/sddefault.jpg",
             tags: [
-                portfolioTags.VIDEO_PRODUCTION,
+                portfolioTags.VIDEO_AND_GRAPHICS,
             ],
         }, {
             isRemote: true,
