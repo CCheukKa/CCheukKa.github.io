@@ -35,7 +35,7 @@ function PaperList() {
         <div className={styles.paperList}>
             {papersConfig.courses.map(course => (
                 course.papers.map(paper =>
-                    <PaperListItem key={paper.pdfName} course={course} paper={paper} />
+                    <PaperListItem key={paper.primaryPDFName} course={course} paper={paper} />
                 )
             ))}
         </div>
@@ -47,20 +47,39 @@ type PaperListItemProps = {
     paper: Paper;
 };
 function PaperListItem({ course, paper }: PaperListItemProps) {
-    const pdfPath = `${papersConfig.rootPath}/${course.courseCode}/${paper.pdfName}.pdf`;
-    const commentedPDFPath =
-        paper.commentedPDFName
-            ? `${papersConfig.rootPath}/${course.courseCode}/${paper.commentedPDFName}.pdf`
+    const primaryPDFPath =
+        paper.primaryPDFName
+            ? `${papersConfig.rootPath}/${course.courseCode}/${paper.primaryPDFName}.pdf`
             : null;
+    const primaryNonPDFName =
+        paper.primaryNonPDFName
+            ? `${papersConfig.rootPath}/${course.courseCode}/${paper.primaryNonPDFName}`
+            : null;
+
+    const secondaryPDFPath =
+        paper.secondaryPDFName
+            ? `${papersConfig.rootPath}/${course.courseCode}/${paper.secondaryPDFName}.pdf`
+            : null;
+    const secondaryNonPDFName =
+        paper.secondaryNonPDFName
+            ? `${papersConfig.rootPath}/${course.courseCode}/${paper.secondaryNonPDFName}`
+            : null;
+
+    const primaryPath = primaryPDFPath ?? primaryNonPDFName;
+    const secondaryPath = secondaryPDFPath ?? secondaryNonPDFName;
+
+    if (!primaryPath) {
+        return null;
+    }
 
     return (
         <div className={styles.paperListItem}>
             <span className={styles.type}>{paper.type}</span>
             <div className={styles.topic}>
-                <a className={styles.pdf} href={pdfPath} target="_blank">{paper.topic}</a>
+                <a className={styles.primaryFile} href={primaryPath} target="_blank">{paper.topic}</a>
                 {
-                    commentedPDFPath
-                        ? <a className={styles.commentedPDF} href={commentedPDFPath} target="_blank">💬</a>
+                    secondaryPath
+                        ? <a className={styles.secondaryFile} href={secondaryPath} target="_blank">💬</a>
                         : null
                 }
             </div>

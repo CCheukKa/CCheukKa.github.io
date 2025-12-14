@@ -48,11 +48,11 @@
     justify-content: space-between;
     gap: 5px;
 
-    .pdf {
+    .primaryFile {
         color: #8fc3fff0;
     }
 
-    .commentedPDF {
+    .secondaryFile {
         font-family: var(--segeo-ui-emoji-font-family);
     }
 
