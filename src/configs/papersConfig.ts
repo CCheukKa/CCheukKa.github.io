@@ -35,10 +35,29 @@ export const papersConfig: PapersConfig = {
             courseName: "Secondary School Integrated Humanities",
             papers: [
                 {
-                    primaryPDFName: "IH Project",
+                    primaryPDFName: "IH Tourism Project Report draft",
+                    topic: "Tourism in Central & Western District",
+                    type: "Project Learning Report (draft?)",
+                    date: "28-01-2016",
+                },
+                {
+                    primaryPDFName: "IH Project - Tourism (C&W District)",
+                    topic: "Tourism in Central & Western District",
+                    type: "Project Learning Presentation",
+                    date: "28-01-2016",
+                },
+                {
+                    primaryPDFName: "IH Stress Project Report",
                     topic: "Stress Coping in Hong Kong Secondary Students",
                     type: "Project Learning Report",
                     date: "18-11-2017",
+                },
+                {
+                    primaryNonPDFName: "IH Stress Project Presentation.pptx",
+                    secondaryPDFName: "IH Stress Project Presentation",
+                    topic: "Stress Coping in Hong Kong Secondary Students",
+                    type: "Project Learning Presentation",
+                    date: "28-05-2018",
                 },
             ],
         },
