@@ -36,13 +36,13 @@ export const papersConfig: PapersConfig = {
             papers: [
                 {
                     primaryPDFName: "IH Tourism Project Report draft",
-                    topic: "Tourism in Central & Western District",
+                    topic: "Tourism in the Central & Western District",
                     type: "Project Learning Report (draft?)",
                     date: "28-01-2016",
                 },
                 {
                     primaryPDFName: "IH Project - Tourism (C&W District)",
-                    topic: "Tourism in Central & Western District",
+                    topic: "Tourism in the Central & Western District",
                     type: "Project Learning Presentation",
                     date: "28-01-2016",
                 },
