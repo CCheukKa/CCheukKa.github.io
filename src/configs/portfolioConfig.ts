@@ -301,7 +301,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             isRemote: true,
             openInNewTab: true,
             displayName: "Chinese Stroke Input Method",
-            refPath: "https://cck.wtf/stroke",
+            refPath: "https://cck.wtf/K6-web",
             tags: [
                 portfolioTags.CODING_PROJECTS,
             ],

@@ -50,7 +50,7 @@ export const projectsConfig: ShelfConfig = {
             displayName: "Chinese Stroke Input Method",
             emoji: "✍🏻",
             isRemote: true,
-            refPath: "https://cck.wtf/stroke",
+            refPath: "https://cck.wtf/K6-web",
             openInNewTab: true
         }, {
             displayName: "CUHK Bus Clock App",
