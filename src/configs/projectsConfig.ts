@@ -47,7 +47,7 @@ export const projectsConfig: ShelfConfig = {
             refPath: "https://cck.wtf/seating-constraint-solver",
             openInNewTab: true
         }, {
-            displayName: "Chinese Stroke Input Method",
+            displayName: "K6 Chinese Stroke Input Method",
             emoji: "✍🏻",
             isRemote: true,
             refPath: "https://cck.wtf/K6-web",
