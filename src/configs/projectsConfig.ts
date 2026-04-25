@@ -58,6 +58,12 @@ export const projectsConfig: ShelfConfig = {
             isRemote: true,
             refPath: "https://github.com/CCheukKa/CUHK-bus-clock",
             openInNewTab: true
+        }, {
+            displayName: "Casio fx-50FHII Calculator Emulator",
+            emoji: "🧮",
+            isRemote: true,
+            refPath: "https://cck.wtf/casio-calculator-emulator",
+            openInNewTab: true
         }
     ]
 }
