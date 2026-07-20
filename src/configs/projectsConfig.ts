@@ -39,6 +39,12 @@ export const projectsConfig: ShelfConfig = {
             refPath: "https://cck.wtf/racing-ai",
             openInNewTab: true,
             starred: true,
+        }, {
+            displayName: "AI Gradient Ascent",
+            isRemote: true,
+            refPath: "https://cck.wtf/gradient-ascent",
+            openInNewTab: true,
+            starred: true,
         },
         {
             displayName: "Seating Constraint Solver",

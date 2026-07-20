@@ -138,9 +138,29 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
         }, {
             isRemote: true,
             openInNewTab: true,
+            displayName: "Racing AI Gradient Ascent Workshop App",
+            refPath: "https://cck.wtf/gradient-ascent",
+            tags: [
+                portfolioTags.STEM_WORKSHOP_MATERIALS,
+                portfolioTags.CODING_PROJECTS,
+            ],
+            starred: true,
+        }, {
+            isRemote: true,
+            openInNewTab: true,
             displayName: "Racing AI Workshop Slides",
-            refPath: "https://cck.wtf/portfolioAssets/racing-ai-workshop/slides.pdf",
+            refPath: "https://canva.link/m0e4iuhps8u3d46",
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/racing-ai-workshop/slides.png",
+            tags: [
+                portfolioTags.STEM_WORKSHOP_MATERIALS,
+                portfolioTags.PRESENTATION_SLIDES,
+            ],
+        }, {
+            isRemote: true,
+            openInNewTab: true,
+            displayName: "Racing AI Workshop Slides (Old)",
+            refPath: "https://cck.wtf/portfolioAssets/racing-ai-workshop/slides-old.pdf",
+            thumbnailPathOverride: "https://cck.wtf/portfolioAssets/racing-ai-workshop/slides-old.png",
             tags: [
                 portfolioTags.STEM_WORKSHOP_MATERIALS,
                 portfolioTags.PRESENTATION_SLIDES,
