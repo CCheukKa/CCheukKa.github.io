@@ -138,7 +138,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
         }, {
             isRemote: true,
             openInNewTab: true,
-            displayName: "Racing AI Gradient Ascent Workshop App",
+            displayName: "Racing AI Workshop Gradient Ascent App",
             refPath: "https://cck.wtf/gradient-ascent",
             tags: [
                 portfolioTags.STEM_WORKSHOP_MATERIALS,
