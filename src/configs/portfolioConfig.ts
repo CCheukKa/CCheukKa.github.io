@@ -149,7 +149,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             isRemote: true,
             openInNewTab: true,
             displayName: "Hydraulics Workshop Slides",
-            refPath: "https://www.canva.com/design/DAGxXhZkBRc/aaeBVacO7Mo0tD_xlTunqA/view",
+            refPath: "https://canva.link/ao5c6bu7i52rgim",
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/hydraulics-workshop/title.png",
             tags: [
                 portfolioTags.STEM_WORKSHOP_MATERIALS,
@@ -160,7 +160,7 @@ export const portfolioContentConfig: ShelfConfig<PortfolioShelfItem> = {
             isRemote: true,
             openInNewTab: true,
             displayName: "Vacuum Workshop Slides",
-            refPath: "https://www.canva.com/design/DAGk0UIFDqc/jOlMpj4_xQtFZitazNjueA/view",
+            refPath: "https://canva.link/ye4zrb55i4w92qf",
             thumbnailPathOverride: "https://cck.wtf/portfolioAssets/vacuum-workshop/title.png",
             tags: [
                 portfolioTags.STEM_WORKSHOP_MATERIALS,
